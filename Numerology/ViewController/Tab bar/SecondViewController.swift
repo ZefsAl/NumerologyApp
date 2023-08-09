@@ -1,21 +1,28 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  Numerology
 //
-//  Created by Serj on 18.07.2023.
+//  Created by Serj on 03.08.2023.
 //
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SecondViewController: UIViewController {
 
     // models instance
     var boardOfDayModel: BoardOfDayModel?
-    var numbersOfSoulModel: NumbersOfSoulModel?
-    var numbersOfDestinyModel: NumbersOfDestinyModel?
-    var numbersOfNameModel: NumbersOfNameModel?
-    var numbersOfMoneyModel: NumbersOfMoneyModel?
-    var powerCodeModel: PowerCodeModel?
+    var personalDayModel: PersonalDayModel?
+    var personalMonthModel: PersonalMonthModel?
+    var personalYearModel: PersonalYearModel?
+    var lifeStagesModel: LifeStagesModel?
+    
+    
+    
+//    var numbersOfSoulModel: NumbersOfSoulModel?
+//    var numbersOfDestinyModel: NumbersOfDestinyModel?
+//    var numbersOfNameModel: NumbersOfNameModel?
+//    var numbersOfMoneyModel: NumbersOfMoneyModel?
+//    var powerCodeModel: PowerCodeModel?
     
     
     
@@ -30,12 +37,6 @@ class FirstViewController: UIViewController {
     }()
     
     let cardCollectionView = ContentCollectionView()
-    
-    
-    
-    
-    
-    
     
     
     
@@ -64,20 +65,16 @@ class FirstViewController: UIViewController {
         cardCollectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell().cardCollectionID)
         cardCollectionView.register(BigCardCVCell.self, forCellWithReuseIdentifier: BigCardCVCell().bigCardCVCID)
         
-        
-        
-        
     }
     
     
     
     
     
-    // MARK: View Did Appear // GRADIENT
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        Gradients().setBlackGradient(forView: self.tipCardView)
-    }
+    // MARK: View Did Appear
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -109,18 +106,18 @@ class FirstViewController: UIViewController {
     }
     
     // MARK: Configure Nav View
-    private func configureNavView() {
-        
-    }
+//    private func configureNavView() {
+//
+//    }
 }
 
 
 // MARK: UICollectionView Delegate
-extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SecondViewController: UICollectionViewDataSource, UICollectionViewDelegate {
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 👎
-        return 6
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -146,86 +143,50 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
             }
           return bigCell
         } else if indexPath.row == 1 {
-            // MARK: SOUL // 1
-            let number = CalculateNumbers().calculateNumberOfSoul(date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfSoul(number: number) { model, img in
-                self.numbersOfSoulModel = model
+            // MARK: Pers. Day // 2.1
+            FirebaseManager.shared.getPersonalDay(number: 1) { model in
+                self.personalDayModel = model
                 cell.configure(
-                    title: "Soul",
-                    subtitle: model.infoSoul,
-                    bgImage: img
+                    title: "Personal day",
+                    subtitle: model.infoPersDay,
+                    bgImage: nil
                 )
             }
             return cell
         } else if indexPath.row == 2 {
-            // MARK: Destiny // 2
-            let number = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfDestiny(number: number) { model, img in
-                self.numbersOfDestinyModel = model
+            // MARK: Pers. Month // 2.2
+            FirebaseManager.shared.getPersonalMonth(number: 1) { model in
+                self.personalMonthModel = model
                 cell.configure(
-                    title: "Destiny",
-                    subtitle: model.infoDestiny,
-                    bgImage: img
+                    title: "Pers. month",
+                    subtitle: model.infoPersMonth,
+                    bgImage: nil
                 )
             }
-            
             return cell
         } else if indexPath.row == 3 {
-            // MARK: Name // 3
-            guard 
-                let name = name,
-                let surname = surname
-            else { return cell}
-            let number = CalculateNumbers().calculateNumberOfName(name: name, surname: surname)
-            FirebaseManager.shared.getNumbersOfName(number: number) { model, img in
-                self.numbersOfNameModel = model
+            // MARK: Pers. Year // 2.3
+            FirebaseManager.shared.getPersonalYear(number: 1) { model in
+                self.personalYearModel = model
                 cell.configure(
-                    title: "Name",
-                    subtitle: model.infoName,
-                    bgImage: img
+                    title: "Pers. year",
+                    subtitle: model.infoPersYear,
+                    bgImage: nil
                 )
             }
-            
             return cell
         } else if indexPath.row == 4 {
-            // MARK: Money // 4
-            guard
-                let name = name
-            else { return cell}
-            let number = CalculateNumbers().calculateNumberOfMoney(name: name, date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfMoney(number: 1) { model, img in
-                self.numbersOfMoneyModel = model
+            // MARK: Life Stages // 2.4
+            FirebaseManager.shared.getLifeStages(number: 1) { model in
+                self.lifeStagesModel = model
                 cell.configure(
-                    title: "Money",
-                    subtitle: model.infoMoney,
-                    bgImage: img
+                    title: "Life Stages",
+                    subtitle: model.infoStages,
+                    bgImage: nil
                 )
             }
-            
             return cell
-        } else if indexPath.row == 5 {
-            // MARK: Power Code // 5
-            guard
-                let name = name,
-                let surname = surname
-            else { return cell}
-            
-            let codeName = CalculateNumbers().calculateNumberOfName(name: name, surname: surname)
-            let codeDestiny = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
-            let number = CalculateNumbers().calculatePowerCode(codeName: codeName, codeDestiny: codeDestiny)
-            
-            FirebaseManager.shared.getPowerCode(number: number) { model, img in
-                self.powerCodeModel = model
-                cell.configure(
-                    title: "Power Code",
-                    subtitle: model.infoPower,
-                    bgImage: img
-                )
-            }
-            
-            return cell
-        }
-        else {
+        } else {
             return cell
         }
         
@@ -241,8 +202,8 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
             let vc = DescriptionVC()
             vc.configure(
                 title: "Your tip of the day!",
-                info: "Your tip of the day!",
-//                info: boardOfDayModel?.dayTip,
+//                info: "Your tip of the day!",
+                info: boardOfDayModel?.dayTip,
                 about: nil
             )
             if boardOfDayModel != nil {
@@ -252,75 +213,60 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
             }
         }
         
-        // MARK: Soul // 1
+        // MARK: pers. Day // 2.1
         if indexPath.row == 1 {
             let vc = DescriptionVC()
             vc.configure(
-                title: "Your soul number",
-                info: numbersOfSoulModel?.infoSoul,
-                about: numbersOfSoulModel?.aboutSoul
+                title: "Your personal day",
+                info: personalDayModel?.infoPersDay,
+                about: personalDayModel?.aboutPersDay
             )
-            if numbersOfSoulModel != nil {
+            if personalDayModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
                 self.present(navVC, animated: true)
             }
         }
         
-        // MARK: Destiny // 2
+        // MARK: pers. month // 2.2
         if indexPath.row == 2 {
             let vc = DescriptionVC()
             vc.configure(
-                title: "Your destiny number",
-                info: numbersOfDestinyModel?.infoDestiny,
-                about: numbersOfDestinyModel?.aboutDestiny
+                title: "Your personal month",
+                info: personalMonthModel?.infoPersMonth,
+                about: personalMonthModel?.aboutPersMonth
             )
-            if numbersOfDestinyModel != nil {
+            if personalMonthModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
                 self.present(navVC, animated: true)
             }
         }
         
-        // MARK: Name // 3
+        // MARK: pers. year // 2.3
         if indexPath.row == 3 {
             let vc = DescriptionVC()
             vc.configure(
-                title: "Your name number",
-                info: numbersOfNameModel?.infoName,
-                about: numbersOfNameModel?.aboutName
+                title: "Your personal year",
+                info: personalYearModel?.infoPersYear,
+                about: personalYearModel?.aboutPersYear
             )
-            if numbersOfNameModel != nil {
+            if personalYearModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
                 self.present(navVC, animated: true)
             }
         }
         
-        // MARK: Money // 4
+        // MARK: life stages // 2.4
         if indexPath.row == 4 {
             let vc = DescriptionVC()
             vc.configure(
-                title: "Your money number",
-                info: numbersOfMoneyModel?.infoMoney,
-                about: numbersOfMoneyModel?.aboutMoney
+                title: "Your life stages",
+                info: lifeStagesModel?.infoStages,
+                about: lifeStagesModel?.aboutStages
             )
-            if numbersOfMoneyModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-            }
-        }
-        
-        // MARK: Power Code // 5
-        if indexPath.row == 5 {
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Power Code",
-                info: powerCodeModel?.infoPower,
-                about: powerCodeModel?.aboutPower
-            )
-            if powerCodeModel != nil {
+            if lifeStagesModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
                 self.present(navVC, animated: true)
@@ -333,7 +279,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
 }
 
 // MARK: Collection View Delegate FlowLayout
-extension FirstViewController: UICollectionViewDelegateFlowLayout {
+extension SecondViewController: UICollectionViewDelegateFlowLayout {
  
     // Cell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -363,7 +309,7 @@ extension FirstViewController: UICollectionViewDelegateFlowLayout {
 
 
 // MARK: Stack Content ScrollView
-extension FirstViewController {
+extension SecondViewController {
     private func setStackContentSV() {
         
         // MARK: Content Stack
@@ -395,7 +341,7 @@ extension FirstViewController {
 
 
 // MARK: Constraints
-extension FirstViewController {
+extension SecondViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             

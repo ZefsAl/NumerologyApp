@@ -19,16 +19,6 @@ class UserEnterDateOfBirthVC: UIViewController {
         return l
     }()
     
-//    let subtitle: UILabel = {
-//        let l = UILabel()
-//        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.text = "TEST2 TEST2 TEST2 TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2"
-//        l.font = UIFont.systemFont(ofSize: 17, weight: .light)
-//        l.numberOfLines = 2
-//
-//        return l
-//    }()
-    
     
     // MARK: Next Button
     let nextButton: UIButton = {
@@ -148,8 +138,13 @@ class UserEnterDateOfBirthVC: UIViewController {
         
         self.setBackground(named: "SecondaryBG.png")
         
-        configureNavView()
+//        configureNavView()
         setUpStack()
+    }
+    
+    // MARK: Configure
+    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
+        self.dateOfBirthTitle
     }
 
     
@@ -188,7 +183,6 @@ class UserEnterDateOfBirthVC: UIViewController {
         contentStack.alignment = .fill
         
         contentStack.spacing = 40
-        
         
         self.view.addSubview(contentStack)
         

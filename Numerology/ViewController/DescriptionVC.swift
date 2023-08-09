@@ -51,7 +51,7 @@ class DescriptionVC: UIViewController {
         return l
     }()
     
-    
+    // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,7 +103,7 @@ class DescriptionVC: UIViewController {
         contentScrollView.addSubview(cardView)
         
         
-        let margin = self.view.layoutMarginsGuide
+//        let margin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
@@ -116,7 +116,7 @@ class DescriptionVC: UIViewController {
             contentStack.heightAnchor.constraint(equalTo: cardView.heightAnchor, constant: -32),
             
             // Card View
-            cardView.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 18),
+            cardView.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 86),
             cardView.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             cardView.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             cardView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),

@@ -171,11 +171,8 @@ class OnboardingVC: UIViewController {
         // Scroll View Setup
         contentScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: contentScrollView.frame.size.height)
         contentScrollView.contentSize = CGSize(width: view.frame.size.width*3, height: contentScrollView.frame.size.height)
-        
         contentScrollView.isPagingEnabled = true
 
-        
-        
         
         // MARK: slide
         for slide in 0..<3 {
@@ -214,7 +211,6 @@ class OnboardingVC: UIViewController {
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .center
-        
         contentStack.spacing = 40
         
     
@@ -224,27 +220,13 @@ class OnboardingVC: UIViewController {
         
         NSLayoutConstraint.activate([
             
-//            contentScrollView.topAnchor.constraint(equalTo: contentStack.topAnchor, constant: 0),
+
             contentScrollView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
             
             nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 18),
             nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -18),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            
-//            docsStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 32),
-//            docsStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -32),
-            
-//            nextButton.widthAnchor.constraint(equalToConstant: view.frame.size.width-36),
-            
-            
-//            nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 18),
-//            nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -18),
-            
-            
-//            titleStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
-//            titleStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
             
             contentStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),

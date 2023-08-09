@@ -74,7 +74,7 @@ class RegularTextField: UITextField, UITextFieldDelegate {
         
         // Style
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = 12
+        layer.cornerRadius = 8
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemBlue.cgColor
 //        layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]

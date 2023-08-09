@@ -95,7 +95,6 @@ let shapeView = OvalShapeView()
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = true
 //        self.backgroundColor = .clear
-//        self.backgroundColor = .yellow
         
         setUpStack()
         
@@ -125,7 +124,6 @@ let shapeView = OvalShapeView()
         let firstStack = UIStackView(arrangedSubviews: [helloTitle,profileButton])
         firstStack.axis = .horizontal
         firstStack.alignment = .center
-        
 
         
         let secondStack = UIStackView(arrangedSubviews: [todayDate,userDate])

@@ -1,0 +1,124 @@
+//
+//  FourthViewController.swift
+//  Numerology
+//
+//  Created by Serj on 06.08.2023.
+//
+
+import UIKit
+
+class FourthViewController: UIViewController {
+    
+    private let verticalScrollView: UIScrollView = {
+       let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.showsVerticalScrollIndicator = false
+        sv.alwaysBounceVertical = true
+//        sv.backgroundColor = .systemBlue
+        return sv
+    }()
+    
+    // MARK: Description
+    let descriptionText: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        l.text = String("test")
+        l.textAlignment = .left
+        l.numberOfLines = 0
+        
+        return l
+    }()
+    
+    let contentStack = UIStackView()
+    
+    var modelsArr: [NumerologyIsModel] = []
+    
+    
+    
+    // MARK: view Did Load
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        setDismissNavButtonItem(selectorStr: <#T##Selector#>)
+        setBackground(named: "SecondaryBG")
+        setUpStack()
+        requestFB()
+        
+        
+        
+    }
+    
+    // MARK: viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+    }
+    
+    func requestFB() {
+        
+        FirebaseManager.shared.getNumerologyIs { arr in
+            for item in arr.sorted(by: { $0.number < $1.number }) {
+                if item.number == 123 {
+                    self.descriptionText.text = item.infoNumerology
+                } else {
+                    let descriptionView = DescriptionView(frame: .zero, description: item.infoNumerology, number: item.number)
+                    self.contentStack.addArrangedSubview(descriptionView)
+                }
+            }
+        }
+    }
+    
+
+    
+    // MARK: Set up Stack
+    private func setUpStack() {
+        
+        
+        self.view.addSubview(verticalScrollView)
+        
+        // Content Stack
+        contentStack.addArrangedSubview(descriptionText)
+//        let contentStack = UIStackView(arrangedSubviews: [descriptionText])
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.axis = .vertical
+        contentStack.alignment = .fill
+        contentStack.spacing = 60
+//        contentStack.backgroundColor = .systemOrange
+        verticalScrollView.addSubview(contentStack)
+        
+//        self.view.addSubview(verticalScrollView)
+//        verticalScrollView.addSubview(contentStack)
+        
+        
+        NSLayoutConstraint.activate([
+            
+
+//            contentScrollView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
+//            contentScrollView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
+//
+//
+//
+//            contentScrollView.widthAnchor.constraint(equalTo: contentStack.widthAnchor, constant: 0),
+//            contentScrollView.heightAnchor.constraint(equalToConstant: 500),
+//            contentScrollView.topAnchor.constraint(equalTo: contentStack.topAnchor, constant: 0),
+//            contentScrollView.bottomAnchor.constraint(equalTo: contentStack.bottomAnchor, constant: 0),
+////            contentStack.heightAnchor.constraint(equalTo: verticalScrollView.heightAnchor, constant: -36),/
+//
+            contentStack.topAnchor.constraint(equalTo: verticalScrollView.topAnchor, constant: 176),
+            contentStack.leadingAnchor.constraint(equalTo: verticalScrollView.leadingAnchor, constant: 18),
+            contentStack.trailingAnchor.constraint(equalTo: verticalScrollView.trailingAnchor, constant: -18),
+            contentStack.bottomAnchor.constraint(equalTo: verticalScrollView.bottomAnchor, constant: -18),
+            contentStack.widthAnchor.constraint(equalTo: verticalScrollView.widthAnchor, constant: -36),
+//            contentStack.heightAnchor.constraint(equalTo: verticalScrollView.heightAnchor, constant: -36),
+//
+//
+            verticalScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            verticalScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            verticalScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            verticalScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+        ])
+    }
+    
+}

@@ -46,7 +46,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let firstTabNav = UINavigationController(rootViewController: firstVC)
         
         // MARK: SecondVC
-        let secondVC = ViewController()
+        let secondVC = SecondViewController()
         secondVC.tabBarItem.title = ""
         let secondImage = UIImage(
             systemName: "hand.raised.fingers.spread",
@@ -56,7 +56,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let secondTabNav = UINavigationController(rootViewController: secondVC)
 
         // MARK: ThirdVC
-        let thirdVC = ViewController()
+        let thirdVC = ThirdViewController()
         thirdVC.tabBarItem.title = ""
         let thirdImage = UIImage(
             systemName: "heart",
@@ -66,7 +66,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let thirdTabNav = UINavigationController(rootViewController: thirdVC)
         
         // MARK: FourthVC
-        let fourthVC = ViewController()
+        let fourthVC = FourthViewController()
         fourthVC.tabBarItem.title = ""
         let fourtImage = UIImage(
             systemName: "info.circle",

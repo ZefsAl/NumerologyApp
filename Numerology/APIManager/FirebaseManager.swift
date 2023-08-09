@@ -30,7 +30,7 @@ class FirebaseManager {
             
             if let random = documents.randomElement() {
                 
-//                print(random.documentID)
+                //                print(random.documentID)
                 do {
                     let val = try random.data(as: BoardOfDayModel.self)
                     completion(val)
@@ -224,8 +224,163 @@ class FirebaseManager {
     }
     
     
+    // MARK: Get Personal Day //  2.1
+    func getPersonalDay(number: Int, completion: @escaping (PersonalDayModel) -> Void ) {
+        let docRef = db.collection("PersonalDay").whereField("number", isEqualTo: number)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: PersonalDayModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
     
     
+    // MARK: Get Personal Month //  2.2
+    func getPersonalMonth(number: Int, completion: @escaping (PersonalMonthModel) -> Void ) {
+        let docRef = db.collection("PersonalMonth").whereField("number", isEqualTo: number)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: PersonalMonthModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
+    // MARK: Get Personal Year //  2.3
+    func getPersonalYear(number: Int, completion: @escaping (PersonalYearModel) -> Void ) {
+        let docRef = db.collection("PersonalYear").whereField("number", isEqualTo: number)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: PersonalYearModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
+    // MARK: Get LifeStages //  2.4
+    func getLifeStages(number: Int, completion: @escaping (LifeStagesModel) -> Void ) {
+        let docRef = db.collection("LifeStages").whereField("number", isEqualTo: number)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: LifeStagesModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
+    // MARK: Get Compatibility //  3.0
+    func getCompatibility(number: Int, completion: @escaping (CompatibilityModel) -> Void ) {
+        let docRef = db.collection("Compatibility").whereField("numberOfUser", isEqualTo: number)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: CompatibilityModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    // MARK: Get NumerologyIs //  4.0
+    func getNumerologyIs(completion: @escaping ([NumerologyIsModel]) -> Void ) {
+        let docRef = db.collection("NumerologyIs")
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            
+            var newArr: [NumerologyIsModel] = [NumerologyIsModel]()
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: NumerologyIsModel.self)
+                    newArr.append(val)
+//                    print("\(val.number)")
+//                    print("\(val.infoNumerology)")
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+            
+            completion(newArr)
+        }
+    }
+
+
+
+
+
 }
 
 
