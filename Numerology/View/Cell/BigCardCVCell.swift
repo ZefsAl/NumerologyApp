@@ -45,20 +45,6 @@ class BigCardCVCell: UICollectionViewCell {
         return iv
     }()
     
-//    // MARK: bgImage
-//    let bgImage: UIImageView = {
-//       let iv = UIImageView()
-//        iv.translatesAutoresizingMaskIntoConstraints = false
-//        iv.heightAnchor.constraint(equalToConstant: 70).isActive = true
-//        iv.widthAnchor.constraint(equalToConstant: 70).isActive = true
-//        iv.image = UIImage(named: "plug")
-//        iv.contentMode = .scaleAspectFit
-//
-//        return iv
-//    }()
-    
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

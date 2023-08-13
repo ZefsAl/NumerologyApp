@@ -27,6 +27,7 @@ extension UIViewController {
     // MARK: set Dismiss Nav Item
     public func setDismissNavButtonItem(selectorStr: Selector) {
         
+        
         let dismissButton: UIView = {
             
             let v = UIView()
@@ -36,8 +37,8 @@ extension UIViewController {
             
             let iv = UIImageView(image: configImage)
             iv.translatesAutoresizingMaskIntoConstraints = false
-            iv.tintColor = .systemGray3
-            iv.backgroundColor = .white
+            iv.tintColor = .white
+            iv.backgroundColor = .black
             iv.layer.cornerRadius = 30
             iv.isUserInteractionEnabled = false
             
@@ -56,6 +57,18 @@ extension UIViewController {
         dismissButton.addGestureRecognizer(gesture)
         self.navigationItem.rightBarButtonItem = dismissButtonItem
         
+        // MARK: + BG color NAV view
+        // не прозрачное но заполненно
+//        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.view.backgroundColor = .black.withAlphaComponent(0.7)
+        
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().isTranslucent = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     

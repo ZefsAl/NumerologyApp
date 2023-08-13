@@ -45,9 +45,7 @@ class FirstViewController: UIViewController {
 
         // Style
         view.backgroundColor = .systemGray
-        
-        
-        setBackground()
+        self.setBackground(named: "MainBG.png")
         // Setup
 //        configureNavView()
         setupView()
@@ -84,23 +82,6 @@ class FirstViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
-    
-    // MARK: setBackground
-    func setBackground() {
-        let background = UIImage(named: "MainBG.png")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: self.view.bounds)
-        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
-    }
-    
-    
     
     
     // MARK: Setup View
@@ -241,8 +222,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
             let vc = DescriptionVC()
             vc.configure(
                 title: "Your tip of the day!",
-                info: "Your tip of the day!",
-//                info: boardOfDayModel?.dayTip,
+                info: boardOfDayModel?.dayTip,
                 about: nil
             )
             if boardOfDayModel != nil {

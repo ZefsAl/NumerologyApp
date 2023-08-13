@@ -16,7 +16,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("test")
+        l.text = ""
         l.textAlignment = .center
         
         return l
@@ -25,7 +25,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "TEST2 TEST2 TEST2 TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2TEST2 TEST2 TEST2"
+        l.text = ""
         l.font = UIFont.systemFont(ofSize: 12, weight: .light)
         l.numberOfLines = 0
         

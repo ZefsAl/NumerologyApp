@@ -13,7 +13,7 @@ class DescriptionView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = "Hello, NAME Hello, NAME Hello, NAME Hello, NAME Hello, NAME Hello, NAME Hello, NAME "
+        l.text = ""
         l.textAlignment = .left
         l.numberOfLines = 0 
         
@@ -24,7 +24,7 @@ class DescriptionView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 150, weight: .regular)
-        l.text = "0"
+        l.text = ""
         l.textAlignment = .center
         l.textColor = .white.withAlphaComponent(0.35)
         

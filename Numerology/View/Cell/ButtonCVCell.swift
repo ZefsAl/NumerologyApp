@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Rename to Chips *
 class ButtonCVCell: UICollectionViewCell {
  
     let buttonCVCellID = "buttonCVCellID"
@@ -44,11 +45,8 @@ class ButtonCVCell: UICollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.clear.cgColor
         
-        self.invalidateIntrinsicContentSize()
+        // For size cell by content + Constraints
         
-//        self.flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        
-
         // Setup
         setUpStack()
         
@@ -70,21 +68,9 @@ class ButtonCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setUpStack() {
         
-//        let contentStack = UIStackView(arrangedSubviews: [title])
-//        contentStack.translatesAutoresizingMaskIntoConstraints = false
-//        contentStack.axis = .vertical
-//        contentStack.distribution = .fill
-//        contentStack.alignment = .center
-        
-    
-        
-//        self.addSubview(contentStack)
         self.addSubview(title)
         
         NSLayoutConstraint.activate([
-//            title.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
             title.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),

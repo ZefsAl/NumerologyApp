@@ -378,8 +378,28 @@ class FirebaseManager {
     }
 
 
+    // MARK: get Information Documents
+    func getInformationDocuments(byName: String, completion: @escaping (InfoDocModel) -> Void ) {
+        let docRef = db.collection(byName)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
 
-
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: InfoDocModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
 
 }
 

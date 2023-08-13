@@ -73,9 +73,26 @@ class OnboardingVC: UIViewController {
         b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
         b.setTitleColor(UIColor.systemGray, for: .normal)
 
-        b.addTarget(Any?.self, action: #selector(nextBtnAction), for: .touchUpInside)
+        b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
     }()
+    
+    @objc func termsOfUseAct() {
+        print("termsOfUseAct")
+        
+        FirebaseManager().getInformationDocuments(byName: "TermsOfUse") { model in
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Terms Of Use",
+                info: model.info,
+                about: nil
+            )
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
+        }
+    }
+    
     // MARK: Terms Button
     let termsButton: UIButton = {
         let b = UIButton(type: .system)
@@ -84,10 +101,22 @@ class OnboardingVC: UIViewController {
         b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
         b.setTitleColor(UIColor.systemGray, for: .normal)
         
-
-        b.addTarget(Any?.self, action: #selector(nextBtnAction), for: .touchUpInside)
+        b.addTarget(Any?.self, action: #selector(privacyPolicyAct), for: .touchUpInside)
         return b
     }()
+    @objc func privacyPolicyAct() {
+        FirebaseManager().getInformationDocuments(byName: "PrivacyPolicy") { model in
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Privacy Policy",
+                info: model.info,
+                about: nil
+            )
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
+        }
+    }
     
     // MARK: Page Control
     let pageControl: UIPageControl = {

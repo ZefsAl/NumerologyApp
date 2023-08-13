@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// For display UI
 func setDateFormat(date: Date) -> String {
     let df = DateFormatter()
     df.dateFormat = "dd / MMMM / yyyy"

@@ -13,8 +13,8 @@ class DescriptionVC: UIViewController {
     private let contentScrollView: UIScrollView = {
        let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-//        sv.showsVerticalScrollIndicator = false
-//        sv.alwaysBounceVertical = true
+        sv.showsVerticalScrollIndicator = false
+        sv.alwaysBounceVertical = true
         return sv
     }()
     
@@ -55,10 +55,9 @@ class DescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNavView()
+        
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        self.setBackground(named: "SecondaryBG.png")
-//        view.backgroundColor = .gray
+        setBackground(named: "SecondaryBG.png")
         
         setUpStack()
     }
@@ -116,7 +115,7 @@ class DescriptionVC: UIViewController {
             contentStack.heightAnchor.constraint(equalTo: cardView.heightAnchor, constant: -32),
             
             // Card View
-            cardView.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 86),
+            cardView.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 24),
             cardView.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             cardView.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             cardView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),

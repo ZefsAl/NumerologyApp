@@ -127,9 +127,9 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: BigCardCVCell().bigCardCVCID, for: indexPath as IndexPath) as! BigCardCVCell
         
 //        cell.configure(title: self.items[indexPath.row], subtitle: nil, bgImage: nil)
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
-        let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
+//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+//        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
+//        let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
         
         
         if indexPath.row == 0 {
@@ -148,7 +148,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
                 self.personalDayModel = model
                 cell.configure(
                     title: "Personal day",
-                    subtitle: model.infoPersDay,
+                    subtitle: model.aboutPersDay,
                     bgImage: nil
                 )
             }
@@ -159,7 +159,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
                 self.personalMonthModel = model
                 cell.configure(
                     title: "Pers. month",
-                    subtitle: model.infoPersMonth,
+                    subtitle: model.aboutPersMonth,
                     bgImage: nil
                 )
             }
@@ -170,7 +170,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
                 self.personalYearModel = model
                 cell.configure(
                     title: "Pers. year",
-                    subtitle: model.infoPersYear,
+                    subtitle: model.aboutPersYear,
                     bgImage: nil
                 )
             }
@@ -181,7 +181,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
                 self.lifeStagesModel = model
                 cell.configure(
                     title: "Life Stages",
-                    subtitle: model.infoStages,
+                    subtitle: model.aboutStages,
                     bgImage: nil
                 )
             }
@@ -202,7 +202,6 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
             let vc = DescriptionVC()
             vc.configure(
                 title: "Your tip of the day!",
-//                info: "Your tip of the day!",
                 info: boardOfDayModel?.dayTip,
                 about: nil
             )
@@ -215,62 +214,35 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // MARK: pers. Day // 2.1
         if indexPath.row == 1 {
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Your personal day",
-                info: personalDayModel?.infoPersDay,
-                about: personalDayModel?.aboutPersDay
-            )
-            if personalDayModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-            }
+            let vc = PersonalDayVC()
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
         }
         
         // MARK: pers. month // 2.2
         if indexPath.row == 2 {
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Your personal month",
-                info: personalMonthModel?.infoPersMonth,
-                about: personalMonthModel?.aboutPersMonth
-            )
-            if personalMonthModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-            }
+            let vc = PersonalMonthVC()
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
         }
         
         // MARK: pers. year // 2.3
         if indexPath.row == 3 {
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Your personal year",
-                info: personalYearModel?.infoPersYear,
-                about: personalYearModel?.aboutPersYear
-            )
-            if personalYearModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-            }
+            let vc = PersonalYearVC()
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
         }
         
         // MARK: life stages // 2.4
         if indexPath.row == 4 {
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Your life stages",
-                info: lifeStagesModel?.infoStages,
-                about: lifeStagesModel?.aboutStages
-            )
-            if lifeStagesModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-            }
+            let vc = LifeStagesViewController()
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
+
         }
         
         

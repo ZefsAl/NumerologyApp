@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */; };
+		8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */; };
+		8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */; };
+		8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D42A8628F7003592A7 /* PersonalYearTF.swift */; };
+		8437D3D72A862983003592A7 /* PersonalYearDP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D62A862983003592A7 /* PersonalYearDP.swift */; };
+		8437D3D92A862A59003592A7 /* PersonalYearVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D82A862A59003592A7 /* PersonalYearVC.swift */; };
+		8437D3DB2A863FA3003592A7 /* PersonalDayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3DA2A863FA3003592A7 /* PersonalDayVC.swift */; };
 		84420CC62A7165A500DE1812 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 84420CC52A7165A500DE1812 /* FirebaseDatabase */; };
 		84420CC82A7165A500DE1812 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 84420CC72A7165A500DE1812 /* FirebaseFirestore */; };
 		84420CCA2A7165A500DE1812 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84420CC92A7165A500DE1812 /* FirebaseFirestoreSwift */; };
@@ -60,9 +67,18 @@
 		84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67112A802FE000D2321B /* DescriptionView.swift */; };
 		84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67132A810DBE00D2321B /* CompatibilityModel.swift */; };
 		84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67152A81180B00D2321B /* CompatibilityViewController.swift */; };
+		84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */; };
+		84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870972A892C0D00ACACA8 /* InfoDocModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthVC.swift; sourceTree = "<group>"; };
+		8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthDatePicker.swift; sourceTree = "<group>"; };
+		8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthTF.swift; sourceTree = "<group>"; };
+		8437D3D42A8628F7003592A7 /* PersonalYearTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYearTF.swift; sourceTree = "<group>"; };
+		8437D3D62A862983003592A7 /* PersonalYearDP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYearDP.swift; sourceTree = "<group>"; };
+		8437D3D82A862A59003592A7 /* PersonalYearVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYearVC.swift; sourceTree = "<group>"; };
+		8437D3DA2A863FA3003592A7 /* PersonalDayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDayVC.swift; sourceTree = "<group>"; };
 		84420CCD2A728DF400DE1812 /* Extension_UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIImage.swift; sourceTree = "<group>"; };
 		84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionVC.swift; sourceTree = "<group>"; };
 		84420CD12A72D6FB00DE1812 /* Extension_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +130,8 @@
 		84AC67112A802FE000D2321B /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		84AC67132A810DBE00D2321B /* CompatibilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityModel.swift; sourceTree = "<group>"; };
 		84AC67152A81180B00D2321B /* CompatibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityViewController.swift; sourceTree = "<group>"; };
+		84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesCalculatedModel.swift; sourceTree = "<group>"; };
+		84D870972A892C0D00ACACA8 /* InfoDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDocModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +149,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8437D3D32A862351003592A7 /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */,
+				8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */,
+				8437D3D42A8628F7003592A7 /* PersonalYearTF.swift */,
+				8437D3D62A862983003592A7 /* PersonalYearDP.swift */,
+			);
+			path = SecondViewController;
+			sourceTree = "<group>";
+		};
 		84420CD32A73EBBF00DE1812 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +213,6 @@
 				84AC66F32A7941F500D2321B /* Onboarding */,
 				8492D0862A6D935200761312 /* EditProfileVC.swift */,
 				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
-				84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */,
 				84AC67032A7F040F00D2321B /* TESTViewController.swift */,
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
 			);
@@ -194,6 +222,7 @@
 		845EB1D92A6664D9003D6F5C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
 				84420CD32A73EBBF00DE1812 /* Cell */,
 				845EB1D62A663F60003D6F5C /* HeaderUIView.swift */,
@@ -232,7 +261,7 @@
 			children = (
 				845EB1D22A6630C3003D6F5C /* MainTabBarController.swift */,
 				845EB1CE2A662E42003D6F5C /* FirstViewController.swift */,
-				84AC66FB2A7C175100D2321B /* SecondViewController.swift */,
+				84D870942A8677D600ACACA8 /* SecondViewController */,
 				84AC66F72A7BDF4700D2321B /* ThirdViewController.swift */,
 				84AC670D2A7FFEB100D2321B /* FourthViewController.swift */,
 			);
@@ -262,6 +291,8 @@
 				84AC670B2A7FEACB00D2321B /* LifeStagesModel.swift */,
 				84AC670F2A8001AE00D2321B /* NumerologyIsModel.swift */,
 				84AC67132A810DBE00D2321B /* CompatibilityModel.swift */,
+				84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */,
+				84D870972A892C0D00ACACA8 /* InfoDocModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +313,18 @@
 				84AC66F52A79428700D2321B /* OnboardingSlideView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		84D870942A8677D600ACACA8 /* SecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84AC66FB2A7C175100D2321B /* SecondViewController.swift */,
+				8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */,
+				8437D3D82A862A59003592A7 /* PersonalYearVC.swift */,
+				8437D3DA2A863FA3003592A7 /* PersonalDayVC.swift */,
+				84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */,
+			);
+			path = SecondViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,12 +408,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				84AC66FC2A7C175100D2321B /* SecondViewController.swift in Sources */,
+				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				84420CD22A72D6FB00DE1812 /* Extension_UIViewController.swift in Sources */,
 				84420CD02A7297EE00DE1812 /* DescriptionVC.swift in Sources */,
 				84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */,
+				8437D3DB2A863FA3003592A7 /* PersonalDayVC.swift in Sources */,
 				8496CA362A7805FB00FB9592 /* PowerCodeModel.swift in Sources */,
 				84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */,
 				845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */,
+				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
 				84AC67042A7F041000D2321B /* TESTViewController.swift in Sources */,
 				845EB1BF2A657939003D6F5C /* ViewController.swift in Sources */,
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
@@ -383,11 +429,13 @@
 				84AC67062A7FDA0800D2321B /* PersonalDayModel.swift in Sources */,
 				845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */,
 				845EB1D32A6630C3003D6F5C /* MainTabBarController.swift in Sources */,
+				8437D3D92A862A59003592A7 /* PersonalYearVC.swift in Sources */,
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
 				845EB1E82A68124E003D6F5C /* OvalShapeView.swift in Sources */,
 				84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */,
 				8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */,
+				8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */,
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
 				84AC670E2A7FFEB100D2321B /* FourthViewController.swift in Sources */,
@@ -397,12 +445,15 @@
 				84AC66F82A7BDF4700D2321B /* ThirdViewController.swift in Sources */,
 				84420CD52A73EC1A00DE1812 /* BigCardCVCell.swift in Sources */,
 				8496CA322A77EEC700FB9592 /* NumbersOfNameModel.swift in Sources */,
+				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
+				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
+				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularButton.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
@@ -410,6 +461,7 @@
 				84AC670C2A7FEACB00D2321B /* LifeStagesModel.swift in Sources */,
 				845EB1D72A663F60003D6F5C /* HeaderUIView.swift in Sources */,
 				84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */,
+				8437D3D72A862983003592A7 /* PersonalYearDP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,9 +604,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -580,9 +632,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

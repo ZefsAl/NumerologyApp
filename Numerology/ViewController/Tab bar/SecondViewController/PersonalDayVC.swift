@@ -1,16 +1,15 @@
 //
-//  UniversalCheckDateVC.swift
+//  PersonalDayVC.swift
 //  Numerology
 //
-//  Created by Serj on 03.08.2023.
+//  Created by Serj on 11.08.2023.
 //
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class PersonalDayVC: UIViewController {
     
-
-    var partnerDate: Date?
+    var enteredDate: Date?
     
     
     // MARK: Next Button
@@ -21,26 +20,23 @@ class ThirdViewController: UIViewController {
         b.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.09019607843, blue: 0.1725490196, alpha: 1)
         
         // MARK: Icon
-            let iv = UIImageView()
-
-            iv.translatesAutoresizingMaskIntoConstraints = false
-            iv.image = UIImage(systemName: "chevron.right")
+        let iv = UIImageView()
+        
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.image = UIImage(systemName: "chevron.right")
         iv.contentMode = UIView.ContentMode.scaleAspectFit
-            iv.tintColor = .white
-            
-            iv.heightAnchor.constraint(equalToConstant: 24).isActive = true
-            iv.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        iv.tintColor = .white
+        
+        iv.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        iv.widthAnchor.constraint(equalToConstant: 24).isActive = true
         
         b.addSubview(iv)
-//        iv.centerXAnchor.constraint(equalTo: b.centerXAnchor).isActive = true
         iv.centerYAnchor.constraint(equalTo: b.centerYAnchor).isActive = true
         
         iv.leadingAnchor.constraint(equalTo: b.leadingAnchor, constant: 16).isActive = true
         iv.trailingAnchor.constraint(equalTo: b.trailingAnchor, constant: -16).isActive = true
         
-        
         b.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        b.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         b.addTarget(Any?.self, action: #selector(buttonAction), for: .touchUpInside)
         
@@ -52,11 +48,21 @@ class ThirdViewController: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-        l.text = "Enter your partner's date"
+        l.text = "Choose a date to find out the forecast for it"
         l.textAlignment = .center
+        l.numberOfLines = 0
         return l
     }()
     
+    
+//    // MARK: Custom Date Textfield
+//    let customDateTextfield: PersonalMonthTF = {
+//        let df = DateFormatter()
+//        df.dateFormat = "MMMM / yyyy"
+//        let todayPlaceholder = df.string(from: Date())
+//        let p = PersonalMonthTF(frame: .zero, setPlaceholder: todayPlaceholder)
+//        return p
+//    }()
     // MARK: Text Field + Date Picker
     let userEnterDateTF: RegularTextField = {
         let tf = RegularTextField(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
@@ -93,97 +99,58 @@ class ThirdViewController: UIViewController {
         
         return tf
     }()
-    
-    
     // MARK: Date Picker Action
     @objc func datePickerAction(_ sender: UIDatePicker) {
         
         userEnterDateTF.text = setDateFormat(date: sender.date)
-        self.partnerDate = sender.date
+        self.enteredDate = sender.date
     }
+    
+    
     
     // MARK: button Action
     @objc func buttonAction() {
-        print("doneBtnAction")
+        print("button Action")
         
+        // Get data
         guard
-            let partnerDate = self.partnerDate,
             let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date,
-            let userName = UserDefaults.standard.object(forKey: "nameKey") as? String
+            let enteredDate = self.enteredDate
         else { return }
         
-        let userNum = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
-        let partnerNum = CalculateNumbers().calculateNumberOfDestiny(date: partnerDate)
+        // Calculate Day
+        let personalDay = CalculateNumbers().personalDay(userDate: dateOfBirth, enteredDate: enteredDate)
         
-        let strNumber = String(userNum) + String(partnerNum)
-        
-        guard let compatibility = Int(strNumber) else { return }
-        
-        
-        
-    
+        // Present VC
         DispatchQueue.main.async {
-            FirebaseManager().getCompatibility(number: compatibility) { model in
-                
-                print(model.aboutThisNumbers)
-                
-                let vc = CompatibilityViewController()
+            FirebaseManager().getPersonalDay(number: personalDay) { model in
+                let vc = DescriptionVC()
                 vc.configure(
-                    userNumber: String(userNum),
-                    userLable: userName,
-                    partnerNumber: String(partnerNum),
-                    lableDescription: model.aboutThisNumbers
+                    title: "Your personal day",
+                    info: model.infoPersDay,
+                    about: model.aboutPersDay
                 )
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
-                
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            
         }
-        print("compatibility: \(compatibility)")
-        
-        
-        
-        
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-//        print(dateOfBirth as Any)
-//        guard
-//            let valDateOfBirth = userDateOfBirthField.text
-//        else { return }
-//
-//        // MARK: Validation
-//        if valDateOfBirth != "" || dateOfBirth != nil {
-//            // Next VC
-//            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
-//        }
-//
-//        // Button Animation
-//        DispatchQueue.main.async {
-//            UIView.animate(withDuration: 0.2, animations: {
-//                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.2) {
-//                    self.nextButton.transform = CGAffineTransform.identity
-//                }
-//            })
-//        }
         
     }
-    
     
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = .systemGray
-        self.setBackground(named: "MainBG.png")
+        //        view.backgroundColor = .systemGray
+        self.setBackground(named: "SecondaryBG.png")
+        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
         configureNavView()
         setUpStack()
     }
     
     
-
+    
     
     
     // MARK: Configure Nav View
@@ -192,13 +159,6 @@ class ThirdViewController: UIViewController {
     
     // MARK: Set up Stack
     private func setUpStack() {
-        
-        
-        // titles Stack
-//        let titlesStack = UIStackView(arrangedSubviews: [largeTitle])
-//        titlesStack.axis = .vertical
-//        titlesStack.alignment = .fill
-//        titlesStack.spacing = 32
         
         // Date Of Birth Stack
         let dateOfBirthStack = UIStackView(arrangedSubviews: [dateOfBirthTitle,userEnterDateTF])
@@ -209,7 +169,7 @@ class ThirdViewController: UIViewController {
         
         // Fields Stack
         let fieldsStack = UIStackView(arrangedSubviews: [dateOfBirthStack,nextButton])
-        fieldsStack.translatesAutoresizingMaskIntoConstraints = false 
+        fieldsStack.translatesAutoresizingMaskIntoConstraints = false
         fieldsStack.axis = .vertical
         fieldsStack.alignment = .center
         fieldsStack.spacing = 16
@@ -234,18 +194,17 @@ class ThirdViewController: UIViewController {
             cardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18),
             cardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18),
             cardView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-
+            
             
             fieldsStack.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 32),
             fieldsStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 32),
             fieldsStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -32),
             fieldsStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -32),
             
-//            nextButton.heightAnchor.constraint(equalToConstant: 50),
+            //            nextButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
     
 }
-
 
