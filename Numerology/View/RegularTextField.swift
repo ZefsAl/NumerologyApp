@@ -93,6 +93,7 @@ class RegularTextField: UITextField, UITextFieldDelegate {
         self.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
 
+        self.keyboardType = .asciiCapable
         self.regularAccessoryViewOnKeyboard()
         
     }

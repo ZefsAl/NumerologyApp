@@ -134,13 +134,16 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         if indexPath.row == 0 {
             // MARK: TIP // 0
-            FirebaseManager.shared.getBoardOfDay { model in
-                self.boardOfDayModel = model
+            // Get from UserDefaults
+            
+            if let data = UserDefaults.standard.object(forKey: "BoardOfDayModelKey") as? Data,
+               let model = try? JSONDecoder().decode(BoardOfDayModel.self, from: data) {
                 bigCell.configure(
                     title: "Your tip of the day!",
                     subtitle: model.dayTip
                 )
             }
+            
           return bigCell
         } else if indexPath.row == 1 {
             // MARK: Pers. Day // 2.1

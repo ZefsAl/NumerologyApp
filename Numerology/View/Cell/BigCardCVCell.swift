@@ -45,6 +45,7 @@ class BigCardCVCell: UICollectionViewCell {
         return iv
     }()
     
+    // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -89,7 +90,7 @@ class BigCardCVCell: UICollectionViewCell {
         cardContent.translatesAutoresizingMaskIntoConstraints = false
         cardContent.axis = .vertical
         cardContent.alignment = .top
-        subTitleStack.distribution = .fill
+
         cardContent.spacing = 10
         self.addSubview(cardContent)
         

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RevenueCat
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
@@ -22,6 +23,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.navigationController?.pushViewController(EditProfileVC(), animated: true)
     }
     
+    private let notificationCenter = NotificationCenter.default
+    
+    func some() {
+        
+    }
+    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -34,10 +41,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.tintColor = .white
         self.tabBar.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.07058823529, blue: 0.1490196078, alpha: 1)
         
+        setHeaderView()
+        
         
         // MARK: FirstVC
         let firstVC = FirstViewController()
-        firstVC.tabBarItem.title = ""
+        firstVC.tabBarItem.title = nil
         let firstImage = UIImage(
             systemName: "star",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
@@ -47,11 +56,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         // MARK: SecondVC
         let secondVC = SecondViewController()
-        secondVC.tabBarItem.title = ""
+        secondVC.tabBarItem.title = nil
         let secondImage = UIImage(
-            systemName: "hand.raised.fingers.spread",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
+            named: "Person_WideSize_3x_93px"
+        ) 
         secondVC.tabBarItem.image = secondImage
         let secondTabNav = UINavigationController(rootViewController: secondVC)
 
@@ -78,15 +86,57 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         //
         self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
         
+        
     }
-    // MARK: viewWill Appear
+    
+    // MARK: viewWill Appear 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        setHeaderView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+//        let name = Notification.Name(rawValue: "CheckAccessNotification")
+//        notificationCenter.addObserver(self, selector: #selector(checkUserAccess), name: name, object: nil)
+        
+        
+        var observer: NSKeyValueObservation?
+        observer = UserDefaults.standard.observe(\.userAccess, options: [.initial, .new], changeHandler: { (defaults, change) in
+            
+            print("Defaults value : \(defaults.userAccess)")
+            if defaults.userAccess == true {
+            } else {
+                self.checkUserAccess()
+            }
+        })
+        
+    }
+    
+    
+    
+    
+    // MARK: checkUserAccess
+    func checkUserAccess() {
+
+        // VC
+        let vc = PaywallViewController()
+//         MARK: get Customer Info
+        Purchases.shared.getCustomerInfo { (customerInfo, error) in
+
+            if customerInfo?.entitlements["Access"]?.isActive == true {
+                vc.dismiss(animated: true)
+                print("Secondary Check: Have Access")
+            } else {
+                    let navVC = UINavigationController(rootViewController: vc)
+                    navVC.modalPresentationStyle = .overFullScreen
+                    self.present(navVC, animated: true)
+                print("Secondary Check: No Access")
+            }
+        }
+        
+    }
     
     
 }

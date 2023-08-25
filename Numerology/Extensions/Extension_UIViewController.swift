@@ -27,7 +27,6 @@ extension UIViewController {
     // MARK: set Dismiss Nav Item
     public func setDismissNavButtonItem(selectorStr: Selector) {
         
-        
         let dismissButton: UIView = {
             
             let v = UIView()
@@ -60,15 +59,15 @@ extension UIViewController {
         // MARK: + BG color NAV view
         // не прозрачное но заполненно
 //        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.view.backgroundColor = .black.withAlphaComponent(0.7)
+//        self.navigationController?.view.backgroundColor = .black.withAlphaComponent(0.7)
         
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().isTranslucent = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        UINavigationBar.appearance().isTranslucent = true
+//
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        UINavigationBar.appearance().standardAppearance = appearance
     }
     
     

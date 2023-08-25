@@ -9,10 +9,10 @@ import Foundation
 
 extension UserDefaults {
     
-    func setIsLoggedIn(value: Bool) {
-        set(value, forKey: "isLoggedIn")
-        synchronize()
-    }
+//    func setIsLoggedIn(value: Bool) {
+//        set(value, forKey: "isLoggedIn")
+//        synchronize()
+//    }
     
     
     func setUserData(name: String, surname: String) {
@@ -26,14 +26,28 @@ extension UserDefaults {
         synchronize()
     }
     
-//    func isHaveUserData() -> Bool {
-//        if UserDefaults.standard.object(forKey: "nameKey") ||
-//            UserDefaults.standard.object(forKey: "surnameKey")
+    func setDayTipModel(model: BoardOfDayModel) {
+        
+        if let encoded = try? JSONEncoder().encode(model) {
+            UserDefaults.standard.set(encoded, forKey: "BoardOfDayModelKey")
+        }
+        synchronize()
+    }
+    
+    func userAvailable(available: Bool) {
+        setValue(available, forKey: "userAvailableKey")
+        synchronize()
+    }
+    
+//    func isLoggedIn() -> Bool {
+//        return bool(forKey: "isLoggedIn")
 //    }
     
+    @objc dynamic var userAccess: Bool {
+        return bool(forKey: "UserAccessObserverKey")
+    }
     
-    func isLoggedIn() -> Bool {
-        return bool(forKey: "isLoggedIn")
-        
+    @objc dynamic var someStr: String {
+        return string(forKey: "SomeStrSomeStr") ?? "Empty"
     }
 }

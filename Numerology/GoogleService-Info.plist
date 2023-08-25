@@ -13,21 +13,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ZefsAl.Numerology</string>
+	<string>com.numerology.ios</string>
 	<key>PROJECT_ID</key>
 	<string>numerology-j5q8vz</string>
 	<key>STORAGE_BUCKET</key>
 	<string>numerology-j5q8vz.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:243667826627:ios:2cf2f6e40ca96bf3aaaf76</string>
 </dict>

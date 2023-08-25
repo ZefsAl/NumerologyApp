@@ -65,14 +65,14 @@ class OnboardingVC: UIViewController {
     
     
     
-    // MARK: Privacy Button
-    let privacyButton: UIButton = {
+    // MARK: Terms Button
+    let termsButton: UIButton = {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Terms Of Use", for: .normal)
         b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
         b.setTitleColor(UIColor.systemGray, for: .normal)
-
+        
         b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
     }()
@@ -93,8 +93,8 @@ class OnboardingVC: UIViewController {
         }
     }
     
-    // MARK: Terms Button
-    let termsButton: UIButton = {
+    // MARK: Privacy Button
+    let privacyButton: UIButton = {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Privacy Policy", for: .normal)
@@ -231,7 +231,7 @@ class OnboardingVC: UIViewController {
 
         
         // DocsStack
-        let docsStack = UIStackView(arrangedSubviews: [privacyButton,termsButton])
+        let docsStack = UIStackView(arrangedSubviews: [termsButton, privacyButton])
         docsStack.axis = .horizontal
         docsStack.spacing = 80
         

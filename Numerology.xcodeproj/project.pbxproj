@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */; };
+		8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */; };
+		8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */; };
+		8428CF6D2A963C4B00C7AA5D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */; };
 		8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */; };
 		8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */; };
 		8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */; };
@@ -39,6 +43,8 @@
 		845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1EC2A6973E5003D6F5C /* UserEnterDataVC.swift */; };
 		845EB1EF2A697F58003D6F5C /* RegularTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1EE2A697F58003D6F5C /* RegularTextField.swift */; };
 		845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1F12A6A509D003D6F5C /* Extension_UserDefaults.swift */; };
+		846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */; };
+		846FC5F62A90A1BB0011EF01 /* OnlyLableCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */; };
 		8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0812A6AD91000761312 /* UserEnterDateOfBirthVC.swift */; };
 		8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0832A6BDD6500761312 /* DateFormat.swift */; };
 		8492D0872A6D935200761312 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0862A6D935200761312 /* EditProfileVC.swift */; };
@@ -69,9 +75,18 @@
 		84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67152A81180B00D2321B /* CompatibilityViewController.swift */; };
 		84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */; };
 		84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870972A892C0D00ACACA8 /* InfoDocModel.swift */; };
+		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
+		84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */; };
+		84D870A12A8D035700ACACA8 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870A02A8D035600ACACA8 /* StoreKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.debug.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.debug.xcconfig"; sourceTree = "<group>"; };
+		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
+		8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
+		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
+		8411AB322A951AD500B3D2F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthVC.swift; sourceTree = "<group>"; };
 		8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthDatePicker.swift; sourceTree = "<group>"; };
 		8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthTF.swift; sourceTree = "<group>"; };
@@ -89,7 +104,6 @@
 		845EB1BC2A657939003D6F5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		845EB1BE2A657939003D6F5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		845EB1C32A65793E003D6F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		845EB1C62A65793E003D6F5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845EB1C82A65793E003D6F5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845EB1CE2A662E42003D6F5C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		845EB1D22A6630C3003D6F5C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -102,6 +116,8 @@
 		845EB1EC2A6973E5003D6F5C /* UserEnterDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterDataVC.swift; sourceTree = "<group>"; };
 		845EB1EE2A697F58003D6F5C /* RegularTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextField.swift; sourceTree = "<group>"; };
 		845EB1F12A6A509D003D6F5C /* Extension_UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UserDefaults.swift; sourceTree = "<group>"; };
+		846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit2Manager.swift; sourceTree = "<group>"; };
+		846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLableCVCell.swift; sourceTree = "<group>"; };
 		8492D0812A6AD91000761312 /* UserEnterDateOfBirthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterDateOfBirthVC.swift; sourceTree = "<group>"; };
 		8492D0832A6BDD6500761312 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		8492D0862A6D935200761312 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
@@ -132,6 +148,10 @@
 		84AC67152A81180B00D2321B /* CompatibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityViewController.swift; sourceTree = "<group>"; };
 		84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesCalculatedModel.swift; sourceTree = "<group>"; };
 		84D870972A892C0D00ACACA8 /* InfoDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDocModel.swift; sourceTree = "<group>"; };
+		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
+		84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCVCell.swift; sourceTree = "<group>"; };
+		84D870A02A8D035600ACACA8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,12 +163,24 @@
 				84420CCC2A7165A500DE1812 /* FirebaseStorage in Frameworks */,
 				84420CC82A7165A500DE1812 /* FirebaseFirestore in Frameworks */,
 				84420CCA2A7165A500DE1812 /* FirebaseFirestoreSwift in Frameworks */,
+				4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8411AB292A9208DA00B3D2F4 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				84D870A02A8D035600ACACA8 /* StoreKitManager.swift */,
+				846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */,
+				8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */,
+				8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
 		8437D3D32A862351003592A7 /* SecondViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +198,8 @@
 				845EB1E12A67D119003D6F5C /* CardCollectionViewCell.swift */,
 				84420CD42A73EC1A00DE1812 /* BigCardCVCell.swift */,
 				84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */,
+				84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */,
+				846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -175,6 +209,8 @@
 			children = (
 				845EB1B92A657938003D6F5C /* Numerology */,
 				845EB1B82A657938003D6F5C /* Products */,
+				84D870A22A8D14B300ACACA8 /* Frameworks */,
+				E2D2D5E4768FC2E0FBB5F04A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,6 +225,7 @@
 		845EB1B92A657938003D6F5C /* Numerology */ = {
 			isa = PBXGroup;
 			children = (
+				8411AB292A9208DA00B3D2F4 /* IAP */,
 				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
 				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
 				845EB1BE2A657939003D6F5C /* ViewController.swift */,
@@ -215,6 +252,7 @@
 				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
 				84AC67032A7F040F00D2321B /* TESTViewController.swift */,
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
+				84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -231,6 +269,7 @@
 				845EB1EE2A697F58003D6F5C /* RegularTextField.swift */,
 				84AC66F92A7BE4D900D2321B /* RegularButton.swift */,
 				84AC67012A7C6DAB00D2321B /* ChipsButton.swift */,
+				8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */,
 				84AC67112A802FE000D2321B /* DescriptionView.swift */,
 			);
 			path = View;
@@ -327,6 +366,23 @@
 			path = SecondViewController;
 			sourceTree = "<group>";
 		};
+		84D870A22A8D14B300ACACA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2D2D5E4768FC2E0FBB5F04A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */,
+				806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,9 +390,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 845EB1CB2A65793E003D6F5C /* Build configuration list for PBXNativeTarget "Numerology" */;
 			buildPhases = (
+				A5670CCA45F8DA928E8FB770 /* [CP] Check Pods Manifest.lock */,
 				845EB1B32A657938003D6F5C /* Sources */,
 				845EB1B42A657938003D6F5C /* Frameworks */,
 				845EB1B52A657938003D6F5C /* Resources */,
+				616156C44DE440F989AA3512 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,7 +432,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 845EB1AE2A657938003D6F5C;
 			packageReferences = (
@@ -394,13 +451,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8428CF6D2A963C4B00C7AA5D /* StoreKitTestCertificate.cer in Resources */,
 				845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */,
+				8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */,
 				845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */,
 				849CAB6A2A76952B0019984E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		616156C44DE440F989AA3512 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5670CCA45F8DA928E8FB770 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Numerology-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		845EB1B32A657938003D6F5C /* Sources */ = {
@@ -418,6 +519,7 @@
 				845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */,
 				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
 				84AC67042A7F041000D2321B /* TESTViewController.swift in Sources */,
+				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
 				845EB1BF2A657939003D6F5C /* ViewController.swift in Sources */,
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
 				84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */,
@@ -439,6 +541,7 @@
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
 				84AC670E2A7FFEB100D2321B /* FourthViewController.swift in Sources */,
+				8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */,
 				8492D0872A6D935200761312 /* EditProfileVC.swift in Sources */,
 				8492D0932A6EA7E500761312 /* FirebaseManager.swift in Sources */,
 				845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */,
@@ -446,22 +549,26 @@
 				84420CD52A73EC1A00DE1812 /* BigCardCVCell.swift in Sources */,
 				8496CA322A77EEC700FB9592 /* NumbersOfNameModel.swift in Sources */,
 				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
+				84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
+				84D870A12A8D035700ACACA8 /* StoreKitManager.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularButton.swift in Sources */,
+				846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
 				845EB1DE2A668D63003D6F5C /* Gradients.swift in Sources */,
 				84AC670C2A7FEACB00D2321B /* LifeStagesModel.swift in Sources */,
 				845EB1D72A663F60003D6F5C /* HeaderUIView.swift in Sources */,
 				84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */,
 				8437D3D72A862983003592A7 /* PersonalYearDP.swift in Sources */,
+				846FC5F62A90A1BB0011EF01 /* OnlyLableCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +578,7 @@
 		845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				845EB1C62A65793E003D6F5C /* Base */,
+				8411AB322A951AD500B3D2F4 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -595,57 +702,65 @@
 		};
 		845EB1CC2A65793E003D6F5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NV7ZN3QX32;
+				CURRENT_PROJECT_VERSION = 1.36;
+				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Numerology;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ZefsAl.Numerology;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		845EB1CD2A65793E003D6F5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = NV7ZN3QX32;
+				CURRENT_PROJECT_VERSION = 1.36;
+				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Numerology;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ZefsAl.Numerology;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

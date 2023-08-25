@@ -143,9 +143,9 @@ class UserEnterDateOfBirthVC: UIViewController {
     }
     
     // MARK: Configure
-    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
-        self.dateOfBirthTitle
-    }
+//    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
+//        self.dateOfBirthTitle
+//    }
 
     
     

@@ -56,7 +56,14 @@ class PersonalMonthVC: UIViewController {
     // MARK: Custom Date Textfield
     let customDateTextfield: PersonalMonthTF = {
         let df = DateFormatter()
-        df.dateFormat = "MMMM / yyyy"
+//        df.dateFormat = "MMMM / yyyy"
+        let langStr = Locale.current.languageCode
+        if langStr == "ru" {
+            df.dateFormat = "LLLL / yyyy"
+        } else {
+            df.dateFormat = "MMMM / yyyy"
+
+        }
         let todayPlaceholder = df.string(from: Date())
         let p = PersonalMonthTF(frame: .zero, setPlaceholder: todayPlaceholder)
         return p
@@ -167,4 +174,6 @@ class PersonalMonthVC: UIViewController {
     
     
 }
+
+
 

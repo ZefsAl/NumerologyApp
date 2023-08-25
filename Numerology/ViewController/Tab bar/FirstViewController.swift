@@ -120,6 +120,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
             // MARK: TIP // 0
             FirebaseManager.shared.getBoardOfDay { model in
                 self.boardOfDayModel = model
+                
+                UserDefaults.standard.setDayTipModel(model: model)
+//                UserDefaults.standard.synchronize()
+                
                 bigCell.configure(
                     title: "Your tip of the day!",
                     subtitle: model.dayTip

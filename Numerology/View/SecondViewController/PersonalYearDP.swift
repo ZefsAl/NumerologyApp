@@ -54,7 +54,7 @@ extension PersonalYearDP: UIPickerViewDelegate, UIPickerViewDataSource {
         df.dateFormat = "dd-MM-yyyy'T'HH:mm:ssZ"
         
         let selectedDate = df.date(from: strDate)
-        print("selectedDate: \(selectedDate)")
+        print("selectedDate: \(String(describing: selectedDate))")
         
         if let selectedDate = selectedDate {
             valueDelegate?.getPickerDate(date: selectedDate)
