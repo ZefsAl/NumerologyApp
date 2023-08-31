@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class OnboardingVC: UIViewController {
     
@@ -76,20 +77,15 @@ class OnboardingVC: UIViewController {
         b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
     }()
-    
     @objc func termsOfUseAct() {
         print("termsOfUseAct")
+        guard let url = URL(string: "https://numerology-terms.web.app/") else { return }
         
-        FirebaseManager().getInformationDocuments(byName: "TermsOfUse") { model in
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Terms Of Use",
-                info: model.info,
-                about: nil
-            )
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.present(navVC, animated: true)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.modalPresentationStyle = .pageSheet
+            self.present(safariVC, animated: true)
         }
     }
     
@@ -105,16 +101,14 @@ class OnboardingVC: UIViewController {
         return b
     }()
     @objc func privacyPolicyAct() {
-        FirebaseManager().getInformationDocuments(byName: "PrivacyPolicy") { model in
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Privacy Policy",
-                info: model.info,
-                about: nil
-            )
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.present(navVC, animated: true)
+        
+        guard let url = URL(string: "https://numerology-privacy.web.app/") else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.modalPresentationStyle = .pageSheet
+            self.present(safariVC, animated: true)
         }
     }
     

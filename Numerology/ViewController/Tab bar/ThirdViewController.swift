@@ -104,7 +104,10 @@ class ThirdViewController: UIViewController {
     
     // MARK: button Action
     @objc func buttonAction() {
-        print("doneBtnAction")
+        print("BtnAction")
+        
+        // MARK: Check
+        guard self.checkAccessContent() == true else { return }
         
         guard
             let partnerDate = self.partnerDate,
@@ -142,32 +145,6 @@ class ThirdViewController: UIViewController {
         }
         print("compatibility: \(compatibility)")
         
-        
-        
-        
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-//        print(dateOfBirth as Any)
-//        guard
-//            let valDateOfBirth = userDateOfBirthField.text
-//        else { return }
-//
-//        // MARK: Validation
-//        if valDateOfBirth != "" || dateOfBirth != nil {
-//            // Next VC
-//            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
-//        }
-//
-//        // Button Animation
-//        DispatchQueue.main.async {
-//            UIView.animate(withDuration: 0.2, animations: {
-//                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.2) {
-//                    self.nextButton.transform = CGAffineTransform.identity
-//                }
-//            })
-//        }
-        
     }
     
     
@@ -193,12 +170,6 @@ class ThirdViewController: UIViewController {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        
-        // titles Stack
-//        let titlesStack = UIStackView(arrangedSubviews: [largeTitle])
-//        titlesStack.axis = .vertical
-//        titlesStack.alignment = .fill
-//        titlesStack.spacing = 32
         
         // Date Of Birth Stack
         let dateOfBirthStack = UIStackView(arrangedSubviews: [dateOfBirthTitle,userEnterDateTF])

@@ -34,10 +34,10 @@ extension UserDefaults {
         synchronize()
     }
     
-    func userAvailable(available: Bool) {
-        setValue(available, forKey: "userAvailableKey")
-        synchronize()
-    }
+//    func userAvailable(available: Bool) {
+//        setValue(available, forKey: "userAvailableKey")
+//        synchronize()
+//    }
     
 //    func isLoggedIn() -> Bool {
 //        return bool(forKey: "isLoggedIn")
@@ -47,7 +47,4 @@ extension UserDefaults {
         return bool(forKey: "UserAccessObserverKey")
     }
     
-    @objc dynamic var someStr: String {
-        return string(forKey: "SomeStrSomeStr") ?? "Empty"
-    }
 }

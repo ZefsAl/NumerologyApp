@@ -229,6 +229,7 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: boardOfDayModel?.dayTip,
                 about: nil
             )
+            
             if boardOfDayModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
@@ -244,6 +245,9 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: numbersOfSoulModel?.infoSoul,
                 about: numbersOfSoulModel?.aboutSoul
             )
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             if numbersOfSoulModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
@@ -259,6 +263,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: numbersOfDestinyModel?.infoDestiny,
                 about: numbersOfDestinyModel?.aboutDestiny
             )
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             if numbersOfDestinyModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
@@ -274,6 +282,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: numbersOfNameModel?.infoName,
                 about: numbersOfNameModel?.aboutName
             )
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             if numbersOfNameModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
@@ -289,6 +301,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: numbersOfMoneyModel?.infoMoney,
                 about: numbersOfMoneyModel?.aboutMoney
             )
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             if numbersOfMoneyModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen
@@ -304,6 +320,10 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 info: powerCodeModel?.infoPower,
                 about: powerCodeModel?.aboutPower
             )
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             if powerCodeModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
                 navVC.modalPresentationStyle = .overFullScreen

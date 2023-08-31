@@ -7,14 +7,13 @@
 
 import UIKit
 import RevenueCat
+import SafariServices
 
-
+// Managed in tab bar
 class PaywallViewController: UIViewController {
-    
     
     // MARK: offering
     var offering: Offering?
-    
     
     // MARK: store Product Arr
     var storeProductArr: [StoreProduct]? {
@@ -24,10 +23,6 @@ class PaywallViewController: UIViewController {
             })
         }
     }
-    
-    
-    
-    
     
     // MARK: Collection View
     private let contentCollectionView: ContentCollectionView = {
@@ -40,25 +35,55 @@ class PaywallViewController: UIViewController {
     }()
     
     // MARK: title
-    let mainTitle: UILabel = {
+    let promoMainTitle: UILabel = {
         let l = UILabel()
         //        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 30, weight: .regular)
-        l.numberOfLines = 2
-        l.text = "Try with all the features!"
+//        l.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        l.font = UIFont.systemFont(ofSize: 26, weight: .regular)
+        l.text = "Full access by subscription!"
         l.textAlignment = .left
+        l.numberOfLines = 0
         
         return l
     }()
     
-    // MARK: Button Subtitle
-    let buttonSubtitle: UILabel = {
+    let promoSubtitle: UILabel = {
+        let l = UILabel()
+        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        l.numberOfLines = 0
+        l.text = """
+        Get personalized numerological predictions for your date of birth.\n
+        Learn about your life stages, partner compatibility and more...
+        """
+        l.textAlignment = .left
+
+        return l
+    }()
+    
+    // MARK: paymentSubtitle ScrollView
+    let paymentSubtitle_SV: UIScrollView = {
+        let sv = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return sv
+    }()
+    
+    // MARK: Payment Subtitle
+    let paymentSubtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 13, weight: .light)
+//        l.text = """
+//        • Payment will be charged to iTunes Account at confirmation of purchase
+//        • Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period
+//        • Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal
+//        • Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase
+//        • Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable
+//        """
         l.text = "Plan automatically renews monthly until canceled."
+        l.numberOfLines = 0
         l.textAlignment = .left
-        
+
         return l
     }()
     
@@ -106,22 +131,8 @@ class PaywallViewController: UIViewController {
                 
                 if let product = offering.availablePackages.first?.storeProduct {
                     
-//                    Purchases.shared.in
                     // 2. Check
-                    // Не доступно для новых пользователей
-                    // или какая то проблема с сертификатом
                     Purchases.shared.checkTrialOrIntroDiscountEligibility(product: product) { eligibility in
-                        
-                        
-                        print(eligibility.description)
-                        
-                        let discount = product.introductoryDiscount
-                        
-                        print(discount?.description)
-//                        product.introductoryDiscount?.description
-//                        print(product.)
-                        
-                        
                         
                         if eligibility == .eligible {
                             self.purchaseButton.lable.text = "Try free trial".uppercased()
@@ -199,7 +210,7 @@ class PaywallViewController: UIViewController {
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Terms Of Use", for: .normal)
         b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
-        b.setTitleColor(UIColor.systemGray, for: .normal)
+        b.setTitleColor(UIColor.white, for: .normal)
         
         b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
@@ -208,16 +219,26 @@ class PaywallViewController: UIViewController {
     @objc func termsOfUseAct() {
         print("termsOfUseAct")
         
-        FirebaseManager().getInformationDocuments(byName: "TermsOfUse") { model in
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Terms Of Use",
-                info: model.info,
-                about: nil
-            )
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.present(navVC, animated: true)
+        // Может понадобится?
+//        FirebaseManager().getInformationDocuments(byName: "TermsOfUse") { model in
+//            let vc = DescriptionVC()
+//            vc.configure(
+//                title: "Terms Of Use",
+//                info: model.info,
+//                about: nil
+//            )
+//            let navVC = UINavigationController(rootViewController: vc)
+//            navVC.modalPresentationStyle = .overFullScreen
+//            self.present(navVC, animated: true)
+        
+        
+        guard let url = URL(string: "https://numerology-terms.web.app/") else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.modalPresentationStyle = .pageSheet
+            self.present(safariVC, animated: true)
         }
     }
     
@@ -227,23 +248,34 @@ class PaywallViewController: UIViewController {
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Privacy Policy", for: .normal)
         b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
-        b.setTitleColor(UIColor.systemGray, for: .normal)
-        
+        b.setTitleColor(UIColor.white, for: .normal)
+
         b.addTarget(Any?.self, action: #selector(privacyPolicyAct), for: .touchUpInside)
         return b
     }()
     @objc func privacyPolicyAct() {
-        FirebaseManager().getInformationDocuments(byName: "PrivacyPolicy") { model in
-            let vc = DescriptionVC()
-            vc.configure(
-                title: "Privacy Policy",
-                info: model.info,
-                about: nil
-            )
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.present(navVC, animated: true)
+//        FirebaseManager().getInformationDocuments(byName: "PrivacyPolicy") { model in
+//            let vc = DescriptionVC()
+//            vc.configure(
+//                title: "Privacy Policy",
+//                info: model.info,
+//                about: nil
+//            )
+//            let navVC = UINavigationController(rootViewController: vc)
+//            navVC.modalPresentationStyle = .overFullScreen
+//            self.present(navVC, animated: true)
+//        }
+        
+        
+        guard let url = URL(string: "https://numerology-privacy.web.app/") else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let safariVC = SFSafariViewController(url: url)
+            safariVC.modalPresentationStyle = .pageSheet
+            self.present(safariVC, animated: true)
         }
+        
     }
     
     // MARK: Restore Button
@@ -251,7 +283,7 @@ class PaywallViewController: UIViewController {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Restore purchases", for: .normal)
-        b.titleLabel?.font =  UIFont.systemFont(ofSize: 15)
+        b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
         b.setTitleColor(UIColor.white, for: .normal)
         
         b.addTarget(Any?.self, action: #selector(restoreAct), for: .touchUpInside)
@@ -283,6 +315,7 @@ class PaywallViewController: UIViewController {
         // Style BG
 //        view.backgroundColor = .systemGray4
         setBackground(named: "PaywallBG.png")
+        self.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
         // Delegate
         self.contentCollectionView.delegate = self
@@ -317,13 +350,12 @@ class PaywallViewController: UIViewController {
         }
         
         // MARK: get Customer Info
-        Purchases.shared.getCustomerInfo { (customerInfo, error) in
-            
-            if customerInfo?.entitlements["Access"]?.isActive == true {
-                // Nav
-                self.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            }
-        }
+//        Purchases.shared.getCustomerInfo { (customerInfo, error) in
+////            if customerInfo?.entitlements["Access"]?.isActive == true {
+////                // Nav
+////                self.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
+////            }
+//        }
         
         
         // Restore
@@ -345,33 +377,40 @@ class PaywallViewController: UIViewController {
     private func setUpStack() {
         
         // DocsStack
-        let docsStack = UIStackView(arrangedSubviews: [termsButton,privacyButton])
+        let docsStack = UIStackView(arrangedSubviews: [termsButton,restoreButton,privacyButton])
         docsStack.axis = .horizontal
-        docsStack.spacing = 80
+        docsStack.spacing = 0
         docsStack.distribution = .fillEqually
         
+        
+        // Scroll View
+//        self.paymentSubtitle_SV.addSubview(paymentSubtitle)
+//        paymentSubtitle_SV.contentSize = CGSize(width: paymentSubtitle.frame.size.width, height: paymentSubtitle.frame.size.height)
+        
         // Button Stack
-        let buttonStack = UIStackView(arrangedSubviews: [buttonSubtitle,purchaseButton])
+        let buttonStack = UIStackView(arrangedSubviews: [paymentSubtitle,purchaseButton]) // , paymentSubtitle_SV
         buttonStack.axis = .vertical
+//        buttonStack.alignment = .fill // для Scroll view
         buttonStack.alignment = .fill
         buttonStack.spacing = 10
+        buttonStack.translatesAutoresizingMaskIntoConstraints = false
         
         // Subscription Stack
         let subscriptionStack = UIStackView(arrangedSubviews: [subscriptionLable, subscriptionSwitch])
         subscriptionStack.axis = .horizontal
-        subscriptionStack.alignment = .fill
-        subscriptionStack.distribution = .fill
+        subscriptionStack.alignment = .center
+//        subscriptionStack.distribution = .fill
         subscriptionStack.spacing = 0
         
         // Top Content Stack
-        let topContentStack = UIStackView(arrangedSubviews: [mainTitle,subscriptionStack])
+        let topContentStack = UIStackView(arrangedSubviews: [promoMainTitle,promoSubtitle,subscriptionStack])
         topContentStack.axis = .vertical
         topContentStack.alignment = .fill
         topContentStack.distribution = .fill
         topContentStack.spacing = 10
         
         // Middle Content Stack
-        let middleContentStack = UIStackView(arrangedSubviews: [contentCollectionView,restoreButton])
+        let middleContentStack = UIStackView(arrangedSubviews: [contentCollectionView])
         middleContentStack.axis = .vertical
         middleContentStack.alignment = .fill
         middleContentStack.distribution = .fill
@@ -382,14 +421,17 @@ class PaywallViewController: UIViewController {
         topAndMiddleStack.axis = .vertical
         //        topAndMiddleStack.alignment = .fill
         //        topAndMiddleStack.distribution = .fill
-        topAndMiddleStack.spacing = 40
+        topAndMiddleStack.spacing = 32
         
         // Bottom Content Stack
-        let bottomContentStack = UIStackView(arrangedSubviews: [buttonStack,docsStack])
+        let bottomContentStack = UIStackView(arrangedSubviews: [UIView(),buttonStack,docsStack])
         bottomContentStack.axis = .vertical
-        bottomContentStack.alignment = .fill
-        bottomContentStack.distribution = .fill
+        bottomContentStack.alignment = .center
+//        bottomContentStack.distribution = .fill
         bottomContentStack.spacing = 10
+//        bottomContentStack.backgroundColor = .purple
+        
+        
         
         // Content Stack
         let contentStack = UIStackView(arrangedSubviews: [topAndMiddleStack,UIView(),bottomContentStack])
@@ -403,15 +445,28 @@ class PaywallViewController: UIViewController {
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             
+            // Уведомление перед покупкой !!!
+//            paymentSubtitle.widthAnchor.constraint(equalTo: paymentSubtitle_SV.widthAnchor, constant: 0),
+//            paymentSubtitle.topAnchor.constraint(equalTo: paymentSubtitle_SV.topAnchor),
+//            paymentSubtitle.bottomAnchor.constraint(equalTo: paymentSubtitle_SV.bottomAnchor),
+//            paymentSubtitle.leadingAnchor.constraint(equalTo: paymentSubtitle_SV.leadingAnchor),
+//            paymentSubtitle.trailingAnchor.constraint(equalTo: paymentSubtitle_SV.trailingAnchor),
+//
+//            paymentSubtitle_SV.heightAnchor.constraint(equalToConstant: 34),
+            purchaseButton.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 0),
+            purchaseButton.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 0),
+            buttonStack.leadingAnchor.constraint(equalTo: bottomContentStack.leadingAnchor, constant: 0),
+            buttonStack.trailingAnchor.constraint(equalTo: bottomContentStack.trailingAnchor, constant: 0),
+            
             contentCollectionView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             contentCollectionView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
             
             purchaseButton.heightAnchor.constraint(equalToConstant: 50),
             
-            contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 24),
+            contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 8),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
-            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44)
+            contentStack.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -20)
         ])
     }
     
@@ -435,15 +490,26 @@ extension PaywallViewController: UICollectionViewDelegateFlowLayout,UICollection
         // MARK: Cell size
         cell.widthAnchor.constraint(equalToConstant: collectionView.frame.size.width).isActive = true
         
-        guard let product = self.storeProductArr?[indexPath.row] else { return UICollectionViewCell() }
+        let product = self.storeProductArr?[indexPath.row]
+        
+        guard let product = product else { return cell }
         
         // Config Cell 👎
         if indexPath.row == 0 {
-            cell.configure(title: product.localizedTitle, subtitle: "\(product.localizedPriceString)/year billed annually")
+            cell.configure(
+                title: ((product.localizedTitle != " ") ? product.localizedTitle : "Yearly"),
+                subtitle: "\(product.localizedPriceString ?? "0.00")/year billed annually"
+            )
+            
+            
+            
+            
         } else if indexPath.row == 1 {
-            cell.configure(title: product.localizedTitle, subtitle: "\(product.localizedPriceString)/month")
+            cell.configure(
+                title: product.localizedTitle ?? "Monthly",
+                subtitle: "\(product.localizedPriceString ?? "0.00")/month"
+            )
         }
-        
         
         return cell
     }

@@ -87,5 +87,23 @@ extension UIViewController {
     
     
     
+    func checkAccessContent() -> Bool {
+        
+        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as! Bool
+        guard accessVal == false else { return true }
+        
+        let vc = PaywallViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .overFullScreen
+        self.present(navVC, animated: true)
+        
+
+        return false
+    }
+        
+        
+
+    
+    
     
 }

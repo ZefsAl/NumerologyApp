@@ -17,16 +17,6 @@ class SecondViewController: UIViewController {
     var lifeStagesModel: LifeStagesModel?
     
     
-    
-//    var numbersOfSoulModel: NumbersOfSoulModel?
-//    var numbersOfDestinyModel: NumbersOfDestinyModel?
-//    var numbersOfNameModel: NumbersOfNameModel?
-//    var numbersOfMoneyModel: NumbersOfMoneyModel?
-//    var powerCodeModel: PowerCodeModel?
-    
-    
-    
-    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
        let sv = UIScrollView()
@@ -56,8 +46,6 @@ class SecondViewController: UIViewController {
         setStackContentSV()
         
         
-        
-        
         // Delegate Collection View
         cardCollectionView.delegate = self
         cardCollectionView.dataSource = self
@@ -66,10 +54,6 @@ class SecondViewController: UIViewController {
         cardCollectionView.register(BigCardCVCell.self, forCellWithReuseIdentifier: BigCardCVCell().bigCardCVCID)
         
     }
-    
-    
-    
-    
     
     // MARK: View Did Appear
 //    override func viewDidAppear(_ animated: Bool) {
@@ -98,17 +82,11 @@ class SecondViewController: UIViewController {
     }
     
     
-    
-    
     // MARK: Setup View
     private func setupView() {
         view.addSubview(contentScrollView)
     }
     
-    // MARK: Configure Nav View
-//    private func configureNavView() {
-//
-//    }
 }
 
 
@@ -126,18 +104,13 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: BigCardCVCell().bigCardCVCID, for: indexPath as IndexPath) as! BigCardCVCell
         
-//        cell.configure(title: self.items[indexPath.row], subtitle: nil, bgImage: nil)
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-//        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
-//        let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
-        
-        
         if indexPath.row == 0 {
             // MARK: TIP // 0
             // Get from UserDefaults
             
             if let data = UserDefaults.standard.object(forKey: "BoardOfDayModelKey") as? Data,
                let model = try? JSONDecoder().decode(BoardOfDayModel.self, from: data) {
+                self.boardOfDayModel = model
                 bigCell.configure(
                     title: "Your tip of the day!",
                     subtitle: model.dayTip
@@ -217,6 +190,10 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // MARK: pers. Day // 2.1
         if indexPath.row == 1 {
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             let vc = PersonalDayVC()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
@@ -225,6 +202,10 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // MARK: pers. month // 2.2
         if indexPath.row == 2 {
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             let vc = PersonalMonthVC()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
@@ -233,6 +214,10 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // MARK: pers. year // 2.3
         if indexPath.row == 3 {
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             let vc = PersonalYearVC()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
@@ -241,15 +226,16 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
         
         // MARK: life stages // 2.4
         if indexPath.row == 4 {
+            
+            // MARK: Check
+            guard self.checkAccessContent() == true else { return }
+            
             let vc = LifeStagesViewController()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
             self.present(navVC, animated: true)
 
         }
-        
-        
-        
        }
 }
 
