@@ -9,52 +9,82 @@ import UIKit
 
 class UserEnterDateOfBirthVC: UIViewController {
     
+    // MARK: largeTitle
     let largeTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 34, weight: .semibold)
-        l.text = String("You're almost there!")
-        l.numberOfLines = 2
+        
+        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
+        l.numberOfLines = 0
+        l.font = UIFont(name: "Cinzel-Regular", size: 46)
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.04
+        l.attributedText = NSMutableAttributedString(string: "You're almost there!", attributes: [NSAttributedString.Key.kern: -1.92, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        // Line height: 67.2 pt
+        l.textAlignment = .center
         
         return l
     }()
     
-    
-    // MARK: Next Button
-    let nextButton: UIButton = {
-        let b = UIButton(type: .system)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.layer.cornerRadius = 8
-        b.backgroundColor = #colorLiteral(red: 0.3058823529, green: 0.3568627451, blue: 0.6431372549, alpha: 1)
-        
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.isUserInteractionEnabled = false
-        l.textColor = .white
-        l.text = "DONE"
-        l.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        
-        b.addSubview(l)
-        l.centerXAnchor.constraint(equalTo: b.centerXAnchor).isActive = true
-        l.centerYAnchor.constraint(equalTo: b.centerYAnchor).isActive = true
-        
-        b.addTarget(Any?.self, action: #selector(doneBtnAction), for: .touchUpInside)
-        
-        return b
-    }()
-    
-    // MARK: Date Title
+    // MARK: Date Of Birth Title
     let dateOfBirthTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         l.text = "Enter your date of birth"
+
+        // Style
+        l.font = UIFont(name: "SourceSerifPro-Light", size: 24)
+        l.lineBreakMode = .byWordWrapping
+        var paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        l.numberOfLines = 0
+        l.textAlignment = .center
+        
         return l
     }()
     
+    
+    
+    // MARK: Next Button
+    private let nextButton: RegularBigButton = {
+        let b = RegularBigButton(frame: .zero, lable: "Continue")
+        b.addTarget(Any?.self, action: #selector(nextBtnAction), for: .touchUpInside)
+        return b
+    }()
+    
+    // MARK: next Btn Action
+    @objc private func nextBtnAction() {
+        print("doneBtnAction")
+        
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+        print(dateOfBirth as Any)
+        guard
+            let valDateOfBirth = userDateOfBirthField.text
+        else { return }
+        
+        // MARK: Validation
+        if valDateOfBirth != "" || dateOfBirth != nil {
+            // Next VC
+            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
+        }
+        
+        // Button Animation
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2) {
+                    self.nextButton.transform = CGAffineTransform.identity
+                }
+            })
+        }
+    }
+    
+    
+    
     // MARK: Text Field + Date Picker
-    let userDateOfBirthField: RegularTextField = {
-        let tf = RegularTextField(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
+    let userDateOfBirthField: CustomTF = {
+        let tf = CustomTF(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
         tf.textAlignment = .center
         tf.rightViewMode = .never
         tf.leftViewMode = .never
@@ -98,73 +128,31 @@ class UserEnterDateOfBirthVC: UIViewController {
         }
     }
     
-    // MARK: done Btn Action
-    @objc func doneBtnAction() {
-        print("doneBtnAction")
-        
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-        print(dateOfBirth as Any)
-        guard
-            let valDateOfBirth = userDateOfBirthField.text
-        else { return }
-        
-        // MARK: Validation
-        if valDateOfBirth != "" || dateOfBirth != nil {
-            // Next VC
-            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
-        }
-        
-        
-        // Replace RootViewController
-        //            NotificationCenter.default.post(name: UserEnterDataVC.notificationDone, object: nil)
-        
-        // Button Animation
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.nextButton.transform = CGAffineTransform.identity
-                }
-            })
-        }
-        
-    }
+    
     
     
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBackground(named: "SecondaryBG.png")
+        self.setBackground(named: "EnterDataBG2.png")
         
-//        configureNavView()
         setUpStack()
     }
     
-    // MARK: Configure
-//    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
-//        self.dateOfBirthTitle
-//    }
-
-    
-    
-    // MARK: Configure Nav View
-    private func configureNavView() {
-    }
     
     // MARK: Set up Stack
     private func setUpStack() {
         
         
         // titles Stack
-        let titlesStack = UIStackView(arrangedSubviews: [largeTitle])
+        let titlesStack = UIStackView(arrangedSubviews: [largeTitle,dateOfBirthTitle])
         titlesStack.axis = .vertical
         titlesStack.alignment = .fill
-        titlesStack.spacing = 32
+        titlesStack.spacing = 16
         
         // Date Of Birth Stack
-        let dateOfBirthStack = UIStackView(arrangedSubviews: [dateOfBirthTitle,userDateOfBirthField])
+        let dateOfBirthStack = UIStackView(arrangedSubviews: [userDateOfBirthField])
         dateOfBirthStack.axis = .vertical
         dateOfBirthStack.alignment = .fill
         dateOfBirthStack.spacing = 10
@@ -190,11 +178,10 @@ class UserEnterDateOfBirthVC: UIViewController {
             
             //            nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             //            nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
-            nextButton.heightAnchor.constraint(equalToConstant: 50),
             
             contentStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
-            contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
-            contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
+            contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36),
+            contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -36),
             contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44)
         ])
     }

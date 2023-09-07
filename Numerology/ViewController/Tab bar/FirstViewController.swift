@@ -223,6 +223,11 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // MARK: Tip // 0
         if indexPath.row == 0 {
+            // Show alert
+            // Идея Валидировать разрешение уведомления
+//            print(self.isUserAllowNotification())
+//            guard self.isUserAllowNotification() == true else { return }
+            
             let vc = DescriptionVC()
             vc.configure(
                 title: "Your tip of the day!",

@@ -9,12 +9,6 @@ import Foundation
 
 extension UserDefaults {
     
-//    func setIsLoggedIn(value: Bool) {
-//        set(value, forKey: "isLoggedIn")
-//        synchronize()
-//    }
-    
-    
     func setUserData(name: String, surname: String) {
         setValue(name, forKey: "nameKey")
         setValue(surname, forKey: "surnameKey")
@@ -34,15 +28,7 @@ extension UserDefaults {
         synchronize()
     }
     
-//    func userAvailable(available: Bool) {
-//        setValue(available, forKey: "userAvailableKey")
-//        synchronize()
-//    }
-    
-//    func isLoggedIn() -> Bool {
-//        return bool(forKey: "isLoggedIn")
-//    }
-    
+    // kvo
     @objc dynamic var userAccess: Bool {
         return bool(forKey: "UserAccessObserverKey")
     }

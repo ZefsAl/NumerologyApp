@@ -4,6 +4,13 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cinzel-Bold.ttf</string>
+		<string>Cinzel-Regular.ttf</string>
+		<string>SourceSerifPro-Light.ttf</string>
+		<string>SourceSerifPro-Regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

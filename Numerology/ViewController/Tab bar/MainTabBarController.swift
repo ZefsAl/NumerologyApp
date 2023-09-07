@@ -77,9 +77,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let fourthVC = FourthViewController()
         fourthVC.tabBarItem.title = ""
         let fourtImage = UIImage(
-            systemName: "info.circle",
+            systemName: "moon",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
+        ) 
         fourthVC.tabBarItem.image = fourtImage
         let fourthTabNav = UINavigationController(rootViewController: fourthVC)
         

@@ -86,7 +86,7 @@ extension UIViewController {
     }
     
     
-    
+    // MARK:
     func checkAccessContent() -> Bool {
         
         let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as! Bool
@@ -97,10 +97,75 @@ extension UIViewController {
         navVC.modalPresentationStyle = .overFullScreen
         self.present(navVC, animated: true)
         
-
         return false
     }
         
+    
+    func isUserAllowNotification() -> Bool {
+        
+        /*
+        В общем идея была такая:
+        Если пользователь разрешил уведомления предоставить Контент
+        Eсли нет то отправляем в дип линк
+        */
+        
+        let alert = UIAlertController(title: "Allow notifications", message: "Receive push notifications with daily tips!", preferredStyle: .alert)
+        
+        let act1 = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(act1)
+        
+        let act2 = UIAlertAction(title: "Open Settings", style: .default) { action in
+            UIApplication.shared.open(URL(string:"App-prefs:root=NOTIFICATIONS_ID")!)
+        }
+        alert.addAction(act2)
+        
+        
+        UNUserNotificationCenter.current().getNotificationSettings() { (settings) in
+            
+            switch settings.authorizationStatus {
+                
+            case .notDetermined:
+                print("notDetermined")
+            case .denied:
+                print("denied")
+            case .authorized:
+                print("authorized")
+            case .provisional:
+                print("provisional")
+            case .ephemeral:
+                print("ephemeral")
+            @unknown default:
+                print("Error")
+            }
+            
+        }
+        
+        
+        
+        
+        var state: Bool = {
+            var b = false
+            
+            UNUserNotificationCenter.current().getNotificationSettings { settings in
+                if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
+                    
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true)
+                    }
+                    b = false
+                } else {
+                    b = true
+                }
+                
+            }
+            
+            return b
+        }()
+        
+        print("Result state = \(state)")
+        
+        return state
+    }
         
 
     

@@ -14,11 +14,28 @@ class PaywallCVCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if self.isSelected {
-                self.layer.borderColor = UIColor.systemPurple.cgColor
-                self.cardIcon.tintColor = .white
+                
+                self.cardIcon.tintColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+//                self.cardIcon.layer.cornerRadius = 30
+//                self.cardIcon.backgroundColor = .white
+                
+                // Selected state
+                self.layer.borderWidth = 2
+                self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
+                self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+                self.layer.shadowOpacity = 1
+                self.layer.shadowRadius = 16
+                self.layer.shadowOffset = CGSize(width: 0, height: 4)
+                self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
             } else {
-                self.layer.borderColor = UIColor.clear.cgColor
+                // Return state
+                self.layer.borderWidth = 0
+                self.layer.shadowOffset = CGSize.zero
+                self.layer.shadowColor = UIColor.clear.cgColor
+                self.backgroundColor = .black.withAlphaComponent(0.5)
+                
                 self.cardIcon.tintColor = .clear
+//                self.cardIcon.backgroundColor = .clear
             }
         }
     }
@@ -29,7 +46,7 @@ class PaywallCVCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 21, weight: .regular)
+        l.font = UIFont(name: "Cinzel-Regular", size: 28)
         l.text = "/"
         return l
     }()
@@ -39,7 +56,7 @@ class PaywallCVCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.text = "*"
-        l.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        l.font = UIFont(name: "Cinzel-Regular", size: 17)
         l.numberOfLines = 0
         
         return l
@@ -53,7 +70,9 @@ class PaywallCVCell: UICollectionViewCell {
         iv.contentMode = UIView.ContentMode.scaleAspectFit
         iv.tintColor = .clear
         
-//        iv.frame =
+        // bg color for icon
+//        iv.layer.cornerRadius = 20
+//        iv.backgroundColor = .clear
         
         iv.heightAnchor.constraint(equalToConstant: 32).isActive = true
         iv.widthAnchor.constraint(equalToConstant: 32).isActive = true
@@ -68,9 +87,10 @@ class PaywallCVCell: UICollectionViewCell {
         // Style
         self.backgroundColor = .black.withAlphaComponent(0.5)
         // Border
-        self.layer.cornerRadius = 15
-        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 16
+        self.layer.borderWidth = 0
         self.layer.borderColor = UIColor.clear.cgColor
+        
         
         // Setup
         setUpStack()
@@ -95,22 +115,22 @@ class PaywallCVCell: UICollectionViewCell {
         lableStack.axis = .vertical
         lableStack.alignment = .fill
 //        lableStack.distribution = .fill
-        lableStack.spacing = 10
+        lableStack.spacing = 0
         
         let cardContent = UIStackView(arrangedSubviews: [lableStack, cardIcon])
         cardContent.translatesAutoresizingMaskIntoConstraints = false
         cardContent.axis = .horizontal
         cardContent.alignment = .center
 //        subTitleStack.distribution = .fill
-        cardContent.spacing = 10
+        cardContent.spacing = 0
         self.addSubview(cardContent)
         
         NSLayoutConstraint.activate([
         
-            cardContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            cardContent.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 26),
-            cardContent.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -26),
-            cardContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            cardContent.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
+            cardContent.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            cardContent.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            cardContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
             
         ])
     }

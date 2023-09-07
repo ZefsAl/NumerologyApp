@@ -55,10 +55,16 @@
 		8496CA362A7805FB00FB9592 /* PowerCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496CA352A7805FB00FB9592 /* PowerCodeModel.swift */; };
 		849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAB652A764F4C0019984E /* BoardOfDayModel.swift */; };
 		849CAB682A767F3C0019984E /* NumbersOfDestinyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849CAB672A767F3C0019984E /* NumbersOfDestinyModel.swift */; };
-		849CAB6A2A76952B0019984E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 849CAB692A76952B0019984E /* GoogleService-Info.plist */; };
+		84AA6AE92AA3558100BF6C0D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 84AA6AE82AA3558100BF6C0D /* FirebaseMessaging */; };
+		84AA6AEB2AA4A54600BF6C0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84AA6AEA2AA4A54600BF6C0D /* GoogleService-Info.plist */; };
+		84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AA6AF12AA4E82800BF6C0D /* Cinzel-Bold.ttf */; };
+		84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AA6AF22AA4E82800BF6C0D /* Cinzel-Regular.ttf */; };
+		84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AA6AF52AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf */; };
+		84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AA6AF72AA6077E00BF6C0D /* CustomTF.swift */; };
+		84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AA6AFA2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf */; };
 		84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66F52A79428700D2321B /* OnboardingSlideView.swift */; };
 		84AC66F82A7BDF4700D2321B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66F72A7BDF4700D2321B /* ThirdViewController.swift */; };
-		84AC66FA2A7BE4D900D2321B /* RegularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66F92A7BE4D900D2321B /* RegularButton.swift */; };
+		84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66F92A7BE4D900D2321B /* RegularBigButton.swift */; };
 		84AC66FC2A7C175100D2321B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FB2A7C175100D2321B /* SecondViewController.swift */; };
 		84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */; };
 		84AC67002A7C663200D2321B /* ButtonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */; };
@@ -78,6 +84,7 @@
 		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
 		84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */; };
 		84D870A12A8D035700ACACA8 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870A02A8D035600ACACA8 /* StoreKitManager.swift */; };
+		84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EEF4982AA20C7E0054B430 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,10 +135,15 @@
 		8496CA352A7805FB00FB9592 /* PowerCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerCodeModel.swift; sourceTree = "<group>"; };
 		849CAB652A764F4C0019984E /* BoardOfDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardOfDayModel.swift; sourceTree = "<group>"; };
 		849CAB672A767F3C0019984E /* NumbersOfDestinyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOfDestinyModel.swift; sourceTree = "<group>"; };
-		849CAB692A76952B0019984E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84AA6AEA2AA4A54600BF6C0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84AA6AF12AA4E82800BF6C0D /* Cinzel-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Bold.ttf"; sourceTree = "<group>"; };
+		84AA6AF22AA4E82800BF6C0D /* Cinzel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cinzel-Regular.ttf"; sourceTree = "<group>"; };
+		84AA6AF52AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Light.ttf"; sourceTree = "<group>"; };
+		84AA6AF72AA6077E00BF6C0D /* CustomTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTF.swift; sourceTree = "<group>"; };
+		84AA6AFA2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Regular.ttf"; sourceTree = "<group>"; };
 		84AC66F52A79428700D2321B /* OnboardingSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideView.swift; sourceTree = "<group>"; };
 		84AC66F72A7BDF4700D2321B /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		84AC66F92A7BE4D900D2321B /* RegularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularButton.swift; sourceTree = "<group>"; };
+		84AC66F92A7BE4D900D2321B /* RegularBigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularBigButton.swift; sourceTree = "<group>"; };
 		84AC66FB2A7C175100D2321B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesViewController.swift; sourceTree = "<group>"; };
 		84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCVCell.swift; sourceTree = "<group>"; };
@@ -151,6 +163,8 @@
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCVCell.swift; sourceTree = "<group>"; };
 		84D870A02A8D035600ACACA8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		84EEF4982AA20C7E0054B430 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Numerology.entitlements; sourceTree = "<group>"; };
 		DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,7 +175,9 @@
 			files = (
 				84420CC62A7165A500DE1812 /* FirebaseDatabase in Frameworks */,
 				84420CCC2A7165A500DE1812 /* FirebaseStorage in Frameworks */,
+				84AA6AE92AA3558100BF6C0D /* FirebaseMessaging in Frameworks */,
 				84420CC82A7165A500DE1812 /* FirebaseFirestore in Frameworks */,
+				84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */,
 				84420CCA2A7165A500DE1812 /* FirebaseFirestoreSwift in Frameworks */,
 				4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */,
 			);
@@ -225,6 +241,7 @@
 		845EB1B92A657938003D6F5C /* Numerology */ = {
 			isa = PBXGroup;
 			children = (
+				84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */,
 				8411AB292A9208DA00B3D2F4 /* IAP */,
 				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
 				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
@@ -235,10 +252,11 @@
 				8492D0942A713C6F00761312 /* Model */,
 				845EB1E52A67F6C2003D6F5C /* SupportedClass */,
 				845EB1DC2A668D44003D6F5C /* Extensions */,
+				84AA6AEC2AA4E48900BF6C0D /* Fonts */,
 				845EB1C32A65793E003D6F5C /* Assets.xcassets */,
 				845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */,
 				845EB1C82A65793E003D6F5C /* Info.plist */,
-				849CAB692A76952B0019984E /* GoogleService-Info.plist */,
+				84AA6AEA2AA4A54600BF6C0D /* GoogleService-Info.plist */,
 			);
 			path = Numerology;
 			sourceTree = "<group>";
@@ -267,10 +285,11 @@
 				845EB1E72A68124E003D6F5C /* OvalShapeView.swift */,
 				845EB1E32A67E4F7003D6F5C /* ContentCollectionView.swift */,
 				845EB1EE2A697F58003D6F5C /* RegularTextField.swift */,
-				84AC66F92A7BE4D900D2321B /* RegularButton.swift */,
+				84AC66F92A7BE4D900D2321B /* RegularBigButton.swift */,
 				84AC67012A7C6DAB00D2321B /* ChipsButton.swift */,
 				8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */,
 				84AC67112A802FE000D2321B /* DescriptionView.swift */,
+				84AA6AF72AA6077E00BF6C0D /* CustomTF.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,6 +355,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		84AA6AEC2AA4E48900BF6C0D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84AA6AF12AA4E82800BF6C0D /* Cinzel-Bold.ttf */,
+				84AA6AFA2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf */,
+				84AA6AF22AA4E82800BF6C0D /* Cinzel-Regular.ttf */,
+				84AA6AF52AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		84AC66F32A7941F500D2321B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +399,7 @@
 		84D870A22A8D14B300ACACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84EEF4982AA20C7E0054B430 /* StoreKit.framework */,
 				DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */,
 			);
 			name = Frameworks;
@@ -406,6 +437,7 @@
 				84420CC72A7165A500DE1812 /* FirebaseFirestore */,
 				84420CC92A7165A500DE1812 /* FirebaseFirestoreSwift */,
 				84420CCB2A7165A500DE1812 /* FirebaseStorage */,
+				84AA6AE82AA3558100BF6C0D /* FirebaseMessaging */,
 			);
 			productName = Numerology;
 			productReference = 845EB1B72A657938003D6F5C /* Numerology.app */;
@@ -453,9 +485,13 @@
 			files = (
 				8428CF6D2A963C4B00C7AA5D /* StoreKitTestCertificate.cer in Resources */,
 				845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */,
+				84AA6AEB2AA4A54600BF6C0D /* GoogleService-Info.plist in Resources */,
 				8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */,
+				84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */,
 				845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */,
-				849CAB6A2A76952B0019984E /* GoogleService-Info.plist in Resources */,
+				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
+				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
+				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,11 +592,12 @@
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
 				84D870A12A8D035700ACACA8 /* StoreKitManager.swift in Sources */,
+				84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
-				84AC66FA2A7BE4D900D2321B /* RegularButton.swift in Sources */,
+				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
 				846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
 				845EB1DE2A668D63003D6F5C /* Gradients.swift in Sources */,
@@ -706,8 +743,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.41;
+				CURRENT_PROJECT_VERSION = 1.42;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -723,7 +761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -738,8 +776,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.41;
+				CURRENT_PROJECT_VERSION = 1.42;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -755,7 +794,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -818,6 +857,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		84AA6AE82AA3558100BF6C0D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
