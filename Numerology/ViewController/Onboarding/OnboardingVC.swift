@@ -51,53 +51,6 @@ class OnboardingVC: UIViewController {
     }
     
     
-    
-    // MARK: Terms Button
-//    let termsButton: UIButton = {
-//        let b = UIButton(type: .system)
-//        b.translatesAutoresizingMaskIntoConstraints = false
-//        b.setTitle("Terms Of Use", for: .normal)
-//        b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
-//        b.setTitleColor(UIColor.systemGray, for: .normal)
-//
-//        b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
-//        return b
-//    }()
-//    @objc func termsOfUseAct() {
-//        print("termsOfUseAct")
-//        guard let url = URL(string: "https://numerology-terms.web.app/") else { return }
-//
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self = self else { return }
-//            let safariVC = SFSafariViewController(url: url)
-//            safariVC.modalPresentationStyle = .pageSheet
-//            self.present(safariVC, animated: true)
-//        }
-//    }
-    
-    // MARK: Privacy Button
-//    let privacyButton: UIButton = {
-//        let b = UIButton(type: .system)
-//        b.translatesAutoresizingMaskIntoConstraints = false
-//        b.setTitle("Privacy Policy", for: .normal)
-//        b.titleLabel?.font =  UIFont.systemFont(ofSize: 13)
-//        b.setTitleColor(UIColor.systemGray, for: .normal)
-//
-//        b.addTarget(Any?.self, action: #selector(privacyPolicyAct), for: .touchUpInside)
-//        return b
-//    }()
-//    @objc func privacyPolicyAct() {
-//
-//        guard let url = URL(string: "https://numerology-privacy.web.app/") else { return }
-//
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self = self else { return }
-//            let safariVC = SFSafariViewController(url: url)
-//            safariVC.modalPresentationStyle = .pageSheet
-//            self.present(safariVC, animated: true)
-//        }
-//    }
-    
     // MARK: Page Control
     let pageControl: UIPageControl = {
        let pc = UIPageControl()
@@ -147,13 +100,6 @@ class OnboardingVC: UIViewController {
     // MARK: Set up Stack
     private func setUpStack() {
 
-        // Scroll View Setup old
-//        contentScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: contentScrollView.frame.size.height)
-//        contentScrollView.contentSize = CGSize(width: view.frame.size.width*3, height: contentScrollView.frame.size.height)
-        
-        
-        
-        // new
         contentScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: contentScrollView.frame.size.height)
         contentScrollView.contentSize = CGSize(width: view.frame.size.width*3, height: contentScrollView.frame.size.height)
         contentScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
@@ -162,8 +108,6 @@ class OnboardingVC: UIViewController {
         
 //        contentScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Not try to fix
         contentScrollView.contentInsetAdjustmentBehavior = .never // Must have Fix!
-        
-        
         
         // MARK: Screens slide
         for slide in 0..<3 {
@@ -209,11 +153,6 @@ class OnboardingVC: UIViewController {
         }
 
         
-        // DocsStack
-//        let docsStack = UIStackView(arrangedSubviews: [termsButton, privacyButton])
-//        docsStack.axis = .horizontal
-//        docsStack.spacing = 80
-        
         // Content Stack
         let contentStack = UIStackView(arrangedSubviews: [nextButton,pageControl])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
@@ -226,7 +165,6 @@ class OnboardingVC: UIViewController {
         self.view.addSubview(contentStack)
         
         let margin = self.view.layoutMarginsGuide
-//        let margin2 = self.view
         NSLayoutConstraint.activate([
             
             contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
@@ -237,8 +175,6 @@ class OnboardingVC: UIViewController {
             nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 36),
             nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -36),
             
-            
-//            contentStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -0),
             contentStack.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -0)
@@ -251,7 +187,6 @@ class OnboardingVC: UIViewController {
 extension OnboardingVC: UIScrollViewDelegate {
     
     // для pagecontrol перключения через свайп
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
     }

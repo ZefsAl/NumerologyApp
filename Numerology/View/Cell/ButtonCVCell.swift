@@ -45,8 +45,6 @@ class ButtonCVCell: UICollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.clear.cgColor
         
-        // For size cell by content + Constraints
-        
         // Setup
         setUpStack()
         

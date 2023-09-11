@@ -7,16 +7,6 @@
 
 import Foundation
 
-
-//class NumerologyDescriptionModel: Codable {
-//
-//    let description: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case description = "description"
-//    }
-//}
-
 class NumerologyIsModel: Codable {
 
     let number: Int

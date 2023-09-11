@@ -12,19 +12,6 @@ class CustomTF: UITextField {
 
     var setPlaceholder: String?
     
-    
-//    override var isSelected: Bool {
-//        didSet {
-//            if self.isSelected {
-////                self.layer.borderColor = UIColor.systemPurple.cgColor
-////                self.cardIcon.tintColor = .white
-//            } else {
-////                self.layer.borderColor = UIColor.clear.cgColor
-////                self.cardIcon.tintColor = .clear
-//            }
-//        }
-//    }
-    
     let rightCancelButton: UIButton = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -50,50 +37,7 @@ class CustomTF: UITextField {
     @objc func clearAction() {
         self.text = ""
     }
-    
-//
-//    // MARK: Animate, Delegate
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//
-//
-//        textField.layer.borderWidth = 2
-//        textField.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-//
-//        textField.layer.shadowOpacity = 1
-//        textField.layer.shadowRadius = 16
-//
-//        textField.layer.shadowOffset = CGSize(width: 0, height: 4)
-//
-//        textField.layer.shadowColor = UIColor(red: 0.745, green: 0.471, blue: 0.949, alpha: 0.5).cgColor
-//
-//
-////        textField.layer.shadowOffset = CGSize.zero // Use any CGSize
-//        textField.layer.shadowColor = UIColor.gray.cgColor
-//
-//
-//
-//        // Button animate
-//        self.rightCancelButton.isHidden = false
-//
-//        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
-//            self.rightCancelButton.alpha = 1
-//        }, completion: nil)
-//
-//    }
-//
-//    // MARK: Animate, Delegate
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//
-//
-//
-//        // Button animate
-//        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) {
-//            self.rightCancelButton.alpha = 0
-//        } completion: { _ in
-//            self.rightCancelButton.isHidden = true
-//        }
-//
-//    }
+
     
     
     // MARK: init
@@ -220,8 +164,6 @@ extension CustomTF {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
         doneToolbar.backgroundColor = .systemGray5
-        
-        
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonAction))

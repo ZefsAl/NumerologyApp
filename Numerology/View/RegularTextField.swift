@@ -35,7 +35,6 @@ class RegularTextField: UITextField, UITextFieldDelegate {
         return b
     }()
     @objc func clearAction() {
-//        print("Clear")
         self.text = ""
     }
     
@@ -106,7 +105,6 @@ class RegularTextField: UITextField, UITextFieldDelegate {
         guard let newTextField = textField.text else { return false }
         let text = newTextField + string
 
-        
         // Replacing space + restrict
         if text.contains(" ")  {
             textField.text = text.replacingOccurrences(of: " ", with: "")
@@ -115,7 +113,6 @@ class RegularTextField: UITextField, UITextFieldDelegate {
                 return false
             }
         }
-
         return true
     }
     
@@ -135,8 +132,6 @@ extension RegularTextField {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
         doneToolbar.backgroundColor = .systemGray5
-        
-        
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(self.doneButtonAction))

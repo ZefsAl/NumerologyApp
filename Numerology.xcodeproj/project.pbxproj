@@ -29,7 +29,6 @@
 		84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */; };
 		845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1BA2A657939003D6F5C /* AppDelegate.swift */; };
 		845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1BC2A657939003D6F5C /* SceneDelegate.swift */; };
-		845EB1BF2A657939003D6F5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1BE2A657939003D6F5C /* ViewController.swift */; };
 		845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845EB1C32A65793E003D6F5C /* Assets.xcassets */; };
 		845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */; };
 		845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1CE2A662E42003D6F5C /* FirstViewController.swift */; };
@@ -69,7 +68,6 @@
 		84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */; };
 		84AC67002A7C663200D2321B /* ButtonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */; };
 		84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67012A7C6DAB00D2321B /* ChipsButton.swift */; };
-		84AC67042A7F041000D2321B /* TESTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67032A7F040F00D2321B /* TESTViewController.swift */; };
 		84AC67062A7FDA0800D2321B /* PersonalDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67052A7FDA0800D2321B /* PersonalDayModel.swift */; };
 		84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67072A7FE12100D2321B /* PersonalMonthModel.swift */; };
 		84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67092A7FE5AD00D2321B /* PersonalYearModel.swift */; };
@@ -92,7 +90,6 @@
 		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
 		8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
-		8411AB322A951AD500B3D2F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthVC.swift; sourceTree = "<group>"; };
 		8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthDatePicker.swift; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 		845EB1B72A657938003D6F5C /* Numerology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numerology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845EB1BA2A657939003D6F5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845EB1BC2A657939003D6F5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		845EB1BE2A657939003D6F5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		845EB1C32A65793E003D6F5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845EB1C82A65793E003D6F5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845EB1CE2A662E42003D6F5C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +144,6 @@
 		84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesViewController.swift; sourceTree = "<group>"; };
 		84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCVCell.swift; sourceTree = "<group>"; };
 		84AC67012A7C6DAB00D2321B /* ChipsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsButton.swift; sourceTree = "<group>"; };
-		84AC67032A7F040F00D2321B /* TESTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TESTViewController.swift; sourceTree = "<group>"; };
 		84AC67052A7FDA0800D2321B /* PersonalDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDayModel.swift; sourceTree = "<group>"; };
 		84AC67072A7FE12100D2321B /* PersonalMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthModel.swift; sourceTree = "<group>"; };
 		84AC67092A7FE5AD00D2321B /* PersonalYearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYearModel.swift; sourceTree = "<group>"; };
@@ -163,6 +158,7 @@
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCVCell.swift; sourceTree = "<group>"; };
 		84D870A02A8D035600ACACA8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		84D9CB4F2AACE01C00809B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EEF4982AA20C7E0054B430 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Numerology.entitlements; sourceTree = "<group>"; };
 		DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +241,6 @@
 				8411AB292A9208DA00B3D2F4 /* IAP */,
 				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
 				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
-				845EB1BE2A657939003D6F5C /* ViewController.swift */,
 				845EB1D92A6664D9003D6F5C /* View */,
 				845EB1D82A6664C1003D6F5C /* ViewController */,
 				8492D0912A6EA78500761312 /* APIManager */,
@@ -268,7 +263,6 @@
 				84AC66F32A7941F500D2321B /* Onboarding */,
 				8492D0862A6D935200761312 /* EditProfileVC.swift */,
 				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
-				84AC67032A7F040F00D2321B /* TESTViewController.swift */,
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
 				84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */,
 			);
@@ -464,6 +458,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 845EB1AE2A657938003D6F5C;
 			packageReferences = (
@@ -554,9 +549,7 @@
 				84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */,
 				845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */,
 				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
-				84AC67042A7F041000D2321B /* TESTViewController.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
-				845EB1BF2A657939003D6F5C /* ViewController.swift in Sources */,
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
 				84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */,
 				84420CCE2A728DF500DE1812 /* Extension_UIImage.swift in Sources */,
@@ -615,7 +608,7 @@
 		845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8411AB322A951AD500B3D2F4 /* en */,
+				84D9CB4F2AACE01C00809B70 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -745,7 +738,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.42;
+				CURRENT_PROJECT_VERSION = 1.45;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -761,7 +754,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.1;
+				MARKETING_VERSION = 3.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -778,7 +771,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.42;
+				CURRENT_PROJECT_VERSION = 1.45;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -794,7 +787,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.1;
+				MARKETING_VERSION = 3.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -39,8 +39,6 @@ class DescriptionView: UIView {
         super.init(frame: frame)
         
         self.translatesAutoresizingMaskIntoConstraints = false
-//        self.backgroundColor = .systemGray
-        
         
         self.addSubview(numberBG)
         self.addSubview(lableDescription)
@@ -53,9 +51,7 @@ class DescriptionView: UIView {
             
             
             numberBG.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-//            numberBG.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             numberBG.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-//            numberBG.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
         ])
     }
     

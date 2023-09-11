@@ -22,12 +22,9 @@ class CompatibilityViewController: UIViewController {
     let userNumber : UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-//        l.font = UIFont.systemFont(ofSize: 100, weight: .semibold)
         l.font = UIFont(name: "Cinzel-Regular", size: 80)
         l.text = "0"
         l.textAlignment = .center
-//        l.numberOfLines = 0
-        
         return l
     }()
     // MARK: user Lable
@@ -37,7 +34,6 @@ class CompatibilityViewController: UIViewController {
         l.font = UIFont(name: "SourceSerifPro-Regular", size: 26)
         l.text = "User"
         l.textAlignment = .center
-//        l.numberOfLines = 0
         
         return l
     }()
@@ -46,12 +42,9 @@ class CompatibilityViewController: UIViewController {
     let partnerNumber : UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-//        l.font = UIFont.systemFont(ofSize: 100, weight: .semibold)
         l.font = UIFont(name: "Cinzel-Regular", size: 80)
         l.text = "0"
         l.textAlignment = .center
-//        l.numberOfLines = 0
-        
         return l
     }()
     // MARK: Partner Lable
@@ -61,8 +54,6 @@ class CompatibilityViewController: UIViewController {
         l.font = UIFont(name: "SourceSerifPro-Regular", size: 26)
         l.text = "Partner"
         l.textAlignment = .center
-//        l.numberOfLines = 0
-        
         return l
     }()
     
@@ -73,8 +64,6 @@ class CompatibilityViewController: UIViewController {
         l.font = UIFont.systemFont(ofSize: 40, weight: .thin)
         l.text = "+"
         l.textAlignment = .center
-//        l.numberOfLines = 0
-//        l.backgroundColor = .systemBlue
         
         NSLayoutConstraint.activate([
             l.widthAnchor.constraint(equalToConstant: 50)
@@ -189,9 +178,6 @@ class CompatibilityViewController: UIViewController {
         numbersStack.alignment = .center
         numbersStack.axis = .horizontal
         numbersStack.distribution = .equalSpacing
-//        numbersStack.distribution = .equalCentering
-//        numbersStack.spacing = 0
-//        numbersStack.backgroundColor = .orange
         
         // MARK: description View + Border
         let descriptionView: UIView = {

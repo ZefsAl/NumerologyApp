@@ -30,7 +30,6 @@ class FirebaseManager {
             
             if let random = documents.randomElement() {
                 
-                //                print(random.documentID)
                 do {
                     let val = try random.data(as: BoardOfDayModel.self)
                     completion(val)
@@ -92,7 +91,7 @@ class FirebaseManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: NumbersOfDestinyModel.self)
-                    //                   completion(val, nil)
+
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
@@ -129,7 +128,6 @@ class FirebaseManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: NumbersOfNameModel.self)
-                    //                   completion(val, nil)
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
@@ -165,7 +163,6 @@ class FirebaseManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: NumbersOfMoneyModel.self)
-                    //                   completion(val, nil)
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
@@ -202,7 +199,6 @@ class FirebaseManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: PowerCodeModel.self)
-                    //                   completion(val, nil)
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
@@ -365,8 +361,6 @@ class FirebaseManager {
                 do {
                     let val = try doc.data(as: NumerologyIsModel.self)
                     newArr.append(val)
-//                    print("\(val.number)")
-//                    print("\(val.infoNumerology)")
                 }
                 catch {
                     print("Error when trying to decode book: \(error)")

@@ -42,13 +42,10 @@ class PaywallViewController: UIViewController {
         
         l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         l.numberOfLines = 0
-        //        l.font = UIFont(name: "Cinzel-Regular", size: 34)
         l.textAlignment = .left
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.attributedText = NSMutableAttributedString(string: "Full access by subscription!",attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        
-        
         return l
     }()
     
@@ -58,7 +55,6 @@ class PaywallViewController: UIViewController {
         
         l.textColor = .white
         l.numberOfLines = 0
-        //        l.font = UIFont(name: "Cinzel-Regular", size: 15)
         l.textAlignment = .left
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
@@ -72,7 +68,6 @@ class PaywallViewController: UIViewController {
         
         l.textColor = .white
         l.numberOfLines = 0
-        //        l.font = UIFont(name: "Cinzel-Regular", size: 15)
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.attributedText = NSMutableAttributedString(string: "Learn about your life stages, partner compatibility and more...",attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.paragraphStyle: paragraphStyle])
@@ -93,7 +88,6 @@ class PaywallViewController: UIViewController {
     let paymentSubtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        //        l.font = UIFont.systemFont(ofSize: 13, weight: .light)
         l.font = UIFont(name: "SourceSerifPro-Light", size: 13)
         l.text = "Plan automatically renews monthly until canceled."
         l.numberOfLines = 0
@@ -326,7 +320,6 @@ class PaywallViewController: UIViewController {
         super.viewDidLoad()
         
         // Style BG
-        //        view.backgroundColor = .systemGray4
         setBackground(named: "SplashScreen.png")
         self.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
@@ -345,11 +338,6 @@ class PaywallViewController: UIViewController {
         
     }
     
-    // MARK: view Did Appear
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //    }
-    
     // MARK: Initialize IAP
     func initializeIAP() {
         
@@ -363,14 +351,6 @@ class PaywallViewController: UIViewController {
                 self.contentCollectionView.reloadData()
             }
         }
-        
-        // MARK: get Customer Info
-        //        Purchases.shared.getCustomerInfo { (customerInfo, error) in
-        ////            if customerInfo?.entitlements["Access"]?.isActive == true {
-        ////                // Nav
-        ////                self.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        ////            }
-        //        }
         
         
         // Restore
@@ -397,13 +377,8 @@ class PaywallViewController: UIViewController {
         docsStack.spacing = 0
         docsStack.distribution = .fillEqually
         
-        
-        // Scroll View
-        //        self.paymentSubtitle_SV.addSubview(paymentSubtitle)
-        //        paymentSubtitle_SV.contentSize = CGSize(width: paymentSubtitle.frame.size.width, height: paymentSubtitle.frame.size.height)
-        
         // Button Stack
-        let buttonStack = UIStackView(arrangedSubviews: [paymentSubtitle,purchaseButton]) // , paymentSubtitle_SV
+        let buttonStack = UIStackView(arrangedSubviews: [paymentSubtitle,purchaseButton])
         buttonStack.axis = .vertical
         //        buttonStack.alignment = .fill // для Scroll view
         buttonStack.alignment = .fill
@@ -414,7 +389,6 @@ class PaywallViewController: UIViewController {
         let subscriptionStack = UIStackView(arrangedSubviews: [subscriptionLable, subscriptionSwitch])
         subscriptionStack.axis = .horizontal
         subscriptionStack.alignment = .center
-        //        subscriptionStack.distribution = .fill
         subscriptionStack.spacing = 0
         
         // Top Content Stack
@@ -434,19 +408,13 @@ class PaywallViewController: UIViewController {
         // Top And Middle Stack
         let topAndMiddleStack = UIStackView(arrangedSubviews: [topContentStack,middleContentStack])
         topAndMiddleStack.axis = .vertical
-        //        topAndMiddleStack.alignment = .fill
-        //        topAndMiddleStack.distribution = .fill
         topAndMiddleStack.spacing = 32
         
         // Bottom Content Stack
         let bottomContentStack = UIStackView(arrangedSubviews: [UIView(),buttonStack,docsStack])
         bottomContentStack.axis = .vertical
         bottomContentStack.alignment = .center
-        //        bottomContentStack.distribution = .fill
         bottomContentStack.spacing = 10
-        //        bottomContentStack.backgroundColor = .purple
-        
-        
         
         // Content Stack
         let contentStack = UIStackView(arrangedSubviews: [topAndMiddleStack,UIView(),bottomContentStack])
@@ -460,15 +428,6 @@ class PaywallViewController: UIViewController {
         // MARK: Constraint
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            
-            // Уведомление перед покупкой !!!
-            //            paymentSubtitle.widthAnchor.constraint(equalTo: paymentSubtitle_SV.widthAnchor, constant: 0),
-            //            paymentSubtitle.topAnchor.constraint(equalTo: paymentSubtitle_SV.topAnchor),
-            //            paymentSubtitle.bottomAnchor.constraint(equalTo: paymentSubtitle_SV.bottomAnchor),
-            //            paymentSubtitle.leadingAnchor.constraint(equalTo: paymentSubtitle_SV.leadingAnchor),
-            //            paymentSubtitle.trailingAnchor.constraint(equalTo: paymentSubtitle_SV.trailingAnchor),
-            //            paymentSubtitle_SV.heightAnchor.constraint(equalToConstant: 34),
-            
             
             purchaseButton.leadingAnchor.constraint(equalTo: buttonStack.leadingAnchor, constant: 0),
             purchaseButton.trailingAnchor.constraint(equalTo: buttonStack.trailingAnchor, constant: 0),

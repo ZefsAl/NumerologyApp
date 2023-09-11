@@ -32,16 +32,12 @@ class ThirdViewController: UIViewController {
             iv.widthAnchor.constraint(equalToConstant: 24).isActive = true
         
         b.addSubview(iv)
-//        iv.centerXAnchor.constraint(equalTo: b.centerXAnchor).isActive = true
         iv.centerYAnchor.constraint(equalTo: b.centerYAnchor).isActive = true
         
         iv.leadingAnchor.constraint(equalTo: b.leadingAnchor, constant: 16).isActive = true
         iv.trailingAnchor.constraint(equalTo: b.trailingAnchor, constant: -16).isActive = true
         
-        
         b.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//        b.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
         b.addTarget(Any?.self, action: #selector(buttonAction), for: .touchUpInside)
         
         return b
@@ -63,7 +59,6 @@ class ThirdViewController: UIViewController {
         tf.textAlignment = .center
         tf.rightViewMode = .never
         tf.leftViewMode = .never
-//        tf.heightAnchor.constraint(equalToConstant: 80).isActive = true
         tf.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.09019607843, blue: 0.1725490196, alpha: 1)
         tf.layer.borderColor = UIColor.clear.cgColor
         
@@ -80,7 +75,6 @@ class ThirdViewController: UIViewController {
             maxDateComponents.year = 2100
             let userCalendar = Calendar(identifier: .gregorian)
             
-//            let components = userCalendar.dateComponents([.year, .month, .day], from: date)
             if let start = userCalendar.date(from: minDateComponents),
                let end = userCalendar.date(from: maxDateComponents) {
                 dp.minimumDate = Date(timeInterval: 0, since: start)
@@ -121,9 +115,6 @@ class ThirdViewController: UIViewController {
         let strNumber = String(userNum) + String(partnerNum)
         
         guard let compatibility = Int(strNumber) else { return }
-        
-        
-        
     
         DispatchQueue.main.async {
             FirebaseManager().getCompatibility(number: compatibility) { model in
@@ -152,19 +143,8 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = .systemGray
         self.setBackground(named: "MainBG.png")
-        
-        configureNavView()
         setUpStack()
-    }
-    
-    
-
-    
-    
-    // MARK: Configure Nav View
-    private func configureNavView() {
     }
     
     // MARK: Set up Stack
@@ -176,7 +156,6 @@ class ThirdViewController: UIViewController {
         dateOfBirthStack.axis = .vertical
         dateOfBirthStack.alignment = .fill
         dateOfBirthStack.spacing = 10
-        
         
         // Fields Stack
         let fieldsStack = UIStackView(arrangedSubviews: [dateOfBirthStack,nextButton])
@@ -212,7 +191,6 @@ class ThirdViewController: UIViewController {
             fieldsStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -32),
             fieldsStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -32),
             
-//            nextButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

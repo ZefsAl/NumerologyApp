@@ -55,15 +55,10 @@ class DescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setBackground(named: "SecondaryBG.png")
         
         setUpStack()
-    }
-    
-    private func configureNavView() {
-//        self.navigationController?.navigationBar.backgroundColor = .black.withAlphaComponent(0.5)
     }
     
     // MARK: Configure
@@ -77,13 +72,9 @@ class DescriptionVC: UIViewController {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        
-//        mainTitle,info,about
         let contentStack = UIStackView(arrangedSubviews: [mainTitle,info,about])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
-//        contentStack.alignment = .fill
         contentStack.axis = .vertical
-//        contentStack.distribution = .fill
         contentStack.spacing = 20
 
         // cardView + Border
@@ -101,8 +92,6 @@ class DescriptionVC: UIViewController {
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(cardView)
         
-        
-//        let margin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             

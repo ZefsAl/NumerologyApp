@@ -15,8 +15,3 @@ func setDateFormat(date: Date) -> String {
     return df.string(from: date)
 }
 
-//func convertStringDate(from dateStr: String) -> Date {
-//    let df = DateFormatter()
-//    df.dateFormat = "MMddyyyy"
-//    return df.date(from: dateStr) ?? Date()
-//}

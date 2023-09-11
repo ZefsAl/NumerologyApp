@@ -72,12 +72,7 @@ extension PersonalMonthDatePicker: UIPickerViewDelegate, UIPickerViewDataSource 
         print(row1)
         print(strDate)
         
-        
-        
-        
         // DateFormatter не может преобразовать русский месяц в Date
-        
-        
         let df = DateFormatter()
 //        df.locale = Locale(identifier: "en_US")
         

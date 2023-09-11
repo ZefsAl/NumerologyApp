@@ -15,8 +15,6 @@ class HeaderUIView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
         l.text = String("Hello, NAME")
-//        l.textAlignment = .center
-        
         return l
     }()
     // MARK: Profile Icon
@@ -38,8 +36,6 @@ class HeaderUIView: UIView {
     let profileButton: UIButton = {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
-//        b.layer.cornerRadius = 12
-//        b.backgroundColor = UIColor.orange
         
         let configImage = UIImage(systemName: "person.crop.circle.fill",
                                   withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
@@ -50,17 +46,8 @@ class HeaderUIView: UIView {
         iv.centerXAnchor.constraint(equalTo: b.centerXAnchor).isActive = true
         iv.centerYAnchor.constraint(equalTo: b.centerYAnchor).isActive = true
         
-        
-//        b.addTarget(Any?.self, action: #selector(profileBtnAction), for: .touchUpInside)
-        
         return b
     }()
-    
-//    @objc func profileBtnAction() {
-//        print("profileBtnAction")
-//
-//        self.
-//    }
     
     
     // MARK: Today Date
@@ -69,7 +56,6 @@ class HeaderUIView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         l.text = String("Today")
-//        l.textAlignment = .center
         l.numberOfLines = 0
         return l
     }()
@@ -80,8 +66,6 @@ class HeaderUIView: UIView {
         l.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         l.text = String("My date ")
         l.numberOfLines = 0
-//        l.textAlignment = .center
-        
         return l
     }()
     
@@ -97,10 +81,6 @@ let shapeView = OvalShapeView()
 //        self.backgroundColor = .clear
         
         setUpStack()
-        
-
-        
-        
     }
     
     // MARK: Configure
@@ -119,8 +99,6 @@ let shapeView = OvalShapeView()
         // FIrst Layer
         self.addSubview(shapeView)
         
-        
-        
         let firstStack = UIStackView(arrangedSubviews: [helloTitle,profileButton])
         firstStack.axis = .horizontal
         firstStack.alignment = .center
@@ -129,7 +107,6 @@ let shapeView = OvalShapeView()
         let secondStack = UIStackView(arrangedSubviews: [todayDate,userDate])
         secondStack.translatesAutoresizingMaskIntoConstraints = false
         secondStack.axis = .horizontal
-//        secondStack.alignment = .
         secondStack.distribution = .equalCentering
         secondStack.spacing = 0
         

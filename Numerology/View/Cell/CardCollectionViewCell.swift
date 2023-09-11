@@ -83,7 +83,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         self.addSubview(bgImage)
         
-        
         let titleStack = UIStackView(arrangedSubviews: [title])
         titleStack.axis = .vertical
         titleStack.alignment = .center
@@ -94,7 +93,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         contentStack.distribution = .fill
         contentStack.alignment = .leading
         
-    
         
         self.addSubview(contentStack)
         

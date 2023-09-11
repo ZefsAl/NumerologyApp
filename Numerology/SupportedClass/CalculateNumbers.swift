@@ -738,17 +738,6 @@ class CalculateNumbers {
         
         print("Fourth number = \(fourthIndividualNumber)")
         
-        
-        
-        
-//        let receivedCollection: [Int : [Int : Int]] = [
-//            1 : [firstStage : firstIndividualNumber],
-//            2 : [secondStage : secondIndividualNumber],
-//            3 : [thirdStage : thirdIndividualNumber],
-//            4 : [fourthStage : fourthIndividualNumber],
-//        ]
-        
-        
         let model = LifeStagesCalculatedModel(
             firstStage: firstStage,
             firstIndividualNumber: firstIndividualNumber,

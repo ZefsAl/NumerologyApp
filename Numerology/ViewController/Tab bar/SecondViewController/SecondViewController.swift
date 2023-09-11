@@ -36,15 +36,11 @@ class SecondViewController: UIViewController {
 
         // Style
         view.backgroundColor = .systemGray
-        
-        
         setBackground()
         // Setup
-//        configureNavView()
         setupView()
         setConstraints()
         setStackContentSV()
-        
         
         // Delegate Collection View
         cardCollectionView.delegate = self
@@ -54,11 +50,6 @@ class SecondViewController: UIViewController {
         cardCollectionView.register(BigCardCVCell.self, forCellWithReuseIdentifier: BigCardCVCell().bigCardCVCID)
         
     }
-    
-    // MARK: View Did Appear
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -291,9 +282,6 @@ extension SecondViewController {
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -24),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
-            
-            // Example
-//            contentStack.heightAnchor.constraint(equalToConstant: 2000),
         ])
     }
 }

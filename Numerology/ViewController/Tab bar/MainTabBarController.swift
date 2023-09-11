@@ -23,12 +23,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.navigationController?.pushViewController(EditProfileVC(), animated: true)
     }
     
-    private let notificationCenter = NotificationCenter.default
-    
-    func some() {
-        
-    }
-    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -83,7 +77,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         fourthVC.tabBarItem.image = fourtImage
         let fourthTabNav = UINavigationController(rootViewController: fourthVC)
         
-        //
         self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
         
         
@@ -95,12 +88,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    // MARK: view Did Appear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-//        let name = Notification.Name(rawValue: "CheckAccessNotification")
-//        notificationCenter.addObserver(self, selector: #selector(checkUserAccess), name: name, object: nil)
-        
         
         var observer: NSKeyValueObservation?
         observer = UserDefaults.standard.observe(\.userAccess, options: [.initial, .new], changeHandler: { (defaults, change) in
@@ -111,7 +101,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 self.checkUserAccess()
             }
         })
-        
     }
     
     
@@ -142,6 +131,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 }
 
 extension MainTabBarController {
+    
     // MARK: Setup header View
     private func setHeaderView() {
         guard

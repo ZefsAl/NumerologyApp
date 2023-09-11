@@ -70,10 +70,6 @@ class PaywallCVCell: UICollectionViewCell {
         iv.contentMode = UIView.ContentMode.scaleAspectFit
         iv.tintColor = .clear
         
-        // bg color for icon
-//        iv.layer.cornerRadius = 20
-//        iv.backgroundColor = .clear
-        
         iv.heightAnchor.constraint(equalToConstant: 32).isActive = true
         iv.widthAnchor.constraint(equalToConstant: 32).isActive = true
         

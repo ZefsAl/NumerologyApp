@@ -98,7 +98,6 @@ class PersonalYearVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = .systemGray
         self.setBackground(named: "SecondaryBG.png")
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
@@ -158,7 +157,6 @@ class PersonalYearVC: UIViewController {
             fieldsStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -32),
             fieldsStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -32),
             
-//            nextButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

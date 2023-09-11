@@ -33,8 +33,6 @@ class FourthViewController: UIViewController {
     
     var modelsArr: [NumerologyIsModel] = []
     
-    
-    
     // MARK: view Did Load
     override func viewDidLoad() {
         super.viewDidLoad()

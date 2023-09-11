@@ -54,22 +54,12 @@ class PersonalDayVC: UIViewController {
         return l
     }()
     
-    
-//    // MARK: Custom Date Textfield
-//    let customDateTextfield: PersonalMonthTF = {
-//        let df = DateFormatter()
-//        df.dateFormat = "MMMM / yyyy"
-//        let todayPlaceholder = df.string(from: Date())
-//        let p = PersonalMonthTF(frame: .zero, setPlaceholder: todayPlaceholder)
-//        return p
-//    }()
     // MARK: Text Field + Date Picker
     let userEnterDateTF: RegularTextField = {
         let tf = RegularTextField(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
         tf.textAlignment = .center
         tf.rightViewMode = .never
         tf.leftViewMode = .never
-//        tf.heightAnchor.constraint(equalToConstant: 80).isActive = true
         tf.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.09019607843, blue: 0.1725490196, alpha: 1)
         tf.layer.borderColor = UIColor.clear.cgColor
         
@@ -86,7 +76,6 @@ class PersonalDayVC: UIViewController {
             maxDateComponents.year = 2100
             let userCalendar = Calendar(identifier: .gregorian)
             
-//            let components = userCalendar.dateComponents([.year, .month, .day], from: date)
             if let start = userCalendar.date(from: minDateComponents),
                let end = userCalendar.date(from: maxDateComponents) {
                 dp.minimumDate = Date(timeInterval: 0, since: start)
@@ -141,7 +130,6 @@ class PersonalDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        view.backgroundColor = .systemGray
         self.setBackground(named: "SecondaryBG.png")
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
@@ -165,7 +153,6 @@ class PersonalDayVC: UIViewController {
         dateOfBirthStack.axis = .vertical
         dateOfBirthStack.alignment = .fill
         dateOfBirthStack.spacing = 10
-        
         
         // Fields Stack
         let fieldsStack = UIStackView(arrangedSubviews: [dateOfBirthStack,nextButton])
@@ -201,7 +188,6 @@ class PersonalDayVC: UIViewController {
             fieldsStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -32),
             fieldsStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -32),
             
-            //            nextButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

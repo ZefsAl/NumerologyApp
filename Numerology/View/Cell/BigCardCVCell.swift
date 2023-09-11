@@ -79,7 +79,6 @@ class BigCardCVCell: UICollectionViewCell {
         iconStack.alignment = .bottom
         iconStack.distribution = .fill
         
-        
         let subTitleStack = UIStackView(arrangedSubviews: [subtitle, iconStack])
         subTitleStack.axis = .horizontal
         subTitleStack.alignment = .top
@@ -109,8 +108,6 @@ class BigCardCVCell: UICollectionViewCell {
             cardContent.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
             
 //            self.heightAnchor.constraint(equalToConstant: 142)
-            
-            
         ])
     }
 }

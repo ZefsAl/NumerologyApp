@@ -72,7 +72,7 @@ class LifeStagesViewController: UIViewController {
         if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
-//        cv.backgroundColor = .systemBlue
+
         return cv
     }()
     
@@ -169,13 +169,12 @@ class LifeStagesViewController: UIViewController {
         contentStack.distribution = .fill
         contentStack.alignment = .fill
         contentStack.spacing = 24
-//        contentStack.backgroundColor = .systemOrange
         
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
         
-        let margin = self.view.layoutMarginsGuide
+//        let margin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
@@ -183,11 +182,11 @@ class LifeStagesViewController: UIViewController {
             descriptionStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
             descriptionStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
             descriptionStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -16),
-//
+
             
             buttonsCollectionView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             buttonsCollectionView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
-//
+
             contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 24),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
@@ -279,8 +278,6 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
             self.info.text = fourthModel?.infoStages
             self.about.text = fourthModel?.aboutStages
         }
-        
-        
         
         print("You selected cell #\(indexPath.item)!")
     }

@@ -19,7 +19,6 @@ class UserEnterDataVC: UIViewController {
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.attributedText = NSMutableAttributedString(string: "Just two steps!", attributes: [NSAttributedString.Key.kern: -1.92, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        // Line height: 67.2 pt
         l.textAlignment = .center
         
         return l
@@ -119,7 +118,7 @@ class UserEnterDataVC: UIViewController {
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
-        let userInfo = sender.userInfo!
+//        let userInfo = sender.userInfo!
 //        let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
 
 //        self.view.frame.origin.y = self.view.frame.origin.y + keyboardHeight
@@ -172,9 +171,6 @@ class UserEnterDataVC: UIViewController {
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            
-//            nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
-//            nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
             
             contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 16),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36),

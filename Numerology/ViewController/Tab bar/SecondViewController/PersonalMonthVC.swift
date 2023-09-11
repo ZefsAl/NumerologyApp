@@ -56,7 +56,6 @@ class PersonalMonthVC: UIViewController {
     // MARK: Custom Date Textfield
     let customDateTextfield: PersonalMonthTF = {
         let df = DateFormatter()
-//        df.dateFormat = "MMMM / yyyy"
         let langStr = Locale.current.languageCode
         if langStr == "ru" {
             df.dateFormat = "LLLL / yyyy"
@@ -73,7 +72,6 @@ class PersonalMonthVC: UIViewController {
     // MARK: button Action
     @objc func buttonAction() {
         print("button Action")
-        
         
         // Get data
         guard
@@ -108,7 +106,6 @@ class PersonalMonthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = .systemGray
         self.setBackground(named: "SecondaryBG.png")
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         
@@ -168,7 +165,6 @@ class PersonalMonthVC: UIViewController {
             fieldsStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -32),
             fieldsStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -32),
             
-//            nextButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     

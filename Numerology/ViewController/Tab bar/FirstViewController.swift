@@ -17,9 +17,6 @@ class FirstViewController: UIViewController {
     var numbersOfMoneyModel: NumbersOfMoneyModel?
     var powerCodeModel: PowerCodeModel?
     
-    
-    
-    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
        let sv = UIScrollView()
@@ -30,14 +27,6 @@ class FirstViewController: UIViewController {
     }()
     
     let cardCollectionView = ContentCollectionView()
-    
-    
-    
-    
-    
-    
-    
-    
     
     // MARK: View Did load
     override func viewDidLoad() {
@@ -52,29 +41,12 @@ class FirstViewController: UIViewController {
         setConstraints()
         setStackContentSV()
         
-        
-        
-        
         // Delegate Collection View
         cardCollectionView.delegate = self
         cardCollectionView.dataSource = self
         
         cardCollectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell().cardCollectionID)
         cardCollectionView.register(BigCardCVCell.self, forCellWithReuseIdentifier: BigCardCVCell().bigCardCVCID)
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    // MARK: View Did Appear // GRADIENT
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        Gradients().setBlackGradient(forView: self.tipCardView)
     }
     
     // MARK: viewWillAppear
@@ -87,11 +59,6 @@ class FirstViewController: UIViewController {
     // MARK: Setup View
     private func setupView() {
         view.addSubview(contentScrollView)
-    }
-    
-    // MARK: Configure Nav View
-    private func configureNavView() {
-        
     }
 }
 
@@ -110,7 +77,6 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: BigCardCVCell().bigCardCVCID, for: indexPath as IndexPath) as! BigCardCVCell
         
-//        cell.configure(title: self.items[indexPath.row], subtitle: nil, bgImage: nil)
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
         let name = UserDefaults.standard.object(forKey: "nameKey") as? String
         let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
@@ -122,7 +88,6 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 self.boardOfDayModel = model
                 
                 UserDefaults.standard.setDayTipModel(model: model)
-//                UserDefaults.standard.synchronize()
                 
                 bigCell.configure(
                     title: "Your tip of the day!",
@@ -223,10 +188,6 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         
         // MARK: Tip // 0
         if indexPath.row == 0 {
-            // Show alert
-            // Идея Валидировать разрешение уведомления
-//            print(self.isUserAllowNotification())
-//            guard self.isUserAllowNotification() == true else { return }
             
             let vc = DescriptionVC()
             vc.configure(
@@ -384,7 +345,6 @@ extension FirstViewController {
 
         contentScrollView.addSubview(contentStack)
         
-        
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
@@ -393,9 +353,6 @@ extension FirstViewController {
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -24),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
-            
-            // Example
-//            contentStack.heightAnchor.constraint(equalToConstant: 2000),
         ])
     }
 }

@@ -20,7 +20,6 @@ class UserEnterDateOfBirthVC: UIViewController {
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.attributedText = NSMutableAttributedString(string: "You're almost there!", attributes: [NSAttributedString.Key.kern: -1.92, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        // Line height: 67.2 pt
         l.textAlignment = .center
         
         return l
@@ -136,7 +135,6 @@ class UserEnterDateOfBirthVC: UIViewController {
         super.viewDidLoad()
         
         self.setBackground(named: "EnterDataBG2.png")
-        
         setUpStack()
     }
     
@@ -175,9 +173,6 @@ class UserEnterDateOfBirthVC: UIViewController {
         self.view.addSubview(contentStack)
         
         NSLayoutConstraint.activate([
-            
-            //            nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
-            //            nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
             
             contentStack.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36),

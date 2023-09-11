@@ -29,15 +29,11 @@ class RegularBigButton: UIButton {
 
         iv.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        
         let configImage = UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold))
         
         iv.image = configImage
-
         iv.contentMode = UIView.ContentMode.scaleAspectFill
         iv.tintColor = .white
-        
         iv.heightAnchor.constraint(equalToConstant: 20).isActive = true
         iv.widthAnchor.constraint(equalToConstant: 20).isActive = true
         
@@ -56,23 +52,18 @@ class RegularBigButton: UIButton {
         // config
         self.lable.text = lable
         setUpStack()
-        
     }
     
     
     
     private func setUpStack() {
         
-        
         let contentStack = UIStackView(arrangedSubviews: [lable,buttonIcon])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .horizontal
-//        contentStack.distribution = .
         contentStack.alignment = .center
         contentStack.spacing = 12
         contentStack.isUserInteractionEnabled = false
-        
-        
         
         self.addSubview(contentStack)
         NSLayoutConstraint.activate([
@@ -81,11 +72,6 @@ class RegularBigButton: UIButton {
             contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             self.heightAnchor.constraint(equalToConstant: 64),
-            
-//            contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-//            contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-//            contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-//            contentStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
         ])
     }
     

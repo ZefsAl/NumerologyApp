@@ -108,13 +108,6 @@ class EditProfileVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-
-//    func configureEditData() {
-//
-//    }
-
-
-    
     // MARK: Configure Nav View
     private func configureNavView() {
         self.title = "Profile"
@@ -141,10 +134,10 @@ class EditProfileVC: UIViewController {
             return
         }
         
-        print(userNameField.text)
-        print(userSurnameField.text)
-        print(newDateOfBirth)
-        print(userDateOfBirthField.text)
+//        print(userNameField.text)
+//        print(userSurnameField.text)
+//        print(newDateOfBirth)
+//        print(userDateOfBirthField.text)
         
         if nameVal != "" && surnameVal != "" && dateOfBirthVal != "" {
             UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
@@ -161,13 +154,6 @@ class EditProfileVC: UIViewController {
     
     // MARK: Set up Stack
     private func setUpStack() {
-
-        
-        // titles Stack
-//        let titlesStack = UIStackView(arrangedSubviews: [largeTitle,subtitle])
-//        titlesStack.axis = .vertical
-//        titlesStack.alignment = .fill
-//        titlesStack.spacing = 10
         
         // Name Field Stack
         let nameFieldStack = UIStackView(arrangedSubviews: [nameFieldTitle,userNameField])
@@ -193,8 +179,6 @@ class EditProfileVC: UIViewController {
         fieldsStack.alignment = .fill
         fieldsStack.spacing = 40
         
-        
-        
         // Content Stack
         let contentStack = UIStackView(arrangedSubviews: [fieldsStack,UIView()])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
@@ -207,7 +191,6 @@ class EditProfileVC: UIViewController {
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-//            nextButton.heightAnchor.constraint(equalToConstant: 50),
             
             contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
@@ -230,20 +213,9 @@ extension EditProfileVC {
         else {
             return
         }
-        
-//        let todayDate: String = setDateFormat(date: Date())
-//        let userDate: String = setDateFormat(date: dateOfBirth)
-        
-        
+
         self.userNameField.text = name
         self.userSurnameField.text = surname
         self.userDateOfBirthField.text = setDateFormat(date: dateOfBirth)
-//        let defaults = UserDefaults.standard.self
-//        header.configure(
-//            helloTitle: name,
-//            todayDate: todayDate,
-//            userDate: userDate
-//        )
-
     }
 }

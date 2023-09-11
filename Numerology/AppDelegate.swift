@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return nav
     }()
     
-//    private let notificationCenter = NotificationCenter.default
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // MARK: App Style
@@ -57,25 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func appScreenConfiguration() {
         
-        
-        // delete
-        //                UserDefaults.standard.removeObject(forKey: "nameKey")
-        //                UserDefaults.standard.removeObject(forKey: "surnameKey")
-        //                UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
-        //                UserDefaults.standard.synchronize()
-        
         // Test
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-        
-        // MARK: TEST
-        //        let testVC: UINavigationController = {
-        //            let nav = UINavigationController(rootViewController: MainTabBarController())
-        //            return nav
-        //        }()
-        //        window?.rootViewController = testVC
-        
         
         // MARK: App Config
         if
@@ -94,6 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+// MARK: PurchasesDelegate
 extension AppDelegate: PurchasesDelegate {
     
     // Т.к этот метод purchases вызывается 2 раза (как я понял), идея была после 2 вызова -> Сообщить Observer'y и вызвать paywall т.к при определенных условиях paywall не открывается.
@@ -105,6 +89,9 @@ extension AppDelegate: PurchasesDelegate {
             print("User have premium!")
             UserDefaults.standard.setValue(true, forKey: "UserAccessObserverKey")
             UserDefaults.standard.synchronize()
+            // unregister
+            UIApplication.shared.unregisterForRemoteNotifications()
+            print("isRegistered: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
         } else {
             print("User not subscribe")
             UserDefaults.standard.setValue(false, forKey: "UserAccessObserverKey")
@@ -129,13 +116,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }
+            
         }
-        // Хотел обработать отсутствие разрешения
-//        UNUserNotificationCenter.current().getNotificationSettings() { (settings) in
-//            if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
-//                self.requestAllowNotification()
-//            }
-//        }
     }
     
     // MARK: Configure Token FCM
