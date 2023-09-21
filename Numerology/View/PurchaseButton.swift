@@ -14,7 +14,7 @@ class PurchaseButton: UIButton {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
         l.textColor = .white
-        l.font = UIFont(name: "Cinzel-Bold", size: 20)
+        l.font = UIFont(weight: .bold, size: 20)
         l.text = "Try it".uppercased()
         return l
     }()
@@ -34,7 +34,7 @@ class PurchaseButton: UIButton {
         // Style
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
-        self.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])

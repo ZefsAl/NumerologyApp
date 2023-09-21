@@ -10,7 +10,6 @@
 		4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */; };
 		8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */; };
 		8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */; };
-		8428CF6D2A963C4B00C7AA5D /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */; };
 		8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */; };
 		8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */; };
 		8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */; };
@@ -77,6 +76,16 @@
 		84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67112A802FE000D2321B /* DescriptionView.swift */; };
 		84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67132A810DBE00D2321B /* CompatibilityModel.swift */; };
 		84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67152A81180B00D2321B /* CompatibilityViewController.swift */; };
+		84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */; };
+		84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */; };
+		84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A842AB73820008A3B49 /* CustomCarousel_CV.swift */; };
+		84B99A882AB73A1E008A3B49 /* CarouselCard_CVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A872AB73A1E008A3B49 /* CarouselCard_CVCell.swift */; };
+		84B99A8A2AB88E5B008A3B49 /* RegularPromoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A892AB88E5B008A3B49 /* RegularPromoCVCell.swift */; };
+		84B99A8C2AB99D2D008A3B49 /* Extension_UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A8B2AB99D2D008A3B49 /* Extension_UIColor.swift */; };
+		84B99A8E2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A8D2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf */; };
+		84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A8F2AB9A3B0008A3B49 /* Extension_UIFont.swift */; };
+		84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A952AB9C712008A3B49 /* SourceSerifPro-Bold.ttf */; };
+		84B99A982ABA30DE008A3B49 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */; };
 		84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */; };
 		84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870972A892C0D00ACACA8 /* InfoDocModel.swift */; };
 		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
@@ -90,7 +99,6 @@
 		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
 		8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
-		8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthVC.swift; sourceTree = "<group>"; };
 		8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthDatePicker.swift; sourceTree = "<group>"; };
 		8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthTF.swift; sourceTree = "<group>"; };
@@ -153,6 +161,16 @@
 		84AC67112A802FE000D2321B /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		84AC67132A810DBE00D2321B /* CompatibilityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityModel.swift; sourceTree = "<group>"; };
 		84AC67152A81180B00D2321B /* CompatibilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityViewController.swift; sourceTree = "<group>"; };
+		84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallVC_V2.swift; sourceTree = "<group>"; };
+		84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPromoCVCell.swift; sourceTree = "<group>"; };
+		84B99A842AB73820008A3B49 /* CustomCarousel_CV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCarousel_CV.swift; sourceTree = "<group>"; };
+		84B99A872AB73A1E008A3B49 /* CarouselCard_CVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCard_CVCell.swift; sourceTree = "<group>"; };
+		84B99A892AB88E5B008A3B49 /* RegularPromoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularPromoCVCell.swift; sourceTree = "<group>"; };
+		84B99A8B2AB99D2D008A3B49 /* Extension_UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIColor.swift; sourceTree = "<group>"; };
+		84B99A8D2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Semibold.ttf"; sourceTree = "<group>"; };
+		84B99A8F2AB9A3B0008A3B49 /* Extension_UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIFont.swift; sourceTree = "<group>"; };
+		84B99A952AB9C712008A3B49 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
+		84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesCalculatedModel.swift; sourceTree = "<group>"; };
 		84D870972A892C0D00ACACA8 /* InfoDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDocModel.swift; sourceTree = "<group>"; };
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +206,7 @@
 				84D870A02A8D035600ACACA8 /* StoreKitManager.swift */,
 				846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */,
 				8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */,
-				8428CF6C2A963C4B00C7AA5D /* StoreKitTestCertificate.cer */,
+				84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -212,6 +230,9 @@
 				84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */,
 				84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */,
 				846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */,
+				84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */,
+				84B99A872AB73A1E008A3B49 /* CarouselCard_CVCell.swift */,
+				84B99A892AB88E5B008A3B49 /* RegularPromoCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -237,8 +258,6 @@
 		845EB1B92A657938003D6F5C /* Numerology */ = {
 			isa = PBXGroup;
 			children = (
-				84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */,
-				8411AB292A9208DA00B3D2F4 /* IAP */,
 				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
 				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
 				845EB1D92A6664D9003D6F5C /* View */,
@@ -248,7 +267,9 @@
 				845EB1E52A67F6C2003D6F5C /* SupportedClass */,
 				845EB1DC2A668D44003D6F5C /* Extensions */,
 				84AA6AEC2AA4E48900BF6C0D /* Fonts */,
+				8411AB292A9208DA00B3D2F4 /* IAP */,
 				845EB1C32A65793E003D6F5C /* Assets.xcassets */,
+				84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */,
 				845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */,
 				845EB1C82A65793E003D6F5C /* Info.plist */,
 				84AA6AEA2AA4A54600BF6C0D /* GoogleService-Info.plist */,
@@ -265,6 +286,7 @@
 				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
 				84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */,
+				84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -275,9 +297,9 @@
 				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
 				84420CD32A73EBBF00DE1812 /* Cell */,
+				84B99A862AB7385E008A3B49 /* CollectionView */,
 				845EB1D62A663F60003D6F5C /* HeaderUIView.swift */,
 				845EB1E72A68124E003D6F5C /* OvalShapeView.swift */,
-				845EB1E32A67E4F7003D6F5C /* ContentCollectionView.swift */,
 				845EB1EE2A697F58003D6F5C /* RegularTextField.swift */,
 				84AC66F92A7BE4D900D2321B /* RegularBigButton.swift */,
 				84AC67012A7C6DAB00D2321B /* ChipsButton.swift */,
@@ -294,6 +316,8 @@
 				845EB1F12A6A509D003D6F5C /* Extension_UserDefaults.swift */,
 				84420CCD2A728DF400DE1812 /* Extension_UIImage.swift */,
 				84420CD12A72D6FB00DE1812 /* Extension_UIViewController.swift */,
+				84B99A8B2AB99D2D008A3B49 /* Extension_UIColor.swift */,
+				84B99A8F2AB9A3B0008A3B49 /* Extension_UIFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,8 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				845EB1DD2A668D63003D6F5C /* Gradients.swift */,
-				84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */,
-				8492D0832A6BDD6500761312 /* DateFormat.swift */,
 			);
 			path = SupportedClass;
 			sourceTree = "<group>";
@@ -345,6 +367,8 @@
 				84AC67132A810DBE00D2321B /* CompatibilityModel.swift */,
 				84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */,
 				84D870972A892C0D00ACACA8 /* InfoDocModel.swift */,
+				84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */,
+				8492D0832A6BDD6500761312 /* DateFormat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,6 +380,8 @@
 				84AA6AFA2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf */,
 				84AA6AF22AA4E82800BF6C0D /* Cinzel-Regular.ttf */,
 				84AA6AF52AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf */,
+				84B99A8D2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf */,
+				84B99A952AB9C712008A3B49 /* SourceSerifPro-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -376,6 +402,15 @@
 				84AC66F52A79428700D2321B /* OnboardingSlideView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		84B99A862AB7385E008A3B49 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				84B99A842AB73820008A3B49 /* CustomCarousel_CV.swift */,
+				845EB1E32A67E4F7003D6F5C /* ContentCollectionView.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		84D870942A8677D600ACACA8 /* SecondViewController */ = {
@@ -478,12 +513,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8428CF6D2A963C4B00C7AA5D /* StoreKitTestCertificate.cer in Resources */,
+				84B99A8E2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf in Resources */,
 				845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */,
+				84B99A982ABA30DE008A3B49 /* StoreKitTestCertificate.cer in Resources */,
 				84AA6AEB2AA4A54600BF6C0D /* GoogleService-Info.plist in Resources */,
 				8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */,
 				84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */,
 				845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */,
+				84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */,
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
 				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
 				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
@@ -540,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84AC66FC2A7C175100D2321B /* SecondViewController.swift in Sources */,
+				84B99A8C2AB99D2D008A3B49 /* Extension_UIColor.swift in Sources */,
 				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				84420CD22A72D6FB00DE1812 /* Extension_UIViewController.swift in Sources */,
 				84420CD02A7297EE00DE1812 /* DescriptionVC.swift in Sources */,
@@ -551,6 +589,7 @@
 				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
+				84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */,
 				84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */,
 				84420CCE2A728DF500DE1812 /* Extension_UIImage.swift in Sources */,
 				8496CA342A77FB4900FB9592 /* NumbersOfMoneyModel.swift in Sources */,
@@ -562,17 +601,20 @@
 				845EB1D32A6630C3003D6F5C /* MainTabBarController.swift in Sources */,
 				8437D3D92A862A59003592A7 /* PersonalYearVC.swift in Sources */,
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
+				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
 				845EB1E82A68124E003D6F5C /* OvalShapeView.swift in Sources */,
 				84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */,
 				8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */,
 				8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */,
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
+				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
 				84AC670E2A7FFEB100D2321B /* FourthViewController.swift in Sources */,
 				8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */,
 				8492D0872A6D935200761312 /* EditProfileVC.swift in Sources */,
 				8492D0932A6EA7E500761312 /* FirebaseManager.swift in Sources */,
+				84B99A882AB73A1E008A3B49 /* CarouselCard_CVCell.swift in Sources */,
 				845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */,
 				84AC66F82A7BDF4700D2321B /* ThirdViewController.swift in Sources */,
 				84420CD52A73EC1A00DE1812 /* BigCardCVCell.swift in Sources */,
@@ -580,6 +622,7 @@
 				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
 				84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
+				84B99A8A2AB88E5B008A3B49 /* RegularPromoCVCell.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
@@ -589,6 +632,7 @@
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
+				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
 				846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */,
@@ -738,7 +782,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.45;
+				CURRENT_PROJECT_VERSION = 1.46;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -754,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.3;
+				MARKETING_VERSION = 3.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -771,7 +815,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.45;
+				CURRENT_PROJECT_VERSION = 1.46;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -787,7 +831,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.3;
+				MARKETING_VERSION = 3.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

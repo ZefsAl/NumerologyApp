@@ -110,15 +110,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func checkUserAccess() {
 
         // VC
-        let vc = PaywallViewController()
+//        let vc = PaywallViewController()
+        let vc2 = PaywallVC_V2()
 //         MARK: get Customer Info
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
 
             if customerInfo?.entitlements["Access"]?.isActive == true {
-                vc.dismiss(animated: true)
+                vc2.dismiss(animated: true)
                 print("Secondary Check: Have Access")
             } else {
-                    let navVC = UINavigationController(rootViewController: vc)
+                    let navVC = UINavigationController(rootViewController: vc2)
                     navVC.modalPresentationStyle = .overFullScreen
                     self.present(navVC, animated: true)
                 print("Secondary Check: No Access")

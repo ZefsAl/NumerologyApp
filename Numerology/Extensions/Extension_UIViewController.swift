@@ -78,8 +78,9 @@ extension UIViewController {
         let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as! Bool
         guard accessVal == false else { return true }
         
-        let vc = PaywallViewController()
-        let navVC = UINavigationController(rootViewController: vc)
+//        let vc = PaywallViewController()
+        let vc2 = PaywallVC_V2()
+        let navVC = UINavigationController(rootViewController: vc2)
         navVC.modalPresentationStyle = .overFullScreen
         self.present(navVC, animated: true)
         

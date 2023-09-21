@@ -24,7 +24,7 @@ class LifeStagesViewController: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("Years title 123")
+        l.text = String("")
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -35,7 +35,7 @@ class LifeStagesViewController: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("TitleTitle")
+        l.text = String("")
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -46,7 +46,7 @@ class LifeStagesViewController: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = "test testtest testtesttes ttest testtes ttesttest testte sttesttest testt esttesttest testtest testtest testtest testtest testtest"
+        l.text = ""
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -57,7 +57,7 @@ class LifeStagesViewController: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = "test testtest testtesttes ttest testtes ttesttest testte sttesttest testt esttesttest testtest testtest testtest testtest testtest"
+        l.text = ""
         l.textAlignment = .left
         l.numberOfLines = 0
         

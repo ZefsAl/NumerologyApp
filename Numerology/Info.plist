@@ -10,6 +10,8 @@
 		<string>Cinzel-Regular.ttf</string>
 		<string>SourceSerifPro-Light.ttf</string>
 		<string>SourceSerifPro-Regular.ttf</string>
+		<string>SourceSerifPro-Semibold.ttf</string>
+		<string>SourceSerifPro-Bold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

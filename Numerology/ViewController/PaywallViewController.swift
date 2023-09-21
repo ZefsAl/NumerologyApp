@@ -106,8 +106,6 @@ class PaywallViewController: UIViewController {
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.attributedText = NSMutableAttributedString(string: "Not sure yet?\nEnable 7-day free trial!",attributes: [NSAttributedString.Key.kern: -0.8, NSAttributedString.Key.paragraphStyle: paragraphStyle])
-        
-        
         return l
     }()
     
@@ -228,7 +226,6 @@ class PaywallViewController: UIViewController {
         b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
     }()
-    
     @objc func termsOfUseAct() {
         print("termsOfUseAct")
         
