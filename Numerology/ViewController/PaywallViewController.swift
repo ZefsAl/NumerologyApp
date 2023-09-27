@@ -164,7 +164,7 @@ class PaywallViewController: UIViewController {
     
     // MARK: Purchase Button
     let purchaseButton: PurchaseButton = {
-        let b = PurchaseButton()
+        let b = PurchaseButton(frame: .zero, title: "Continue")
         b.addTarget(Any?.self, action: #selector(actPurchaseButton), for: .touchUpInside)
         return b
     }()

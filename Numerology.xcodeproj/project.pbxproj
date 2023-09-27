@@ -43,6 +43,8 @@
 		845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1F12A6A509D003D6F5C /* Extension_UserDefaults.swift */; };
 		846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */; };
 		846FC5F62A90A1BB0011EF01 /* OnlyLableCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */; };
+		848DFACA2AC3798E0043512C /* MiniPromoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DFAC92AC3798E0043512C /* MiniPromoCVCell.swift */; };
+		848DFACC2AC41BDF0043512C /* Mini2PromoCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848DFACB2AC41BDE0043512C /* Mini2PromoCVCell.swift */; };
 		8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0812A6AD91000761312 /* UserEnterDateOfBirthVC.swift */; };
 		8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0832A6BDD6500761312 /* DateFormat.swift */; };
 		8492D0872A6D935200761312 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492D0862A6D935200761312 /* EditProfileVC.swift */; };
@@ -85,7 +87,7 @@
 		84B99A8E2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A8D2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf */; };
 		84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A8F2AB9A3B0008A3B49 /* Extension_UIFont.swift */; };
 		84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A952AB9C712008A3B49 /* SourceSerifPro-Bold.ttf */; };
-		84B99A982ABA30DE008A3B49 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */; };
+		84B99A9E2AC00F90008A3B49 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 84B99A9D2AC00F8F008A3B49 /* StoreKitTestCertificate.cer */; };
 		84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */; };
 		84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870972A892C0D00ACACA8 /* InfoDocModel.swift */; };
 		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
@@ -129,6 +131,8 @@
 		845EB1F12A6A509D003D6F5C /* Extension_UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UserDefaults.swift; sourceTree = "<group>"; };
 		846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKit2Manager.swift; sourceTree = "<group>"; };
 		846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyLableCVCell.swift; sourceTree = "<group>"; };
+		848DFAC92AC3798E0043512C /* MiniPromoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPromoCVCell.swift; sourceTree = "<group>"; };
+		848DFACB2AC41BDE0043512C /* Mini2PromoCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini2PromoCVCell.swift; sourceTree = "<group>"; };
 		8492D0812A6AD91000761312 /* UserEnterDateOfBirthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEnterDateOfBirthVC.swift; sourceTree = "<group>"; };
 		8492D0832A6BDD6500761312 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		8492D0862A6D935200761312 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
@@ -170,7 +174,7 @@
 		84B99A8D2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Semibold.ttf"; sourceTree = "<group>"; };
 		84B99A8F2AB9A3B0008A3B49 /* Extension_UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIFont.swift; sourceTree = "<group>"; };
 		84B99A952AB9C712008A3B49 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
-		84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		84B99A9D2AC00F8F008A3B49 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesCalculatedModel.swift; sourceTree = "<group>"; };
 		84D870972A892C0D00ACACA8 /* InfoDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDocModel.swift; sourceTree = "<group>"; };
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
@@ -206,7 +210,7 @@
 				84D870A02A8D035600ACACA8 /* StoreKitManager.swift */,
 				846FC5F32A8F97820011EF01 /* StoreKit2Manager.swift */,
 				8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */,
-				84B99A972ABA30DE008A3B49 /* StoreKitTestCertificate.cer */,
+				84B99A9D2AC00F8F008A3B49 /* StoreKitTestCertificate.cer */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -230,9 +234,11 @@
 				84AC66FF2A7C663200D2321B /* ButtonCVCell.swift */,
 				84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */,
 				846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */,
-				84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */,
 				84B99A872AB73A1E008A3B49 /* CarouselCard_CVCell.swift */,
+				84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */,
 				84B99A892AB88E5B008A3B49 /* RegularPromoCVCell.swift */,
+				848DFAC92AC3798E0043512C /* MiniPromoCVCell.swift */,
+				848DFACB2AC41BDE0043512C /* Mini2PromoCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -515,7 +521,7 @@
 			files = (
 				84B99A8E2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf in Resources */,
 				845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */,
-				84B99A982ABA30DE008A3B49 /* StoreKitTestCertificate.cer in Resources */,
+				84B99A9E2AC00F90008A3B49 /* StoreKitTestCertificate.cer in Resources */,
 				84AA6AEB2AA4A54600BF6C0D /* GoogleService-Info.plist in Resources */,
 				8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */,
 				84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */,
@@ -603,6 +609,7 @@
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
+				848DFACA2AC3798E0043512C /* MiniPromoCVCell.swift in Sources */,
 				845EB1E82A68124E003D6F5C /* OvalShapeView.swift in Sources */,
 				84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */,
 				8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */,
@@ -635,6 +642,7 @@
 				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
+				848DFACC2AC41BDF0043512C /* Mini2PromoCVCell.swift in Sources */,
 				846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
 				845EB1DE2A668D63003D6F5C /* Gradients.swift in Sources */,
@@ -782,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.46;
+				CURRENT_PROJECT_VERSION = 1.47;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -798,7 +806,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.4;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -815,7 +823,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.46;
+				CURRENT_PROJECT_VERSION = 1.47;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -831,7 +839,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.4;
+				MARKETING_VERSION = 3.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

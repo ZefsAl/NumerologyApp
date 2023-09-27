@@ -13,12 +13,12 @@ final class CustomCarousel_CV: UICollectionView {
         CardContentModel(title: "Awesome App!",
                          date: "July 25.2023",
                          fullname: "John Doe",
-                         comment: "This app is truly fantastic, and it has completely transformed my perspective on numerology. I highly recommend it to everyone seeking profound insights!" ),
+                         comment: "This app is truly fantastic, and it has completely transformed my perspective on numerology. I highly recommend it to everyone seeking profound insights!"),
         
         CardContentModel(title: "Life-Changing!",
                          date: "August 12.2023",
                          fullname: "Sarah Smith",
-                         comment: "I've been using this app for months, and I'm amazed at the precision of its predictions. It's like having a personal numerologist in my pocket!"),
+                         comment: "I've been using this app for months, and I'm amazed at the precision of its predictions.\nIt's like having a personal numerologist in my pocket!"),
         
         CardContentModel(title: "Amazing!",
                          date: "September 05.2023",
@@ -47,25 +47,27 @@ final class CustomCarousel_CV: UICollectionView {
     
     private func setupCV_Layout() {
         
-//         layout settings 1 // Костыльно, но то что нужно
+//         layout settings 1 // то что нужно
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
-            heightDimension: NSCollectionLayoutDimension.estimated(200)
+            heightDimension: NSCollectionLayoutDimension.estimated(165)
         )
 
         let item = NSCollectionLayoutItem(layoutSize: size)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
-
-        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 38)
-
+        group.accessibilityScroll(.right)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 48)
+        
         let section = NSCollectionLayoutSection(group: group)
 //        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        section.interGroupSpacing = -30
+        section.interGroupSpacing = -48
         section.orthogonalScrollingBehavior = .groupPaging
         let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        
         self.collectionViewLayout = layout
         
-
+        self.alwaysBounceVertical = false
         
         // layout settings 2
 //        self.isPagingEnabled = true

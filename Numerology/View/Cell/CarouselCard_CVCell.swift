@@ -15,7 +15,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     private let mainTitle: UILabel = {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .regular, size: 24)
+        l.font = UIFont(weight: .regular, size: 20)
 //        l.text = "Amaizing App!"
         l.textColor = .white
         return l
@@ -26,7 +26,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         // Картинка все ломает по этому Emoji
         let l = UILabel()
         l.text = "⭐️⭐️⭐️⭐️⭐️"
-        l.font = UIFont.systemFont(ofSize: 15)
+        l.font = UIFont.systemFont(ofSize: 13)
         return l
     }()
     
@@ -35,7 +35,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "July 25.2023"
-        l.font = UIFont(weight: .regular, size: 13)
+        l.font = UIFont(weight: .regular, size: 11)
         l.numberOfLines = 0
         l.textAlignment = .right
         l.textColor = .lightGray
@@ -48,7 +48,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "Sonia Hale"
-        l.font = UIFont(weight: .regular, size: 15)
+        l.font = UIFont(weight: .regular, size: 13)
         l.numberOfLines = 0
         l.textAlignment = .right
         l.textColor = .white
@@ -60,7 +60,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "Subscriptions automatically renew unless auto-renew is turned off at least 24-hours before the end of the current subscription period."
-        l.font = UIFont(weight: .regular, size: 15)
+        l.font = UIFont(weight: .regular, size: 13)
         l.numberOfLines = 4
         l.textColor = .white
         
@@ -74,7 +74,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.backgroundColor = UIColor.CellColors().cellDefaultBG
+        self.backgroundColor = UIColor.CellColors().cellActiveBG
 //        // Border
         self.layer.cornerRadius = 16
         

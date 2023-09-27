@@ -13,9 +13,8 @@ class PurchaseButton: UIButton {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
-        l.textColor = .white
+        l.textColor = .lightGray
         l.font = UIFont(weight: .bold, size: 20)
-        l.text = "Try it".uppercased()
         return l
     }()
     
@@ -28,13 +27,18 @@ class PurchaseButton: UIButton {
         return aiv
     }()
     
+    override var isTouchInside: Bool {
+        animateButton()
+        return true
+    }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, title: String) {
+        lable.text = title
         super.init(frame: frame)
         // Style
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
-        self.backgroundColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
+        self.backgroundColor = .systemGray2
         
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])
@@ -53,6 +57,44 @@ class PurchaseButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func animateButton() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2) {
+                    self.transform = CGAffineTransform.identity
+                }
+            })
+        }
+    }
+    
+    func stateConfig(state: Bool) {
+        let duration: Double = 0.3
+        
+        if state {
+            // Animation
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: duration) {
+                    self.lable.textColor = .white
+                    self.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: duration) {
+                    self.lable.textColor = .lightGray
+                    self.backgroundColor = .systemGray2
+                }
+            }
+        }
+        
+        
+        
+        
+        
     }
     
 }

@@ -10,6 +10,7 @@ import RevenueCat
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
+    
     // MARK: header
     let header: HeaderUIView = {
         let v = HeaderUIView()
@@ -40,47 +41,56 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         // MARK: FirstVC
         let firstVC = FirstViewController()
-        firstVC.tabBarItem.title = nil
         let firstImage = UIImage(
             systemName: "star",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
+        )?.withBaselineOffset(fromBottom: 14)
+        firstVC.tabBarItem.title = nil
         firstVC.tabBarItem.image = firstImage
         let firstTabNav = UINavigationController(rootViewController: firstVC)
         
         // MARK: SecondVC
         let secondVC = SecondViewController()
-        secondVC.tabBarItem.title = nil
         let secondImage = UIImage(
             named: "Person_WideSize_3x_93px"
-        ) 
+        )?.withBaselineOffset(fromBottom: 16)
         secondVC.tabBarItem.image = secondImage
+        secondVC.tabBarItem.title = nil
+//        secondVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         let secondTabNav = UINavigationController(rootViewController: secondVC)
 
         // MARK: ThirdVC
         let thirdVC = ThirdViewController()
-        thirdVC.tabBarItem.title = ""
         let thirdImage = UIImage(
             systemName: "heart",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
+        )?.withBaselineOffset(fromBottom: 14)
         thirdVC.tabBarItem.image = thirdImage
+        thirdVC.tabBarItem.title = nil
         let thirdTabNav = UINavigationController(rootViewController: thirdVC)
         
         // MARK: FourthVC
         let fourthVC = FourthViewController()
-        fourthVC.tabBarItem.title = ""
         let fourtImage = UIImage(
             systemName: "moon",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        ) 
+        )?.withBaselineOffset(fromBottom: 14)
         fourthVC.tabBarItem.image = fourtImage
+        fourthVC.tabBarItem.title = nil
         let fourthTabNav = UINavigationController(rootViewController: fourthVC)
-        
+    
         self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
         
         
     }
+    
+//    override var traitCollection: UITraitCollection {
+//        get {
+////          return UITraitCollection.from(horizontalSizeClass: UIUserInterfaceSizeClass.Compact);
+//            return UITraitCollection.init(horizontalSizeClass: UIUserInterfaceSizeClass.compact)
+//         }
+//    }
+    
     
     // MARK: viewWill Appear 
     override func viewWillAppear(_ animated: Bool) {

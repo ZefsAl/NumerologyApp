@@ -1,15 +1,15 @@
 //
-//  Paywall_BigPromo_CVCell.swift
+//  MiniPromoCVCell.swift
 //  Numerology
 //
-//  Created by Serj on 17.09.2023.
+//  Created by Serj on 27.09.2023.
 //
 
 import UIKit
 
-final class BigPromoCVCell: UICollectionViewCell {
+final class MiniPromoCVCell: UICollectionViewCell {
  
-    let bigPromoCVCell_ID = "bigPromoCVCell_ID"
+    let miniPromoCVCell_ID = "miniPromoCVCell_ID"
     
     override var isSelected: Bool {
         didSet {
@@ -33,7 +33,7 @@ final class BigPromoCVCell: UICollectionViewCell {
     
     
     // MARK: Discount Caption
-    private let discountCaption: UILabel = {
+     let discountCaption: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "save 66%".uppercased()
@@ -49,13 +49,13 @@ final class BigPromoCVCell: UICollectionViewCell {
     private let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .regular, size: 20)
+        l.font = UIFont(weight: .regular, size: 17)
 //        l.text = "Yearly Plan"
         return l
     }()
     
     // MARK: subtitle
-    private let subtitle: UILabel = {
+    let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "12 mo - 35.99 $ / year"
@@ -70,7 +70,7 @@ final class BigPromoCVCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "2.99 $ / mo"
-        l.font = UIFont(weight: .regular, size: 17)
+        l.font = UIFont(weight: .regular, size: 15)
         l.numberOfLines = 1
         return l
     }()
@@ -107,24 +107,24 @@ final class BigPromoCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        // Left Stack
-        let leftStack = UIStackView(arrangedSubviews: [mainTitle,subtitle])
-        leftStack.axis = .vertical
-        leftStack.alignment = .fill
-        leftStack.spacing = 0
+        let contentStack = UIStackView(arrangedSubviews: [mainTitle,priceTitle,subtitle])
+        contentStack.axis = .vertical
+        contentStack.alignment = .center
+        contentStack.spacing = 6
         
         // Card Content
-//        let cardContent = UIStackView(arrangedSubviews: [leftStack,UIView(),priceTitle])
-        cardContent.addArrangedSubview(leftStack)
-        cardContent.addArrangedSubview(UIView())
-        cardContent.addArrangedSubview(priceTitle)
-        cardContent.axis = .horizontal
+        cardContent.addArrangedSubview(contentStack)
+//        cardContent.addArrangedSubview(priceTitle)
+//        cardContent.addArrangedSubview(subtitle)
+        
+        // Config
+        cardContent.axis = .vertical
         cardContent.alignment = .center
         cardContent.distribution = .fill
         cardContent.spacing = 0
         cardContent.backgroundColor = UIColor.CellColors().cellDisableBG
         cardContent.layer.cornerRadius = 14
-        cardContent.layoutMargins = UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18)
+        cardContent.layoutMargins = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
         cardContent.isLayoutMarginsRelativeArrangement = true
         
         

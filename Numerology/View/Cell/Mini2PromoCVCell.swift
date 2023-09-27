@@ -1,16 +1,15 @@
 //
-//  RegularPromoCVCell.swift
+//  Mini2PromoCVCell.swift
 //  Numerology
 //
-//  Created by Serj on 18.09.2023.
+//  Created by Serj on 27.09.2023.
 //
 
 import UIKit
 
-
-final class RegularPromoCVCell: UICollectionViewCell {
+final class Mini2PromoCVCell: UICollectionViewCell {
     
-    let regularPromoCVCell_ID = "regularPromoCVCell_ID"
+    let mini2PromoCVCell_ID = "mini2PromoCVCell_ID"
     
         override var isSelected: Bool {
             didSet {
@@ -34,8 +33,9 @@ final class RegularPromoCVCell: UICollectionViewCell {
     private let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .regular, size: 20)
+        l.font = UIFont(weight: .regular, size: 17)
 //        l.text = "Monthly"
+        l.textColor = UIColor.CellColors().disabledText
         return l
     }()
     
@@ -44,8 +44,9 @@ final class RegularPromoCVCell: UICollectionViewCell {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.text = "9.99 $ / mo"
-        l.font = UIFont(weight: .regular, size: 17)
+        l.font = UIFont(weight: .regular, size: 15)
         l.numberOfLines = 1
+        l.textColor = UIColor.CellColors().disabledText
         return l
     }()
     
@@ -81,16 +82,20 @@ final class RegularPromoCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setUpStack() {
         
+        let contentStack = UIStackView(arrangedSubviews: [mainTitle,priceTitle])
+        contentStack.spacing = 6
+        contentStack.axis = .vertical
+        contentStack.alignment = .center
         // Card Content
-//        let cardContent = UIStackView(arrangedSubviews: [mainTitle,UIView(),priceTitle])
-        cardContent.addArrangedSubview(mainTitle)
         cardContent.addArrangedSubview(UIView())
-        cardContent.addArrangedSubview(priceTitle)
+        cardContent.addArrangedSubview(contentStack)
+        cardContent.addArrangedSubview(UIView())
         
         cardContent.translatesAutoresizingMaskIntoConstraints = false
-        cardContent.axis = .horizontal
+        cardContent.axis = .vertical
         cardContent.alignment = .center
-        cardContent.distribution = .fill
+        cardContent.distribution = .equalSpacing
+        cardContent.spacing = 0
         cardContent.backgroundColor = UIColor.CellColors().cellDisableBG
         cardContent.layer.cornerRadius = 16
         cardContent.layoutMargins = UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18)
