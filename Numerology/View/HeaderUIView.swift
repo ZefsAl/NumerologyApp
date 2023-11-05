@@ -75,11 +75,8 @@ let shapeView = OvalShapeView()
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = true
-//        self.backgroundColor = .clear
-        
         setUpStack()
     }
     

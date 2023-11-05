@@ -29,13 +29,11 @@ class EditProfileVC: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-//        l.textColor = UIColor.systemGray
         l.text = "Change Surname"
         
         return l
     }()
     let userSurnameField = RegularTextField(frame: .null, setPlaceholder: "Enter your surname")
-    
     
     // MARK: Date Title
     let dateOfBirthTitle: UILabel = {
@@ -51,7 +49,6 @@ class EditProfileVC: UIViewController {
         let tf = RegularTextField(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
         tf.textAlignment = .left
         tf.rightViewMode = .never
-//        tf.leftViewMode = .never
         
         // MARK: Date Picker
         let datePicker: UIDatePicker = {
@@ -81,22 +78,48 @@ class EditProfileVC: UIViewController {
     // MARK: Date Picker Action
     @objc func datePickerAction(_ sender: UIDatePicker) {
         userDateOfBirthField.text = setDateFormat(date: sender.date)
-        
-        
         // Save data to UserDefaults
         DispatchQueue.main.async {
             self.newDateOfBirth = sender.date
             print("new Date is \(self.newDateOfBirth as Any)")
         }
     }
+    
+    let deleteDataButton: UIButton = {
+        let b = UIButton(type: .custom)
+        b.setTitle("Delete Account Data", for: .normal)
+        b.setImage(UIImage(systemName: "trash.fill"), for: .normal)
+        b.tintColor = .white
+        b.backgroundColor = .systemBlue
+        b.layer.cornerRadius = 16
+        
+        b.addTarget(Any?.self, action: #selector(deleteAct), for: .touchUpInside)
+        return b
+    }()
+    
+    @objc private func deleteAct() {
+        
+        let alert = UIAlertController(title: "Delete?", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { act in
+            UserDefaults.standard.setUserData(name: "", surname: "")
+            UserDefaults.standard.setDateOfBirth(dateOfBirth: Date())
+            UserDefaults.standard.synchronize()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { act in
+            alert.dismiss(animated: true)
+        }))
+        self.present(alert, animated: true)
+        
+    }
+    
 
+    
     
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setBackground(named: "ProfileBG.png")
-//        view.backgroundColor = .systemGray
         
         configureNavView()
         setUpStack()
@@ -122,7 +145,6 @@ class EditProfileVC: UIViewController {
     
     // MARK: saveAction + Validation
     @objc func saveAction(_ sender: UIBarButtonItem) {
-        
         
         guard
             let nameVal = userNameField.text,
@@ -180,7 +202,7 @@ class EditProfileVC: UIViewController {
         fieldsStack.spacing = 40
         
         // Content Stack
-        let contentStack = UIStackView(arrangedSubviews: [fieldsStack,UIView()])
+        let contentStack = UIStackView(arrangedSubviews: [fieldsStack,UIView(),deleteDataButton])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .fill
@@ -188,6 +210,7 @@ class EditProfileVC: UIViewController {
 
         
         self.view.addSubview(contentStack)
+//        self.view.addSubview(deleteDataButton)
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -195,7 +218,12 @@ class EditProfileVC: UIViewController {
             contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
-            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44)
+            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44),
+            
+//            deleteDataButton.topAnchor.constraint(equalTo: contentStack.bottomAnchor),
+            deleteDataButton.heightAnchor.constraint(equalToConstant: 40),
+//            deleteDataButton.widthAnchor.constraint(equalToConstant: 120),
+//            deleteDataButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
         ])
     }
     

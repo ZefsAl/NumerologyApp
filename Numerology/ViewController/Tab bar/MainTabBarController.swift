@@ -36,9 +36,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.tintColor = .white
         self.tabBar.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.07058823529, blue: 0.1490196078, alpha: 1)
         
-        setHeaderView()
-        
-        
         // MARK: FirstVC
         let firstVC = FirstViewController()
         let firstImage = UIImage(
@@ -84,18 +81,12 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
     }
     
-//    override var traitCollection: UITraitCollection {
-//        get {
-////          return UITraitCollection.from(horizontalSizeClass: UIUserInterfaceSizeClass.Compact);
-//            return UITraitCollection.init(horizontalSizeClass: UIUserInterfaceSizeClass.compact)
-//         }
-//    }
-    
-    
     // MARK: viewWill Appear 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        setHeaderView()
     }
     
     // MARK: view Did Appear
@@ -108,7 +99,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             print("Defaults value : \(defaults.userAccess)")
             if defaults.userAccess == true {
             } else {
-                self.checkUserAccess()
+//                self.checkUserAccess()
             }
         })
     }
@@ -117,26 +108,25 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     
     // MARK: checkUserAccess
-    func checkUserAccess() {
-
-        // VC
-//        let vc = PaywallViewController()
-        let vc2 = PaywallVC_V2()
-//         MARK: get Customer Info
-        Purchases.shared.getCustomerInfo { (customerInfo, error) in
-
-            if customerInfo?.entitlements["Access"]?.isActive == true {
-                vc2.dismiss(animated: true)
-                print("Secondary Check: Have Access")
-            } else {
-                    let navVC = UINavigationController(rootViewController: vc2)
-                    navVC.modalPresentationStyle = .overFullScreen
-                    self.present(navVC, animated: true)
-                print("Secondary Check: No Access")
-            }
-        }
-        
-    }
+//    func checkUserAccess() {
+//
+//        // VC
+//        let vc2 = PaywallVC_V2(onboardingIsCompleted: true)
+////         MARK: get Customer Info
+//        Purchases.shared.getCustomerInfo { (customerInfo, error) in
+//
+//            if customerInfo?.entitlements["Access"]?.isActive == true {
+//                vc2.dismiss(animated: true)
+//                print("Secondary Check: Have Access")
+//            } else {
+//                    let navVC = UINavigationController(rootViewController: vc2)
+//                    navVC.modalPresentationStyle = .overFullScreen
+//                    self.present(navVC, animated: true)
+//                print("Secondary Check: No Access")
+//            }
+//        }
+//
+//    }
     
     
 }

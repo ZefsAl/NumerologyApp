@@ -24,26 +24,27 @@ class OnboardingSlideView: UIView {
         return l
     }()
     // MARK: subtitle
-    private let subtitle: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
-        l.numberOfLines = 0
-        l.text = "*"
-        l.font = UIFont(name: "Cinzel-Regular", size: 28)
-        l.textAlignment = .center
-        return l
-    }()
+//    private let subtitle: UILabel = {
+//        let l = UILabel()
+//        l.translatesAutoresizingMaskIntoConstraints = false
+//        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
+//        l.numberOfLines = 0
+//        l.text = "*"
+//        l.font = UIFont(name: "Cinzel-Regular", size: 28)
+//        l.textAlignment = .center
+//        return l
+//    }()
     // MARK: promo Subtitle
     private let promoSubtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "*"
         // Style
         l.font = UIFont(name: "SourceSerifPro-Light", size: 24)
         l.lineBreakMode = .byWordWrapping
         l.numberOfLines = 0
         l.textAlignment = .center
+        l.adjustsFontSizeToFitWidth = true
+        
         return l
     }()
     
@@ -60,9 +61,8 @@ class OnboardingSlideView: UIView {
     }
     
     // MARK: Configure
-    func configure(title: String, subtitle: String, promoSubtitle: String) {
+    func configure(title: String, promoSubtitle: String) {
         self.title.text = title
-        self.subtitle.text = subtitle
         self.promoSubtitle.text = promoSubtitle
         
     }
@@ -91,22 +91,23 @@ class OnboardingSlideView: UIView {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        let contentStack = UIStackView(arrangedSubviews: [title,subtitle,promoSubtitle])
+        let contentStack = UIStackView(arrangedSubviews: [title,promoSubtitle])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.distribution = .fill
         contentStack.alignment = .center
-        contentStack.spacing = 10
+        contentStack.spacing = 24
         
         self.addSubview(contentStack)
         
         NSLayoutConstraint.activate([
             
-            contentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -0),
             
-            contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 18),
-            contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -18),
+//            contentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+            contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 76),
+            contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
         ])
     }
     

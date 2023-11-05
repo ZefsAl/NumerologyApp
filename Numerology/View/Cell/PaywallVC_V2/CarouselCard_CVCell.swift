@@ -14,9 +14,8 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     // MARK: Main Title
     private let mainTitle: UILabel = {
         let l = UILabel()
-//        l.translatesAutoresizingMaskIntoConstraints = false
+        l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(weight: .regular, size: 20)
-//        l.text = "Amaizing App!"
         l.textColor = .white
         return l
     }()
@@ -34,7 +33,6 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     private let dateCaption: UILabel = {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.text = "July 25.2023"
         l.font = UIFont(weight: .regular, size: 11)
         l.numberOfLines = 0
         l.textAlignment = .right
@@ -47,7 +45,6 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     private let fullNameLable: UILabel = {
         let l = UILabel()
 //        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.text = "Sonia Hale"
         l.font = UIFont(weight: .regular, size: 13)
         l.numberOfLines = 0
         l.textAlignment = .right
@@ -58,8 +55,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     // MARK: Comment Text
     private let commentText: UILabel = {
         let l = UILabel()
-//        l.translatesAutoresizingMaskIntoConstraints = false
-//        l.text = "Subscriptions automatically renew unless auto-renew is turned off at least 24-hours before the end of the current subscription period."
+        l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(weight: .regular, size: 13)
         l.numberOfLines = 4
         l.textColor = .white
@@ -74,7 +70,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.backgroundColor = UIColor.CellColors().cellActiveBG
+        self.backgroundColor = UIColor.CellColors().cellActiveBG.withAlphaComponent(0.8)
 //        // Border
         self.layer.cornerRadius = 16
         
@@ -93,6 +89,10 @@ final class CarouselCard_CVCell: UICollectionViewCell {
         self.dateCaption.text = date
         self.fullNameLable.text = fullname
         self.commentText.text = comment
+    }
+    
+    func getFrameSize() -> CGSize {
+        return self.frame.size
     }
     
     

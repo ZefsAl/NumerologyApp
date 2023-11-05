@@ -9,7 +9,7 @@
   "settings" : {
     "_applicationInternalID" : "1622398869",
     "_developerTeamID" : "25F5UMN333",
-    "_lastSynchronizedDate" : 717229428.786304
+    "_lastSynchronizedDate" : 720627848.93126798
   },
   "subscriptionGroups" : [
     {
@@ -30,12 +30,7 @@
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "6462232730",
-          "introductoryOffer" : {
-            "internalID" : "7C5E8AA3",
-            "numberOfPeriods" : 1,
-            "paymentMode" : "free",
-            "subscriptionPeriod" : "P1W"
-          },
+          "introductoryOffer" : null,
           "localizations" : [
             {
               "description" : "Monthly - Numerology Subscription ",
@@ -60,12 +55,7 @@
           "familyShareable" : false,
           "groupNumber" : 2,
           "internalID" : "6462269407",
-          "introductoryOffer" : {
-            "internalID" : "5694777A",
-            "numberOfPeriods" : 1,
-            "paymentMode" : "free",
-            "subscriptionPeriod" : "P1W"
-          },
+          "introductoryOffer" : null,
           "localizations" : [
             {
               "description" : "Yearly - Numerology Subscription ",
@@ -76,6 +66,36 @@
           "productID" : "Year_29.99",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Yearly",
+          "subscriptionGroupID" : "21373774",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "29.99",
+          "familyShareable" : false,
+          "groupNumber" : 3,
+          "internalID" : "6471103437",
+          "introductoryOffer" : {
+            "internalID" : "9CFAC235",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
+          "localizations" : [
+            {
+              "description" : "Numerology Trial  ",
+              "displayName" : "Yearly Trial",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Yearly.Trial",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly.Trial",
           "subscriptionGroupID" : "21373774",
           "type" : "RecurringSubscription"
         }

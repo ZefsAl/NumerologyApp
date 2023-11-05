@@ -1,23 +1,22 @@
 //
-//  OnboardingVC.swift
+//  OnboardingVC_v2.swift
 //  Numerology
 //
-//  Created by Serj on 20.07.2023.
+//  Created by Serj on 26.10.2023.
 //
 
 import UIKit
 import SafariServices
 
-class OnboardingVC: UIViewController {
+class OnboardingVC_v2: UIViewController {
     
     // MARK: Next Button
     let nextButton: RegularBigButton = {
         let b = RegularBigButton(frame: .zero, lable: "Continue")
+        b.isHidden = true
         b.addTarget(Any?.self, action: #selector(nextBtnAction), for: .touchUpInside)
         return b
     }()
-    
-    
     
     // MARK: Next Btn Action
     @objc private func nextBtnAction() {
@@ -26,8 +25,8 @@ class OnboardingVC: UIViewController {
         // Не очень 👎 но работает
         let currentPage = pageControl.currentPage
         print("currentPage \(currentPage)")
-        if currentPage == 2  {
-            self.navigationController?.pushViewController(UserEnterDataVC(), animated: true)
+        if currentPage == 2 {
+            self.navigationController?.pushViewController(ChooseGenderVC(), animated: true)
         }
         
         // Next button slide + push
@@ -38,22 +37,12 @@ class OnboardingVC: UIViewController {
             // Тут косяк с (y: -47) Если есть BG ???
         }
         
-        // Animation
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.nextButton.transform = CGAffineTransform.identity
-                }
-            })
-        }
     }
     
     
     // MARK: Page Control
     let pageControl: UIPageControl = {
-       let pc = UIPageControl()
+        let pc = UIPageControl()
         pc.numberOfPages = 3
         pc.addTarget(Any.self, action: #selector(pageControlDidchange(_:)), for: .valueChanged)
         return pc
@@ -67,46 +56,74 @@ class OnboardingVC: UIViewController {
     
     // MARK: Content ScrollView
     private let contentScrollView: UIScrollView = {
-       let sv = UIScrollView()
+        let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsHorizontalScrollIndicator = false
         sv.showsVerticalScrollIndicator = false
         return sv
     }()
     
-
-    
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.backgroundColor = .black
-
-        contentScrollView.delegate = self
         
-        setUpStack()
+        contentScrollView.delegate = self
+        setupUI()
         
     }
     
-    
+    // MARK: - view Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        fakeLoad()
     }
     
     
+    private var timer = Timer()
+    // MARK: - fake Load
+    func fakeLoad() {
+        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveSlide), userInfo: nil, repeats: false)
+        
+    }
     
-    
-    // MARK: Set up Stack
-    private func setUpStack() {
+    @objc private func moveSlide() {
+        if pageControl.currentPage == 0 {
+            pageControl.currentPage += 1
+            print("page Control \(pageControl.currentPage)")
+            contentScrollView.setContentOffset(CGPoint(x: CGFloat(pageControl.currentPage) * view.frame.size.width, y: 0), animated: true)
+        }
+    }
+}
 
+// MARK: UIScrollViewDelegate
+extension OnboardingVC_v2: UIScrollViewDelegate {
+    // для pagecontrol перключения через свайп
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        pageControl.currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
+        let currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
+        
+        print(currentPage)
+        if currentPage >= 1 {
+            nextButton.isHidden = false
+        } else {
+            nextButton.isHidden = true
+        }
+        
+    }
+}
+ 
+
+extension OnboardingVC_v2 {
+    // MARK: setup UI
+    private func setupUI() {
+        
         contentScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: contentScrollView.frame.size.height)
         contentScrollView.contentSize = CGSize(width: view.frame.size.width*3, height: contentScrollView.frame.size.height)
         contentScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         contentScrollView.isPagingEnabled = true
         
-        
-//        contentScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Not try to fix
         contentScrollView.contentInsetAdjustmentBehavior = .never // Must have Fix!
         
         // MARK: Screens slide
@@ -117,11 +134,9 @@ class OnboardingVC: UIViewController {
                     frame: CGRect( x: CGFloat(slide) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height),
                     namedBG: "Onboarding1.png"
                 )
-
-                page1.configure(title: "Welcome!",
-                                subtitle: "to the world of NUMEROLOGY.",
+                
+                page1.configure(title: "Welcome to Numerology!.",
                                 promoSubtitle: "Our magical world\nNUMEROLOGY\n will help you learn your strengths\nand make luck your constant\ncompanion.")
-
                 contentScrollView.addSubview(page1)
             }
             if slide == 1 {
@@ -130,8 +145,7 @@ class OnboardingVC: UIViewController {
                     namedBG: "Onboarding2.png"
                 )
                 page2.configure(
-                    title: "What is this?",
-                    subtitle: "",
+                    title: "What is\nthis?",
                     promoSubtitle: "You have entered the world of an amazing, mystical science - Numerology, it allows you to find out what is hidden in the date of birth of a person."
                 )
                 contentScrollView.addSubview(page2)
@@ -143,26 +157,16 @@ class OnboardingVC: UIViewController {
                 )
                 page3.configure(
                     title: "What do you get?",
-                    subtitle: "",
                     promoSubtitle: "You get the key to your future and your past, to your hidden possibilities and talents."
                 )
-
                 contentScrollView.addSubview(page3)
             }
             
         }
-
-        
-        // Content Stack
-        let contentStack = UIStackView(arrangedSubviews: [nextButton,pageControl])
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.axis = .vertical
-        contentStack.alignment = .center
-        contentStack.spacing = 40
-        
         
         self.view.addSubview(contentScrollView)
-        self.view.addSubview(contentStack)
+        AnimatableBG().setBackground(vc: self)
+        self.view.addSubview(nextButton)
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -172,23 +176,9 @@ class OnboardingVC: UIViewController {
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -0),
             
-            nextButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 36),
-            nextButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: -36),
-            
-            contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-            contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -0),
-            contentStack.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -0)
+            nextButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 24),
+            nextButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -24),
+            nextButton.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -52)
         ])
     }
-
-}
-
-// MARK: UIScrollViewDelegate
-extension OnboardingVC: UIScrollViewDelegate {
-    
-    // для pagecontrol перключения через свайп
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
-    }
-
 }

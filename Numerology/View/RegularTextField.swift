@@ -72,7 +72,6 @@ class RegularTextField: UITextField, UITextFieldDelegate {
         delegate = self
         
         // Style
-        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 8
         layer.borderWidth = 1
         layer.borderColor = UIColor.systemBlue.cgColor

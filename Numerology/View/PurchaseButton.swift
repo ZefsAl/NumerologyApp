@@ -14,7 +14,7 @@ class PurchaseButton: UIButton {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
         l.textColor = .lightGray
-        l.font = UIFont(weight: .bold, size: 20)
+        l.font = UIFont(weight: .regular, size: 23)
         return l
     }()
     
@@ -39,6 +39,11 @@ class PurchaseButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
         self.backgroundColor = .systemGray2
+        // Shadow
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 16
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1).withAlphaComponent(0.7).cgColor
         
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])
@@ -57,18 +62,6 @@ class PurchaseButton: UIButton {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func animateButton() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.transform = CGAffineTransform.identity
-                }
-            })
-        }
     }
     
     func stateConfig(state: Bool) {

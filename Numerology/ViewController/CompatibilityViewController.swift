@@ -179,6 +179,7 @@ class CompatibilityViewController: UIViewController {
         numbersStack.axis = .horizontal
         numbersStack.distribution = .equalSpacing
         
+        
         // MARK: description View + Border
         let descriptionView: UIView = {
             let v = UIView()

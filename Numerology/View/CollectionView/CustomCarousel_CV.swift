@@ -9,6 +9,8 @@ import UIKit
 
 final class CustomCarousel_CV: UICollectionView {
     
+    var timer = Timer()
+    
     let cardContentData: [CardContentModel] = [
         CardContentModel(title: "Awesome App!",
                          date: "July 25.2023",
@@ -20,12 +22,22 @@ final class CustomCarousel_CV: UICollectionView {
                          fullname: "Sarah Smith",
                          comment: "I've been using this app for months, and I'm amazed at the precision of its predictions.\nIt's like having a personal numerologist in my pocket!"),
         
-        CardContentModel(title: "Amazing!",
+        CardContentModel(title: "Amazing Insights!",
                          date: "September 05.2023",
                          fullname: "Emily Davis",
                          comment: "The readings from this app are deeply insightful and thought-provoking. It feels like a guiding light through the mysteries of life. I absolutely love it!"),
+        
+        CardContentModel(title: "Deeply Insightful",
+                         date: "September 18.2023",
+                         fullname: "Lisa Wilson",
+                         comment: "The insights I've gained through this app are profound. It's like having a wise mentor at your fingertips. I can't recommend it enough for personal growth."),
+        
+        CardContentModel(title: "A Must-Have!",
+                         date: "December 03.2023",
+                         fullname: "Mark Taylor",
+                         comment: "This app is a must-have for anyone interested in numerology. It's user-friendly, insightful, and has become an integral part of my daily routine. Recommend it enough!"),
     ]
-
+    
     // MARK: init
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -39,57 +51,94 @@ final class CustomCarousel_CV: UICollectionView {
         
         setupCV_Layout()
         
-       }
-
-       required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-       }
+        setTimer()
+    }
     
+    // MARK: - Auto Scroll
+    var currentItem = 0
+    
+    func setTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+    }
+    
+    @objc func autoScroll() {
+        print(currentItem)
+        if self.currentItem < self.cardContentData.count {
+            self.currentItem += 1
+            let indexPath = IndexPath(item: currentItem, section: 0)
+            self.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        } else {
+          self.currentItem = 0
+          self.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    // MARK: - Layout
     private func setupCV_Layout() {
-        
-//         layout settings 1 // то что нужно
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
             heightDimension: NSCollectionLayoutDimension.estimated(165)
         )
-
+        
         let item = NSCollectionLayoutItem(layoutSize: size)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
         group.accessibilityScroll(.right)
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 48)
         
         let section = NSCollectionLayoutSection(group: group)
-//        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        //        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         section.interGroupSpacing = -48
         section.orthogonalScrollingBehavior = .groupPaging
         let layout = UICollectionViewCompositionalLayout(section: section)
         
-        
         self.collectionViewLayout = layout
-        
         self.alwaysBounceVertical = false
-        
-        // layout settings 2
-//        self.isPagingEnabled = true
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-////        layout.minimumInteritemSpacing = 20
-//        layout.minimumLineSpacing = 40
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
-//
-////        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        self.collectionViewLayout = layout
-        
-        
-        
-        
     }
     
-
+    
+    
 }
 
 // MARK: Delegate
-extension CustomCarousel_CV: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CustomCarousel_CV: UICollectionViewDelegate{
+    
+//    func collectionView(_ collectionView: UICollectionView, canFocusItemAt indexPath: IndexPath) -> Bool {
+//        guard let currentlyFocusedCellLayoutAttributes = collectionView.layoutAttributesForItem(at: focusedIndexPath) else { return false }
+//        guard let cellAtGivenIndexPathLayoutAttributes = collectionView.layoutAttributesForItem(at: indexPath) else { return false }
+//
+//        let currentlyFocusedCellOriginX = currentlyFocusedCellLayoutAttributes.frame.origin.x
+//        let currentlyFocusedCellOriginY = currentlyFocusedCellLayoutAttributes.frame.origin.y
+//        let currentlyFocusedCellWidth = currentlyFocusedCellLayoutAttributes.frame.width
+//
+//        let cellAtGivenIndexPathOriginX = cellAtGivenIndexPathLayoutAttributes.frame.origin.x
+//        let cellAtGivenIndexPathOriginY = cellAtGivenIndexPathLayoutAttributes.frame.origin.y
+//        let cellAtGivenIndexPathWidth = cellAtGivenIndexPathLayoutAttributes.frame.width
+//
+//        let offsetX = collectionView.contentOffset.x
+//
+//        // Scrolling horizontally is always allowed
+//        if currentlyFocusedCellOriginY == cellAtGivenIndexPathOriginY {
+//            return true
+//        }
+//
+//        // Scrolling vertically is only allowed to the first cell (blue cell in the screenshot)
+//        if cellAtGivenIndexPathOriginX <= offsetX {
+//            return true
+//        }
+//
+//        return false
+//    }
+    
+}
+
+// MARK: - DataSource
+extension CustomCarousel_CV: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cardContentData.count
     }
@@ -98,17 +147,14 @@ extension CustomCarousel_CV: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCard_CVCell().carouselCard_CVCell_ID, for: indexPath as IndexPath) as! CarouselCard_CVCell
         
-        
-        cell.configure(title: cardContentData[indexPath.row].title,
-                       date: cardContentData[indexPath.row].date,
-                       fullname: cardContentData[indexPath.row].fullname,
-                       comment: cardContentData[indexPath.row].comment
+        cell.configure(
+            title: cardContentData[indexPath.row].title,
+            date: cardContentData[indexPath.row].date,
+            fullname: cardContentData[indexPath.row].fullname,
+            comment: cardContentData[indexPath.row].comment
         )
-        
-        
-        
         return cell
-    }    
+    }
 }
 
 extension CustomCarousel_CV {

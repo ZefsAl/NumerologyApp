@@ -6,6 +6,7 @@
 - Push Notifications
 - CocoaPods, spm
 - Auto Layout
+- 2 dependencies
 
 
 ### Presentation [Youtube](https://youtu.be/PFtFA6Q8CA0).

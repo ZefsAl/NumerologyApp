@@ -67,16 +67,18 @@ class UserEnterDateOfBirthVC: UIViewController {
             self.navigationController?.pushViewController(MainTabBarController(), animated: true)
         }
         
+        
+        
         // Button Animation
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.nextButton.transform = CGAffineTransform.identity
-                }
-            })
-        }
+//        DispatchQueue.main.async {
+//            UIView.animate(withDuration: 0.2, animations: {
+//                self.nextButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//            }, completion: { _ in
+//                UIView.animate(withDuration: 0.2) {
+//                    self.nextButton.transform = CGAffineTransform.identity
+//                }
+//            })
+//        }
     }
     
     

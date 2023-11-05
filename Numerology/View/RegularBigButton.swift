@@ -14,31 +14,15 @@ class RegularBigButton: UIButton {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
         l.textColor = .white
-        l.font = UIFont(name: "Cinzel-Bold", size: 20)
+        l.font = UIFont(weight: .regular, size: 23)
         return l
     }()
     
-    private let imageBTN: UIImageView = {
-        let iv = UIImageView()
-        return iv
-    }()
+    override var isTouchInside: Bool {
+        animateButton()
+        return true
+    }
     
-    // MARK: button Icon
-    let buttonIcon: UIImageView = {
-        let iv = UIImageView()
-
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        
-        let configImage = UIImage(systemName: "arrow.right", withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold))
-        
-        iv.image = configImage
-        iv.contentMode = UIView.ContentMode.scaleAspectFill
-        iv.tintColor = .white
-        iv.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        iv.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        return iv
-    }()
     
     
     // MARK: Init
@@ -48,6 +32,11 @@ class RegularBigButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
         self.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+        // Shadow
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 16
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1).withAlphaComponent(0.7).cgColor
 
         // config
         self.lable.text = lable
@@ -58,7 +47,7 @@ class RegularBigButton: UIButton {
     
     private func setUpStack() {
         
-        let contentStack = UIStackView(arrangedSubviews: [lable,buttonIcon])
+        let contentStack = UIStackView(arrangedSubviews: [lable])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .horizontal
         contentStack.alignment = .center

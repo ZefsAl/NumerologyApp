@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     let navOnboardingVC: UINavigationController = {
-        let nav = UINavigationController(rootViewController: OnboardingVC())
+        let nav = UINavigationController(rootViewController: OnboardingVC_v2())
         return nav
     }()
     
@@ -53,15 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func appScreenConfiguration() {
+        // test
+//        let nav = UINavigationController(rootViewController: PaywallVC_V2(onboardingIsCompleted: false))
+//        window?.rootViewController = nav
+//        UserDefaults.standard.removeObject(forKey: "nameKey")
+//        UserDefaults.standard.removeObject(forKey: "surnameKey")
+//        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
         
         
-//        window?.rootViewController = PaywallVC_V2()
-        
-        // Data
+        // ✅ // Data
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-        
+
         // MARK: App Config
         if
             (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
@@ -80,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-// MARK: PurchasesDelegate
+// MARK: PurchasesD elegate
 extension AppDelegate: PurchasesDelegate {
     
     // Т.к этот метод purchases вызывается 2 раза (как я понял), идея была после 2 вызова -> Сообщить Observer'y и вызвать paywall т.к при определенных условиях paywall не открывается.
@@ -146,7 +150,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
       )
     }
     
-    // Delegate
+    // Delegate Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }

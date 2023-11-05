@@ -32,12 +32,12 @@ extension UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             
-            let configImage = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 28, weight: .regular))
+            let configImage = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
             
             let iv = UIImageView(image: configImage)
             iv.translatesAutoresizingMaskIntoConstraints = false
             iv.tintColor = .white
-            iv.backgroundColor = .black
+//            iv.backgroundColor = .black
             iv.layer.cornerRadius = 30
             iv.isUserInteractionEnabled = false
             
@@ -72,19 +72,31 @@ extension UIViewController {
     }
     
     
-    // MARK:
+    // MARK: checkAccessContent
     func checkAccessContent() -> Bool {
         
         let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as! Bool
         guard accessVal == false else { return true }
         
-//        let vc = PaywallViewController()
-        let vc2 = PaywallVC_V2()
+        let vc2 = PaywallVC_V2(onboardingIsCompleted: true)
         let navVC = UINavigationController(rootViewController: vc2)
         navVC.modalPresentationStyle = .overFullScreen
         self.present(navVC, animated: true)
         
         return false
     }
-        
+     
+    // MARK: isIphone_66
+    private func isIphone_66() -> Bool {
+        // tryFix content size
+        if (self.view.frame.height < 844.0) {
+            print("✅ iphone 8")
+            return false
+        } else {
+            print("✅ iphone 12")
+            return true
+        }
+        // 8 iphone - Screen height: 667.0
+        // 12 iphone - Screen height: 844.0
+    }
 }
