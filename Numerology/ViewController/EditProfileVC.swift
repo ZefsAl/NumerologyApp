@@ -22,7 +22,7 @@ class EditProfileVC: UIViewController {
         
         return l
     }()
-    let userNameField = RegularTextField(frame: .null, setPlaceholder: "Enter your name")
+    let userNameField = CustomTF(frame: .null, setPlaceholder: "Enter your name")
     
     // MARK: Surname
     let surnameFieldTitle: UILabel = {
@@ -33,7 +33,7 @@ class EditProfileVC: UIViewController {
         
         return l
     }()
-    let userSurnameField = RegularTextField(frame: .null, setPlaceholder: "Enter your surname")
+    let userSurnameField = CustomTF(frame: .null, setPlaceholder: "Enter your surname")
     
     // MARK: Date Title
     let dateOfBirthTitle: UILabel = {
@@ -45,9 +45,9 @@ class EditProfileVC: UIViewController {
     }()
     
     // MARK: Text Field + Date Picker
-    let userDateOfBirthField: RegularTextField = {
-        let tf = RegularTextField(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
-        tf.textAlignment = .left
+    let userDateOfBirthField: CustomTF = {
+        let tf = CustomTF(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
+        tf.textAlignment = .center
         tf.rightViewMode = .never
         
         // MARK: Date Picker
@@ -118,8 +118,8 @@ class EditProfileVC: UIViewController {
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setBackground(named: "ProfileBG.png")
+        self.view.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
+        AnimatableBG().setBackground(vc: self)
         
         configureNavView()
         setUpStack()
@@ -128,23 +128,41 @@ class EditProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // MARK: Configure Nav View
     private func configureNavView() {
         self.title = "Profile"
+        let attributes = [
+            NSAttributedString.Key.font: UIFont.init(weight: .regular, size: 34),
+            NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.9649999738, green: 0.8550000191, blue: 1, alpha: 1),
+        ]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
+        
+        
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction(_:)))
-        barButtonItem.tintColor = .white
+        let rightbarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction(_:)))
+        rightbarButtonItem.tintColor = .white
         
-        navigationItem.rightBarButtonItem = barButtonItem
+        
+        let ledtBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction(_:)))
+        ledtBarButtonItem.tintColor = .white
+        
+
+        navigationItem.rightBarButtonItem = rightbarButtonItem
+        navigationItem.leftBarButtonItem = ledtBarButtonItem
+    }
+    
+    @objc private func closeAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
     }
     
     // MARK: saveAction + Validation
-    @objc func saveAction(_ sender: UIBarButtonItem) {
+    @objc private func saveAction(_ sender: UIBarButtonItem) {
         
         guard
             let nameVal = userNameField.text,
@@ -166,6 +184,7 @@ class EditProfileVC: UIViewController {
             UserDefaults.standard.setDateOfBirth(dateOfBirth: newDateOfBirth)
             UserDefaults.standard.synchronize()
             print("saved")
+            self.dismiss(animated: true)
         } else {
             print("NOT saved")
         }

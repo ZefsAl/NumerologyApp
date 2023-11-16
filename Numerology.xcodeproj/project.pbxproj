@@ -10,6 +10,9 @@
 		4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */; };
 		8411AB2B2A938BF400B3D2F4 /* StoreKitConfig.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */; };
 		8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */; };
+		841B9DD82AFFD2B1007DCAE3 /* AboutCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DD72AFFD2B1007DCAE3 /* AboutCV.swift */; };
+		841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DD92AFFE541007DCAE3 /* AboutCVCell.swift */; };
+		841B9DDC2B00570C007DCAE3 /* CustomNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */; };
 		8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */; };
 		8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */; };
 		8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */; };
@@ -93,12 +96,16 @@
 		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
 		84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */; };
 		84D870A12A8D035700ACACA8 /* StoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870A02A8D035600ACACA8 /* StoreKitManager.swift */; };
+		84D89CF82AFC8C3D000CF2FB /* FirebaseManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CF72AFC8C3D000CF2FB /* FirebaseManager2.swift */; };
+		84D89CFA2AFD3593000CF2FB /* YourNumerologyCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CF92AFD3593000CF2FB /* YourNumerologyCV.swift */; };
+		84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */; };
+		84D89CFE2AFE421F000CF2FB /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */; };
+		84D89D002AFEA0FA000CF2FB /* PersonalPredictionsCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV.swift */; };
+		84D89D032AFFB0EB000CF2FB /* DateCompatibilityCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89D022AFFB0EB000CF2FB /* DateCompatibilityCV.swift */; };
 		84DBB9A22AE2CCF300A0784F /* NumerologyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9A12AE2CCF300A0784F /* NumerologyVC.swift */; };
 		84DBB9A42AE2F51D00A0784F /* AnimatableBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */; };
 		84DBB9A92AE40FC700A0784F /* NumerologyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9A82AE40FC700A0784F /* NumerologyModel.swift */; };
-		84DBB9AB2AE410D700A0784F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9AA2AE410D700A0784F /* ViewModel.swift */; };
 		84DBB9B42AE7B7FA00A0784F /* QuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9B32AE7B7FA00A0784F /* QuizVC.swift */; };
-		84DBB9B62AE7BDC900A0784F /* OnboardingQuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9B52AE7BDC900A0784F /* OnboardingQuizData.swift */; };
 		84DBB9B82AE7D37C00A0784F /* OnboardingQuizCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9B72AE7D37B00A0784F /* OnboardingQuizCell.swift */; };
 		84DBB9BA2AE809AB00A0784F /* Extension_UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9B92AE809AA00A0784F /* Extension_UIButton.swift */; };
 		84DBB9CB2AE955D500A0784F /* EnterUserDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9CA2AE955D500A0784F /* EnterUserDataVC.swift */; };
@@ -113,6 +120,9 @@
 		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
 		8411AB2A2A938BF300B3D2F4 /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
+		841B9DD72AFFD2B1007DCAE3 /* AboutCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCV.swift; sourceTree = "<group>"; };
+		841B9DD92AFFE541007DCAE3 /* AboutCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCVCell.swift; sourceTree = "<group>"; };
+		841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavController.swift; sourceTree = "<group>"; };
 		8437D3CA2A839EA7003592A7 /* PersonalMonthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthVC.swift; sourceTree = "<group>"; };
 		8437D3CC2A83A694003592A7 /* PersonalMonthDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthDatePicker.swift; sourceTree = "<group>"; };
 		8437D3D12A84DE76003592A7 /* PersonalMonthTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthTF.swift; sourceTree = "<group>"; };
@@ -192,13 +202,17 @@
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCVCell.swift; sourceTree = "<group>"; };
 		84D870A02A8D035600ACACA8 /* StoreKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitManager.swift; sourceTree = "<group>"; };
+		84D89CF72AFC8C3D000CF2FB /* FirebaseManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager2.swift; sourceTree = "<group>"; };
+		84D89CF92AFD3593000CF2FB /* YourNumerologyCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourNumerologyCV.swift; sourceTree = "<group>"; };
+		84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
+		84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCV.swift; sourceTree = "<group>"; };
+		84D89D022AFFB0EB000CF2FB /* DateCompatibilityCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCompatibilityCV.swift; sourceTree = "<group>"; };
 		84D9CB4F2AACE01C00809B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84DBB9A12AE2CCF300A0784F /* NumerologyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyVC.swift; sourceTree = "<group>"; };
 		84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableBG.swift; sourceTree = "<group>"; };
 		84DBB9A82AE40FC700A0784F /* NumerologyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyModel.swift; sourceTree = "<group>"; };
-		84DBB9AA2AE410D700A0784F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		84DBB9B32AE7B7FA00A0784F /* QuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizVC.swift; sourceTree = "<group>"; };
-		84DBB9B52AE7BDC900A0784F /* OnboardingQuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizData.swift; sourceTree = "<group>"; };
 		84DBB9B72AE7D37B00A0784F /* OnboardingQuizCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingQuizCell.swift; sourceTree = "<group>"; };
 		84DBB9B92AE809AA00A0784F /* Extension_UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIButton.swift; sourceTree = "<group>"; };
 		84DBB9CA2AE955D500A0784F /* EnterUserDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterUserDataVC.swift; sourceTree = "<group>"; };
@@ -261,6 +275,7 @@
 				846FC5F52A90A1BB0011EF01 /* OnlyLableCVCell.swift */,
 				84DBB9B72AE7D37B00A0784F /* OnboardingQuizCell.swift */,
 				84DBB9CF2AE9951B00A0784F /* GenderCVCell.swift */,
+				841B9DD92AFFE541007DCAE3 /* AboutCVCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -316,6 +331,7 @@
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
 				84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */,
 				84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */,
+				841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -326,6 +342,7 @@
 				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
 				84420CD32A73EBBF00DE1812 /* Cell */,
+				84D89D012AFFB094000CF2FB /* NumerologyCV */,
 				84B99A862AB7385E008A3B49 /* CollectionView */,
 				845EB1D62A663F60003D6F5C /* HeaderUIView.swift */,
 				845EB1E72A68124E003D6F5C /* OvalShapeView.swift */,
@@ -336,6 +353,8 @@
 				84AC67112A802FE000D2321B /* DescriptionView.swift */,
 				84AA6AF72AA6077E00BF6C0D /* CustomTF.swift */,
 				84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */,
+				84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */,
+				84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				8492D0922A6EA7E500761312 /* FirebaseManager.swift */,
+				84D89CF72AFC8C3D000CF2FB /* FirebaseManager2.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -463,6 +483,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84D89D012AFFB094000CF2FB /* NumerologyCV */ = {
+			isa = PBXGroup;
+			children = (
+				84D89CF92AFD3593000CF2FB /* YourNumerologyCV.swift */,
+				84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV.swift */,
+				84D89D022AFFB0EB000CF2FB /* DateCompatibilityCV.swift */,
+				841B9DD72AFFD2B1007DCAE3 /* AboutCV.swift */,
+			);
+			path = NumerologyCV;
+			sourceTree = "<group>";
+		};
 		84DBB9A72AE40F5300A0784F /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,8 +520,6 @@
 		84DBB9AC2AE410E400A0784F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				84DBB9AA2AE410D700A0784F /* ViewModel.swift */,
-				84DBB9B52AE7BDC900A0784F /* OnboardingQuizData.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -659,10 +688,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				84AC66FC2A7C175100D2321B /* SecondViewController.swift in Sources */,
+				84D89D002AFEA0FA000CF2FB /* PersonalPredictionsCV.swift in Sources */,
 				84B99A8C2AB99D2D008A3B49 /* Extension_UIColor.swift in Sources */,
 				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				84DBB9B82AE7D37C00A0784F /* OnboardingQuizCell.swift in Sources */,
 				84420CD22A72D6FB00DE1812 /* Extension_UIViewController.swift in Sources */,
+				84D89CF82AFC8C3D000CF2FB /* FirebaseManager2.swift in Sources */,
 				84420CD02A7297EE00DE1812 /* DescriptionVC.swift in Sources */,
 				84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */,
 				8437D3DB2A863FA3003592A7 /* PersonalDayVC.swift in Sources */,
@@ -676,14 +707,15 @@
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
 				84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */,
 				84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */,
-				84DBB9AB2AE410D700A0784F /* ViewModel.swift in Sources */,
 				84420CCE2A728DF500DE1812 /* Extension_UIImage.swift in Sources */,
 				8496CA342A77FB4900FB9592 /* NumbersOfMoneyModel.swift in Sources */,
 				845EB1EF2A697F58003D6F5C /* RegularTextField.swift in Sources */,
 				849CAB682A767F3C0019984E /* NumbersOfDestinyModel.swift in Sources */,
+				841B9DDC2B00570C007DCAE3 /* CustomNavController.swift in Sources */,
 				84AC67002A7C663200D2321B /* ButtonCVCell.swift in Sources */,
 				84AC67062A7FDA0800D2321B /* PersonalDayModel.swift in Sources */,
 				845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */,
+				841B9DD82AFFD2B1007DCAE3 /* AboutCV.swift in Sources */,
 				845EB1D32A6630C3003D6F5C /* MainTabBarController.swift in Sources */,
 				84DBB9CE2AE96BD300A0784F /* ChooseGenderVC.swift in Sources */,
 				8437D3D92A862A59003592A7 /* PersonalYearVC.swift in Sources */,
@@ -691,12 +723,15 @@
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
 				848DFACA2AC3798E0043512C /* MiniPromoCVCell.swift in Sources */,
+				84D89CFE2AFE421F000CF2FB /* SectionFooterView.swift in Sources */,
 				845EB1E82A68124E003D6F5C /* OvalShapeView.swift in Sources */,
 				84AC67142A810DBE00D2321B /* CompatibilityModel.swift in Sources */,
 				8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */,
-				84DBB9B62AE7BDC900A0784F /* OnboardingQuizData.swift in Sources */,
+				84D89CFA2AFD3593000CF2FB /* YourNumerologyCV.swift in Sources */,
+				84D89D032AFFB0EB000CF2FB /* DateCompatibilityCV.swift in Sources */,
 				8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */,
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
+				841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */,
 				84DBB9A92AE40FC700A0784F /* NumerologyModel.swift in Sources */,
 				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
@@ -723,6 +758,7 @@
 				84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
+				84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
@@ -878,7 +914,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.53;
+				CURRENT_PROJECT_VERSION = 1.54;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -894,7 +930,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.8;
+				MARKETING_VERSION = 3.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -911,7 +947,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.53;
+				CURRENT_PROJECT_VERSION = 1.54;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -927,7 +963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.8;
+				MARKETING_VERSION = 3.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

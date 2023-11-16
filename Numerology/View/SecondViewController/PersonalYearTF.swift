@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalYearTF: RegularTextField, PersonalYearDPProtocol {
+class PersonalYearTF: CustomTF, PersonalYearDPProtocol {
     
     var receivedDate: Date?
 //    delegate
@@ -27,8 +27,6 @@ class PersonalYearTF: RegularTextField, PersonalYearDPProtocol {
         self.textAlignment = .center
         self.rightViewMode = .never
         self.leftViewMode = .never
-        self.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.09019607843, blue: 0.1725490196, alpha: 1)
-        self.layer.borderColor = UIColor.clear.cgColor
         
         self.inputView = customDatePicker
         customDatePicker.valueDelegate = self

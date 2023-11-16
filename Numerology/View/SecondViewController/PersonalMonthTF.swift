@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalMonthTF: RegularTextField, PersonalMonthProtocol {
+class PersonalMonthTF: CustomTF, PersonalMonthProtocol {
 
     
     var receivedDate: Date?
@@ -28,8 +28,6 @@ class PersonalMonthTF: RegularTextField, PersonalMonthProtocol {
         self.textAlignment = .center
         self.rightViewMode = .never
         self.leftViewMode = .never
-        self.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.09019607843, blue: 0.1725490196, alpha: 1)
-        self.layer.borderColor = UIColor.clear.cgColor
         
         self.inputView = customDatePicker
         customDatePicker.valueDelegate = self

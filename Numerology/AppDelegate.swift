@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     
-    let navmainTabBarVC: UINavigationController = {
-        let nav = UINavigationController(rootViewController: MainTabBarController())
-        return nav
-    }()
+//    let navMainTabBarVC: MainNavController = {
+//        let nav = MainNavController(rootViewController: MainTabBarController())
+//        return nav
+//    }()
     
     let navOnboardingVC: UINavigationController = {
         let nav = UINavigationController(rootViewController: OnboardingVC_v2())
@@ -54,14 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func appScreenConfiguration() {
         // test
-//        let nav = UINavigationController(rootViewController: PaywallVC_V2(onboardingIsCompleted: false))
-//        window?.rootViewController = nav
+//        window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = LifeStagesViewController()
 //        UserDefaults.standard.removeObject(forKey: "nameKey")
 //        UserDefaults.standard.removeObject(forKey: "surnameKey")
 //        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
         
+        // eligibility content 
         
-        // ✅ // Data
+         // ✅ // Data
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
@@ -75,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(dataSurname as Any)
             print(dateOfBirth as Any)
             print("UserData - Have")
-            window?.rootViewController = navmainTabBarVC
+            window?.rootViewController = MainTabBarController()
         } else {
             window?.rootViewController = navOnboardingVC
             print("UserData - Empty")
@@ -84,10 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-// MARK: PurchasesD elegate
+// MARK: Purchases Delegate
 extension AppDelegate: PurchasesDelegate {
-    
-    // Т.к этот метод purchases вызывается 2 раза (как я понял), идея была после 2 вызова -> Сообщить Observer'y и вызвать paywall т.к при определенных условиях paywall не открывается.
     
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         
@@ -105,7 +104,6 @@ extension AppDelegate: PurchasesDelegate {
             UserDefaults.standard.synchronize()
         }
     }
-    
 }
 
 
@@ -123,7 +121,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
             }
-            
         }
     }
     
@@ -134,13 +131,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
           if let error = error {
             print("Error fetching FCM registration token: \(error)")
           } else if let token = token {
-            print("FCM registration token: \(token)")
+//            print("FCM registration token: \(token)")
           }
         }
     }
     // MARK: delagate FCM
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      print("Firebase registration token: \(String(describing: fcmToken))")
+//      print("Firebase registration token: \(String(describing: fcmToken))")
 
       let dataDict: [String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(
@@ -155,8 +152,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
           let token = tokenParts.joined()
-          print("Device Token: \(token)")
-        
+//          print("Device Token: \(token)")
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

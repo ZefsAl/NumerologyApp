@@ -15,9 +15,24 @@ class ButtonCVCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if self.isSelected {
-                self.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
+                
+                // Selected TF state
+                self.layer.borderWidth = 2
+                self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+                self.layer.shadowOpacity = 1
+                self.layer.shadowRadius = 16
+                self.layer.shadowOffset = CGSize(width: 0, height: 4)
+                self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
+                
+                
             } else {
                 self.layer.borderColor = UIColor.clear.cgColor
+                
+                // Default TF state
+                self.layer.borderWidth = 1
+                self.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.7).cgColor
+                self.layer.shadowOffset = CGSize.zero
+                self.layer.shadowColor = UIColor.clear.cgColor
             }
         }
     }
@@ -26,8 +41,7 @@ class ButtonCVCell: UICollectionViewCell {
     private let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-//        l.text = String("test")
+        l.font = UIFont.init(weight: .semiBold, size: 15)
         l.textAlignment = .center
         
         return l
@@ -41,9 +55,20 @@ class ButtonCVCell: UICollectionViewCell {
 //        self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .black.withAlphaComponent(0.5)
         // Border
-        self.layer.cornerRadius = 15
+//        self.layer.cornerRadius = 15
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor.clear.cgColor
+        
+        // Style
+        self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+        // Border
+        self.layer.cornerRadius = 16
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.7).cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 16
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = UIColor.clear.cgColor
         
         // Setup
         setUpStack()

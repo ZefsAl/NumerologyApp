@@ -21,8 +21,7 @@ class FourthViewController: UIViewController {
     let descriptionText: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = ""
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -31,13 +30,11 @@ class FourthViewController: UIViewController {
     
     let contentStack = UIStackView()
     
-    var modelsArr: [NumerologyIsModel] = []
-    
     // MARK: view Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackground(named: "SecondaryBG")
+        setBackground(named: "MainBG2")
         setUpStack()
         requestFB()
         
@@ -46,7 +43,7 @@ class FourthViewController: UIViewController {
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
     
@@ -81,15 +78,16 @@ class FourthViewController: UIViewController {
         verticalScrollView.addSubview(contentStack)
         
         
+        let viewMargin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
             
-            contentStack.topAnchor.constraint(equalTo: verticalScrollView.topAnchor, constant: 176),
+            contentStack.topAnchor.constraint(equalTo: verticalScrollView.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: verticalScrollView.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: verticalScrollView.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: verticalScrollView.bottomAnchor, constant: -18),
             contentStack.widthAnchor.constraint(equalTo: verticalScrollView.widthAnchor, constant: -36),
 
-            verticalScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            verticalScrollView.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 0),
             verticalScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             verticalScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             verticalScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

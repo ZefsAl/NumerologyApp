@@ -22,8 +22,8 @@ class DescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("test")
+        l.font = UIFont.init(weight: .regular, size: 26)
+//        l.text = String("test")
         l.textAlignment = .left
         
         return l
@@ -32,8 +32,7 @@ class DescriptionVC: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = String("test")
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -43,8 +42,8 @@ class DescriptionVC: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = String("test")
+        l.font = UIFont.init(weight: .regular, size: 17)
+//        l.text = String("test")
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -56,7 +55,7 @@ class DescriptionVC: UIViewController {
         super.viewDidLoad()
         
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        setBackground(named: "SecondaryBG.png")
+        setBackground(named: "MainBG2.png")
         
         setUpStack()
     }
@@ -75,16 +74,29 @@ class DescriptionVC: UIViewController {
         let contentStack = UIStackView(arrangedSubviews: [mainTitle,info,about])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
-        contentStack.spacing = 20
+        contentStack.spacing = 8
 
         // cardView + Border
         let cardView: UIView = {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
 
-            v.layer.cornerRadius = 15
-            v.layer.borderWidth = 1
-            v.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
+//            v.layer.cornerRadius = 16
+//            v.layer.borderWidth = 1
+//            v.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
+            
+            // Style
+            v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+            // Border
+            v.layer.cornerRadius = 16
+            v.layer.borderWidth = 2
+            v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+            v.layer.shadowOpacity = 1
+            v.layer.shadowRadius = 16
+            v.layer.shadowOffset = CGSize(width: 0, height: 4)
+            v.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
+            
+            
             return v
         }()
         cardView.addSubview(contentStack)

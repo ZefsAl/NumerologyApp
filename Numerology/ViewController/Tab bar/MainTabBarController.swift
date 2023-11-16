@@ -12,17 +12,18 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     
     // MARK: header
-    let header: HeaderUIView = {
-        let v = HeaderUIView()
-        v.profileButton.addTarget(Any?.self, action: #selector(profileBtnAction), for: .touchUpInside)
-        
-        return v
-    }()
+//    let header: HeaderUIView = {
+//        let v = HeaderUIView()
+//        v.profileButton.addTarget(Any?.self, action: #selector(profileBtnAction), for: .touchUpInside)
+//
+//        return v
+//    }()
     // MARK: Profile Btn Action
-    @objc func profileBtnAction() {
-        print("profileBtnAction")
-        self.navigationController?.pushViewController(EditProfileVC(), animated: true)
-    }
+//    @objc func profileBtnAction() {
+//        print("profileBtnAction")
+//        self.navigationController?.pushViewController(EditProfileVC(), animated: true)
+//    }
+    
     
     
     // MARK: viewDidLoad
@@ -30,51 +31,51 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         
-//        self.view.backgroundColor = .black // Обязательно если не указываем на других VC
-//        self.tabBar.barTintColor = .orange // ??
-//        self.tabBar.isTranslucent = false
-        self.tabBar.tintColor = .white
-        self.tabBar.backgroundColor = #colorLiteral(red: 0.0431372549, green: 0.07058823529, blue: 0.1490196078, alpha: 1)
+        self.tabBar.tintColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
+        self.tabBar.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
+        let titleAttributes = [
+            NSAttributedString.Key.font: UIFont.init(weight: .bold, size: 10)
+        ]
         
         // MARK: FirstVC
-        let firstVC = FirstViewController()
-        let firstImage = UIImage(
-            systemName: "star",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )?.withBaselineOffset(fromBottom: 14)
-        firstVC.tabBarItem.title = nil
+        let firstVC = NumerologyVC()
+        let firstImage = UIImage(named: "Numerology_3x_93px")
         firstVC.tabBarItem.image = firstImage
-        let firstTabNav = UINavigationController(rootViewController: firstVC)
+        firstVC.tabBarItem.title = "Numerology"
+        firstVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let firstTabNav = CustomNavController(rootViewController: firstVC)
         
         // MARK: SecondVC
-        let secondVC = SecondViewController()
-        let secondImage = UIImage(
-            named: "Person_WideSize_3x_93px"
-        )?.withBaselineOffset(fromBottom: 16)
+        let secondVC = FourthViewController()
+        let secondImage = UIImage(named: "Horoscope_3x_75px")
         secondVC.tabBarItem.image = secondImage
-        secondVC.tabBarItem.title = nil
-//        secondVC.tabBarItem.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-        let secondTabNav = UINavigationController(rootViewController: secondVC)
+        secondVC.tabBarItem.title = "Horoscope"
+        secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let secondTabNav = CustomNavController(rootViewController: secondVC)
 
         // MARK: ThirdVC
-        let thirdVC = ThirdViewController()
-        let thirdImage = UIImage(
-            systemName: "heart",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )?.withBaselineOffset(fromBottom: 14)
+        let thirdVC = FourthViewController()
+//        let thirdImage = UIImage(
+//            systemName: "heart",
+//            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
+//        )?.withBaselineOffset(fromBottom: 14)
+        let thirdImage = UIImage(named: "Compatibility_3x_75px")
         thirdVC.tabBarItem.image = thirdImage
-        thirdVC.tabBarItem.title = nil
-        let thirdTabNav = UINavigationController(rootViewController: thirdVC)
+        thirdVC.tabBarItem.title = "Compatibility"
+        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let thirdTabNav = CustomNavController(rootViewController: thirdVC)
         
         // MARK: FourthVC
         let fourthVC = FourthViewController()
         let fourtImage = UIImage(
-            systemName: "moon",
+            systemName: "moon.fill",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )?.withBaselineOffset(fromBottom: 14)
+        )
+//        ?.withBaselineOffset(fromBottom: 14)
         fourthVC.tabBarItem.image = fourtImage
-        fourthVC.tabBarItem.title = nil
-        let fourthTabNav = UINavigationController(rootViewController: fourthVC)
+        fourthVC.tabBarItem.title = "About"
+        fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let fourthTabNav = CustomNavController(rootViewController: fourthVC)
     
         self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
         
@@ -84,9 +85,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     // MARK: viewWill Appear 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
-        setHeaderView()
+//        setHeaderView()
     }
     
     // MARK: view Did Appear
@@ -131,33 +132,33 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
 }
 
-extension MainTabBarController {
-    
-    // MARK: Setup header View
-    private func setHeaderView() {
-        guard
-            let name = UserDefaults.standard.object(forKey: "nameKey") as? String,
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        else {
-            return
-        }
-        
-        let todayDate: String = setDateFormat(date: Date())
-        let userDate: String = setDateFormat(date: dateOfBirth)
-        
-        header.configure(
-            helloTitle: name,
-            todayDate: todayDate,
-            userDate: userDate
-        )
-
-        self.view.addSubview(header)
-        
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: view.topAnchor),
-            header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            header.heightAnchor.constraint(equalToConstant: 176),
-        ])
-    }
-}
+//extension MainTabBarController {
+//
+//    // MARK: Setup header View
+//    private func setHeaderView() {
+//        guard
+//            let name = UserDefaults.standard.object(forKey: "nameKey") as? String,
+//            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+//        else {
+//            return
+//        }
+//
+//        let todayDate: String = setDateFormat(date: Date())
+//        let userDate: String = setDateFormat(date: dateOfBirth)
+//
+//        header.configure(
+//            helloTitle: name,
+//            todayDate: todayDate,
+//            userDate: userDate
+//        )
+//
+//        self.view.addSubview(header)
+//
+//        NSLayoutConstraint.activate([
+//            header.topAnchor.constraint(equalTo: view.topAnchor),
+//            header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            header.heightAnchor.constraint(equalToConstant: 176),
+//        ])
+//    }
+//}

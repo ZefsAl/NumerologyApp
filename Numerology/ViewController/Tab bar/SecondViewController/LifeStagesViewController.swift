@@ -23,8 +23,7 @@ class LifeStagesViewController: UIViewController {
     private let yearsTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("")
+        l.font = UIFont.init(weight: .regular, size: 26)
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -34,8 +33,7 @@ class LifeStagesViewController: UIViewController {
     private let contentTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = String("")
+        l.font = UIFont.init(weight: .regular, size: 26)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -45,8 +43,7 @@ class LifeStagesViewController: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = ""
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -56,8 +53,7 @@ class LifeStagesViewController: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = ""
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -68,11 +64,11 @@ class LifeStagesViewController: UIViewController {
     let buttonsCollectionView: ContentCollectionView = {
         var cv = ContentCollectionView()
         cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.clipsToBounds = false
         // For size cell by content + Constraints in Cell
         if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
             collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
-
         return cv
     }()
     
@@ -88,8 +84,7 @@ class LifeStagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        self.setBackground(named: "SecondaryBG.png")
+        self.setBackground(named: "MainBG2.png")
         
         setUpStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
@@ -155,9 +150,17 @@ class LifeStagesViewController: UIViewController {
         let cardView: UIView = {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
-            v.layer.cornerRadius = 15
-            v.layer.borderWidth = 1
-            v.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
+            // Style
+            v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+            // Border
+            v.layer.cornerRadius = 16
+            v.layer.borderWidth = 2
+            v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+            v.layer.shadowOpacity = 1
+            v.layer.shadowRadius = 16
+            v.layer.shadowOffset = CGSize(width: 0, height: 4)
+            v.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
+            
             return v
         }()
         cardView.addSubview(descriptionStack)
@@ -207,19 +210,6 @@ class LifeStagesViewController: UIViewController {
 // MARK: Collection View Delegate
 extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-
-    
-    // MARK: Size
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: (view.frame.size.width/4)-30, height: 40)
-//    }
-    
-    // vertical Spacing
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-    
     
 //  MARK: Horizontal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -283,3 +273,6 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
 }
+
+
+

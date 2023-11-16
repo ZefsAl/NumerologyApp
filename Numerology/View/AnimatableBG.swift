@@ -21,11 +21,11 @@ class AnimatableBG {
         self.imageView.clipsToBounds = true
         self.imageView.image = background
         self.imageView.center = vc.view.center
-        self.imageView.alpha = 0
+        self.imageView.alpha = 1
         vc.view.addSubview(self.imageView)
 //        vc.view.sendSubviewToBack(self.imageView)
         
-        self.timer = Timer.scheduledTimer(timeInterval: 6, target: self, selector: #selector(animate), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(animate), userInfo: nil, repeats: true)
     }
      
 //    Animate

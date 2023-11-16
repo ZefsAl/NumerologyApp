@@ -277,7 +277,7 @@ extension SecondViewController {
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
-            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 176),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -24),

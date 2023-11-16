@@ -18,8 +18,6 @@ class FirebaseManager {
     // 1 Config
     private let db = Firestore.firestore()
     
-    
-    
     // MARK: Get Board Of Day //  0
     func getBoardOfDay(completion: @escaping (BoardOfDayModel) -> Void ) {
         let docRef = db.collection("BoardOfDay")
@@ -340,9 +338,6 @@ class FirebaseManager {
             }
         }
     }
-    
-    
-    
     
     // MARK: Get NumerologyIs //  4.0
     func getNumerologyIs(completion: @escaping ([NumerologyIsModel]) -> Void ) {

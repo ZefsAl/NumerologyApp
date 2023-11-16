@@ -9,23 +9,14 @@ import Foundation
 import UIKit
 
 
-enum EditSettingsModelType {
-    case effect
-    case text
-    case background
-}
-
-
-struct EditSettingsModel {
-    let editSettingsModelType: EditSettingsModelType
-    let sections: [ContentSection]
-    
+struct NumerologyCVModel {
+    var sections: [ContentSection]
 }
 
 // Data Model
 struct ContentSection {
     let sectionTitle: String?
-    let sectionCells: [CellSectionType]
+    var sectionCells: [CellSectionType]
 }
 
 enum CellSectionType {
@@ -34,8 +25,8 @@ enum CellSectionType {
 
 struct BigCell {
     let title: String?
-    let iconSystemName: String?
-    let bgColor: UIColor?
-    let fontName: String?
+    let info: String?
+    let about: String?
+    let imageName: UIImage?
     let handler: (() -> Void)
 }

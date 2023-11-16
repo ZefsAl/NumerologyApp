@@ -12,8 +12,8 @@ class DescriptionView: UIView {
     private let lableDescription: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.text = ""
+//        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0 
         
@@ -23,8 +23,8 @@ class DescriptionView: UIView {
     private let numberBG: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 150, weight: .regular)
-        l.text = ""
+//        l.font = UIFont.systemFont(ofSize: 150, weight: .regular)
+        l.font = UIFont.init(weight: .regular, size: 150)
         l.textAlignment = .center
         l.textColor = .white.withAlphaComponent(0.35)
         

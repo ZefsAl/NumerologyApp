@@ -12,8 +12,6 @@ class QuizVC: UIViewController {
     
     var currentQuiz: Int = 0
     
-    var onboardingQuizData: OnboardingQuizModel = OnboardingQuizData().quiz1
-    
     // MARK: title
     private let questionTitle: UILabel = {
         let l = UILabel()

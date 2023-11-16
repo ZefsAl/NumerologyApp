@@ -88,7 +88,7 @@ class CompatibilityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBackground(named: "EnterDataBG.png")
+        self.setBackground(named: "MainBG2.png")
         setUpStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
                 

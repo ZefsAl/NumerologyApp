@@ -15,22 +15,37 @@ class CardCollectionViewCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
-        l.text = ""
+        l.font = UIFont(weight: .semiBold, size: 22)
         l.textAlignment = .center
-        
         return l
     }()
     // MARK: subtitle
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = ""
-        l.font = UIFont.systemFont(ofSize: 12, weight: .light)
+        l.font = UIFont(weight: .regular, size: 15)
         l.numberOfLines = 0
         
         return l
     }()
+    // MARK: Icon
+    let cardIcon: UIImageView = {
+        let iv = UIImageView()
+
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.image = UIImage(systemName: "chevron.right")
+        iv.contentMode = UIView.ContentMode.scaleAspectFill
+        iv.tintColor = .white
+        
+        let configImage = UIImage(
+            systemName: "chevron.right",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
+        )
+        iv.image = configImage
+        
+        return iv
+    }()
+    
     
     // MARK: bgImage
     let bgImage: UIImageView = {
@@ -50,11 +65,15 @@ class CardCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.backgroundColor = .black.withAlphaComponent(0.5)
+        self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = 15
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
+        self.layer.cornerRadius = 16
+        self.layer.borderWidth = 2
+        self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 16
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
         
         // Setup
         setUpStack()
@@ -83,15 +102,16 @@ class CardCollectionViewCell: UICollectionViewCell {
         
         self.addSubview(bgImage)
         
-        let titleStack = UIStackView(arrangedSubviews: [title])
-        titleStack.axis = .vertical
-        titleStack.alignment = .center
+        let titleStack = UIStackView(arrangedSubviews: [title,UIView(),cardIcon])
+        titleStack.axis = .horizontal
+        titleStack.alignment = .fill
         
         let contentStack = UIStackView(arrangedSubviews: [titleStack,subtitle])
         contentStack.translatesAutoresizingMaskIntoConstraints = false 
         contentStack.axis = .vertical
         contentStack.distribution = .fill
         contentStack.alignment = .leading
+        contentStack.spacing = 8
         
         
         self.addSubview(contentStack)
@@ -100,7 +120,6 @@ class CardCollectionViewCell: UICollectionViewCell {
             
             bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            
             
             titleStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
             titleStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
