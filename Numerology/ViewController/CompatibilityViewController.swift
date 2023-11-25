@@ -44,6 +44,7 @@ class CompatibilityViewController: UIViewController {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(name: "Cinzel-Regular", size: 80)
         l.text = "0"
+        l.clipsToBounds = false
         l.textAlignment = .center
         return l
     }()
@@ -64,7 +65,6 @@ class CompatibilityViewController: UIViewController {
         l.font = UIFont.systemFont(ofSize: 40, weight: .thin)
         l.text = "+"
         l.textAlignment = .center
-        
         NSLayoutConstraint.activate([
             l.widthAnchor.constraint(equalToConstant: 50)
         ])
@@ -125,18 +125,18 @@ class CompatibilityViewController: UIViewController {
             
             NSLayoutConstraint.activate([
                 userNumber.topAnchor.constraint(equalTo: v.topAnchor, constant: 10),
-                userNumber.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 44),
-                userNumber.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -44),
                 userNumber.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -8),
+                userNumber.centerXAnchor.constraint(equalTo: v.centerXAnchor),
             ])
 
             return v
         }()
         
-//         MARK: User Stack
+        
+        // MARK: User Stack
         let userStack = UIStackView(arrangedSubviews: [userView,userLable])
         userStack.axis = .vertical
-        userStack.alignment = .center
+        userStack.alignment = .fill
         userStack.spacing = 10
         
         
@@ -159,17 +159,16 @@ class CompatibilityViewController: UIViewController {
             
             NSLayoutConstraint.activate([
                 partnerNumber.topAnchor.constraint(equalTo: v.topAnchor, constant: 10),
-                partnerNumber.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 44),
-                partnerNumber.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -44),
                 partnerNumber.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -8),
+                partnerNumber.centerXAnchor.constraint(equalTo: v.centerXAnchor),
             ])
 
             return v
         }()
-//         MARK: User Stack
+        // MARK: User Stack
         let partnerStack = UIStackView(arrangedSubviews: [partnerView,partnerLable])
         partnerStack.axis = .vertical
-        partnerStack.alignment = .center
+        partnerStack.alignment = .fill
         partnerStack.spacing = 10
         
     // MARK: numbers Stack
@@ -177,7 +176,7 @@ class CompatibilityViewController: UIViewController {
         numbersStack.translatesAutoresizingMaskIntoConstraints = false
         numbersStack.alignment = .center
         numbersStack.axis = .horizontal
-        numbersStack.distribution = .equalSpacing
+        numbersStack.distribution = .fill
         
         
         // MARK: description View + Border
@@ -193,6 +192,8 @@ class CompatibilityViewController: UIViewController {
             
             v.addSubview(lableDescription)
             NSLayoutConstraint.activate([
+                userStack.widthAnchor.constraint(equalTo: partnerStack.widthAnchor), // fix
+                
                 lableDescription.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
                 lableDescription.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
                 lableDescription.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),

@@ -16,12 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
-//    let navMainTabBarVC: MainNavController = {
-//        let nav = MainNavController(rootViewController: MainTabBarController())
-//        return nav
-//    }()
-    
     let navOnboardingVC: UINavigationController = {
         let nav = UINavigationController(rootViewController: OnboardingVC_v2())
         return nav
@@ -46,27 +40,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureTokenFCM()
         // MARK: App Screen Config
         appScreenConfiguration()
-        
-        
+        //
         window?.makeKeyAndVisible()
         return true
     }
     
     private func appScreenConfiguration() {
         // test
-//        window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = CompatibilityViewController()
 //        window?.rootViewController = LifeStagesViewController()
 //        UserDefaults.standard.removeObject(forKey: "nameKey")
 //        UserDefaults.standard.removeObject(forKey: "surnameKey")
 //        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
         
-        // eligibility content 
-        
+        // eligibility content
          // ✅ // Data
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
 
+        DispatchQueue.main.async {
+            if let find = dateOfBirth as? Date {
+                let sign = HoroscopeSign().findHoroscopeSign(find: find)
+                print("✅✅✅ sign - ",sign)
+            }
+        }
+        
         // MARK: App Config
         if
             (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
@@ -81,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = navOnboardingVC
             print("UserData - Empty")
         }
+        //
     }
 }
 
@@ -137,8 +137,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     }
     // MARK: delagate FCM
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-//      print("Firebase registration token: \(String(describing: fcmToken))")
-
       let dataDict: [String: String] = ["token": fcmToken ?? ""]
       NotificationCenter.default.post(
         name: Notification.Name("FCMToken"),
@@ -146,17 +144,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         userInfo: dataDict
       )
     }
-    
     // Delegate Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-          let token = tokenParts.joined()
-//          print("Device Token: \(token)")
+//          let token = tokenParts.joined()
     }
-    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Push: \(error)")
     }
-
 }
+
+

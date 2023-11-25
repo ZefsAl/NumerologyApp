@@ -29,6 +29,7 @@
 		84420CD22A72D6FB00DE1812 /* Extension_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84420CD12A72D6FB00DE1812 /* Extension_UIViewController.swift */; };
 		84420CD52A73EC1A00DE1812 /* BigCardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84420CD42A73EC1A00DE1812 /* BigCardCVCell.swift */; };
 		84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */; };
+		844EA4092B117A6700D2D596 /* HoroscopeSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844EA4082B117A6700D2D596 /* HoroscopeSign.swift */; };
 		845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1BA2A657939003D6F5C /* AppDelegate.swift */; };
 		845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845EB1BC2A657939003D6F5C /* SceneDelegate.swift */; };
 		845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845EB1C32A65793E003D6F5C /* Assets.xcassets */; };
@@ -135,6 +136,7 @@
 		84420CD12A72D6FB00DE1812 /* Extension_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIViewController.swift; sourceTree = "<group>"; };
 		84420CD42A73EC1A00DE1812 /* BigCardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCardCVCell.swift; sourceTree = "<group>"; };
 		84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateNumbers.swift; sourceTree = "<group>"; };
+		844EA4082B117A6700D2D596 /* HoroscopeSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeSign.swift; sourceTree = "<group>"; };
 		845EB1B72A657938003D6F5C /* Numerology.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Numerology.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845EB1BA2A657939003D6F5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		845EB1BC2A657939003D6F5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				845EB1DD2A668D63003D6F5C /* Gradients.swift */,
+				844EA4082B117A6700D2D596 /* HoroscopeSign.swift */,
 			);
 			path = SupportedClass;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				84DBB9CB2AE955D500A0784F /* EnterUserDataVC.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
+				844EA4092B117A6700D2D596 /* HoroscopeSign.swift in Sources */,
 				848DFACC2AC41BDF0043512C /* Mini2PromoCVCell.swift in Sources */,
 				846FC5F42A8F97820011EF01 /* StoreKit2Manager.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,

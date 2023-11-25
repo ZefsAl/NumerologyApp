@@ -42,6 +42,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let firstImage = UIImage(named: "Numerology_3x_93px")
         firstVC.tabBarItem.image = firstImage
         firstVC.tabBarItem.title = "Numerology"
+        firstVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         firstVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let firstTabNav = CustomNavController(rootViewController: firstVC)
         
@@ -50,6 +51,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let secondImage = UIImage(named: "Horoscope_3x_75px")
         secondVC.tabBarItem.image = secondImage
         secondVC.tabBarItem.title = "Horoscope"
+        secondVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let secondTabNav = CustomNavController(rootViewController: secondVC)
 
@@ -62,6 +64,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let thirdImage = UIImage(named: "Compatibility_3x_75px")
         thirdVC.tabBarItem.image = thirdImage
         thirdVC.tabBarItem.title = "Compatibility"
+        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let thirdTabNav = CustomNavController(rootViewController: thirdVC)
         
@@ -73,22 +76,20 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         )
 //        ?.withBaselineOffset(fromBottom: 14)
         fourthVC.tabBarItem.image = fourtImage
-        fourthVC.tabBarItem.title = "About"
+        fourthVC.tabBarItem.title = "Moon phase"
+        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let fourthTabNav = CustomNavController(rootViewController: fourthVC)
     
         self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
-        
-        
     }
     
     // MARK: viewWill Appear 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
 //        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
 //        setHeaderView()
-    }
+//    }
     
     // MARK: view Did Appear
     override func viewDidAppear(_ animated: Bool) {

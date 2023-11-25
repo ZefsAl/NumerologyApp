@@ -27,21 +27,25 @@ class NumerologyVC: UIViewController, RemoteOpenDelegate {
     // MARK: - personal Predictions CV
     let dateCompatibilityCV: DateCompatibilityCV = {
         let cv = DateCompatibilityCV()
+        cv.clipsToBounds = false
         return cv
     }()
     // MARK: - yournumerology CV
     let yournumerologyCV: YourNumerologyCV = {
         let cv = YourNumerologyCV()
+        cv.clipsToBounds = false
         return cv
     }()
     // MARK: - personal Predictions CV
     let personalPredictionsCV: PersonalPredictionsCV = {
         let cv = PersonalPredictionsCV()
+        cv.clipsToBounds = false
         return cv
     }()
     // MARK: - personal Predictions CV
     let aboutCV: AboutCV = {
         let cv = AboutCV()
+        cv.clipsToBounds = false
         return cv
     }()
     
@@ -49,10 +53,8 @@ class NumerologyVC: UIViewController, RemoteOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
         setupUI()
         remoteOpen()
-        
         setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
     }
@@ -117,7 +119,7 @@ extension NumerologyVC {
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -16),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
             
-            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

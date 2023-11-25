@@ -21,7 +21,6 @@ extension UserDefaults {
     }
     
     func setDayTipModel(model: BoardOfDayModel) {
-        
         if let encoded = try? JSONEncoder().encode(model) {
             UserDefaults.standard.set(encoded, forKey: "BoardOfDayModelKey")
         }

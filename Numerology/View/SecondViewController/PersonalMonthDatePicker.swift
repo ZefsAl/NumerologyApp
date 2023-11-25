@@ -74,7 +74,6 @@ extension PersonalMonthDatePicker: UIPickerViewDelegate, UIPickerViewDataSource 
         
         // DateFormatter не может преобразовать русский месяц в Date
         let df = DateFormatter()
-//        df.locale = Locale(identifier: "en_US")
         
         let langStr = Locale.current.languageCode
         if langStr == "ru" {

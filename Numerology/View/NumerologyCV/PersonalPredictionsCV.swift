@@ -61,7 +61,6 @@ class PersonalPredictionsCV: UICollectionView {
         
         section.visibleItemsInvalidationHandler = { [weak self] _, offset, environment in
             guard let self else { return }
-            
             let pageWidth = environment.container.contentSize.width
             let currentPage = Int((offset.x / pageWidth).rounded())
             self.numerologyPC.currentPage = currentPage
@@ -161,7 +160,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
             FirebaseManager.shared.getPersonalMonth(number: 1) { model in
                 self.personalMonthModel = model
                 cell.configure(
-                    title: "Pers. month",
+                    title: "Personal month",
                     subtitle: model.aboutPersMonth,
                     bgImage: nil
                 )
@@ -173,7 +172,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
             FirebaseManager.shared.getPersonalYear(number: 1) { model in
                 self.personalYearModel = model
                 cell.configure(
-                    title: "Pers. year",
+                    title: "Personal year",
                     subtitle: model.aboutPersYear,
                     bgImage: nil
                 )

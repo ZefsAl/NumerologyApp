@@ -92,14 +92,12 @@ final class CustomNavController: UINavigationController {
         return b
     }()
     @objc private func dayTipAct() {
-        
         let vc = DescriptionVC()
         vc.configure(
             title: "Your tip of the day!",
             info: boardOfDayModel?.dayTip,
             about: nil
         )
-        
         if boardOfDayModel != nil {
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
@@ -120,6 +118,7 @@ final class CustomNavController: UINavigationController {
         configName()
         
         requestDayTip()
+        
     }
     
     private func configName() {
@@ -137,14 +136,24 @@ final class CustomNavController: UINavigationController {
     
     // MARK: - setup UI
     private func setupUI() {
+//        let scrollAppearance = UINavigationBarAppearance()
+//        scrollAppearance.configureWithDefaultBackground()
+//        scrollAppearance.backgroundColor = .red
+//        let standardAppearance = UINavigationBarAppearance()
+//        standardAppearance.backgroundColor = .blue
+//        standardAppearance.configureWithTransparentBackground()
+        //        scrollAppearance.configureWithOpaqueBackground()
+//        scrollAppearance.configureWithDefaultBackground()
+//        scrollAppearance.configureWithTransparentBackground()
+//        self.navigationBar.scrollEdgeAppearance = scrollAppearance
+//        self.navigationBar.standardAppearance = standardAppearance
+        
         
         let leftStack = UIStackView(arrangedSubviews: [horoscopeIcon,nameTitle])
         leftStack.translatesAutoresizingMaskIntoConstraints = false
         leftStack.axis = .horizontal
         leftStack.alignment = .center
         leftStack.spacing = 4
-        
-        
         
         let contentStack = UIStackView(arrangedSubviews: [leftStack,UIView(),dayTipButton,profileButton])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
@@ -163,9 +172,9 @@ final class CustomNavController: UINavigationController {
     }
     
     // MARK: - Action
-    @objc private func settingsAct() {
-        print("settingsAct")
-    }
+//    @objc private func settingsAct() {
+//        print("settingsAct")
+//    }
     
 }
 

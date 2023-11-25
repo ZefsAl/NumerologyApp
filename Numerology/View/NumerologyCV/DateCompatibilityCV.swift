@@ -86,11 +86,9 @@ extension DateCompatibilityCV: UICollectionViewDataSource, UICollectionViewDeleg
         
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
-            sectionHeader?.label.text = "Date compatibility"
+            sectionHeader?.label.text = "Compatibility"
             return sectionHeader ?? UICollectionReusableView()
         }
-        
-        
         return UICollectionReusableView()
     }
     
