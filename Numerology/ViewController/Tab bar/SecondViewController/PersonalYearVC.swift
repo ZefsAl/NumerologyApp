@@ -264,7 +264,7 @@ final class PersonalYearVC: UIViewController {
         
         // Present VC
         DispatchQueue.main.async {
-            FirebaseManager().getPersonalYear(number: personalYearVal) { model in
+            NumerologyManager().getPersonalYear(number: personalYearVal) { model in
                 let vc = DescriptionVC()
                 vc.configure(
                     title: "Your personal year",

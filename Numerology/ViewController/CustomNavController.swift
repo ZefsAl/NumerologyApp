@@ -15,8 +15,7 @@ final class CustomNavController: UINavigationController {
     let horoscopeIcon: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        let configImage = UIImage(named: "mdi_horoscope-taurus")
-        iv.image = configImage
+//        iv.image = UIImage(named: "mdi_horoscope-taurus")
         iv.contentMode = UIView.ContentMode.scaleAspectFit
         iv.tintColor = .white
         
@@ -77,17 +76,22 @@ final class CustomNavController: UINavigationController {
     
     // MARK: dayTip Button
     let dayTipButton: UIButton = {
-        let b = UIButton(type: .system)
+        let b = UIButton(type: .custom)
         b.translatesAutoresizingMaskIntoConstraints = false
-        
+        b.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+        b.layer.cornerRadius = 14
+        b.layer.borderWidth = 1
+        b.layer.borderColor = #colorLiteral(red: 0.9649999738, green: 0.8550000191, blue: 1, alpha: 1)
+        //
+        b.setTitle("TODAY", for: .normal)
+        b.titleLabel?.font =  UIFont(weight: .bold, size: 15)
         let configImage = UIImage(systemName: "sun.max.fill",
-                                  withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
-        let iv = UIImageView(image: configImage)
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.tintColor = .white
-        b.addSubview(iv)
-        iv.centerXAnchor.constraint(equalTo: b.centerXAnchor).isActive = true
-        iv.centerYAnchor.constraint(equalTo: b.centerYAnchor).isActive = true
+                                  withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .bold))
+        b.imageView?.tintColor = .white
+        b.setImage(configImage, for: .normal)
+        //
+        b.contentEdgeInsets = UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8)
+        
         b.addTarget(Any?.self, action: #selector(dayTipAct), for: .touchUpInside)
         return b
     }()
@@ -106,7 +110,7 @@ final class CustomNavController: UINavigationController {
     }
     
     private func requestDayTip() {
-        FirebaseManager.shared.getBoardOfDay { model in
+        NumerologyManager.shared.getBoardOfDay { model in
             self.boardOfDayModel = model
         }
     }
@@ -118,7 +122,7 @@ final class CustomNavController: UINavigationController {
         configName()
         
         requestDayTip()
-        
+        requestUserSign()
     }
     
     private func configName() {
@@ -131,6 +135,14 @@ final class CustomNavController: UINavigationController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+    }
+    
+    private func requestUserSign() {
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image in
+            self.horoscopeIcon.image = image
+        }
     }
     
     

@@ -97,7 +97,7 @@ final class PersonalDayVC: UIViewController {
 
         // Present VC
         DispatchQueue.main.async {
-            FirebaseManager().getPersonalDay(number: personalDay) { model in
+            NumerologyManager().getPersonalDay(number: personalDay) { model in
                 let vc = DescriptionVC()
                 vc.configure(
                     title: "Your personal day",

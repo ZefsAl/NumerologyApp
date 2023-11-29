@@ -238,11 +238,8 @@ class EditProfileVC: UIViewController {
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44),
-            
-//            deleteDataButton.topAnchor.constraint(equalTo: contentStack.bottomAnchor),
+
             deleteDataButton.heightAnchor.constraint(equalToConstant: 40),
-//            deleteDataButton.widthAnchor.constraint(equalToConstant: 120),
-//            deleteDataButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
         ])
     }
     

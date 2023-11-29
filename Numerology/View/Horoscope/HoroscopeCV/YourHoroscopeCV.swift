@@ -1,13 +1,13 @@
 //
-//  AboutCV.swift
+//  one.swift
 //  Numerology
 //
-//  Created by Serj on 11.11.2023.
+//  Created by Serj on 26.11.2023.
 //
 
 import UIKit
 
-class AboutCV: UICollectionView {
+class YourHoroscopeCV: UICollectionView {
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
@@ -16,7 +16,6 @@ class AboutCV: UICollectionView {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout.init())
         self.backgroundColor = .clear
         
-        self.isScrollEnabled = false
         register()
         setupCV_Layout()
     }
@@ -26,7 +25,7 @@ class AboutCV: UICollectionView {
     private func setupCV_Layout() {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
-            heightDimension: NSCollectionLayoutDimension.absolute(110)
+            heightDimension: NSCollectionLayoutDimension.absolute(117)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: size)
@@ -69,23 +68,27 @@ class AboutCV: UICollectionView {
         // Delegate Collection View
         self.delegate = self
         self.dataSource = self
-        self.register(AboutCVCell.self, forCellWithReuseIdentifier: AboutCVCell.reuseID)
+        self.register(HoroscopeCell.self, forCellWithReuseIdentifier: HoroscopeCell.reuseID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
+        // Footer
+//        self.register(SectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SectionFooterView.reuseID)
     }
     
 }
 
 
 // MARK: Delegate
-extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
+extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //  Supplementary Element
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
-            sectionHeader?.label.text = "About"
+            sectionHeader?.label.text = "Your Horoscope"
+            sectionHeader?.label.textColor = #colorLiteral(red: 0.6980392157, green: 0.6901960784, blue: 0.9725490196, alpha: 1)
+            
             return sectionHeader ?? UICollectionReusableView()
         }
         return UICollectionReusableView()
@@ -97,19 +100,16 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AboutCVCell.reuseID, for: indexPath as IndexPath) as! AboutCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HoroscopeCell.reuseID, for: indexPath as IndexPath) as! HoroscopeCell
+        
+        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
         
         if indexPath.row == 0 {
-            NumerologyManager.shared.getNumerologyIs { arr in
-                for item in arr {
-                    if item.number == 123 {
-                        cell.subtitle.numberOfLines = 4
-                        cell.configure(
-                            subtitle: item.infoNumerology
-                        )
-                    }
-                }
-            }
+            cell.configure(
+                title: "Hello, \(name ?? "" )!",
+                subtitle: "Find out your horoscope",
+                bgImage: UIImage(named: "HoroscopeImage")
+            )
             return cell
         }
 
@@ -125,9 +125,10 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
         // MARK: Soul // 0
         if indexPath.row == 0 {
             
-            let vc = FourthViewController()
-            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
+//            let vc = ThirdViewController()
+//            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
             
+            let vc = HoroscopeDescriptionVC()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
             self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
@@ -135,3 +136,4 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
 
     }
 }
+

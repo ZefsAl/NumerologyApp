@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func appScreenConfiguration() {
         // test
-//        window?.rootViewController = CompatibilityViewController()
-//        window?.rootViewController = LifeStagesViewController()
+        window?.rootViewController = CustomNavController(rootViewController: HoroscopeVC())
+//        window?.rootViewController = HoroscopeDescriptionVC()
 //        UserDefaults.standard.removeObject(forKey: "nameKey")
 //        UserDefaults.standard.removeObject(forKey: "surnameKey")
 //        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
@@ -58,28 +58,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-
-        DispatchQueue.main.async {
-            if let find = dateOfBirth as? Date {
-                let sign = HoroscopeSign().findHoroscopeSign(find: find)
-                print("✅✅✅ sign - ",sign)
-            }
-        }
         
         // MARK: App Config
-        if
-            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-                (dataName as? String != "" || dataSurname as? String != "")
-        {
-            print(dataName as Any)
-            print(dataSurname as Any)
-            print(dateOfBirth as Any)
-            print("UserData - Have")
-            window?.rootViewController = MainTabBarController()
-        } else {
-            window?.rootViewController = navOnboardingVC
-            print("UserData - Empty")
-        }
+//        if
+//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
+//                (dataName as? String != "" || dataSurname as? String != "")
+//        {
+//            print(dataName as Any)
+//            print(dataSurname as Any)
+//            print(dateOfBirth as Any)
+//            print("UserData - Have")
+//            window?.rootViewController = MainTabBarController()
+//        } else {
+//            window?.rootViewController = navOnboardingVC
+//            print("UserData - Empty")
+//        }
         //
     }
 }

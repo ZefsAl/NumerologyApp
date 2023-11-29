@@ -111,7 +111,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
           return bigCell
         } else if indexPath.row == 1 {
             // MARK: Pers. Day // 2.1
-            FirebaseManager.shared.getPersonalDay(number: 1) { model in
+            NumerologyManager.shared.getPersonalDay(number: 1) { model in
                 self.personalDayModel = model
                 cell.configure(
                     title: "Personal day",
@@ -122,7 +122,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
             return cell
         } else if indexPath.row == 2 {
             // MARK: Pers. Month // 2.2
-            FirebaseManager.shared.getPersonalMonth(number: 1) { model in
+            NumerologyManager.shared.getPersonalMonth(number: 1) { model in
                 self.personalMonthModel = model
                 cell.configure(
                     title: "Pers. month",
@@ -133,7 +133,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
             return cell
         } else if indexPath.row == 3 {
             // MARK: Pers. Year // 2.3
-            FirebaseManager.shared.getPersonalYear(number: 1) { model in
+            NumerologyManager.shared.getPersonalYear(number: 1) { model in
                 self.personalYearModel = model
                 cell.configure(
                     title: "Pers. year",
@@ -144,7 +144,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
             return cell
         } else if indexPath.row == 4 {
             // MARK: Life Stages // 2.4
-            FirebaseManager.shared.getLifeStages(number: 1) { model in
+            NumerologyManager.shared.getLifeStages(number: 1) { model in
                 self.lifeStagesModel = model
                 cell.configure(
                     title: "Life Stages",

@@ -73,7 +73,7 @@ final class PersonalMonthVC: UIViewController {
         
         // Present VC
         DispatchQueue.main.async {
-            FirebaseManager().getPersonalMonth(number: personalMonth) { model in
+            NumerologyManager().getPersonalMonth(number: personalMonth) { model in
                 
                 let vc = DescriptionVC()
                 vc.configure(

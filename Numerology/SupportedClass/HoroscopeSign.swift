@@ -7,6 +7,13 @@
 
 import Foundation
 
+extension Date {
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
+}
+
+
 final class HoroscopeSign {
     // Set format for any received dates
     private let mainFormatter: DateFormatter = {
@@ -31,33 +38,33 @@ final class HoroscopeSign {
         let dateString = "\(2000)-\(month)-\(day)T00:00:00+0000" // Shouldn't be optional
         return mainFormatter.date(from: dateString) ?? Date()
     }
-    //
+    // MARK: - horoscope Signs
     private func horoscopeSigns() -> Dictionary<String, [Int:DateInterval]> {
         //
         let horoscopeSigns: Dictionary<String, [Int:DateInterval]> = [
-            "Овен"     : [0 : DateInterval(start: create(string: "21.03"), end: create(string: "20.04"))],
-            "Телец"    : [0 : DateInterval(start: create(string: "21.04"), end: create(string: "20.05"))],
-            "Близнецы" : [0 : DateInterval(start: create(string: "21.05"), end: create(string: "21.06"))],
-            "Рак"      : [0 : DateInterval(start: create(string: "22.06"), end: create(string: "22.07"))],
-            "Лев"      : [0 : DateInterval(start: create(string: "23.07"), end: create(string: "23.08"))],
-            "Дева"     : [0 : DateInterval(start: create(string: "24.08"), end: create(string: "23.09"))],
-            "Весы"     : [0 : DateInterval(start: create(string: "24.09"), end: create(string: "23.10"))],
-            "Скорпион" : [0 : DateInterval(start: create(string: "24.10"), end: create(string: "22.11"))],
-            "Стрелец"  : [0 : DateInterval(start: create(string: "23.11"), end: create(string: "21.12"))],
-            "Козерог"  : [
+            "Aries"     : [0 : DateInterval(start: create(string: "21.03"), end: create(string: "20.04"))],
+            "Taurus"    : [0 : DateInterval(start: create(string: "21.04"), end: create(string: "20.05"))],
+            "Gemini" : [0 : DateInterval(start: create(string: "21.05"), end: create(string: "21.06"))],
+            "Cancer"      : [0 : DateInterval(start: create(string: "22.06"), end: create(string: "22.07"))],
+            "Leo"      : [0 : DateInterval(start: create(string: "23.07"), end: create(string: "23.08"))],
+            "Virgo"     : [0 : DateInterval(start: create(string: "24.08"), end: create(string: "23.09"))],
+            "Libra"     : [0 : DateInterval(start: create(string: "24.09"), end: create(string: "23.10"))],
+            "Scorpio" : [0 : DateInterval(start: create(string: "24.10"), end: create(string: "22.11"))],
+            "Sagittarius"  : [0 : DateInterval(start: create(string: "23.11"), end: create(string: "21.12"))],
+            "Capricorn"  : [
                 0 : DateInterval(start: create(string: "22.12"), end: create(string: "31.12")),
                 1 : DateInterval(start: create(string: "01.01"), end: create(string: "20.01"))
             ],
-            "Водолей" : [0 : DateInterval(start: create(string: "21.01"), end: create(string: "20.02"))],
-            "Рыбы"    : [0 : DateInterval(start: create(string: "21.02"), end: create(string: "20.03"))],
+            "Aquarius" : [0 : DateInterval(start: create(string: "21.01"), end: create(string: "20.02"))],
+            "Pisces"    : [0 : DateInterval(start: create(string: "21.02"), end: create(string: "20.03"))],
         ]
         //
         return horoscopeSigns
     }
-    //
+    // MARK: - find Horoscope Sign
     func findHoroscopeSign(find: Date?) -> String {
         guard
-            var find = find,
+            let find = find,
             let find = mainFormatter.date(from: "\(2000)-\(find.get(.month))-\(find.get(.day))T00:00:00+0000")
         else { return "" }
         //
@@ -73,9 +80,4 @@ final class HoroscopeSign {
         return ""
     }
     //
-}
-extension Date {
-    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
-        return calendar.component(component, from: self)
-    }
 }

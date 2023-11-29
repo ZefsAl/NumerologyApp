@@ -92,7 +92,7 @@ class LifeStagesViewController: UIViewController {
         
         buttonsCollectionView.delegate = self
         buttonsCollectionView.dataSource = self
-        buttonsCollectionView.register(ButtonCVCell.self, forCellWithReuseIdentifier: ButtonCVCell().buttonCVCellID)
+        buttonsCollectionView.register(ChipsCVCell.self, forCellWithReuseIdentifier: ChipsCVCell().buttonCVCellID)
         
         request()
         
@@ -117,20 +117,20 @@ class LifeStagesViewController: UIViewController {
         
         // First stage
         DispatchQueue.main.async {
-            FirebaseManager().getLifeStages(number: modelForRequest.firstIndividualNumber) { model in
+            NumerologyManager().getLifeStages(number: modelForRequest.firstIndividualNumber) { model in
                 self.firstModel = model
                 self.yearsTitle.text = "The beginning of your life - \(modelForRequest.firstStage) years"
                 self.contentTitle.text = "Your number of the first life stage"
                 self.info.text = model.infoStages
                 self.about.text = model.aboutStages
             }
-            FirebaseManager().getLifeStages(number: modelForRequest.secondIndividualNumber) { model in
+            NumerologyManager().getLifeStages(number: modelForRequest.secondIndividualNumber) { model in
                 self.secondModel = model
             }
-            FirebaseManager().getLifeStages(number: modelForRequest.thirdIndividualNumber) { model in
+            NumerologyManager().getLifeStages(number: modelForRequest.thirdIndividualNumber) { model in
                 self.thirdModel = model
             }
-            FirebaseManager().getLifeStages(number: modelForRequest.fourthIndividualNumber) { model in
+            NumerologyManager().getLifeStages(number: modelForRequest.fourthIndividualNumber) { model in
                 self.fourthModel = model
             }
         }
@@ -186,7 +186,6 @@ class LifeStagesViewController: UIViewController {
             descriptionStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
             descriptionStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -16),
 
-            
             buttonsCollectionView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             buttonsCollectionView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
 
@@ -223,7 +222,7 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
 
     // MARK: Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCVCell().buttonCVCellID, for: indexPath as IndexPath) as! ButtonCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChipsCVCell().buttonCVCellID, for: indexPath as IndexPath) as! ChipsCVCell
         
         if indexPath.row == 0 {
             cell.configure(title: "First")
@@ -268,10 +267,7 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
             self.info.text = fourthModel?.infoStages
             self.about.text = fourthModel?.aboutStages
         }
-        
-        print("You selected cell #\(indexPath.item)!")
     }
-
 }
 
 

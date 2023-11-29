@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "bgHoroscope.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -1,5 +1,5 @@
 //
-//  FirebaseManager.swift
+//  NumerologyManager.swift
 //  Numerology
 //
 //  Created by Serj on 24.07.2023.
@@ -12,9 +12,9 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 import UIKit
 
-class FirebaseManager {
+class NumerologyManager {
     
-    static let shared: FirebaseManager = FirebaseManager()
+    static let shared: NumerologyManager = NumerologyManager()
     // 1 Config
     private let db = Firestore.firestore()
     

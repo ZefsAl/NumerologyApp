@@ -1,13 +1,17 @@
 //
-//  AboutCV.swift
+//  AboutYouCV.swift
 //  Numerology
 //
-//  Created by Serj on 11.11.2023.
+//  Created by Serj on 26.11.2023.
 //
 
 import UIKit
 
-class AboutCV: UICollectionView {
+class AboutYouCV: UICollectionView {
+    
+    // data
+    private var signsModel: SignsModel?
+    private var signImage: UIImage?
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
@@ -16,7 +20,6 @@ class AboutCV: UICollectionView {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout.init())
         self.backgroundColor = .clear
         
-        self.isScrollEnabled = false
         register()
         setupCV_Layout()
     }
@@ -26,7 +29,7 @@ class AboutCV: UICollectionView {
     private func setupCV_Layout() {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
-            heightDimension: NSCollectionLayoutDimension.absolute(110)
+            heightDimension: NSCollectionLayoutDimension.absolute(117)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: size)
@@ -69,7 +72,7 @@ class AboutCV: UICollectionView {
         // Delegate Collection View
         self.delegate = self
         self.dataSource = self
-        self.register(AboutCVCell.self, forCellWithReuseIdentifier: AboutCVCell.reuseID)
+        self.register(HoroscopeCell.self, forCellWithReuseIdentifier: HoroscopeCell.reuseID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
     }
@@ -78,14 +81,16 @@ class AboutCV: UICollectionView {
 
 
 // MARK: Delegate
-extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
+extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //  Supplementary Element
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
-            sectionHeader?.label.text = "About"
+            sectionHeader?.label.text = "About You"
+            sectionHeader?.label.textColor = #colorLiteral(red: 0.6980392157, green: 0.6901960784, blue: 0.9725490196, alpha: 1)
+            
             return sectionHeader ?? UICollectionReusableView()
         }
         return UICollectionReusableView()
@@ -97,24 +102,26 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AboutCVCell.reuseID, for: indexPath as IndexPath) as! AboutCVCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HoroscopeCell.reuseID, for: indexPath as IndexPath) as! HoroscopeCell
+        
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         
         if indexPath.row == 0 {
-            NumerologyManager.shared.getNumerologyIs { arr in
-                for item in arr {
-                    if item.number == 123 {
-                        cell.subtitle.numberOfLines = 4
-                        cell.configure(
-                            subtitle: item.infoNumerology
-                        )
-                    }
-                }
+            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image in
+                //
+                self.signsModel = model
+                self.signImage = image
+                //
+                cell.configure(
+                    title: model.zodiacSigns,
+                    subtitle: model.dateAboutYou,
+                    bgImage: image
+                )
             }
             return cell
         }
-
         return cell
-        
     }
     
     // MARK: did Select ItemAt
@@ -125,7 +132,25 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
         // MARK: Soul // 0
         if indexPath.row == 0 {
             
-            let vc = FourthViewController()
+            let vc = AboutYouVC()
+            vc.signContent.configure(
+                title: self.signsModel?.zodiacSigns ?? "",
+                subtitle: self.signsModel?.dateAboutYou ?? "",
+                image: self.signImage ?? UIImage(named: "plug")!
+            )
+            vc.signcharacteristics.showAccordion()
+            vc.signcharacteristics.configure(
+                title: "Sign characteristics",
+                info: "Main information",
+                about: self.signsModel?.signCharacteristics
+            )
+            vc.learnMore.showAccordion()
+            vc.learnMore.configure(
+                title: "Learn more",
+                info: nil,
+                about: self.signsModel?.month
+            )
+
             vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
             
             let navVC = UINavigationController(rootViewController: vc)

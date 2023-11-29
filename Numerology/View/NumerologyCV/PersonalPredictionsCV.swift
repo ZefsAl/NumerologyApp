@@ -145,7 +145,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         
         if indexPath.row == 0 {
             // MARK: Pers. Day
-            FirebaseManager.shared.getPersonalDay(number: 1) { model in
+            NumerologyManager.shared.getPersonalDay(number: 1) { model in
                 self.personalDayModel = model
                 cell.configure(
                     title: "Personal day",
@@ -157,7 +157,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         }
         if indexPath.row == 1 {
             // MARK: Pers. Month
-            FirebaseManager.shared.getPersonalMonth(number: 1) { model in
+            NumerologyManager.shared.getPersonalMonth(number: 1) { model in
                 self.personalMonthModel = model
                 cell.configure(
                     title: "Personal month",
@@ -169,7 +169,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         }
         if indexPath.row == 2 {
             // MARK: Pers. Year
-            FirebaseManager.shared.getPersonalYear(number: 1) { model in
+            NumerologyManager.shared.getPersonalYear(number: 1) { model in
                 self.personalYearModel = model
                 cell.configure(
                     title: "Personal year",
@@ -181,7 +181,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         }
         if indexPath.row == 3 {
             // MARK: Life Stages
-            FirebaseManager.shared.getLifeStages(number: 1) { model in
+            NumerologyManager.shared.getLifeStages(number: 1) { model in
                 self.lifeStagesModel = model
                 cell.configure(
                     title: "Life Stages",

@@ -154,7 +154,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
         if indexPath.row == 0 {
             // MARK: SOUL
             let number = CalculateNumbers().calculateNumberOfSoul(date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfSoul(number: number) { model, img in
+            NumerologyManager.shared.getNumbersOfSoul(number: number) { model, img in
                 self.numbersOfSoulModel = model
                 cell.configure(
                     title: "Soul",
@@ -167,7 +167,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
         if indexPath.row == 1 {
             // MARK: Destiny
             let number = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfDestiny(number: number) { model, img in
+            NumerologyManager.shared.getNumbersOfDestiny(number: number) { model, img in
                 self.numbersOfDestinyModel = model
                 cell.configure(
                     title: "Destiny",
@@ -185,7 +185,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
                 let surname = surname
             else { return cell}
             let number = CalculateNumbers().calculateNumberOfName(name: name, surname: surname)
-            FirebaseManager.shared.getNumbersOfName(number: number) { model, img in
+            NumerologyManager.shared.getNumbersOfName(number: number) { model, img in
                 self.numbersOfNameModel = model
                 cell.configure(
                     title: "Name",
@@ -202,7 +202,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
                 let name = name
             else { return cell}
             let number = CalculateNumbers().calculateNumberOfMoney(name: name, date: dateOfBirth)
-            FirebaseManager.shared.getNumbersOfMoney(number: number) { model, img in
+            NumerologyManager.shared.getNumbersOfMoney(number: number) { model, img in
                 self.numbersOfMoneyModel = model
                 cell.configure(
                     title: "Money",
@@ -224,7 +224,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             let codeDestiny = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
             let number = CalculateNumbers().calculatePowerCode(codeName: codeName, codeDestiny: codeDestiny)
             
-            FirebaseManager.shared.getPowerCode(number: number) { model, img in
+            NumerologyManager.shared.getPowerCode(number: number) { model, img in
                 self.powerCodeModel = model
                 cell.configure(
                     title: "Power Code",

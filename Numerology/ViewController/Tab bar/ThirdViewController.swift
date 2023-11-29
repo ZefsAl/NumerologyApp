@@ -103,7 +103,7 @@ final class ThirdViewController: UIViewController {
         guard let compatibility = Int(strNumber) else { return }
     
         DispatchQueue.main.async {
-            FirebaseManager().getCompatibility(number: compatibility) { model in
+            NumerologyManager().getCompatibility(number: compatibility) { model in
                 
                 print(model.aboutThisNumbers)
                 

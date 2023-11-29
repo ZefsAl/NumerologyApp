@@ -49,7 +49,7 @@ class FourthViewController: UIViewController {
     
     func requestFB() {
         
-        FirebaseManager.shared.getNumerologyIs { arr in
+        NumerologyManager.shared.getNumerologyIs { arr in
             for item in arr.sorted(by: { $0.number < $1.number }) {
                 if item.number == 123 {
                     self.descriptionText.text = item.infoNumerology
