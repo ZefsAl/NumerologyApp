@@ -136,8 +136,6 @@ final class PaywallVC_V2: UIViewController {
         guard let storeProductIndex = self.storeProductArr?[index] else { return }
         self.purchaseButton.activityIndicatorView.startAnimating()
         
-//        storeProductIndex.
-        
         if subscriptionSwitch.isOn && storeProductIndex.productIdentifier == "Year_29.99" {
             Purchases.shared.getProducts(["Yearly.Trial"]) { arr in
 //                print("💰 Trial ---",arr.first?.productIdentifier)
@@ -145,6 +143,8 @@ final class PaywallVC_V2: UIViewController {
                 Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
                     self.purchaseButton.activityIndicatorView.stopAnimating()
                     if customerInfo?.entitlements["Access"]?.isActive == true {
+//                        print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                        self.dismissAction()
                     }
                 }
             }
@@ -154,7 +154,8 @@ final class PaywallVC_V2: UIViewController {
             Purchases.shared.purchase(product: storeProductIndex) { transaction, customerInfo, error, userCancelled in
                 self.purchaseButton.activityIndicatorView.stopAnimating()
                 if customerInfo?.entitlements["Access"]?.isActive == true {
-//                    self.dismiss(animated: true)
+//                    print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                    self.dismissAction()
                 }
             }
         }
@@ -326,6 +327,9 @@ final class PaywallVC_V2: UIViewController {
     // MARK: - Dismiss Action
     @objc private func dismissAction() {
         guard let bool = onboardingIsCompleted else { return }
+        
+        print("🔴 dismissAction", bool)
+        
         if bool {
             self.dismiss(animated: true)
         } else {
@@ -361,6 +365,11 @@ final class PaywallVC_V2: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.customCarousel_CV.timer.invalidate()
+    }
+    
     // MARK: - init
     init(onboardingIsCompleted: Bool) {
         super.init(nibName: nil, bundle: nil)
@@ -371,9 +380,10 @@ final class PaywallVC_V2: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: - deinit
-    deinit {
-        self.customCarousel_CV.timer.invalidate()
-    }
+//    deinit {
+//        self.customCarousel_CV.timer.invalidate()
+////        self.customCarousel_CV.timer.
+//    }
     
     // MARK: setup UI
     private func setupUI() {

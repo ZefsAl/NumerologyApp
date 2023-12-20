@@ -47,11 +47,11 @@ class HoroscopeDescriptionAboutCV: AboutYouCV {
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         //
         if indexPath.row == 0 {
-            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image in
+            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image1, image2 in
                 cell.configure(
                     title: "Hello, \(dataName ?? "" )!",
                     subtitle: "\(setDateFormat(date: dateOfBirth ?? Date() ))",
-                    bgImage: image
+                    bgImage: image1
                 )
             }
             return cell

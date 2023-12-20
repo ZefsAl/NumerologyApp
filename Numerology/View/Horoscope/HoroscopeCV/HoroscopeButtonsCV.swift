@@ -11,7 +11,8 @@ import UIKit
 class HoroscopeButtonsCV: ContentCollectionView {
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+//        super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        super.init(frame: CGRect.zero, collectionViewLayout: layout)
         configure()
         register()
     }
@@ -20,14 +21,12 @@ class HoroscopeButtonsCV: ContentCollectionView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = false
         
-        if let collectionViewLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
-            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+//        if let collectionViewLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {
+//            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        }
     }
     
     private func register() {
-//        self.delegate = self
-//        self.dataSource = self
         self.register(ChipsCVCell.self, forCellWithReuseIdentifier: ChipsCVCell().buttonCVCellID)
     }
     

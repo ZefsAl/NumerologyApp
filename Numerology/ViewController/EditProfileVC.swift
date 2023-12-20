@@ -84,9 +84,10 @@ class EditProfileVC: UIViewController {
             print("new Date is \(self.newDateOfBirth as Any)")
         }
     }
-    
+    // MARK: - delete Data Button
     let deleteDataButton: UIButton = {
         let b = UIButton(type: .custom)
+        b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Delete Account Data", for: .normal)
         b.setImage(UIImage(systemName: "trash.fill"), for: .normal)
         b.tintColor = .white
@@ -131,6 +132,7 @@ class EditProfileVC: UIViewController {
 //        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    
     // MARK: Configure Nav View
     private func configureNavView() {
         self.title = "Profile"
@@ -174,11 +176,6 @@ class EditProfileVC: UIViewController {
             return
         }
         
-//        print(userNameField.text)
-//        print(userSurnameField.text)
-//        print(newDateOfBirth)
-//        print(userDateOfBirthField.text)
-        
         if nameVal != "" && surnameVal != "" && dateOfBirthVal != "" {
             UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
             UserDefaults.standard.setDateOfBirth(dateOfBirth: newDateOfBirth)
@@ -221,7 +218,7 @@ class EditProfileVC: UIViewController {
         fieldsStack.spacing = 40
         
         // Content Stack
-        let contentStack = UIStackView(arrangedSubviews: [fieldsStack,UIView(),deleteDataButton])
+        let contentStack = UIStackView(arrangedSubviews: [fieldsStack])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .fill
@@ -229,7 +226,7 @@ class EditProfileVC: UIViewController {
 
         
         self.view.addSubview(contentStack)
-//        self.view.addSubview(deleteDataButton)
+        self.view.addSubview(deleteDataButton)
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -237,9 +234,12 @@ class EditProfileVC: UIViewController {
             contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
-            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44),
+//            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44),
 
             deleteDataButton.heightAnchor.constraint(equalToConstant: 40),
+            deleteDataButton.bottomAnchor.constraint(equalTo: margin.bottomAnchor),
+            deleteDataButton.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
+            deleteDataButton.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
         ])
     }
     

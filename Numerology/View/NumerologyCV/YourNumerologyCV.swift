@@ -253,6 +253,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
                 about: numbersOfSoulModel?.aboutSoul
             )
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfSoulModel != nil {
@@ -272,6 +273,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             )
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfDestinyModel != nil {
@@ -291,6 +293,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             )
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfNameModel != nil {
@@ -310,6 +313,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             )
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfMoneyModel != nil {
@@ -329,6 +333,7 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             )
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             if powerCodeModel != nil {

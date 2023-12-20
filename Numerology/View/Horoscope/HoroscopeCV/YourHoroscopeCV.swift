@@ -7,7 +7,9 @@
 
 import UIKit
 
-class YourHoroscopeCV: UICollectionView {
+class YourHoroscopeCV: UICollectionView{
+    
+    let horoscopeDescriptionVC = HoroscopeDescriptionVC()
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
@@ -71,8 +73,7 @@ class YourHoroscopeCV: UICollectionView {
         self.register(HoroscopeCell.self, forCellWithReuseIdentifier: HoroscopeCell.reuseID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
-        // Footer
-//        self.register(SectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SectionFooterView.reuseID)
+        //
     }
     
 }
@@ -124,12 +125,7 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
         
         // MARK: Soul // 0
         if indexPath.row == 0 {
-            
-//            let vc = ThirdViewController()
-//            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            
-            let vc = HoroscopeDescriptionVC()
-            let navVC = UINavigationController(rootViewController: vc)
+            let navVC = UINavigationController(rootViewController: horoscopeDescriptionVC)
             navVC.modalPresentationStyle = .overFullScreen
             self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
         }

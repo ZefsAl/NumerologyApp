@@ -1,16 +1,20 @@
 PODS:
+  - FSCalendar (2.8.4)
   - RevenueCat (4.25.6)
 
 DEPENDENCIES:
+  - FSCalendar
   - RevenueCat
 
 SPEC REPOS:
   trunk:
+    - FSCalendar
     - RevenueCat
 
 SPEC CHECKSUMS:
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   RevenueCat: 9726d792ed47b41dfe83754c1391fa3d08e1bbdf
 
-PODFILE CHECKSUM: b2d0a3919411ef766089279d81ec05e2e6c4aa05
+PODFILE CHECKSUM: ff091abce21ec60d7584e2020eb6da43afe959e4
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.13.0

@@ -20,8 +20,8 @@ class HoroscopeManager {
     static let shared: HoroscopeManager = HoroscopeManager()
     private let db = Firestore.firestore()
     
-    // MARK: - get Signs
-    func getSigns(zodiacSigns: String, completion: @escaping ((SignsModel, UIImage?) -> Void) ) {
+    // MARK: - Signs
+    func getSigns(zodiacSigns: String, completion: @escaping ((SignsModel, UIImage?, UIImage? ) -> Void) ) {
         let docRef = db.collection("Signs").whereField("zodiacSigns", isEqualTo: zodiacSigns)
         //
         docRef.getDocuments() { (querySnapshot, error) in
@@ -34,16 +34,25 @@ class HoroscopeManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: SignsModel.self)
-                    let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
+                    let megaByte = Int64(1 * 1024 * 1024)
+                    
+                    let ref = val.image[0].ref // Путь
                     let pathReference = storage.reference(withPath: "\(ref)")
-                    pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                        if let error = error {
-                            print("Error getting IMAGE: \(error)")
-                        } else {
-                            let image = UIImage(data: data!)
-                            completion(val,image)
+                    
+                    let ref2 = val.image[1].ref // Путь
+                    let pathReference2 = storage.reference(withPath: "\(ref2)")
+                    
+                    pathReference.getData(maxSize: megaByte) { data1, error in
+                        pathReference2.getData(maxSize: megaByte) { data2, error in
+                            if let error = error {
+                                print("Error getting IMAGE: \(error)")
+                            } else {
+                                let image1 = UIImage(data: data1!)
+                                let image2 = UIImage(data: data2!)
+                                completion(val,image1,image2)
+                            }
                         }
                     }
                 }
@@ -57,7 +66,7 @@ class HoroscopeManager {
     
     
     
-
+    // MARK: - Today
     func getTodayHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
         let docRef = db.collection("Today-tomor-hrscp")
         
@@ -113,8 +122,8 @@ class HoroscopeManager {
 //        }
 //    }
     
-    // MARK: - ////////////////////////////////////////////////////////////////////////////
     
+    // MARK: - Week
     func getWeekHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
         let docRef = db.collection("Week-hrscp")
         
@@ -133,6 +142,7 @@ class HoroscopeManager {
         }
     }
     
+    // MARK: - Month
     func getMonthHoroscope(zodiacSigns: String, completion: @escaping (MonthModel) -> Void) {
         let docRef = db.collection("Month-hrscp").whereField("monthSigns", isEqualTo: zodiacSigns)
         //
@@ -154,7 +164,7 @@ class HoroscopeManager {
             }
         }
     }
-    
+    // MARK: - Year 2023
     func getYear2023Horoscope(zodiacSigns: String, completion: @escaping (Year2023Model) -> Void) {
         let docRef = db.collection("2023-hrscp").whereField("yearSign", isEqualTo: zodiacSigns)
         //
@@ -176,7 +186,7 @@ class HoroscopeManager {
             }
         }
     }
-    
+    // MARK: - Year 2024
     func getYear2024Horoscope(zodiacSigns: String, completion: @escaping (Year2024Model) -> Void) {
         let docRef = db.collection("2024-hrscp").whereField("yearSign", isEqualTo: zodiacSigns)
         //

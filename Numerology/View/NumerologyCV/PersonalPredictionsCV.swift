@@ -135,8 +135,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // 👎
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -203,6 +202,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.row == 0 {
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             let vc = PersonalDayVC()
@@ -215,6 +215,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.row == 1 {
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             let vc = PersonalMonthVC()
@@ -227,6 +228,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.row == 2 {
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             let vc = PersonalYearVC()
@@ -239,6 +241,7 @@ extension PersonalPredictionsCV: UICollectionViewDataSource, UICollectionViewDel
         if indexPath.row == 3 {
             
             // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             //            guard self.checkAccessContent() == true else { return }
             
             let vc = LifeStagesViewController()

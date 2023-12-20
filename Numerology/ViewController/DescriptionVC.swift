@@ -8,6 +8,8 @@
 import UIKit
 
 class DescriptionVC: UIViewController {
+    
+    var backgroundName: String?
 
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -55,16 +57,21 @@ class DescriptionVC: UIViewController {
         super.viewDidLoad()
         
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        setBackground(named: "MainBG2.png")
+        setBackground(named: self.backgroundName ?? "MainBG2.png")
         
         setUpStack()
     }
+    
     
     // MARK: Configure
     func configure(title: String, info: String?, about: String?) {
         self.mainTitle.text = title
         self.info.text = info
         self.about.text = about
+    }
+    
+    func setNewBackground(named: String) {
+        self.backgroundName = named
     }
     
     

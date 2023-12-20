@@ -9,22 +9,6 @@ import UIKit
 import RevenueCat
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
-
-    
-    // MARK: header
-//    let header: HeaderUIView = {
-//        let v = HeaderUIView()
-//        v.profileButton.addTarget(Any?.self, action: #selector(profileBtnAction), for: .touchUpInside)
-//
-//        return v
-//    }()
-    // MARK: Profile Btn Action
-//    @objc func profileBtnAction() {
-//        print("profileBtnAction")
-//        self.navigationController?.pushViewController(EditProfileVC(), animated: true)
-//    }
-    
-    
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -33,13 +17,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.tabBar.tintColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         self.tabBar.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
+        
         let titleAttributes = [
             NSAttributedString.Key.font: UIFont.init(weight: .bold, size: 10)
         ]
         
         // MARK: FirstVC
         let firstVC = NumerologyVC()
-        let firstImage = UIImage(named: "Numerology_3x_93px")
+        let firstImage = UIImage(named: "Numerology_3x_75px")
         firstVC.tabBarItem.image = firstImage
         firstVC.tabBarItem.title = "Numerology"
         firstVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
@@ -47,41 +32,39 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let firstTabNav = CustomNavController(rootViewController: firstVC)
         
         // MARK: SecondVC
-        let secondVC = FourthViewController()
+        let secondVC = HoroscopeVC()
         let secondImage = UIImage(named: "Horoscope_3x_75px")
         secondVC.tabBarItem.image = secondImage
         secondVC.tabBarItem.title = "Horoscope"
         secondVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let secondTabNav = CustomNavController(rootViewController: secondVC)
+        secondTabNav.descriptionVC.setNewBackground(named: "bgHoroscope2.png")
 
         // MARK: ThirdVC
-        let thirdVC = FourthViewController()
-//        let thirdImage = UIImage(
-//            systemName: "heart",
-//            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-//        )?.withBaselineOffset(fromBottom: 14)
-        let thirdImage = UIImage(named: "Compatibility_3x_75px")
-        thirdVC.tabBarItem.image = thirdImage
-        thirdVC.tabBarItem.title = "Compatibility"
-        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-        let thirdTabNav = CustomNavController(rootViewController: thirdVC)
+//        let thirdVC = FourthViewController()
+//        let thirdImage = UIImage(named: "Compatibility_3x_75px")
+//        thirdVC.tabBarItem.image = thirdImage
+//        thirdVC.tabBarItem.title = "Compatibility"
+//        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+//        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+//        let thirdTabNav = CustomNavController(rootViewController: thirdVC)
         
         // MARK: FourthVC
-        let fourthVC = FourthViewController()
-        let fourtImage = UIImage(
-            systemName: "moon.fill",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
-//        ?.withBaselineOffset(fromBottom: 14)
-        fourthVC.tabBarItem.image = fourtImage
-        fourthVC.tabBarItem.title = "Moon phase"
-        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-        let fourthTabNav = CustomNavController(rootViewController: fourthVC)
+//        let fourthVC = FourthViewController()
+//        let fourtImage = UIImage(
+//            systemName: "moon.fill",
+//            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
+//        )
+
+//        fourthVC.tabBarItem.image = fourtImage
+//        fourthVC.tabBarItem.title = "Moon phase"
+//        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+//        fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+//        let fourthTabNav = CustomNavController(rootViewController: fourthVC)
     
-        self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
+        self.viewControllers = [firstTabNav,secondTabNav]
+//        thirdTabNav,fourthTabNav
     }
     
     // MARK: viewWill Appear 
@@ -105,61 +88,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             }
         })
     }
-    
-    
-    
-    
-    // MARK: checkUserAccess
-//    func checkUserAccess() {
-//
-//        // VC
-//        let vc2 = PaywallVC_V2(onboardingIsCompleted: true)
-////         MARK: get Customer Info
-//        Purchases.shared.getCustomerInfo { (customerInfo, error) in
-//
-//            if customerInfo?.entitlements["Access"]?.isActive == true {
-//                vc2.dismiss(animated: true)
-//                print("Secondary Check: Have Access")
-//            } else {
-//                    let navVC = UINavigationController(rootViewController: vc2)
-//                    navVC.modalPresentationStyle = .overFullScreen
-//                    self.present(navVC, animated: true)
-//                print("Secondary Check: No Access")
-//            }
-//        }
-//
-//    }
-    
-    
 }
 
-//extension MainTabBarController {
-//
-//    // MARK: Setup header View
-//    private func setHeaderView() {
-//        guard
-//            let name = UserDefaults.standard.object(forKey: "nameKey") as? String,
-//            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-//        else {
-//            return
-//        }
-//
-//        let todayDate: String = setDateFormat(date: Date())
-//        let userDate: String = setDateFormat(date: dateOfBirth)
-//
-//        header.configure(
-//            helloTitle: name,
-//            todayDate: todayDate,
-//            userDate: userDate
-//        )
-//
-//        self.view.addSubview(header)
-//
-//        NSLayoutConstraint.activate([
-//            header.topAnchor.constraint(equalTo: view.topAnchor),
-//            header.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            header.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            header.heightAnchor.constraint(equalToConstant: 176),
-//        ])
-//    }
-//}
+extension MainTabBarController {
+
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if tabBar.items?.firstIndex(of: item) == 0 {
+            self.tabBar.tintColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
+        } else if tabBar.items?.firstIndex(of: item) == 1 {
+            self.tabBar.tintColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
+        }
+    }
+}

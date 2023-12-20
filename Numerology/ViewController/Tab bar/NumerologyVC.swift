@@ -52,11 +52,13 @@ class NumerologyVC: UIViewController, RemoteOpenDelegate {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        remoteOpen()
+        // 1
         setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
+        // 2
+        setupUI()
+        remoteOpen()
+        
     }
     
     private func remoteOpen() {
@@ -123,7 +125,6 @@ extension NumerologyVC {
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            
         ])   
     }
 }

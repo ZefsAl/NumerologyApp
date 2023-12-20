@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func appScreenConfiguration() {
         // test
-        window?.rootViewController = CustomNavController(rootViewController: HoroscopeVC())
-//        window?.rootViewController = HoroscopeDescriptionVC()
+//        window?.rootViewController = CustomNavController(rootViewController: HoroscopeVC())
+//        window?.rootViewController = TestcalendarVC()
 //        UserDefaults.standard.removeObject(forKey: "nameKey")
 //        UserDefaults.standard.removeObject(forKey: "surnameKey")
 //        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
@@ -60,19 +60,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
         
         // MARK: App Config
-//        if
-//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-//                (dataName as? String != "" || dataSurname as? String != "")
-//        {
-//            print(dataName as Any)
-//            print(dataSurname as Any)
-//            print(dateOfBirth as Any)
-//            print("UserData - Have")
-//            window?.rootViewController = MainTabBarController()
-//        } else {
-//            window?.rootViewController = navOnboardingVC
-//            print("UserData - Empty")
-//        }
+        if
+            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
+                (dataName as? String != "" || dataSurname as? String != "")
+        {
+            print(dataName as Any)
+            print(dataSurname as Any)
+            print(dateOfBirth as Any)
+            print("UserData - Have")
+            window?.rootViewController = MainTabBarController()
+        } else {
+            window?.rootViewController = navOnboardingVC
+            print("UserData - Empty")
+        }
         //
     }
 }
@@ -82,7 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: PurchasesDelegate {
     
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        
         print("Check Access")
         if customerInfo.entitlements.all["Access"]?.isActive == true {
             print("User have premium!")

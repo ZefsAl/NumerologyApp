@@ -35,7 +35,7 @@ class AccordionButton: UIButton {
         iv.contentMode = UIView.ContentMode.scaleAspectFill
         iv.tintColor = .white
         let configImage = UIImage(
-            systemName: "chevron.down.circle",
+            systemName: "chevron.up.circle",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
         )
         iv.image = configImage
@@ -44,7 +44,7 @@ class AccordionButton: UIButton {
     // MARK: - change Icon
     private func changeIcon(bool: Bool) {
         let configImage = UIImage(
-            systemName: bool ? "chevron.up.circle" : "chevron.down.circle",
+            systemName: bool ? "chevron.down.circle" : "chevron.up.circle",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
         )
         icon.image = configImage

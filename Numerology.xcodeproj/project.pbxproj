@@ -108,6 +108,10 @@
 		84BFE50A2B17838300C06FB1 /* Year2023Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE5092B17838300C06FB1 /* Year2023Model.swift */; };
 		84BFE50C2B17842700C06FB1 /* Year2024Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50B2B17842700C06FB1 /* Year2024Model.swift */; };
 		84BFE50E2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */; };
+		84BFE5102B1859DD00C06FB1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */; };
+		84BFE5142B18701E00C06FB1 /* TestCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */; };
+		84BFE5162B1A2D7700C06FB1 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */; };
+		84BFE51A2B1A36E900C06FB1 /* DatingCalendarCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE5192B1A36E900C06FB1 /* DatingCalendarCV.swift */; };
 		84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */; };
 		84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D870972A892C0D00ACACA8 /* InfoDocModel.swift */; };
 		84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */; };
@@ -229,6 +233,10 @@
 		84BFE5092B17838300C06FB1 /* Year2023Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year2023Model.swift; sourceTree = "<group>"; };
 		84BFE50B2B17842700C06FB1 /* Year2024Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year2024Model.swift; sourceTree = "<group>"; };
 		84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDescriptionAboutCV.swift; sourceTree = "<group>"; };
+		84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestCalendar.storyboard; sourceTree = "<group>"; };
+		84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		84BFE5192B1A36E900C06FB1 /* DatingCalendarCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatingCalendarCV.swift; sourceTree = "<group>"; };
 		84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesCalculatedModel.swift; sourceTree = "<group>"; };
 		84D870972A892C0D00ACACA8 /* InfoDocModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDocModel.swift; sourceTree = "<group>"; };
 		84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
@@ -366,7 +374,6 @@
 		845EB1D82A6664C1003D6F5C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84B895F12B15542C0061680A /* Horoscope */,
 				845EB1E62A67FABC003D6F5C /* Tab bar */,
 				84AC66F32A7941F500D2321B /* Onboarding */,
 				8492D0862A6D935200761312 /* EditProfileVC.swift */,
@@ -374,7 +381,6 @@
 				84AC67152A81180B00D2321B /* CompatibilityViewController.swift */,
 				84D8709B2A8B248200ACACA8 /* PaywallViewController.swift */,
 				84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */,
-				841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -426,8 +432,10 @@
 		845EB1E62A67FABC003D6F5C /* Tab bar */ = {
 			isa = PBXGroup;
 			children = (
+				841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */,
 				845EB1D22A6630C3003D6F5C /* MainTabBarController.swift */,
 				84DBB9A12AE2CCF300A0784F /* NumerologyVC.swift */,
+				84B895F12B15542C0061680A /* Horoscope */,
 				845EB1CE2A662E42003D6F5C /* FirstViewController.swift */,
 				84D870942A8677D600ACACA8 /* SecondViewController */,
 				84AC66F72A7BDF4700D2321B /* ThirdViewController.swift */,
@@ -491,6 +499,7 @@
 				84B895E22B13AEED0061680A /* AboutYouCV.swift */,
 				84BFE5012B16146200C06FB1 /* HoroscopeButtonsCV.swift */,
 				84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */,
+				84BFE5192B1A36E900C06FB1 /* DatingCalendarCV.swift */,
 			);
 			path = HoroscopeCV;
 			sourceTree = "<group>";
@@ -499,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				84B895E02B13A2140061680A /* HoroscopeCell.swift */,
+				84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */,
 			);
 			path = HoroscopeCells;
 			sourceTree = "<group>";
@@ -520,6 +530,8 @@
 				84B895DC2B139DD80061680A /* HoroscopeCV */,
 				84B895EA2B14E4760061680A /* SignContentView.swift */,
 				84B895ED2B14E5120061680A /* AccordionView.swift */,
+				84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */,
+				84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */,
 			);
 			path = Horoscope;
 			sourceTree = "<group>";
@@ -527,8 +539,8 @@
 		84B895F12B15542C0061680A /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
-				84B895E42B13D0950061680A /* AboutYouVC.swift */,
 				84B895DA2B1392CB0061680A /* HoroscopeVC.swift */,
+				84B895E42B13D0950061680A /* AboutYouVC.swift */,
 				84BFE4FF2B15627200C06FB1 /* HoroscopeDescriptionVC.swift */,
 			);
 			path = Horoscope;
@@ -725,6 +737,7 @@
 				84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */,
 				845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */,
 				84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */,
+				84BFE5142B18701E00C06FB1 /* TestCalendar.storyboard in Resources */,
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
 				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
 				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
@@ -795,6 +808,7 @@
 				84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */,
 				845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */,
 				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
+				84BFE5162B1A2D7700C06FB1 /* CalendarCell.swift in Sources */,
 				84BFE5082B166EC100C06FB1 /* MonthModel.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
 				8492D0822A6AD91000761312 /* UserEnterDateOfBirthVC.swift in Sources */,
@@ -820,6 +834,7 @@
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
 				84BFE5022B16146200C06FB1 /* HoroscopeButtonsCV.swift in Sources */,
+				84BFE51A2B1A36E900C06FB1 /* DatingCalendarCV.swift in Sources */,
 				84B895EE2B14E5120061680A /* AccordionView.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
 				848DFACA2AC3798E0043512C /* MiniPromoCVCell.swift in Sources */,
@@ -881,6 +896,7 @@
 				84BFE5002B15627200C06FB1 /* HoroscopeDescriptionVC.swift in Sources */,
 				845EB1D72A663F60003D6F5C /* HeaderUIView.swift in Sources */,
 				84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */,
+				84BFE5102B1859DD00C06FB1 /* CalendarView.swift in Sources */,
 				84BFE5062B1662C300C06FB1 /* HoroscopeDefaultModel.swift in Sources */,
 				8437D3D72A862983003592A7 /* PersonalYearDP.swift in Sources */,
 			);
@@ -1022,7 +1038,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.54;
+				CURRENT_PROJECT_VERSION = 1.57;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1055,7 +1071,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.54;
+				CURRENT_PROJECT_VERSION = 1.57;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;

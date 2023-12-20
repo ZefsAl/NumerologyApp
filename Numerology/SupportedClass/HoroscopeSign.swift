@@ -42,21 +42,21 @@ final class HoroscopeSign {
     private func horoscopeSigns() -> Dictionary<String, [Int:DateInterval]> {
         //
         let horoscopeSigns: Dictionary<String, [Int:DateInterval]> = [
-            "Aries"     : [0 : DateInterval(start: create(string: "21.03"), end: create(string: "20.04"))],
-            "Taurus"    : [0 : DateInterval(start: create(string: "21.04"), end: create(string: "20.05"))],
-            "Gemini" : [0 : DateInterval(start: create(string: "21.05"), end: create(string: "21.06"))],
+            "Aries"       : [0 : DateInterval(start: create(string: "21.03"), end: create(string: "20.04"))],
+            "Taurus"      : [0 : DateInterval(start: create(string: "21.04"), end: create(string: "20.05"))],
+            "Gemini"      : [0 : DateInterval(start: create(string: "21.05"), end: create(string: "21.06"))],
             "Cancer"      : [0 : DateInterval(start: create(string: "22.06"), end: create(string: "22.07"))],
-            "Leo"      : [0 : DateInterval(start: create(string: "23.07"), end: create(string: "23.08"))],
-            "Virgo"     : [0 : DateInterval(start: create(string: "24.08"), end: create(string: "23.09"))],
-            "Libra"     : [0 : DateInterval(start: create(string: "24.09"), end: create(string: "23.10"))],
-            "Scorpio" : [0 : DateInterval(start: create(string: "24.10"), end: create(string: "22.11"))],
-            "Sagittarius"  : [0 : DateInterval(start: create(string: "23.11"), end: create(string: "21.12"))],
-            "Capricorn"  : [
+            "Leo"         : [0 : DateInterval(start: create(string: "23.07"), end: create(string: "23.08"))],
+            "Virgo"       : [0 : DateInterval(start: create(string: "24.08"), end: create(string: "23.09"))],
+            "Libra"       : [0 : DateInterval(start: create(string: "24.09"), end: create(string: "23.10"))],
+            "Scorpio"     : [0 : DateInterval(start: create(string: "24.10"), end: create(string: "22.11"))],
+            "Sagittarius" : [0 : DateInterval(start: create(string: "23.11"), end: create(string: "21.12"))],
+            "Capricorn"   : [
                 0 : DateInterval(start: create(string: "22.12"), end: create(string: "31.12")),
                 1 : DateInterval(start: create(string: "01.01"), end: create(string: "20.01"))
             ],
-            "Aquarius" : [0 : DateInterval(start: create(string: "21.01"), end: create(string: "20.02"))],
-            "Pisces"    : [0 : DateInterval(start: create(string: "21.02"), end: create(string: "20.03"))],
+            "Aquarius"    : [0 : DateInterval(start: create(string: "21.01"), end: create(string: "20.02"))],
+            "Pisces"      : [0 : DateInterval(start: create(string: "21.02"), end: create(string: "20.03"))],
         ]
         //
         return horoscopeSigns

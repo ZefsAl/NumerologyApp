@@ -116,14 +116,7 @@ class HoroscopeCell: UICollectionViewCell {
         
         self.addSubview(contentStack)
         
-        NSLayoutConstraint.activate([
-            
-//            image.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-//            image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            
-//            titleStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
-//            titleStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
-            
+        NSLayoutConstraint.activate([            
             contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),

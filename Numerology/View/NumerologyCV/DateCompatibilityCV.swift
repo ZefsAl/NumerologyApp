@@ -125,12 +125,16 @@ extension DateCompatibilityCV: UICollectionViewDataSource, UICollectionViewDeleg
         // MARK: Soul // 0
         if indexPath.row == 0 {
             
+//            guard self.checkAccessContent() == true else { return }
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            
+            
             let vc = ThirdViewController()
             vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
             self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            
         }
 
     }

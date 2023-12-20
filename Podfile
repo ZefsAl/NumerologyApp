@@ -6,7 +6,6 @@ target 'Numerology' do
   use_frameworks!
 
   # Pods for Numerology
-	
 	pod 'RevenueCat'
-
+	pod 'FSCalendar'
 end

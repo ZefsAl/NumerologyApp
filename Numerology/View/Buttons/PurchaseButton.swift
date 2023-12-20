@@ -82,12 +82,6 @@ class PurchaseButton: UIButton {
                     self.backgroundColor = .systemGray2
                 }
             }
-        }
-        
-        
-        
-        
-        
+        }   
     }
-    
 }

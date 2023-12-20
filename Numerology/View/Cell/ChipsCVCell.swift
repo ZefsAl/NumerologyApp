@@ -85,9 +85,10 @@ class ChipsCVCell: UICollectionViewCell {
         self.addSubview(title)
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
             title.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
         ])
     }
 }
+

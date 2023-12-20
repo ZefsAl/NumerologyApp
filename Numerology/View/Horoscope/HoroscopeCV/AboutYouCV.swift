@@ -108,15 +108,15 @@ extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         
         if indexPath.row == 0 {
-            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image in
+            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image1, image2  in
                 //
                 self.signsModel = model
-                self.signImage = image
+                self.signImage = image1
                 //
                 cell.configure(
                     title: model.zodiacSigns,
                     subtitle: model.dateAboutYou,
-                    bgImage: image
+                    bgImage: image1
                 )
             }
             return cell
@@ -131,6 +131,7 @@ extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
         
         // MARK: Soul // 0
         if indexPath.row == 0 {
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
             
             let vc = AboutYouVC()
             vc.signContent.configure(

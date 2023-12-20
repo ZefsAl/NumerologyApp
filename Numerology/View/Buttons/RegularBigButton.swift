@@ -43,27 +43,21 @@ class RegularBigButton: UIButton {
         setUpStack()
     }
     
-    
-    
     private func setUpStack() {
-        
         let contentStack = UIStackView(arrangedSubviews: [lable])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .horizontal
         contentStack.alignment = .center
         contentStack.spacing = 12
         contentStack.isUserInteractionEnabled = false
-        
+        //
         self.addSubview(contentStack)
         NSLayoutConstraint.activate([
-            
             contentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            
             self.heightAnchor.constraint(equalToConstant: 64),
         ])
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
