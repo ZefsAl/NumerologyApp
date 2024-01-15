@@ -356,7 +356,6 @@
 				845EB1D92A6664D9003D6F5C /* View */,
 				845EB1D82A6664C1003D6F5C /* ViewController */,
 				8492D0912A6EA78500761312 /* APIManager */,
-				84DBB9AC2AE410E400A0784F /* ViewModel */,
 				8492D0942A713C6F00761312 /* Model */,
 				845EB1E52A67F6C2003D6F5C /* SupportedClass */,
 				845EB1DC2A668D44003D6F5C /* Extensions */,
@@ -620,13 +619,6 @@
 				8492D0832A6BDD6500761312 /* DateFormat.swift */,
 			);
 			path = NumerologyModels;
-			sourceTree = "<group>";
-		};
-		84DBB9AC2AE410E400A0784F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		84DBB9C92AE9546700A0784F /* v1 */ = {
@@ -1038,7 +1030,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.57;
+				CURRENT_PROJECT_VERSION = 1.58;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1054,7 +1046,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.9;
+				MARKETING_VERSION = 3.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1071,7 +1063,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.57;
+				CURRENT_PROJECT_VERSION = 1.58;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1087,7 +1079,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.9;
+				MARKETING_VERSION = 3.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

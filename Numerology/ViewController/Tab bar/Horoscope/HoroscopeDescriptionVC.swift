@@ -16,10 +16,8 @@ class HoroscopeDescriptionVC: UIViewController {
     private var tomorrowHoroscope: HoroscopeDefaultModel?
     private var weekHoroscope: HoroscopeDefaultModel?
     private var monthHoroscope: MonthModel?
-
     private var year2023Horoscope: Year2023Model?
     private var year2024Horoscope: Year2024Model?
-    
     
     // MARK: - AboutYouCV
     let horoscopeDescriptionAboutCV = HoroscopeDescriptionAboutCV()

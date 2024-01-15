@@ -9,8 +9,14 @@ import Foundation
 import UIKit
 
 
+protocol CustomCalendarCellDelagete {
+//    var openFrom: UIViewController? { get set }
+    func readMoreAction()
+}
 
 class CalendarCell: UICollectionViewCell {
+    
+    var customCalendarCellDelagete: CustomCalendarCellDelagete? = nil
 
     static var reuseID: String {
         String(describing: self)
@@ -66,15 +72,21 @@ class CalendarCell: UICollectionViewCell {
         //
         b.addSubview(contentStack)
         NSLayoutConstraint.activate([
-//            contentStack.topAnchor.constraint(equalTo: b.topAnchor, constant: 10),
             contentStack.leadingAnchor.constraint(equalTo: b.leadingAnchor, constant: 16),
             contentStack.trailingAnchor.constraint(equalTo: b.trailingAnchor, constant: -16),
             contentStack.centerYAnchor.constraint(equalTo: b.centerYAnchor),
             contentStack.heightAnchor.constraint(equalToConstant: 40),
-//            contentStack.bottomAnchor.constraint(equalTo: b.bottomAnchor, constant: -10)
         ])
+        b.addTarget(Any?.self, action: #selector(readMoreAction), for: .touchUpInside)
         return b
     }()
+    
+    @objc private func readMoreAction() {
+        print("TEST🔴")
+        self.customCalendarCellDelagete?.readMoreAction()
+    }
+    
+    
     
     
     override init(frame: CGRect) {

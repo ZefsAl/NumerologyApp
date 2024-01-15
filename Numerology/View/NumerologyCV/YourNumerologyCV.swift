@@ -254,7 +254,6 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             )
             // MARK: Check
             guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfSoulModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
@@ -274,7 +273,6 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             
             // MARK: Check
             guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfDestinyModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
@@ -294,7 +292,6 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             
             // MARK: Check
             guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfNameModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
@@ -314,7 +311,6 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             
             // MARK: Check
             guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //            guard self.checkAccessContent() == true else { return }
             
             if numbersOfMoneyModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)
@@ -334,7 +330,6 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
             
             // MARK: Check
             guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //            guard self.checkAccessContent() == true else { return }
             
             if powerCodeModel != nil {
                 let navVC = UINavigationController(rootViewController: vc)

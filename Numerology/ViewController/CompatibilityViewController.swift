@@ -91,7 +91,11 @@ class CompatibilityViewController: UIViewController {
         self.setBackground(named: "MainBG2.png")
         setUpStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-                
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.requestReview()
     }
     
     // MARK: Configure

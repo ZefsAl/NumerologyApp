@@ -39,6 +39,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         secondVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let secondTabNav = CustomNavController(rootViewController: secondVC)
+        secondTabNav.descriptionVC.primaryColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         secondTabNav.descriptionVC.setNewBackground(named: "bgHoroscope2.png")
 
         // MARK: ThirdVC

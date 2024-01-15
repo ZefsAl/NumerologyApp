@@ -7,8 +7,16 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 extension UIViewController {
+    
+    // MARK: - request Review
+    func requestReview() {
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: scene)
+        }
+    }
     
     // MARK: setBackground
     func setBackground(named: String) {

@@ -10,6 +10,7 @@ import UIKit
 class DescriptionVC: UIViewController {
     
     var backgroundName: String?
+    var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
 
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -97,11 +98,11 @@ class DescriptionVC: UIViewController {
             // Border
             v.layer.cornerRadius = 16
             v.layer.borderWidth = 2
-            v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
+            v.layer.borderColor = primaryColor.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
+            v.layer.shadowColor = primaryColor.withAlphaComponent(0.5).cgColor
             
             
             return v

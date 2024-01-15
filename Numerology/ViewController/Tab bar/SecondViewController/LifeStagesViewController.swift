@@ -66,9 +66,9 @@ class LifeStagesViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.clipsToBounds = false
         // For size cell by content + Constraints in Cell
-        if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
-            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+//        if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
+//            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//        }
         return cv
     }()
     
@@ -94,13 +94,14 @@ class LifeStagesViewController: UIViewController {
         buttonsCollectionView.dataSource = self
         buttonsCollectionView.register(ChipsCVCell.self, forCellWithReuseIdentifier: ChipsCVCell().buttonCVCellID)
         
-        request()
+        self.requestReview()
+        requestLifeStages()
         
         let indexPath = IndexPath(row: 0, section: 0)
         buttonsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.top)
     }
     
-    func request() {
+    func requestLifeStages() {
         
         guard
             let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
@@ -209,10 +210,16 @@ class LifeStagesViewController: UIViewController {
 // MARK: Collection View Delegate
 extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(
+            width: (collectionView.frame.size.width / 3) - 10,
+            height: 40
+        )
+    }
     
 //  MARK: Horizontal spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 20
+    return 10
     }
 
 

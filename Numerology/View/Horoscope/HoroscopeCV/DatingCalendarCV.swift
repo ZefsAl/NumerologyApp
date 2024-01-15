@@ -10,7 +10,10 @@ import UIKit
 
 
 
-class DatingCalendarCV: UICollectionView {
+class DatingCalendarCV: UICollectionView, CustomCalendarCellDelagete {
+    
+    lazy var remoteOpenDelegate: RemoteOpenDelegate? = nil
+    private var monthHoroscope: MonthModel?
     
     // MARK: - init
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -19,6 +22,7 @@ class DatingCalendarCV: UICollectionView {
         
         register()
         setupCV_Layout()
+        requestMonth()
     }
     
     
@@ -107,6 +111,7 @@ extension DatingCalendarCV: UICollectionViewDataSource, UICollectionViewDelegate
         if indexPath.row == 0 {
             HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image1, image2 in
                 //
+                cell.customCalendarCellDelagete = self
                 cell.configure(
                     title: model.zodiacSigns,
                     subtitle: model.dateAboutYou,
@@ -152,5 +157,35 @@ extension DatingCalendarCV: UICollectionViewDataSource, UICollectionViewDelegate
 //            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
         }
 
+    }
+}
+
+// MARK: - CustomCalendarCellDelagete
+extension DatingCalendarCV {
+
+    func requestMonth() {
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        
+        // Month
+        HoroscopeManager.shared.getMonthHoroscope(zodiacSigns: sign) { model in
+            self.monthHoroscope = model
+        }
+    }
+    func readMoreAction() {
+        guard self.monthHoroscope != nil else { return }
+        let vc = DescriptionVC()
+        vc.backgroundName = "bgHoroscope2"
+        vc.primaryColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
+        vc.configure(
+            title: "Your month horoscope",
+            info: nil,
+            about: self.monthHoroscope?.mainTrends
+        )
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .overFullScreen
+        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        self.remoteOpenDelegate?.openFrom?.requestReview()
+        
     }
 }

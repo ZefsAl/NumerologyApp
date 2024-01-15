@@ -120,10 +120,8 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+//        print("You selected cell #\(indexPath.item)!")
         
-        // MARK: Soul // 0
         if indexPath.row == 0 {
             let navVC = UINavigationController(rootViewController: horoscopeDescriptionVC)
             navVC.modalPresentationStyle = .overFullScreen

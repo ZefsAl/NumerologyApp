@@ -37,7 +37,7 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         return cv
     }()
     
-    // MARK: - AboutYouCV
+    // MARK: - datingCalendarCV
     let datingCalendarCV: DatingCalendarCV = {
         let cv = DatingCalendarCV()
         cv.clipsToBounds = false
@@ -64,7 +64,9 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         // aboutYouCV
         self.aboutYouCV.remoteOpenDelegate = self
         self.aboutYouCV.remoteOpenDelegate?.openFrom = self
-        //
+        // datingCalendarCV
+        self.datingCalendarCV.remoteOpenDelegate = self
+        self.datingCalendarCV.remoteOpenDelegate?.openFrom = self
         self.openFrom = self
     }
 }
