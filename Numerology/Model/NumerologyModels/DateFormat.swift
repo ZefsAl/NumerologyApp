@@ -15,3 +15,11 @@ func setDateFormat(date: Date) -> String {
     return df.string(from: date)
 }
 
+func setTimeFormat(date: Date) -> String {
+    let df = DateFormatter()
+    df.dateFormat = "hh : mm a"
+    df.amSymbol = "AM"
+    df.pmSymbol = "PM"
+    return df.string(from: date)
+}
+

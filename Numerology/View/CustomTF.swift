@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol AdditionalActionDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField)
+}
 
 class CustomTF: UITextField {
+    
+    lazy var additionalActionDelegate: AdditionalActionDelegate? = nil
 
     var setPlaceholder: String?
     
@@ -50,7 +55,6 @@ class CustomTF: UITextField {
         delegate = self
         
         // Style
-        translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 16
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
@@ -63,7 +67,6 @@ class CustomTF: UITextField {
         font = UIFont(name: "Cinzel-Regular", size: 20)
         tintColor = .white
         
-        
         // Margins inside
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 0))
         leftViewMode = .always
@@ -72,17 +75,11 @@ class CustomTF: UITextField {
         
         self.heightAnchor.constraint(equalToConstant: 64).isActive = true
         
-
         self.keyboardType = .asciiCapable
         self.regularAccessoryViewOnKeyboard()
         
     }
-    
-    
-    
-    
-    
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -92,13 +89,10 @@ class CustomTF: UITextField {
 extension CustomTF: UITextFieldDelegate {
     
     
+    
     // MARK: Animate, Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        
         self.rightCancelButton.isHidden = false
-        
-    
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
             
             // Selected TF state
@@ -112,12 +106,11 @@ extension CustomTF: UITextFieldDelegate {
             // Button animate
             self.rightCancelButton.alpha = 1
         }, completion: nil)
-
+        self.additionalActionDelegate?.textFieldDidBeginEditing(textField)
     }
     
     // MARK: Animate, Delegate 
     func textFieldDidEndEditing(_ textField: UITextField) {
-
         // Button animate
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) {
             
@@ -132,10 +125,7 @@ extension CustomTF: UITextFieldDelegate {
         } completion: { _ in
             self.rightCancelButton.isHidden = true
         }
-
     }
-    
-    
     
     // MARK: Delegate shouldChangeCharactersIn
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

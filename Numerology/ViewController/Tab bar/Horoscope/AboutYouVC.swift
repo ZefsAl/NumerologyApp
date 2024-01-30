@@ -11,7 +11,6 @@ class AboutYouVC: UIViewController {
 
     let signcharacteristics = AccordionView()
     let learnMore = AccordionView()
-//    let theBestQualities = AccordionView()
     
     let signContent = SignContentView()
     

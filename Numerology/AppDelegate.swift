@@ -47,18 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func appScreenConfiguration() {
         // test
-//        window?.rootViewController = CustomNavController(rootViewController: HoroscopeVC())
-//        window?.rootViewController = TestcalendarVC()
+//        window?.rootViewController = UINavigationController(rootViewController: LocationSearchVC())
+//        window?.rootViewController = CustomNavController(rootViewController: RegionOfbirthVC())
 //        UserDefaults.standard.removeObject(forKey: "nameKey")
 //        UserDefaults.standard.removeObject(forKey: "surnameKey")
 //        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
         
-        // eligibility content
-         // ✅ // Data
+//          Data
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-        
+
         // MARK: App Config
         if
             (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&

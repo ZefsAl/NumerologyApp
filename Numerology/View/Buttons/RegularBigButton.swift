@@ -9,7 +9,7 @@ import UIKit
 
 class RegularBigButton: UIButton {
 
-    private let lable: UILabel = {
+    let lable: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
@@ -23,25 +23,26 @@ class RegularBigButton: UIButton {
         return true
     }
     
-    
+    private var primaryColor: UIColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
     
     // MARK: Init
-    init(frame: CGRect, lable: String) {
+    init(frame: CGRect, lable: String, primaryColor: UIColor? = nil) {
         super.init(frame: frame)
 
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
-        self.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+        self.backgroundColor = (primaryColor ?? self.primaryColor)
         // Shadow
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1).withAlphaComponent(0.7).cgColor
+        self.layer.shadowColor = (primaryColor ?? self.primaryColor).withAlphaComponent(0.7).cgColor
 
         // config
         self.lable.text = lable
         setUpStack()
     }
+    
     
     private func setUpStack() {
         let contentStack = UIStackView(arrangedSubviews: [lable])

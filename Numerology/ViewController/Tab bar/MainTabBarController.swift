@@ -40,40 +40,32 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let secondTabNav = CustomNavController(rootViewController: secondVC)
         secondTabNav.descriptionVC.primaryColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
-        secondTabNav.descriptionVC.setNewBackground(named: "bgHoroscope2.png")
+
 
         // MARK: ThirdVC
-//        let thirdVC = FourthViewController()
-//        let thirdImage = UIImage(named: "Compatibility_3x_75px")
-//        thirdVC.tabBarItem.image = thirdImage
-//        thirdVC.tabBarItem.title = "Compatibility"
-//        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-//        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-//        let thirdTabNav = CustomNavController(rootViewController: thirdVC)
+        let thirdVC = CompatibilityHoroscopeVC()
+        let thirdImage = UIImage(named: "Compatibility_3x_75px")
+        thirdVC.tabBarItem.image = thirdImage
+        thirdVC.tabBarItem.title = "Compatibility"
+        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let thirdTabNav = CustomNavController(rootViewController: thirdVC)
+
         
         // MARK: FourthVC
-//        let fourthVC = FourthViewController()
-//        let fourtImage = UIImage(
-//            systemName: "moon.fill",
-//            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-//        )
-
-//        fourthVC.tabBarItem.image = fourtImage
-//        fourthVC.tabBarItem.title = "Moon phase"
-//        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-//        fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-//        let fourthTabNav = CustomNavController(rootViewController: fourthVC)
+        let fourthVC = MoonPhaseVC()
+        let fourtImage = UIImage(
+            systemName: "moon.fill",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
+        )
+        fourthVC.tabBarItem.image = fourtImage
+        fourthVC.tabBarItem.title = "Moon phase"
+        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        let fourthTabNav = CustomNavController(rootViewController: fourthVC)
     
-        self.viewControllers = [firstTabNav,secondTabNav]
-//        thirdTabNav,fourthTabNav
+        self.viewControllers = [fourthTabNav,firstTabNav,secondTabNav,thirdTabNav]
     }
-    
-    // MARK: viewWill Appear 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        setHeaderView()
-//    }
     
     // MARK: view Did Appear
     override func viewDidAppear(_ animated: Bool) {
@@ -98,6 +90,8 @@ extension MainTabBarController {
             self.tabBar.tintColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         } else if tabBar.items?.firstIndex(of: item) == 1 {
             self.tabBar.tintColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
+        } else if tabBar.items?.firstIndex(of: item) == 2 {
+            self.tabBar.tintColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
         }
     }
 }

@@ -17,7 +17,6 @@ final class AccordionView: UIView {
     }()
 
     @objc private func accordionButtonAct() {
-//        print("🟢accordionButtonAct")
         about.isHidden = about.isHidden ? false : true
         info.isHidden = info.isHidden ? false : true
     }

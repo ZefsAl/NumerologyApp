@@ -113,14 +113,11 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
             )
             return cell
         }
-
         return cell
-        
     }
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("You selected cell #\(indexPath.item)!")
         
         if indexPath.row == 0 {
             let navVC = UINavigationController(rootViewController: horoscopeDescriptionVC)

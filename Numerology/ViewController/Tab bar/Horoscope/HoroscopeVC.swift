@@ -7,14 +7,9 @@
 
 import UIKit
 
-//protocol RemoteOpenDelegate {
-//    var openFrom: UIViewController? { get set }
-//}
-
 class HoroscopeVC: UIViewController, RemoteOpenDelegate {
     
     var openFrom: UIViewController?
-    
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -73,10 +68,9 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
 
 // MARK: setup UI
 extension HoroscopeVC {
-    
-    // Есть баг с большим NavBar проблема в этом VC скорее всего. Этот таб бар и нав бар + другой VC все норм.
+
     private func setupUI() {
-        self.view.addSubview(contentScrollView) // 1
+        self.view.addSubview(contentScrollView)
         
         // MARK: Content Stack
         let numerologyStack = UIStackView(arrangedSubviews: [
