@@ -23,7 +23,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         ]
         
         // MARK: FirstVC
-        let firstVC = NumerologyVC()
+        let firstVC = NumerologyVC_2024()
         let firstImage = UIImage(named: "Numerology_3x_75px")
         firstVC.tabBarItem.image = firstImage
         firstVC.tabBarItem.title = "Numerology"
@@ -41,7 +41,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         let secondTabNav = CustomNavController(rootViewController: secondVC)
         secondTabNav.descriptionVC.primaryColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
 
-
         // MARK: ThirdVC
         let thirdVC = CompatibilityHoroscopeVC()
         let thirdImage = UIImage(named: "Compatibility_3x_75px")
@@ -51,20 +50,16 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let thirdTabNav = CustomNavController(rootViewController: thirdVC)
 
-        
         // MARK: FourthVC
-        let fourthVC = MoonPhaseVC()
-        let fourtImage = UIImage(
-            systemName: "moon.fill",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .semibold)
-        )
+        let fourthVC = MoonVC()
+        let fourtImage = UIImage(named: "Moon_3x_75px")
         fourthVC.tabBarItem.image = fourtImage
-        fourthVC.tabBarItem.title = "Moon phase"
+        fourthVC.tabBarItem.title = "Moon"
         fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         let fourthTabNav = CustomNavController(rootViewController: fourthVC)
     
-        self.viewControllers = [fourthTabNav,firstTabNav,secondTabNav,thirdTabNav]
+        self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav]
     }
     
     // MARK: view Did Appear
@@ -92,6 +87,8 @@ extension MainTabBarController {
             self.tabBar.tintColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         } else if tabBar.items?.firstIndex(of: item) == 2 {
             self.tabBar.tintColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
+        } else if tabBar.items?.firstIndex(of: item) == 3 {
+            self.tabBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
 }

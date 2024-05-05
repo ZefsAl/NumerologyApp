@@ -33,8 +33,8 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
     }()
     
     // MARK: - datingCalendarCV
-    let datingCalendarCV: DatingCalendarCV = {
-        let cv = DatingCalendarCV()
+    let moneyCalendarCV: MoneyCalendarCV = {
+        let cv = MoneyCalendarCV()
         cv.clipsToBounds = false
         return cv
     }()
@@ -60,8 +60,8 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         self.aboutYouCV.remoteOpenDelegate = self
         self.aboutYouCV.remoteOpenDelegate?.openFrom = self
         // datingCalendarCV
-        self.datingCalendarCV.remoteOpenDelegate = self
-        self.datingCalendarCV.remoteOpenDelegate?.openFrom = self
+        self.moneyCalendarCV.remoteOpenDelegate = self
+        self.moneyCalendarCV.remoteOpenDelegate?.openFrom = self
         self.openFrom = self
     }
 }
@@ -76,7 +76,7 @@ extension HoroscopeVC {
         let numerologyStack = UIStackView(arrangedSubviews: [
             yourHoroscopeCV,
             aboutYouCV,
-            datingCalendarCV
+            moneyCalendarCV
         ])
         numerologyStack.translatesAutoresizingMaskIntoConstraints = false
         numerologyStack.axis = .vertical
@@ -98,7 +98,7 @@ extension HoroscopeVC {
             yourHoroscopeCV.heightAnchor.constraint(equalToConstant: 117+50),
             aboutYouCV.heightAnchor.constraint(equalToConstant: 117+50),
             
-            datingCalendarCV.heightAnchor.constraint(equalToConstant: 390+50),
+            moneyCalendarCV.heightAnchor.constraint(equalToConstant: 390+50),
 
             contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 0),

@@ -9,7 +9,7 @@ import UIKit
 
 class DescriptionVC: UIViewController {
     
-    var backgroundName: String?
+    var bgImageNamed: String?
     var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
 
     // MARK: Scroll View
@@ -26,9 +26,7 @@ class DescriptionVC: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.init(weight: .regular, size: 26)
-//        l.text = String("test")
         l.textAlignment = .left
-        
         return l
     }()
     
@@ -46,7 +44,6 @@ class DescriptionVC: UIViewController {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont.init(weight: .regular, size: 17)
-//        l.text = String("test")
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -58,8 +55,7 @@ class DescriptionVC: UIViewController {
         super.viewDidLoad()
         
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        setBackground(named: self.backgroundName ?? "MainBG2.png")
-        
+        setBackground(named: self.bgImageNamed ?? "MainBG2.png")
         setUpStack()
     }
     
@@ -72,7 +68,7 @@ class DescriptionVC: UIViewController {
     }
     
     func setNewBackground(named: String) {
-        self.backgroundName = named
+        self.bgImageNamed = named
     }
     
     
@@ -88,10 +84,6 @@ class DescriptionVC: UIViewController {
         let cardView: UIView = {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
-
-//            v.layer.cornerRadius = 16
-//            v.layer.borderWidth = 1
-//            v.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
             
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
@@ -107,6 +99,7 @@ class DescriptionVC: UIViewController {
             
             return v
         }()
+        
         cardView.addSubview(contentStack)
         
         self.view.addSubview(contentScrollView)

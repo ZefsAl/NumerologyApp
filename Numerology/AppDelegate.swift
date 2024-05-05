@@ -14,18 +14,8 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    
-    let navOnboardingVC: UINavigationController = {
-        let nav = UINavigationController(rootViewController: OnboardingVC_v2())
-        return nav
-    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // MARK: App Style
-        UIBarButtonItem.appearance().tintColor = UIColor.white
-        window = UIWindow(frame: UIScreen.main.bounds)
         
         // MARK: Firebase
         FirebaseApp.configure()
@@ -38,42 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: Push Notification - Config
         registerForPushNotifications()
         configureTokenFCM()
-        // MARK: App Screen Config
-        appScreenConfiguration()
-        //
-        window?.makeKeyAndVisible()
+        
         return true
     }
-    
-    private func appScreenConfiguration() {
-        // test
-//        window?.rootViewController = UINavigationController(rootViewController: LocationSearchVC())
-//        window?.rootViewController = CustomNavController(rootViewController: RegionOfbirthVC())
-//        UserDefaults.standard.removeObject(forKey: "nameKey")
-//        UserDefaults.standard.removeObject(forKey: "surnameKey")
-//        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
-        
-//          Data
-        let dataName = UserDefaults.standard.object(forKey: "nameKey")
-        let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+}
 
-        // MARK: App Config
-        if
-            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-                (dataName as? String != "" || dataSurname as? String != "")
-        {
-            print(dataName as Any)
-            print(dataSurname as Any)
-            print(dateOfBirth as Any)
-            print("UserData - Have")
-            window?.rootViewController = MainTabBarController()
-        } else {
-            window?.rootViewController = navOnboardingVC
-            print("UserData - Empty")
-        }
-        //
-    }
+
+func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
 }
 
 
@@ -119,26 +81,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     private func configureTokenFCM() {
         Messaging.messaging().delegate = self
         Messaging.messaging().token { token, error in
-          if let error = error {
-            print("Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-//            print("FCM registration token: \(token)")
-          }
+            if let error = error {
+                print("⚠️ Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("⚠️ FCM registration token: \(token)")
+            }
         }
     }
     // MARK: delagate FCM
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-      let dataDict: [String: String] = ["token": fcmToken ?? ""]
-      NotificationCenter.default.post(
-        name: Notification.Name("FCMToken"),
-        object: nil,
-        userInfo: dataDict
-      )
+        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+        )
     }
+    
+    
     // Delegate Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-//          let token = tokenParts.joined()
+        //          let token = tokenParts.joined()
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Push: \(error)")

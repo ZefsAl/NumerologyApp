@@ -1,0 +1,246 @@
+//
+//  YourNumerologyCV_2024.swift
+//  Numerology
+//
+//  Created by Serj_M1Pro on 20.04.2024.
+//
+
+import UIKit
+
+
+class YourNumerologyCV_2024: ContentCollectionView {
+    
+    var remoteOpenDelegate: RemoteOpenDelegate? = nil
+    
+    // models instance
+    private var numbersOfSoulModel: NumbersOfSoulModel?
+    private var numbersOfDestinyModel: NumbersOfDestinyModel?
+    private var numbersOfNameModel: NumbersOfNameModel?
+    private var powerCodeModel: PowerCodeModel?
+    
+    
+    // MARK: - init
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        //
+        self.backgroundColor = .clear
+        register()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func register() {
+        // Delegate Collection View
+        self.delegate = self
+        self.dataSource = self
+        self.register(YourNumerologyCVCell.self, forCellWithReuseIdentifier: YourNumerologyCVCell.reuseID)
+        // Header
+        self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
+    }
+    
+}
+
+
+// MARK: Delegate
+extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YourNumerologyCVCell.reuseID, for: indexPath as IndexPath) as! YourNumerologyCVCell
+        
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
+        let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
+        
+        if indexPath.row == 0 {
+            // MARK: SOUL
+            let number = CalculateNumbers().calculateNumberOfSoul(date: dateOfBirth)
+            NumerologyManager.shared.getNumbersOfSoul(number: number) { model, img in
+                self.numbersOfSoulModel = model
+                cell.configure(
+                    title: "Soul",
+                    subtitle: model.infoSoul,
+                    bgImage: img
+                )
+            }
+            return cell
+        }
+        if indexPath.row == 1 {
+            // MARK: Destiny
+            let number = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
+            NumerologyManager.shared.getNumbersOfDestiny(number: number) { model, img in
+                self.numbersOfDestinyModel = model
+                cell.configure(
+                    title: "Destiny",
+                    subtitle: model.infoDestiny,
+                    bgImage: img
+                )
+            }
+            
+            return cell
+        }
+        if indexPath.row == 2 {
+            // MARK: Name
+            guard
+                let name = name,
+                let surname = surname
+            else { return cell}
+            let number = CalculateNumbers().calculateNumberOfName(name: name, surname: surname)
+            NumerologyManager.shared.getNumbersOfName(number: number) { model, img in
+                self.numbersOfNameModel = model
+                cell.configure(
+                    title: "Name",
+                    subtitle: model.infoName,
+                    bgImage: img
+                )
+            }
+            
+            return cell
+        }
+        if indexPath.row == 3 {
+            // MARK: Power Code
+            guard
+                let name = name,
+                let surname = surname
+            else { return cell}
+            
+            let codeName = CalculateNumbers().calculateNumberOfName(name: name, surname: surname)
+            let codeDestiny = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)
+            let number = CalculateNumbers().calculatePowerCode(codeName: codeName, codeDestiny: codeDestiny)
+            
+            NumerologyManager.shared.getPowerCode(number: number) { model, img in
+                self.powerCodeModel = model
+                cell.configure(
+                    title: "Power",
+                    subtitle: model.infoPower,
+                    bgImage: img
+                )
+            }
+            return cell
+        }
+        
+        return cell
+        
+    }
+    
+    // MARK: did Select ItemAt
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        
+        // MARK: Soul // 0
+        if indexPath.row == 0 {
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Your soul number",
+                info: numbersOfSoulModel?.infoSoul,
+                about: numbersOfSoulModel?.aboutSoul
+            )
+            // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            
+            if numbersOfSoulModel != nil {
+                let navVC = UINavigationController(rootViewController: vc)
+                navVC.modalPresentationStyle = .overFullScreen
+                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            }
+        }
+        
+        // MARK: Destiny // 1
+        if indexPath.row == 1 {
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Your destiny number",
+                info: numbersOfDestinyModel?.infoDestiny,
+                about: numbersOfDestinyModel?.aboutDestiny
+            )
+            
+            // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            
+            if numbersOfDestinyModel != nil {
+                let navVC = UINavigationController(rootViewController: vc)
+                navVC.modalPresentationStyle = .overFullScreen
+                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            }
+        }
+        
+        // MARK: Name // 2
+        if indexPath.row == 2 {
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Your name number",
+                info: numbersOfNameModel?.infoName,
+                about: numbersOfNameModel?.aboutName
+            )
+            
+            // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            
+            if numbersOfNameModel != nil {
+                let navVC = UINavigationController(rootViewController: vc)
+                navVC.modalPresentationStyle = .overFullScreen
+                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            }
+        }
+        // MARK: Power Code // 3
+        if indexPath.row == 3 {
+            let vc = DescriptionVC()
+            vc.configure(
+                title: "Power Code",
+                info: powerCodeModel?.infoPower,
+                about: powerCodeModel?.aboutPower
+            )
+            
+            // MARK: Check
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            
+            if powerCodeModel != nil {
+                let navVC = UINavigationController(rootViewController: vc)
+                navVC.modalPresentationStyle = .overFullScreen
+                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            }
+        }
+    }
+    
+    
+    // MARK: - Flow layout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
+        return CGSize(width: collectionView.frame.width, height: 50)
+    }
+    
+    //  Supplementary Element
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
+            sectionHeader?.label.text = "Your Numerology"
+            return sectionHeader ?? UICollectionReusableView()
+        }
+        
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: ((collectionView.frame.size.width-36)/2)-8, height: 112)
+    }
+    
+    
+    // Vertical spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+}
+

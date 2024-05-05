@@ -109,7 +109,7 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
             cell.configure(
                 title: "Hello, \(name ?? "" )!",
                 subtitle: "Find out your horoscope",
-                bgImage: UIImage(named: "HoroscopeImage")
+                setImage: UIImage(named: "HoroscopeImage")
             )
             return cell
         }

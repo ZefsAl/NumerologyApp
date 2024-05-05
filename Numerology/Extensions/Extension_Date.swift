@@ -8,6 +8,7 @@
 import Foundation
 
 extension Date {
+    // must have
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }

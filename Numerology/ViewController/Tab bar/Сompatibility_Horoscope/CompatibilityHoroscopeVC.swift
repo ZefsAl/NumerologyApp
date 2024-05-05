@@ -52,7 +52,8 @@ class CompatibilityHoroscopeVC: UIViewController {
         let b = RegularBigButton(
             frame: .zero,
             lable: "Compatibility",
-            primaryColor: vcAccentColor
+            primaryColor: vcAccentColor,
+            heightIsActive: false
         )
         b.lable.font = UIFont(weight: .bold, size: 20)
         b.lable.textColor = UIColor(red: 0.05, green: 0.192, blue: 0.289, alpha: 1)
@@ -60,11 +61,12 @@ class CompatibilityHoroscopeVC: UIViewController {
         return b
     }()
     @objc private func compatibilityAct() {
+        guard self.checkAccessContent() == true else { return }
         let firstSign = self.compareSignsStackView.firstSignModel?.title
         let secondSign = self.compareSignsStackView.secondSignModel?.title
         
         guard let firstSign = firstSign, let secondSign = secondSign else { return }
-        HoroscopeManager.shared.getSignСompatibility(signOfUser: "\(firstSign)-\(secondSign)") { model in
+        HoroscopeManager.shared.getSignСompatibility(zodiacSign: "\(firstSign)-\(secondSign)") { model in
             let navVC = UINavigationController(rootViewController: DetailCompatibilityHrscpVC(
                 compatibilityHrscpModel: model,
                 compareSignsStackView: self.compareSignsStackView
@@ -94,6 +96,8 @@ class CompatibilityHoroscopeVC: UIViewController {
         //
         setUpStack()
         register()
+        //
+        firstSignConfigure()
     }
     
     // MARK: - register
@@ -103,7 +107,7 @@ class CompatibilityHoroscopeVC: UIViewController {
         self.signsPickerCV.dataSource = self
         self.signsPickerCV.register(CompatibilityCVCell.self, forCellWithReuseIdentifier: CompatibilityCVCell.reuseID)
         //
-        self.compareSignsStackView.compareSignsStackDelegate = self
+//        self.compareSignsStackView.compareSignsStackDelegate = self
     }
 
     // MARK: Set up Stack
@@ -119,17 +123,18 @@ class CompatibilityHoroscopeVC: UIViewController {
         contentStack.alignment = .fill
         contentStack.axis = .vertical
         contentStack.distribution = .fill
-        contentStack.spacing = 32
+        contentStack.spacing = 24
         
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
+            compatibilityButton.heightAnchor.constraint(equalToConstant: 50),
             compatibilityButton.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             compatibilityButton.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 20),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
@@ -141,45 +146,65 @@ class CompatibilityHoroscopeVC: UIViewController {
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
+    
+    private func firstSignConfigure() {
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+
+        
+        let model = self.signsArr.filter({$0.title.lowercased() == sign.lowercased() }).first
+        
+        guard
+            let title = model?.title,
+            let signImage = model?.signImage
+        else { return }
+        self.compareSignsStackView.firstSignModel = SignCellModel(
+            title: title.capitalized,
+            signImage: signImage,
+            itemIndexPath: nil
+        )
+    }
+    
 }
 
 // MARK: - Delegate
 extension CompatibilityHoroscopeVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func custDeselectAct(indexPath: IndexPath) {
-        if self.compareSignsStackView.firstSignModel?.itemIndexPath == indexPath {
-            self.compareSignsStackView.firstSignModel = nil
-        } else if (self.compareSignsStackView.secondSignModel?.itemIndexPath == indexPath) && (self.compareSignsStackView.secondSignModel?.itemIndexPath != nil) {
-            self.compareSignsStackView.secondSignModel = nil
-        }
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Переключание и установка SIgn - т.e при отсутствии одного из SIgn выбирая cell устанавливается на отсутствующее место.
-        collectionView.deselectItem(at: indexPath, animated: true)
 
-        var tap = 0
-        
-        if self.compareSignsStackView.firstSignModel == nil {
-            let model = self.signsArr[indexPath.row]
-            self.compareSignsStackView.firstSignModel = SignCellModel(
-                title: model.title.capitalized,
-                signImage: model.signImage,
-                itemIndexPath: indexPath
-            )
-            tap += 1
-        }
-        
-        if (self.compareSignsStackView.secondSignModel == nil) && (self.compareSignsStackView.firstSignModel != nil) && (tap != 1) {
-            let model = self.signsArr[indexPath.row]
-            self.compareSignsStackView.secondSignModel = SignCellModel(
-                title: model.title.capitalized,
-                signImage: model.signImage,
-                itemIndexPath: indexPath
-            )
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = self.signsArr[indexPath.row]
+        self.compareSignsStackView.secondSignModel = SignCellModel(
+            title: model.title.capitalized,
+            signImage: model.signImage,
+            itemIndexPath: indexPath
+        )
     }
+    
+    // v2
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        // Переключание и установка SIgn - т.e при отсутствии одного из SIgn выбирая cell устанавливается на отсутствующее место.
+//        collectionView.deselectItem(at: indexPath, animated: true)
+//
+//        var tap = 0
+//
+//        if self.compareSignsStackView.firstSignModel == nil {
+//            let model = self.signsArr[indexPath.row]
+//            self.compareSignsStackView.firstSignModel = SignCellModel(
+//                title: model.title.capitalized,
+//                signImage: model.signImage,
+//                itemIndexPath: indexPath
+//            )
+//            tap += 1
+//        }
+//
+//        if (self.compareSignsStackView.secondSignModel == nil) && (self.compareSignsStackView.firstSignModel != nil) && (tap != 1) {
+//            let model = self.signsArr[indexPath.row]
+//            self.compareSignsStackView.secondSignModel = SignCellModel(
+//                title: model.title.capitalized,
+//                signImage: model.signImage,
+//                itemIndexPath: indexPath
+//            )
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         signsArr.count
@@ -197,7 +222,7 @@ extension CompatibilityHoroscopeVC: UICollectionViewDataSource, UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 69, height: 97)
+        return CGSize(width: 60, height: 77)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -205,17 +230,23 @@ extension CompatibilityHoroscopeVC: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return (collectionView.frame.width/4)-69
-    }
-
-}
-
-extension CompatibilityHoroscopeVC: CompareSignsStackDelegate {
-    func firstRemoveButtonAct() {
-        self.compareSignsStackView.firstSignModel = nil
+        if isIphone_66(view: self.view) {
+            return (collectionView.frame.width/3)-60
+        } else {
+            return (collectionView.frame.width/4)-60
+        }
+//        return isIphone_66(view: self.view) ? (collectionView.frame.width/4)-60 : (collectionView.frame.width/3)-60
     }
     
-    func secondRemoveButtonAct() {
-        self.compareSignsStackView.secondSignModel = nil
-    }
+
 }
+
+//extension CompatibilityHoroscopeVC: CompareSignsStackDelegate {
+//    func firstRemoveButtonAct() {
+//        self.compareSignsStackView.firstSignModel = nil
+//    }
+//
+//    func secondRemoveButtonAct() {
+//        self.compareSignsStackView.secondSignModel = nil
+//    }
+//}

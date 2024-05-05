@@ -7,11 +7,39 @@
 
 import UIKit
 import AVFoundation
+import MapKit
 
+
+class TouchThroughStackVeiw: UIStackView {
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        for subview in subviews {
+            if !subview.isHidden && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+                return true
+            }
+        }
+        return false
+    }
+}
 
 class RegionOfbirthVC: UIViewController {
     
-    let locationSearchVC = LocationSearchVC()
+    private lazy var completer: MKLocalSearchCompleter = {
+       let lsc = MKLocalSearchCompleter()
+        lsc.delegate = self
+        lsc.region = MKCoordinateRegion(.world)
+        lsc.filterType = .locationsOnly
+        lsc.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
+        return lsc
+    }()
+    
+    let locationSearchView: LocationSearchView = {
+        let v = LocationSearchView()
+        v.alpha = 0
+        return v
+    }()
+    
+    
+    let fieldsStack = TouchThroughStackVeiw()
     
     // MARK: - largeTitle
     private let largeTitle: UILabel = {
@@ -54,15 +82,14 @@ class RegionOfbirthVC: UIViewController {
     }
     
     
-    // MARK: Name Field
+    // MARK: User Place TF
     private let userPlaceTF: CustomTF = {
         let tf = CustomTF(frame: .null, setPlaceholder: "City of birth*")
         return tf
     }()
     
-    
     // MARK: user Time Of Birth
-    private let userTimeOfBirth: CustomTF = {
+    private lazy var userTimeOfBirth: CustomTF = {
         let tf = CustomTF(frame: .null, setPlaceholder: "Time of birth")
         tf.textAlignment = .center
         tf.rightViewMode = .never
@@ -73,6 +100,11 @@ class RegionOfbirthVC: UIViewController {
             let dp = UIDatePicker()
             dp.datePickerMode = .time
             dp.preferredDatePickerStyle = .wheels
+            
+            if let timeDate = makeTimeFromTodayDate(at: (12, 0)) {
+                dp.setDate(timeDate, animated: true)
+            }
+            
             dp.addTarget(Any?.self, action: #selector(timeOfBirthAct), for: .valueChanged)
             return dp
         }()
@@ -81,46 +113,7 @@ class RegionOfbirthVC: UIViewController {
         return tf
     }()
     @objc func timeOfBirthAct(_ sender: UIDatePicker) {
-        userTimeOfBirth.text = setTimeFormat(date: sender.date)
-    }
-    
-    private func playVideo() {
-        let ref = "planet"
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        guard let path = Bundle.main.path(forResource: ref, ofType: "mp4") else { return }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.borderColor = UIColor.white.cgColor
-        self.view.addSubview(iv)
-        let margin = self.view.layoutMarginsGuide
-        NSLayoutConstraint.activate([
-            iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
-            iv.heightAnchor.constraint(equalToConstant: self.view.frame.width),
-            iv.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            iv.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -32),
-        ])
-        
-        iv.layoutIfNeeded()
-        iv.layer.cornerRadius = iv.frame.width/2
-        iv.clipsToBounds = true
-        playerLayer.frame = iv.bounds
-        iv.layer.addSublayer(playerLayer)
-        iv.image = nil
-        player.play()
-    }
-    func generateThumbnail(path: URL) -> UIImage? {
-        do {
-            let asset = AVURLAsset(url: path, options: nil)
-            let imgGenerator = AVAssetImageGenerator(asset: asset)
-            imgGenerator.appliesPreferredTrackTransform = true
-            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
-            let thumbnail = UIImage(cgImage: cgImage)
-            return thumbnail
-        } catch let error {
-            print("*** Error generating thumbnail: \(error.localizedDescription)")
-            return nil
-        }
+        userTimeOfBirth.text = makeTimeString(date: sender.date)
     }
     
     
@@ -128,8 +121,8 @@ class RegionOfbirthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Delegate
-        self.userPlaceTF.additionalActionDelegate = self
-        self.locationSearchVC.locationValueDelegate = self
+        self.userPlaceTF.customTFActionDelegate = self
+        self.locationSearchView.locationValueDelegate = self
         // Visual
         self.setBackground(named: "RegionBG.png")
         AnimatableBG().setBackground(vc: self)
@@ -160,6 +153,32 @@ class RegionOfbirthVC: UIViewController {
         self.view.frame.origin.y = 0
     }
     
+    private func playVideo() {
+        let ref = "planet"
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        guard let path = Bundle.main.path(forResource: ref, ofType: "mp4") else { return }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.borderColor = UIColor.white.cgColor
+        self.view.addSubview(iv)
+        let margin = self.view.layoutMarginsGuide
+        NSLayoutConstraint.activate([
+            iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            iv.heightAnchor.constraint(equalToConstant: self.view.frame.width),
+            iv.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            iv.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -32),
+        ])
+        
+        iv.layoutIfNeeded()
+        iv.layer.cornerRadius = iv.frame.width/2
+        iv.clipsToBounds = true
+        playerLayer.frame = iv.bounds
+        iv.layer.addSublayer(playerLayer)
+        iv.image = nil
+        player.play()
+    }
+    
     
     // MARK: Set up Stack
     private func setUpStack() {
@@ -170,20 +189,22 @@ class RegionOfbirthVC: UIViewController {
         titlesStack.alignment = .fill
         titlesStack.spacing = 16
         
-        // name Field Stack
-        let nameFieldStack = UIStackView(arrangedSubviews: [userPlaceTF,userTimeOfBirth])
-        nameFieldStack.axis = .vertical
-        nameFieldStack.alignment = .fill
-        nameFieldStack.spacing = 32
+        // Field Stack
+//        let nameFieldStack = UIStackView(arrangedSubviews: [userPlaceTF,userTimeOfBirth])
+        fieldsStack.addArrangedSubview(userPlaceTF)
+        fieldsStack.addArrangedSubview(userTimeOfBirth)
+        fieldsStack.axis = .vertical
+        fieldsStack.alignment = .fill
+        fieldsStack.spacing = 32
         
         // Fields Stack
-        let fieldsStack = UIStackView(arrangedSubviews: [titlesStack,nameFieldStack])
+        let fieldsStack = TouchThroughStackVeiw(arrangedSubviews: [titlesStack,fieldsStack])
         fieldsStack.axis = .vertical
         fieldsStack.alignment = .fill
         fieldsStack.spacing = 32
         
         // Content Stack
-        let contentStack = UIStackView(arrangedSubviews: [fieldsStack,UIView(),nextButton])
+        let contentStack = TouchThroughStackVeiw(arrangedSubviews: [fieldsStack,UIView(),nextButton])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .fill
@@ -202,21 +223,63 @@ class RegionOfbirthVC: UIViewController {
     }
 }
 
-extension RegionOfbirthVC: AdditionalActionDelegate, LocationValueDelegate  {
+
+// MARK: - User Place TF Delegate
+extension RegionOfbirthVC: CustomTFActionDelegate, LocationValueDelegate, MKLocalSearchCompleterDelegate  {
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
+        if let search = textField.text, textField.text != "" {
+            self.locationSearchView.searchFor(term: search)
+        } else {
+            self.locationSearchView.searchCompletion = []
+            self.locationSearchView.searchTableView.reloadData()
+        }
+    }
+    
     // LocationValueDelegate
     func getLocationString(value: String) {
-        print("⚠️", value)
         userPlaceTF.text = value
     }
     
     // AdditionalActionDelegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.inputAccessoryView = nil
-        textField.inputView = UIView()
-        
-        let navVC = UINavigationController(rootViewController: self.locationSearchVC)
-        navVC.modalPresentationStyle = .popover
-        self.present(navVC, animated: true)
+        textField.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
+        addSearchPlaceSheet(isActive: true)
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+        addSearchPlaceSheet(isActive: false)
+        
+        guard textField.text != nil && textField.text != "" else { return }
+        userTimeOfBirth.text = "12 : 00 PM"
+    }
+    
+    
+    private func addSearchPlaceSheet(isActive: Bool) {
+        
+        guard isActive else {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                self.locationSearchView.alpha = 0
+            } completion: { _ in
+                self.locationSearchView.removeFromSuperview()
+            }
+            return
+        }
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+            self.view.addSubview(self.locationSearchView)
+            self.locationSearchView.alpha = 1
+        } completion: { _ in }
+        
+        NSLayoutConstraint.activate([
+            locationSearchView.topAnchor.constraint(equalTo: userPlaceTF.bottomAnchor, constant: 0),
+            locationSearchView.leadingAnchor.constraint(equalTo: userPlaceTF.leadingAnchor, constant: 0),
+            locationSearchView.trailingAnchor.constraint(equalTo: userPlaceTF.trailingAnchor, constant: -0),
+            locationSearchView.heightAnchor.constraint(equalToConstant: 200),
+        ])
+    }
+    
 }
 

@@ -32,6 +32,30 @@ class HoroscopeDescriptionAboutCV: AboutYouCV {
         return UICollectionReusableView()
     }
     
+    override func setupCV_Layout() {
+        
+        let size = NSCollectionLayoutSize(
+            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
+            heightDimension: NSCollectionLayoutDimension.absolute(117)
+        )
+        
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+        group.accessibilityScroll(.right)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.boundarySupplementaryItems = [self.headerItem]
+        section.supplementariesFollowContentInsets = false
+        section.interGroupSpacing = 18
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        self.collectionViewLayout = layout
+        self.alwaysBounceVertical = false
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -47,11 +71,11 @@ class HoroscopeDescriptionAboutCV: AboutYouCV {
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         //
         if indexPath.row == 0 {
-            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image1, image2 in
+            HoroscopeManager.shared.getSigns(zodiacSign: sign) { model, image1, image2 in
                 cell.configure(
                     title: "Hello, \(dataName ?? "" )!",
                     subtitle: "\(setDateFormat(date: dateOfBirth ?? Date() ))",
-                    bgImage: image1
+                    setImage: image1
                 )
             }
             return cell

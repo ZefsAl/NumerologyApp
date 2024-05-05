@@ -7,5 +7,4 @@ target 'Numerology' do
 
   # Pods for Numerology
 	pod 'RevenueCat'
-	pod 'FSCalendar'
 end

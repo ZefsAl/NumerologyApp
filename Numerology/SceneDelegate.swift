@@ -6,47 +6,110 @@
 //
 
 import UIKit
+import RevenueCat
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    let navOnboardingVC: UINavigationController = {
+        let nav = UINavigationController(rootViewController: OnboardingVC_v2())
+        return nav
+    }()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        self.window = UIWindow(windowScene: winScene)
+        UIBarButtonItem.appearance().tintColor = UIColor.white
+        //        window = UIWindow(frame: UIScreen.main.bounds) // Appdelegate
+        
+        // Data
+        Purchases.shared.getCustomerInfo { (customerInfo, error) in
+            // желательно обновлять status d UserDefaults
+            print("🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as Any)
+        }
+        print("🟢 User Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey"))
+        let dataName = UserDefaults.standard.object(forKey: "nameKey")
+        let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+        
+//        // MARK: App Config
+//        if
+//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
+//                (dataName as? String != "" || dataSurname as? String != "")
+//        {
+//            print(dataName as Any)
+//            print(dataSurname as Any)
+//            print(dateOfBirth as Any)
+//            print("UserData - Have")
+//            self.window?.rootViewController = MainTabBarController()
+//        } else {
+//            self.window?.rootViewController = navOnboardingVC
+//            
+//            print("UserData - Empty")
+//        }
+        
+        // test
+        let nav = CustomNavController(rootViewController: NumerologyVC_2024())
+        self.window?.rootViewController = nav
+        //
+        
+        self.window?.makeKeyAndVisible()
+        
+        print("🔴scene🔴")
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        print("🔴sceneDidDisconnect🔴")
     }
-
+    
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        print("🔴sceneDidBecomeActive🔴")
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
-
+    
     func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
+        print("🔴sceneWillResignActive🔴")
     }
-
+    
     func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        print("🔴sceneWillEnterForeground🔴")
     }
-
+    
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
+        print("🔴sceneDidEnterBackground🔴")
     }
-
-
+    
 }
 
+
+//    private func appScreenConfiguration() {
+//        // test
+////        window?.rootViewController = UINavigationController(rootViewController: LocationSearchVC())
+////        window?.rootViewController = CustomNavController(rootViewController: RegionOfbirthVC())
+////        UserDefaults.standard.removeObject(forKey: "nameKey")
+////        UserDefaults.standard.removeObject(forKey: "surnameKey")
+////        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
+//
+////          Data
+//        let dataName = UserDefaults.standard.object(forKey: "nameKey")
+//        let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
+//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+//
+//        // MARK: App Config
+//        if
+//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
+//                (dataName as? String != "" || dataSurname as? String != "")
+//        {
+//            print(dataName as Any)
+//            print(dataSurname as Any)
+//            print(dateOfBirth as Any)
+//            print("UserData - Have")
+//            window?.rootViewController = MainTabBarController()
+//        } else {
+//            window?.rootViewController = navOnboardingVC
+//            print("UserData - Empty")
+//        }
+//        //
+//    }

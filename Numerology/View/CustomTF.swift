@@ -7,13 +7,15 @@
 
 import UIKit
 
-protocol AdditionalActionDelegate {
+protocol CustomTFActionDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField)
+    func textFieldDidChangeSelection(_ textField: UITextField)
+    func textFieldDidEndEditing(_ textField: UITextField)
 }
 
 class CustomTF: UITextField {
     
-    lazy var additionalActionDelegate: AdditionalActionDelegate? = nil
+    lazy var customTFActionDelegate: CustomTFActionDelegate? = nil
 
     var setPlaceholder: String?
     
@@ -88,9 +90,13 @@ class CustomTF: UITextField {
 // MARK: Animate, UITextFieldDelegate
 extension CustomTF: UITextFieldDelegate {
     
+    // Did Change
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        customTFActionDelegate?.textFieldDidChangeSelection(textField)
+    }
     
-    
-    // MARK: Animate, Delegate
+    // Did Begin
+    // Animate, Delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.rightCancelButton.isHidden = false
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
@@ -106,8 +112,9 @@ extension CustomTF: UITextFieldDelegate {
             // Button animate
             self.rightCancelButton.alpha = 1
         }, completion: nil)
-        self.additionalActionDelegate?.textFieldDidBeginEditing(textField)
+        self.customTFActionDelegate?.textFieldDidBeginEditing(textField)
     }
+    
     
     // MARK: Animate, Delegate 
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -125,24 +132,26 @@ extension CustomTF: UITextFieldDelegate {
         } completion: { _ in
             self.rightCancelButton.isHidden = true
         }
+        
+        customTFActionDelegate?.textFieldDidEndEditing(textField)
     }
     
     // MARK: Delegate shouldChangeCharactersIn
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        guard let newTextField = textField.text else { return false }
-        let text = newTextField + string
-        
-        // Replacing space + restrict
-        if text.contains(" ")  {
-            textField.text = text.replacingOccurrences(of: " ", with: "")
-
-            if text.contains(" ") {
-                return false
-            }
-        }
-        return true
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        
+//        guard let newTextField = textField.text else { return false }
+//        let text = newTextField + string
+//        
+//        // Replacing space + restrict
+//        if text.contains(" ")  {
+//            textField.text = text.replacingOccurrences(of: " ", with: "")
+//
+//            if text.contains(" ") {
+//                return false
+//            }
+//        }
+//        return true
+//    }
 }
 
 

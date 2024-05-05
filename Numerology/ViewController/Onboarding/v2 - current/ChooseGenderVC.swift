@@ -78,16 +78,6 @@ class ChooseGenderVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    
-    
-//    func getTopSpace() -> CGFloat {
-//        if isIphone_66() {
-//            return 88
-//        } else {
-//            return 44
-//        }
-//    }
-    
     // MARK: Set up Stack
     private func setUpStack() {
         
@@ -169,3 +159,5 @@ extension ChooseGenderVC: UICollectionViewDelegateFlowLayout {
 //        return 16
 //    }
 }
+
+

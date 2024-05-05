@@ -22,8 +22,6 @@ class DetailCompatibilityHrscpVC: UIViewController {
     
     private lazy var compareSignsStackView: CompareSignsStackView = {
         let sv = CompareSignsStackView(frame: .null, accentColor: vcAccentColor)
-        sv.firstRemoveButton.isHidden = true
-        sv.secondRemoveButton.isHidden = true
         return sv
     }()
     
@@ -108,7 +106,7 @@ class DetailCompatibilityHrscpVC: UIViewController {
         contentStack.alignment = .fill
         contentStack.axis = .vertical
         contentStack.distribution = .fill
-        contentStack.spacing = 40
+        contentStack.spacing = 24
         
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
@@ -116,7 +114,7 @@ class DetailCompatibilityHrscpVC: UIViewController {
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 20),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),

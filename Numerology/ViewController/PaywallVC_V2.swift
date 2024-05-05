@@ -14,7 +14,6 @@ final class PaywallVC_V2: UIViewController {
     
     var onboardingIsCompleted: Bool?
     
-    
     // MARK: store Product Arr
     var storeProductArr: [StoreProduct]? {
         didSet {
@@ -23,24 +22,22 @@ final class PaywallVC_V2: UIViewController {
             })
         }
     }
-
+    
     // MARK: Scroll View
     private let mainScrollView: UIScrollView = {
-       let sv = UIScrollView()
+        let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
         return sv
     }()
     
-    
     // MARK: Carousel CV
     private let customCarousel_CV: CustomCarousel_CV = {
-       let cv = CustomCarousel_CV()
+        let cv = CustomCarousel_CV()
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
-    
     
     // MARK: Collection View
     private let productsCollectionView: ContentCollectionView = {
@@ -60,11 +57,11 @@ final class PaywallVC_V2: UIViewController {
         )
         let item = NSCollectionLayoutItem(layoutSize: size)
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         section.interGroupSpacing = 18
-
+        
         let layout = UICollectionViewCompositionalLayout(section: section)
         self.productsCollectionView.collectionViewLayout = layout
         self.productsCollectionView.heightAnchor.constraint(equalToConstant: 190).isActive = true // 😢
@@ -85,26 +82,21 @@ final class PaywallVC_V2: UIViewController {
     
     // Разный конфиг layout для размеров экрана и ячеек
     private func distributedSetupCVLayout() {
-        if isIphone_66() {
+        if isIphone_66(view: self.view) {
             configCompositionalLayoutCV()
         } else {
             configFlowLayoutCV()
         }
-        
     }
     
     // MARK: - register Cells
     private func registerCells() {
-//        products Collection View
+        //        products Collection View
         productsCollectionView.register(MiniPromoCVCell.self, forCellWithReuseIdentifier: MiniPromoCVCell().miniPromoCVCell_ID)
         productsCollectionView.register(Mini2PromoCVCell.self, forCellWithReuseIdentifier: Mini2PromoCVCell().mini2PromoCVCell_ID)
         productsCollectionView.register(BigPromoCVCell.self, forCellWithReuseIdentifier: BigPromoCVCell().bigPromoCVCell_ID)
         productsCollectionView.register(RegularPromoCVCell.self, forCellWithReuseIdentifier: RegularPromoCVCell().regularPromoCVCell_ID)
     }
-    
-    
-    
-    
     
     // MARK: Main Promo Title
     private let mainPromoTitle: UILabel = {
@@ -126,10 +118,8 @@ final class PaywallVC_V2: UIViewController {
         return b
     }()
     
-    // MARK: Action Purchase 
+    // MARK: Purchase Action
     @objc private func actPurchaseButton() {
-        print("Purchase Button")
-        
         // Get product index
         let index = self.productsCollectionView.indexPathsForSelectedItems?.first?.row
         guard let index = index else { return }
@@ -138,23 +128,23 @@ final class PaywallVC_V2: UIViewController {
         
         if subscriptionSwitch.isOn && storeProductIndex.productIdentifier == "Year_29.99" {
             Purchases.shared.getProducts(["Yearly.Trial"]) { arr in
-//                print("💰 Trial ---",arr.first?.productIdentifier)
+                //                print("💰 Trial ---",arr.first?.productIdentifier)
                 guard let product = arr.first else { return }
                 Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
                     self.purchaseButton.activityIndicatorView.stopAnimating()
                     if customerInfo?.entitlements["Access"]?.isActive == true {
-//                        print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                        //                        print("🟠",customerInfo?.entitlements["Access"]?.isActive)
                         self.dismissAction()
                     }
                 }
             }
-
+            
         } else {
-//            print(storeProductIndex.productIdentifier)
+            //            print(storeProductIndex.productIdentifier)
             Purchases.shared.purchase(product: storeProductIndex) { transaction, customerInfo, error, userCancelled in
                 self.purchaseButton.activityIndicatorView.stopAnimating()
                 if customerInfo?.entitlements["Access"]?.isActive == true {
-//                    print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                    //                    print("🟠",customerInfo?.entitlements["Access"]?.isActive)
                     self.dismissAction()
                 }
             }
@@ -163,31 +153,11 @@ final class PaywallVC_V2: UIViewController {
     
     // MARK: toggle On State
     private func toggleOnState() {
-
-//        Purchases.shared.getOfferings { (offerings, error) in
-//
-//            if let offering = offerings?.current {
-//                if let product = offering.availablePackages.first?.storeProduct {
-//                    // 2. Check
-//                    Purchases.shared.checkTrialOrIntroDiscountEligibility(product: product) { eligibility in
-//                        if eligibility == .eligible {
-////                            print("user is eligible")
-//                            self.subscriptionSwitch.isOn = true
-//                            self.switchAction(self.subscriptionSwitch)
-//                        } else {
-//                            // user is not eligible
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
-        // Can check Eligibility
-            // Select
-            DispatchQueue.main.async {
-                self.productsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .bottom)
-                self.purchaseButton.stateConfig(state: true)
-            }
+        DispatchQueue.main.async {
+            // Default Select
+            self.productsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .bottom)
+            self.purchaseButton.stateConfig(state: true)
+        }
     }
     
     
@@ -199,7 +169,6 @@ final class PaywallVC_V2: UIViewController {
         l.textColor = .white
         l.numberOfLines = 0
         l.font = UIFont(weight: .regular, size: 15)
-        
         l.textAlignment = .left
         l.text =  "Not sure yet? Enable free trial!"
         return l
@@ -207,14 +176,13 @@ final class PaywallVC_V2: UIViewController {
     
     // MARK: Switch
     private let subscriptionSwitch: UISwitch = {
-        
         let s = UISwitch()
         s.translatesAutoresizingMaskIntoConstraints = false
         s.addTarget(Any?.self, action: #selector(switchAction), for: .valueChanged)
         s.onTintColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
         return s
     }()
-        
+    
     
     // MARK: Switch Action
     @objc private func switchAction(_ sender: UISwitch) {
@@ -225,10 +193,10 @@ final class PaywallVC_V2: UIViewController {
         }
         
         DispatchQueue.main.async {
-            self.productsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .bottom)
-            self.purchaseButton.stateConfig(state: true)
-            self.subscriptionLable.text = "7-day FREE trial enable"
+            //            self.productsCollectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .bottom)
         }
+        self.purchaseButton.stateConfig(state: true)
+        self.subscriptionLable.text = "7-day FREE trial enable"
     }
     
     
@@ -309,16 +277,16 @@ final class PaywallVC_V2: UIViewController {
         let b = UIButton() // customView: type
         b.translatesAutoresizingMaskIntoConstraints = false
         
-        let configImage = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .regular)) // 25~30x30-frame
+        let configImage = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))
         
         let iv = UIImageView(image: configImage)
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.tintColor = .systemGray
         iv.isUserInteractionEnabled = false
-
+        
         b.addSubview(iv)
-        b.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        b.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        b.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        b.widthAnchor.constraint(equalToConstant: 20).isActive = true
         b.addTarget(Any?.self, action: #selector(dismissAction), for: .touchUpInside)
         
         return b
@@ -327,9 +295,6 @@ final class PaywallVC_V2: UIViewController {
     // MARK: - Dismiss Action
     @objc private func dismissAction() {
         guard let bool = onboardingIsCompleted else { return }
-        
-        print("🔴 dismissAction", bool)
-        
         if bool {
             self.dismiss(animated: true)
         } else {
@@ -338,14 +303,12 @@ final class PaywallVC_V2: UIViewController {
     }
     
     
-// MARK: viewDidLoad
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // self style
         self.setBackground(named: "DarkBG.png")
         AnimatableBG().setBackground(vc: self)
-//        self.setDismissNavButtonItem(selectorStr: #selector(dismissAction))
         // UI
         setupUI()
         // Delegate
@@ -379,11 +342,6 @@ final class PaywallVC_V2: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    // MARK: - deinit
-//    deinit {
-//        self.customCarousel_CV.timer.invalidate()
-////        self.customCarousel_CV.timer.
-//    }
     
     // MARK: setup UI
     private func setupUI() {
@@ -397,7 +355,6 @@ final class PaywallVC_V2: UIViewController {
         topSideStack.spacing = 0
         topSideStack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0)
         topSideStack.isLayoutMarginsRelativeArrangement = true
-        
         
         // MARK: Docs Stack
         let docsStack = UIStackView(arrangedSubviews: [termsButton,restoreButton,privacyButton])
@@ -447,13 +404,11 @@ final class PaywallVC_V2: UIViewController {
         // Add addSubview
         self.view.addSubview(mainStack)
         self.view.addSubview(closeButton)
-//        let scrollViewMargin = mainScrollView.contentLayoutGuide
         let viewMargin = self.view.layoutMarginsGuide
         
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 8),
             closeButton.trailingAnchor.constraint(equalTo: viewMargin.trailingAnchor),
-            
             customCarousel_CV.heightAnchor.constraint(equalToConstant: 183),
             mainStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             mainStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
@@ -477,7 +432,7 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
         guard let product = product else { return UICollectionViewCell() }
         
         // MARK: - Config cells
-        if isIphone_66() {
+        if isIphone_66(view: self.view) {
             return longCellsConfig(product: product, collectionView: collectionView, indexPath: indexPath)
         } else {
             return miniCellsConfig(product: product, collectionView: collectionView, indexPath: indexPath)
@@ -490,10 +445,10 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
         if indexPath.row == 0 {
             let miniCell = collectionView.dequeueReusableCell(withReuseIdentifier: MiniPromoCVCell().miniPromoCVCell_ID, for: indexPath as IndexPath) as! MiniPromoCVCell
             miniCell.configure(
-                discount: "save 74%".uppercased(),
+                discount: "save 68%".uppercased(),
                 title: "\(product.localizedTitle)",
-                subtitle: "2.49 $ / month",
-                price: "\(product.localizedPriceString) $ / year"
+                subtitle: "3.33 $ / month",
+                price: "\(product.localizedPriceString) / year"
             )
             toggleOnState()
             return miniCell
@@ -516,10 +471,10 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
         if indexPath.row == 0 {
             let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: BigPromoCVCell().bigPromoCVCell_ID, for: indexPath as IndexPath) as! BigPromoCVCell
             bigCell.configure(
-                discount: "save 74%".uppercased(),
+                discount: "save 68%".uppercased(),
                 title: "\(product.localizedTitle)",
-                subtitle: "2.49 $ / month",
-                price: "\(product.localizedPriceString) $ / year"
+                subtitle: "3.33 $ / month",
+                price: "\(product.localizedPriceString) / year"
             )
             toggleOnState()
             return bigCell
@@ -534,7 +489,7 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
             return UICollectionViewCell()
         }
     }
-
+    
     
     // MARK: should Select Item At
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -560,14 +515,14 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        if !isIphone_66() {
+        
+        if !isIphone_66(view: self.view) {
             return CGSize(width: (collectionView.frame.size.width/2)-4, height: 122)
         } else {
             return CGSize()
         }
     }
-        
+    
 }
 
 
@@ -599,22 +554,5 @@ extension PaywallVC_V2 {
                 print("User not restored!")
             }
         }
-    }
-}
-
-
-extension PaywallVC_V2 {
-    // MARK: isIphone_66
-    private func isIphone_66() -> Bool {
-        // tryFix content size
-        if (self.view.frame.height < 844.0) {
-            print("✅ iphone 8")
-            return false
-        } else {
-            print("✅ iphone 12")
-            return true
-        }
-        // 8 iphone - Screen height: 667.0
-        // 12 iphone - Screen height: 844.0
     }
 }

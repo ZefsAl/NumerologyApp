@@ -8,12 +8,14 @@
 import Foundation
 
 final class HoroscopeSign {
+    
     // Set format for any received dates
     private let mainFormatter: DateFormatter = {
        let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return df
     }()
+    
     // Creating dates from date context
     private func create(string: String) -> Date {
         // dictionary date format context -> random format
@@ -31,6 +33,7 @@ final class HoroscopeSign {
         let dateString = "\(2000)-\(month)-\(day)T00:00:00+0000" // Shouldn't be optional
         return mainFormatter.date(from: dateString) ?? Date()
     }
+    
     // MARK: - horoscope Signs
     private func horoscopeSigns() -> Dictionary<String, [Int:DateInterval]> {
         //
@@ -54,6 +57,7 @@ final class HoroscopeSign {
         //
         return horoscopeSigns
     }
+    
     // MARK: - find Horoscope Sign
     func findHoroscopeSign(find: Date?) -> String {
         guard

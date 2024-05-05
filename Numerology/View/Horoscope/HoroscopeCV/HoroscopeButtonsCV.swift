@@ -18,7 +18,7 @@ class HoroscopeButtonsCV: ContentCollectionView {
     }
     
     private func configure() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+//        self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = false
         
 //        if let collectionViewLayout = self.collectionViewLayout as? UICollectionViewFlowLayout {

@@ -70,22 +70,6 @@ class StatsStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func setLayerGradient(first: UIColor, second: UIColor, toView: UIView) {
-//        let colorTop =  first.cgColor
-//        let colorBottom = second.cgColor
-//
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.colors = [colorTop, colorBottom]
-//        gradientLayer.locations = [0.0, 1.0]
-//        gradientLayer.frame = toView.bounds
-//
-//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-//
-//        toView.layer.insertSublayer(gradientLayer, at:0)
-//    }
-    
-    
     
     private func setUpStack() {
         let firstStack = UIStackView(arrangedSubviews: [title,percentTitle])

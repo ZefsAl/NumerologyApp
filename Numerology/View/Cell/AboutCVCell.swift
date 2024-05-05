@@ -20,13 +20,16 @@ class AboutCVCell: UICollectionViewCell {
         l.font = UIFont(weight: .semiBold, size: 15)
         l.textAlignment = .center
         l.text = "Read more"
+        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         return l
     }()
     // MARK: subtitle
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 15)
+        l.font = UIFont(name: "Cinzel-Regular", size: 14)
+        l.textAlignment = .left
+        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         l.numberOfLines = 4
         return l
     }()
@@ -44,6 +47,7 @@ class AboutCVCell: UICollectionViewCell {
             withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
         )
         iv.image = configImage
+        iv.tintColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         
         return iv
     }()
@@ -70,25 +74,25 @@ class AboutCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        let readMoreStack = UIStackView(arrangedSubviews: [title,cardIcon,UIView()])
-        readMoreStack.axis = .horizontal
-        readMoreStack.alignment = .center
-        readMoreStack.spacing = 6
+        let readMoreBTNStack = UIStackView(arrangedSubviews: [title,cardIcon,UIView()])
+        readMoreBTNStack.axis = .horizontal
+        readMoreBTNStack.alignment = .center
+        readMoreBTNStack.spacing = 6
         
-        let contentStack = UIStackView(arrangedSubviews: [subtitle,readMoreStack])
+        let contentStack = UIStackView(arrangedSubviews: [subtitle,readMoreBTNStack])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.distribution = .fill
         contentStack.alignment = .leading
-        contentStack.spacing = 8
+        contentStack.spacing = 0
         
         
         self.addSubview(contentStack)
         
         NSLayoutConstraint.activate([
             
-            readMoreStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
-            readMoreStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
+            readMoreBTNStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
+            readMoreBTNStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
             
             contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),

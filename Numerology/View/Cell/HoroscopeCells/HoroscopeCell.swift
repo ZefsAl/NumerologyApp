@@ -54,8 +54,8 @@ class HoroscopeCell: UICollectionViewCell {
     let image: UIImageView = {
        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        iv.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        iv.heightAnchor.constraint(equalToConstant: 85).isActive = true
+        iv.widthAnchor.constraint(equalToConstant: 85).isActive = true
         iv.contentMode = .scaleAspectFit
         return iv
     }()
@@ -84,13 +84,13 @@ class HoroscopeCell: UICollectionViewCell {
     }
     
     // MARK: Configure
-    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
+    func configure(title: String, subtitle: String?, setImage: UIImage?) {
         self.title.text = title
         self.subtitle.text = subtitle
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.image.image = bgImage ?? UIImage(named: "plug")
+            self.image.image = setImage ?? UIImage(named: "plug")
         }
         
     }

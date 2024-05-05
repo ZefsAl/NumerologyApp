@@ -19,7 +19,7 @@ class PersonalMonthDatePicker: UIPickerView {
         let df = DateFormatter()
 //        df.dateFormat = "MMMM"
         let month = df.standaloneMonthSymbols
-        var arr: [String] = month ?? ["error"]
+        var arr: [String] = month ?? ["⚠️ Error"]
         
         print(arr)
         
@@ -88,7 +88,6 @@ extension PersonalMonthDatePicker: UIPickerViewDelegate, UIPickerViewDataSource 
         if let selectedDate = selectedDate {
             valueDelegate?.getPickerDate(date: selectedDate)
         }
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

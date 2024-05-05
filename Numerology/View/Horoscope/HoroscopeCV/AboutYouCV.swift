@@ -26,7 +26,7 @@ class AboutYouCV: UICollectionView {
     
     
     // MARK: - Layout
-    private func setupCV_Layout() {
+    func setupCV_Layout() {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
             heightDimension: NSCollectionLayoutDimension.absolute(117)
@@ -51,7 +51,7 @@ class AboutYouCV: UICollectionView {
     }
     
     // headerItem + used Delegate
-    private var headerItem: NSCollectionLayoutBoundarySupplementaryItem {
+     var headerItem: NSCollectionLayoutBoundarySupplementaryItem {
         let headerSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .estimated(50)
@@ -108,7 +108,7 @@ extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         
         if indexPath.row == 0 {
-            HoroscopeManager.shared.getSigns(zodiacSigns: sign) { model, image1, image2  in
+            HoroscopeManager.shared.getSigns(zodiacSign: sign) { model, image1, image2  in
                 //
                 self.signsModel = model
                 self.signImage = image1
@@ -116,7 +116,7 @@ extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.configure(
                     title: model.zodiacSigns,
                     subtitle: model.dateAboutYou,
-                    bgImage: image1
+                    setImage: image1
                 )
             }
             return cell

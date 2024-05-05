@@ -82,12 +82,8 @@ class CalendarCell: UICollectionViewCell {
     }()
     
     @objc private func readMoreAction() {
-        print("TEST🔴")
         self.customCalendarCellDelagete?.readMoreAction()
     }
-    
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

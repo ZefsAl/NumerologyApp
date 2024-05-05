@@ -83,8 +83,7 @@ class OnboardingVC_v2: UIViewController {
     private var timer = Timer()
     // MARK: - fake Load
     func fakeLoad() {
-        self.timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(moveSlide), userInfo: nil, repeats: false)
-        
+        self.timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(moveSlide), userInfo: nil, repeats: false)
     }
     
     @objc private func moveSlide() {

@@ -198,45 +198,6 @@ final class PersonalYearVC: UIViewController {
         return l
     }()
     
-//    // MARK: Text Field + Date Picker
-//    private let userEnterDateTF: CustomTF = {
-//        let tf = CustomTF(frame: .null, setPlaceholder: "\(setDateFormat(date: Date()))")
-//        tf.textAlignment = .center
-//        tf.rightViewMode = .never
-//        tf.leftViewMode = .never
-//
-//        // MARK: Date Picker
-//        let datePicker: UIDatePicker = {
-//            let dp = UIDatePicker()
-//            dp.datePickerMode = .date
-//            dp.preferredDatePickerStyle = .wheels
-//            dp.addTarget(Any?.self, action: #selector(datePickerAction), for: .valueChanged)
-//
-//            var minDateComponents = DateComponents()
-//            minDateComponents.year = 1950
-//            var maxDateComponents = DateComponents()
-//            maxDateComponents.year = 2100
-//            let userCalendar = Calendar(identifier: .gregorian)
-//
-//            if let start = userCalendar.date(from: minDateComponents),
-//               let end = userCalendar.date(from: maxDateComponents) {
-//                dp.minimumDate = Date(timeInterval: 0, since: start)
-//                dp.maximumDate = Date(timeInterval: 0, since: end)
-//            }
-//
-//            return dp
-//        }()
-//        tf.inputView = datePicker
-//
-//        return tf
-//    }()
-//    // MARK: Date Picker Action
-//    @objc private func datePickerAction(_ sender: UIDatePicker) {
-//
-//        userEnterDateTF.text = setDateFormat(date: sender.date)
-//        self.enteredDate = sender.date
-//    }
-//
     // MARK: Custom Date Textfield
     let customDateTextfield: PersonalYearTF = {
         let df = DateFormatter()
@@ -250,7 +211,6 @@ final class PersonalYearVC: UIViewController {
     // MARK: button Action
     @objc func buttonAction() {
         print("button Action")
-        
         
         // Get data
         guard
@@ -271,6 +231,7 @@ final class PersonalYearVC: UIViewController {
                     info: model.infoPersYear,
                     about: model.aboutPersYear
                 )
+                guard self.checkAccessContent() == true else { return } // check 🟢
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

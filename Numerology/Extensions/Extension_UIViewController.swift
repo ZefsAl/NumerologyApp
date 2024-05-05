@@ -95,9 +95,9 @@ extension UIViewController {
     }
      
     // MARK: isIphone_66
-    private func isIphone_66() -> Bool {
+    func isIphone_66(view: UIView) -> Bool {
         // tryFix content size
-        if (self.view.frame.height < 844.0) {
+        if (view.frame.height < 844.0) {
             print("✅ iphone 8")
             return false
         } else {

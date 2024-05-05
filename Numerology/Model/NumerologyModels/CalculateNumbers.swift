@@ -16,7 +16,7 @@ class CalculateNumbers {
             var monthArr: [String] = {
                 let df = DateFormatter()
                 let month = df.standaloneMonthSymbols
-                var arr: [String] = month ?? ["error"]
+                var arr: [String] = month ?? ["⚠️ Error"]
                 return arr
             }()
         
@@ -53,38 +53,34 @@ class CalculateNumbers {
  
     // MARK: Soul // 1
     func calculateNumberOfSoul(date: Date?) -> Int {
-        
         let calendar = Calendar.current
         
         guard let date = date else { return 1 }
         
         let components = calendar.dateComponents([.year, .month, .day], from: date)
         let day = components.day ?? 0
-    
-        var arrDayNum = [Int]()
         
-        let stringDay = String(day)
-
-        // String -> Int append
-        for char in stringDay {
-            if let num = char.wholeNumberValue {
-                arrDayNum.append(num)
-            }
+        let sum = String(day).compactMap { Character(extendedGraphemeClusterLiteral: $0).wholeNumberValue }
+        
+        var result = sum.reduce(0){ $0+$1 }
+        
+        if result > 10 {
+            result = String(result).compactMap {
+                Character(extendedGraphemeClusterLiteral: $0).wholeNumberValue
+            }.reduce(0){ $0+$1 }
         }
 
-        let sumArr = arrDayNum.reduce(0) { partialResult, num in
-            partialResult + num
-        }
-        print("Soul = \(sumArr)")
+        print("Soul =",result)
         
-        if sumArr == 10 {
+        if result == 10 {
             return 1
-        } else if sumArr == 0 {
+        } else if result == 0 {
             return 1
         } else {
-            return sumArr
+            return result
         }
     }
+
     
     // MARK: Destiny // 2
     func calculateNumberOfDestiny(date: Date?) -> Int {
@@ -435,7 +431,7 @@ class CalculateNumbers {
             let df = DateFormatter()
         //    df.dateFormat = "MMMM"
             let month = df.standaloneMonthSymbols
-            var arr: [String] = month ?? ["error"]
+            var arr: [String] = month ?? ["⚠️ Error"]
             return arr
         }()
         

@@ -24,7 +24,7 @@ class NumerologyManager {
         
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-            if let error = error { print("Error getting documents: \(error)") }
+            if let error = error { print("⚠️ Error getting documents: \(error)") }
             
             if let random = documents.randomElement() {
                 
@@ -32,7 +32,7 @@ class NumerologyManager {
                     let val = try random.data(as: BoardOfDayModel.self)
                     completion(val)
                 } catch {
-                    print("Error decode documents: \(error)")
+                    print("⚠️ Error decode documents: \(error)")
                 }
             }
         }
@@ -46,7 +46,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -60,7 +60,7 @@ class NumerologyManager {
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("Error getting IMAGE: \(error)")
+                            print("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             let image = UIImage(data: data!)
                             completion(val,image)
@@ -68,7 +68,7 @@ class NumerologyManager {
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -82,21 +82,21 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
             for doc in documents {
                 do {
                     let val = try doc.data(as: NumbersOfDestinyModel.self)
-
+                    
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("Error getting IMAGE: \(error)")
+                            print("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             let image = UIImage(data: data!)
                             completion(val,image)
@@ -104,7 +104,7 @@ class NumerologyManager {
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -119,7 +119,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -132,7 +132,7 @@ class NumerologyManager {
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("Error getting IMAGE: \(error)")
+                            print("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             let image = UIImage(data: data!)
                             completion(val,image)
@@ -140,7 +140,7 @@ class NumerologyManager {
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -154,7 +154,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -167,7 +167,7 @@ class NumerologyManager {
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("Error getting IMAGE: \(error)")
+                            print("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             let image = UIImage(data: data!)
                             completion(val,image)
@@ -175,7 +175,7 @@ class NumerologyManager {
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -190,7 +190,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -203,7 +203,7 @@ class NumerologyManager {
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("Error getting IMAGE: \(error)")
+                            print("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             let image = UIImage(data: data!)
                             completion(val,image)
@@ -211,7 +211,7 @@ class NumerologyManager {
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -226,7 +226,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -236,7 +236,7 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -251,7 +251,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -261,7 +261,7 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -275,7 +275,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -285,7 +285,7 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -299,7 +299,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -309,7 +309,7 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -323,7 +323,7 @@ class NumerologyManager {
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -333,7 +333,7 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -345,9 +345,9 @@ class NumerologyManager {
         
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-
+            
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             
             var newArr: [NumerologyIsModel] = [NumerologyIsModel]()
@@ -358,24 +358,24 @@ class NumerologyManager {
                     newArr.append(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
             
             completion(newArr)
         }
     }
-
-
+    
+    
     // MARK: get Information Documents
     func getInformationDocuments(byName: String, completion: @escaping (InfoDocModel) -> Void ) {
         let docRef = db.collection(byName)
         
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-
+            
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -384,12 +384,36 @@ class NumerologyManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
     }
-
+    
+    // MARK: - Angel Numbers
+    func getAngelNumbers(stringNumber: String, completion: @escaping (AngelNumbersModel) -> Void ) {
+        let docRef = db.collection("AngelNumbers").whereField("number", isEqualTo: stringNumber)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("⚠️ Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: AngelNumbersModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
 }
 
 

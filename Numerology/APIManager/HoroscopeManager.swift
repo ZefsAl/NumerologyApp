@@ -12,23 +12,21 @@ import FirebaseStorage
 import FirebaseFirestoreSwift
 import UIKit
 
-//HoroscopeManager
-
 
 class HoroscopeManager {
     
     static let shared: HoroscopeManager = HoroscopeManager()
-    private let db = Firestore.firestore()
+    private let firestore = Firestore.firestore()
     
     // MARK: - Signs
-    func getSigns(zodiacSigns: String, completion: @escaping ((SignsModel, UIImage?, UIImage? ) -> Void) ) {
-        let docRef = db.collection("Signs").whereField("zodiacSigns", isEqualTo: zodiacSigns)
+    func getSigns(zodiacSign: String, completion: @escaping ((SignsModel, UIImage?, UIImage? ) -> Void) ) {
+        let docRef = firestore.collection("Signs").whereField("zodiacSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -47,17 +45,24 @@ class HoroscopeManager {
                     pathReference.getData(maxSize: megaByte) { data1, error in
                         pathReference2.getData(maxSize: megaByte) { data2, error in
                             if let error = error {
-                                print("Error getting IMAGE: \(error)")
+                                print("⚠️ Error getting IMAGE: \(error)")
                             } else {
-                                let image1 = UIImage(data: data1!)
-                                let image2 = UIImage(data: data2!)
+                                guard
+                                    let data1 = data1,
+                                    let data2 = data2
+                                else {
+                                    print("⚠️ Error getting IMAGE: \(error)")
+                                    return
+                                }
+                                let image1 = UIImage(data: data1)
+                                let image2 = UIImage(data: data2)
                                 completion(val,image1,image2)
                             }
                         }
                     }
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -65,18 +70,18 @@ class HoroscopeManager {
 
     // MARK: - Today
     func getTodayHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        let docRef = db.collection("Today-tomor-hrscp")
+        let docRef = firestore.collection("Today-tomor-hrscp")
         
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-            if let error = error { print("Error getting documents: \(error)") }
+            if let error = error { print("⚠️ Error getting documents: \(error)") }
             
             if let random = documents.randomElement() {
                 do {
                     let val = try random.data(as: HoroscopeDefaultModel.self)
                     completion(val)
                 } catch {
-                    print("Error decode documents: \(error)")
+                    print("⚠️ Error decode documents: \(error)")
                 }
             }
         }
@@ -84,32 +89,32 @@ class HoroscopeManager {
     
     // MARK: - Week
     func getWeekHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        let docRef = db.collection("Week-hrscp")
+        let docRef = firestore.collection("Week-hrscp")
         
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-            if let error = error { print("Error getting documents: \(error)") }
+            if let error = error { print("⚠️ Error getting documents: \(error)") }
             // Random
             if let random = documents.randomElement() {
                 do {
                     let val = try random.data(as: HoroscopeDefaultModel.self)
                     completion(val)
                 } catch {
-                    print("Error decode documents: \(error)")
+                    print("⚠️ Error decode documents: \(error)")
                 }
             }
         }
     }
     
     // MARK: - Month
-    func getMonthHoroscope(zodiacSigns: String, completion: @escaping (MonthModel) -> Void) {
-        let docRef = db.collection("Month-hrscp").whereField("monthSigns", isEqualTo: zodiacSigns)
+    func getMonthHoroscope(zodiacSign: String, completion: @escaping (MonthModel) -> Void) {
+        let docRef = firestore.collection("Month-hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -118,20 +123,21 @@ class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
     }
+    
     // MARK: - Year 2023
-    func getYear2023Horoscope(zodiacSigns: String, completion: @escaping (Year2023Model) -> Void) {
-        let docRef = db.collection("2023-hrscp").whereField("yearSign", isEqualTo: zodiacSigns)
+    func getYear2023Horoscope(zodiacSign: String, completion: @escaping (Year2023Model) -> Void) {
+        let docRef = firestore.collection("2023-hrscp").whereField("yearSign", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -140,20 +146,20 @@ class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
     }
     // MARK: - Year 2024
-    func getYear2024Horoscope(zodiacSigns: String, completion: @escaping (Year2024Model) -> Void) {
-        let docRef = db.collection("2024-hrscp").whereField("yearSign", isEqualTo: zodiacSigns)
+    func getYear2024Horoscope(zodiacSign: String, completion: @escaping (Year2024Model) -> Void) {
+        let docRef = firestore.collection("2024-hrscp").whereField("yearSign", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -162,7 +168,7 @@ class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -170,14 +176,14 @@ class HoroscopeManager {
     
     
     // MARK: - Year 2024
-    func getSignСompatibility(signOfUser: String, completion: @escaping (CompatibilityHrscpModel) -> Void) {
-        let docRef = db.collection("Compatibility-hrscp").whereField("signOfUser", isEqualTo: signOfUser)
+    func getSignСompatibility(zodiacSign: String, completion: @escaping (CompatibilityHrscpModel) -> Void) {
+        let docRef = firestore.collection("Compatibility-hrscp").whereField("signOfUser", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -186,20 +192,20 @@ class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("Error when trying to decode book: \(error)")
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
     }
     
     func getMoonPhase(currentDay: Int, completion: @escaping (MoonPhaseModel) -> Void) {
-        let docRef = db.collection("MoonPhase").whereField("moonDay", isEqualTo: currentDay)
+        let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: currentDay)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
             //
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -213,6 +219,75 @@ class HoroscopeManager {
             }
         }
     }
+    
+    
+    // MARK: - get Modey Calendar
+    // Проверить типы, как кастить String as [Int]
+    func getMoneyCalendar(zodiacSign: String, completion: @escaping (MonthCalendarModel) -> Void) {
+        
+        var docRef: Query {
+            switch Date().get(.month) {
+            case 1:
+                print("API 1")
+                return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 2:
+                print("API 2")
+                return firestore.collection("February-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 3:
+                print("API 3")
+                return firestore.collection("March-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 4:
+                print("API 4")
+                return firestore.collection("April-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 5:
+                print("API 5")
+                return firestore.collection("May-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 6:
+                print("API 6")
+                return firestore.collection("June-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 7:
+                print("API 7")
+                return firestore.collection("July-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 8:
+                print("API 8")
+                return firestore.collection("August-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 9:
+                print("API 9")
+                return firestore.collection("September-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 10:
+                print("API 10")
+                return firestore.collection("October-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 11:
+                print("API 11")
+                return firestore.collection("November-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            case 12:
+                print("API 12")
+                return firestore.collection("December-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            default:
+                return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
+            }
+        }
+        
+        // request
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            //
+            if let error = error {
+                print("⚠️ Error getting documents: \(error)")
+            }
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: MonthCalendarModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
     
     
 

@@ -80,8 +80,6 @@ final class PersonalDayVC: UIViewController {
         self.enteredDate = sender.date
     }
     
-    
-    
     // MARK: button Action
     @objc private func buttonAction() {
         print("button Action")
@@ -94,7 +92,7 @@ final class PersonalDayVC: UIViewController {
 
         // Calculate Day
         let personalDay = CalculateNumbers().personalDay(userDate: dateOfBirth, enteredDate: enteredDate)
-
+                
         // Present VC
         DispatchQueue.main.async {
             NumerologyManager().getPersonalDay(number: personalDay) { model in
@@ -104,6 +102,7 @@ final class PersonalDayVC: UIViewController {
                     info: model.infoPersDay,
                     about: model.aboutPersDay
                 )
+                guard self.checkAccessContent() == true else { return } // check 🟢
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -119,10 +118,6 @@ final class PersonalDayVC: UIViewController {
         configureNavView()
         setupStack()
     }
-    
-    
-    
-    
     
     // MARK: Configure Nav View
     private func configureNavView() {

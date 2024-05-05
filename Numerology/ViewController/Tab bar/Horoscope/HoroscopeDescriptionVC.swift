@@ -15,7 +15,8 @@ class HoroscopeDescriptionVC: UIViewController {
     private var todayHoroscope: HoroscopeDefaultModel?
     private var tomorrowHoroscope: HoroscopeDefaultModel?
     private var weekHoroscope: HoroscopeDefaultModel?
-    private var monthHoroscope: MonthModel?
+//    private var monthHoroscope: MonthModel?
+    private var monthHoroscope: MonthCalendarModel?
     private var year2023Horoscope: Year2023Model?
     private var year2024Horoscope: Year2024Model?
     
@@ -39,6 +40,8 @@ class HoroscopeDescriptionVC: UIViewController {
        return v
    }()
     
+    
+    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -58,6 +61,12 @@ class HoroscopeDescriptionVC: UIViewController {
         requestAllHoroscope()
         register()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+//        print("contentStack", contentStack.frame.width)
+//        print("")
+    }
     
     private func register() {
         self.horoscopeButtonsCV.delegate = self
@@ -67,10 +76,10 @@ class HoroscopeDescriptionVC: UIViewController {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        let contentStack = UIStackView(arrangedSubviews: [mainInfo,learnMore])
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.axis = .vertical
-        contentStack.spacing = 8
+        let cardContentStack = UIStackView(arrangedSubviews: [mainInfo,learnMore])
+        cardContentStack.translatesAutoresizingMaskIntoConstraints = false
+        cardContentStack.axis = .vertical
+        cardContentStack.spacing = 8
         
         // cardView + Border
         let cardView: UIView = {
@@ -88,37 +97,45 @@ class HoroscopeDescriptionVC: UIViewController {
             v.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
             return v
         }()
-        cardView.addSubview(contentStack)
-        //
+        cardView.addSubview(cardContentStack)
+        
+        let contentStack = UIStackView(arrangedSubviews: [
+            horoscopeDescriptionAboutCV,
+            horoscopeButtonsCV,
+            cardView
+        ])
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.axis = .vertical
+        contentStack.spacing = 16
+        contentStack.alignment = .center
+        
+        // add
         self.view.addSubview(contentScrollView)
-        contentScrollView.addSubview(horoscopeDescriptionAboutCV)
-        contentScrollView.addSubview(horoscopeButtonsCV)
-        contentScrollView.addSubview(cardView)
-        //
+        contentScrollView.addSubview(contentStack)
+        
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
-            //
-            // contentStack
-            contentStack.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16),
-            contentStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
-            contentStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
-            contentStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -0),
-            contentStack.widthAnchor.constraint(equalTo: cardView.widthAnchor, constant: -32),
-            //
-            horoscopeDescriptionAboutCV.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: -24),
-            horoscopeDescriptionAboutCV.widthAnchor.constraint(equalTo: scrollViewMargin.widthAnchor, constant: 0),
-            horoscopeDescriptionAboutCV.heightAnchor.constraint(equalToConstant: 117),
-            //
-            horoscopeButtonsCV.topAnchor.constraint(equalTo: horoscopeDescriptionAboutCV.bottomAnchor, constant: 74),
-            horoscopeButtonsCV.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
-            horoscopeButtonsCV.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
-            // Card View
-            cardView.topAnchor.constraint(equalTo: horoscopeButtonsCV.bottomAnchor, constant: 24),
-            cardView.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
-            cardView.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
-            cardView.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
-            cardView.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
-            //
+            // cardContentStack
+            cardContentStack.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 16),
+            cardContentStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 16),
+            cardContentStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
+            cardContentStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -0),
+            cardContentStack.widthAnchor.constraint(equalTo: cardView.widthAnchor, constant: -32),
+            // card View
+            cardView.widthAnchor.constraint(equalTo: contentStack.widthAnchor),
+            // horoscope Description About CV
+            horoscopeDescriptionAboutCV.heightAnchor.constraint(equalToConstant: 166),
+            horoscopeDescriptionAboutCV.widthAnchor.constraint(equalTo: contentStack.widthAnchor, constant: 0),
+            // horoscope Buttons CV
+            horoscopeButtonsCV.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
+            horoscopeButtonsCV.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
+            // content Stack
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 0),
+            contentStack.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor, constant: 18),
+            contentStack.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor, constant: -18),
+            contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 0),
+            contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
+            // content Scroll View
             contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
@@ -150,16 +167,16 @@ extension HoroscopeDescriptionVC {
         HoroscopeManager.shared.getWeekHoroscope { model in
             self.weekHoroscope = model
         }
-        // Month
-        HoroscopeManager.shared.getMonthHoroscope(zodiacSigns: sign) { model in
+        // Month new
+        HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
             self.monthHoroscope = model
         }
         // Year 2023
-        HoroscopeManager.shared.getYear2023Horoscope(zodiacSigns: sign) { model in
+        HoroscopeManager.shared.getYear2023Horoscope(zodiacSign: sign) { model in
             self.year2023Horoscope = model
         }
         // Year 2024
-        HoroscopeManager.shared.getYear2024Horoscope(zodiacSigns: sign) { model in
+        HoroscopeManager.shared.getYear2024Horoscope(zodiacSign: sign) { model in
             self.year2024Horoscope = model
         }
     }
@@ -248,7 +265,7 @@ extension HoroscopeDescriptionVC: UICollectionViewDelegate, UICollectionViewData
             guard self.checkAccessContent() == true else { return }
             self.mainInfo.accordionButton.configure(title: "Month horoscope")
             self.mainInfo.info.text = nil
-            self.mainInfo.about.text = self.monthHoroscope?.yourMonthlyHoroscope
+            self.mainInfo.about.text = self.monthHoroscope?.monthInfo
             //
             self.learnMore.isHidden = false
             self.learnMore.accordionButton.configure(title: "Main trends")

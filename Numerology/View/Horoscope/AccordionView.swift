@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 final class AccordionView: UIView {
-
+    
+    
+    
     let accordionButton: AccordionButton = {
         let b = AccordionButton()
         b.addTarget(Any?.self, action: #selector(accordionButtonAct), for: .touchUpInside)
@@ -19,12 +21,14 @@ final class AccordionView: UIView {
     @objc private func accordionButtonAct() {
         about.isHidden = about.isHidden ? false : true
         info.isHidden = info.isHidden ? false : true
+        imageView.isHidden = imageView.isHidden ? false : true
+        imageView.isHidden ? showConstraintImage() : hideConstraintImage()
     }
 
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .semiBold, size: 20)
+        l.font = UIFont.init(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         l.isHidden = true
@@ -39,6 +43,13 @@ final class AccordionView: UIView {
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
+    }()
+    
+    let imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.isHidden = true
+        iv.contentMode = .scaleAspectFit
+        return iv
     }()
     
     // MARK: - init
@@ -61,6 +72,15 @@ final class AccordionView: UIView {
         about.isHidden = false
         info.isHidden = false
     }
+    
+    func showConstraintImage() {
+        guard self.imageView.image != nil else { return }
+        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
+    }
+    func hideConstraintImage() {
+        guard self.imageView.image != nil else { return }
+        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
+    }
 
     // MARK: Set up Stack
     private func setUpStack() {
@@ -71,12 +91,19 @@ final class AccordionView: UIView {
             return v
         }()
 
-        let contentStack = UIStackView(arrangedSubviews: [accordionButton,info,about,divider])
+        let contentStack = UIStackView(arrangedSubviews: [
+            accordionButton,
+            imageView,
+            info,
+            about,
+            divider
+        ])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.spacing = 8
 
         self.addSubview(contentStack)
+        
         NSLayoutConstraint.activate([
             contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),

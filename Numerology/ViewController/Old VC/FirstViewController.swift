@@ -33,18 +33,14 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         
         // Style
-        //        view.backgroundColor = .systemGray
         self.setBackground(named: "MainBG.png")
         // Setup
-        //        configureNavView()
         setupView()
         setConstraints()
         setStackContentSV()
-        
         // Delegate Collection View
         cardCollectionView.delegate = self
         cardCollectionView.dataSource = self
-        
         cardCollectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell().cardCollectionID)
         cardCollectionView.register(BigCardCVCell.self, forCellWithReuseIdentifier: BigCardCVCell().bigCardCVCID)
     }

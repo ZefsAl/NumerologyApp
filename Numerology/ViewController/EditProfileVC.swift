@@ -172,7 +172,7 @@ class EditProfileVC: UIViewController {
             let dateOfBirthVal = userDateOfBirthField.text,
             let newDateOfBirth = self.newDateOfBirth ?? UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
         else {
-            print("Error getting data for save")
+            print("⚠️ Error getting data for save")
             return
         }
         

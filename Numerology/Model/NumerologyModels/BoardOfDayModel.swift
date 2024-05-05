@@ -11,7 +11,7 @@ struct BoardOfDayModel: Codable {
     
     let dayTip: String
     let short: String
-    
+
     enum CodingKeys: String, CodingKey {
         case dayTip = "dayTip"
         case short = "short"
