@@ -48,7 +48,7 @@ class AboutYouVC: UIViewController {
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
             v.layer.cornerRadius = 16
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16

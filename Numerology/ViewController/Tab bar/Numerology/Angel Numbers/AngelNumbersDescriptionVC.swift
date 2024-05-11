@@ -37,7 +37,7 @@ class AngelNumbersDescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .semiBold, size: 24)
+        l.font = DesignSystem.TextCard.title
         l.textAlignment = .left
         return l
     }()
@@ -86,7 +86,7 @@ class AngelNumbersDescriptionVC: UIViewController {
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
             v.layer.cornerRadius = 16
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16

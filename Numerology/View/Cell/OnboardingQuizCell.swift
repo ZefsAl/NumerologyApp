@@ -22,7 +22,7 @@ final class OnboardingQuizCell: UICollectionViewCell {
                 self.selectedIcon.tintColor = .white
                 
                 // Selected state
-                self.layer.borderWidth = 2
+                self.layer.borderWidth = DesignSystem.borderWidth
                 self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
                 self.layer.shadowOpacity = 1
                 self.layer.shadowRadius = 16

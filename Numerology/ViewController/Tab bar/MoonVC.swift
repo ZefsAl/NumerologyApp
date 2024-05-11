@@ -46,15 +46,20 @@ class MoonVC: UIViewController {
     }
     
     private func requestData() {
+        
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         
-        HoroscopeManager.shared.getMoonPhase(currentDay: Date().get(.day)) { model in
+        
+        let moonDay = MoonCalendarManager().getAfternoonMoonDay()
+        
+        HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
             self.accordionView.info.text = model.todayInfo
             self.accordionView.imageView.image = UIImage(named: "fullMoon.png")
             self.accordionView.showConstraintImage()
             self.accordionView.imageView.isHidden = false
         }
+        
     }
     
     // MARK: Set up Stack
@@ -73,7 +78,7 @@ class MoonVC: UIViewController {
             v.backgroundColor = .black.withAlphaComponent(0.85)
             // Border
             v.layer.cornerRadius = 16
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = UIColor.white.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -119,3 +124,4 @@ class MoonVC: UIViewController {
         ])
     }
 }
+

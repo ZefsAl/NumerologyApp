@@ -11,6 +11,7 @@ class DescriptionVC: UIViewController {
     
     var bgImageNamed: String?
     var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
+    var cardBGColor: UIColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
 
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -25,7 +26,7 @@ class DescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 26)
+        l.font = DesignSystem.TextCard.title
         l.textAlignment = .left
         return l
     }()
@@ -33,7 +34,7 @@ class DescriptionVC: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = DesignSystem.TextCard.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -43,7 +44,7 @@ class DescriptionVC: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = DesignSystem.TextCard.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -56,6 +57,7 @@ class DescriptionVC: UIViewController {
         
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setBackground(named: self.bgImageNamed ?? "MainBG2.png")
+        AnimatableBG().setBackground(vc: self)
         setUpStack()
     }
     
@@ -86,15 +88,15 @@ class DescriptionVC: UIViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
             
             // Style
-            v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+            v.backgroundColor = self.cardBGColor
             // Border
             v.layer.cornerRadius = 16
-            v.layer.borderWidth = 2
-            v.layer.borderColor = primaryColor.cgColor
+            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.borderColor = self.primaryColor.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = primaryColor.withAlphaComponent(0.5).cgColor
+            v.layer.shadowColor = self.primaryColor.withAlphaComponent(0.5).cgColor
             
             
             return v

@@ -7,10 +7,16 @@
 
 import UIKit
 
+//protocol CustomNavControllerDelegate {
+//    var vcDelegate: CustomNavController? { get set }
+//}
+
 final class CustomNavController: UINavigationController {
     
     let descriptionVC = DescriptionVC()
     var boardOfDayModel: BoardOfDayModel?
+    
+    var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
     
     let profileButton: ProfileNavButton = {
         let b = ProfileNavButton(type: .custom)
@@ -25,35 +31,23 @@ final class CustomNavController: UINavigationController {
     }
     
     // MARK: dayTip Button
-    let dayTipButton: UIButton = {
+    lazy var dayTipButton: UIButton = {
         let b = UIButton(type: .custom)
         b.translatesAutoresizingMaskIntoConstraints = false
-        // MARK: title
-        let lable: UILabel = {
-            let l = UILabel()
-            l.translatesAutoresizingMaskIntoConstraints = false
-            l.text = "Today"
-            l.font = UIFont.init(weight: .bold, size: 20)
-            l.textColor = .white
-            
-            l.layer.shadowOpacity = 1
-            l.layer.shadowRadius = 16
-            l.layer.shadowOffset = CGSize(width: 0, height: 0)
-            l.layer.shadowColor = UIColor.white.cgColor
-            
-            return l
-        }()
         
-        b.addSubview(lable)
-        NSLayoutConstraint.activate([
-            lable.centerYAnchor.constraint(equalTo: b.centerYAnchor),
-            lable.leadingAnchor.constraint(equalTo: b.leadingAnchor),
-            lable.trailingAnchor.constraint(equalTo: b.trailingAnchor),
-        ])
+        b.titleLabel?.font = UIFont.init(weight: .bold, size: 20)
+        b.setTitle("Today", for: .normal)
+        b.setTitleColor(.white, for: .normal)
+        // Shadow
+        b.titleLabel?.layer.shadowOpacity = 1
+        b.titleLabel?.layer.shadowRadius = 16
+        b.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+        b.titleLabel?.layer.shadowColor = self.primaryColor.cgColor
         
         b.addTarget(Any?.self, action: #selector(dayTipAct), for: .touchUpInside)
         return b
     }()
+    
     @objc private func dayTipAct() {
         descriptionVC.configure(
             title: "Your tip of the day!",
@@ -67,10 +61,18 @@ final class CustomNavController: UINavigationController {
         }
     }
     
+    
+    
     private func requestDayTip() {
         NumerologyManager.shared.getBoardOfDay { model in
             self.boardOfDayModel = model
         }
+    }
+    
+    // MARK: - init with color
+    convenience init(primaryColor: UIColor) {
+        self.init()
+        self.primaryColor = primaryColor
     }
     
     // MARK: - view Did Load
@@ -83,6 +85,10 @@ final class CustomNavController: UINavigationController {
         requestUserSign()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     private func configName() {
         guard
             let name = UserDefaults.standard.object(forKey: "nameKey") as? String
@@ -90,15 +96,10 @@ final class CustomNavController: UINavigationController {
         self.profileButton.nameTitle.text = name
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     private func requestUserSign() {
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
-        HoroscopeManager.shared.getSigns(zodiacSign: sign) { model, image1, image2  in
+        HoroscopeManager.shared.getSign(zodiacSign: sign) { model, image1, image2  in
             self.profileButton.horoscopeIcon.image = image2
         }
     }
@@ -130,7 +131,6 @@ class ProfileNavButton: UIButton {
     let horoscopeIcon: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        //        iv.image = UIImage(named: "mdi_horoscope-taurus")
         iv.contentMode = UIView.ContentMode.scaleAspectFit
         iv.tintColor = .white
         

@@ -24,7 +24,7 @@ class ChipsCVCell: UICollectionViewCell {
                 self.layer.shadowOpacity = 1
                 self.layer.shadowRadius = 16
                 self.layer.shadowOffset = CGSize(width: 0, height: 4)
-                self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
+                self.layer.shadowColor = primaryColor?.withAlphaComponent(0.5).cgColor ?? #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
             } else {
                 self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
                 // Default TF state
@@ -39,7 +39,7 @@ class ChipsCVCell: UICollectionViewCell {
     private let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .semiBold, size: 15)
+        l.font = DesignSystem.TextCard.subtitle
         l.textAlignment = .center
         
         return l
@@ -49,14 +49,7 @@ class ChipsCVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-//        self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .black.withAlphaComponent(0.5)
-        // Border
-//        self.layer.cornerRadius = 15
-//        self.layer.borderWidth = 1
-//        self.layer.borderColor = UIColor.clear.cgColor
-        
-        // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
         self.layer.cornerRadius = 16
@@ -79,6 +72,17 @@ class ChipsCVCell: UICollectionViewCell {
     func configure(title: String) {
         self.title.text = title
     }
+    func configureBorder(borderColor: UIColor) {
+        // Border
+        self.layer.cornerRadius = 16
+        self.layer.borderWidth = 1
+        self.layer.borderColor = borderColor.withAlphaComponent(0.7).cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 16
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowColor = UIColor.clear.cgColor
+    }
+    
     
     // MARK: Set up Stack
     private func setUpStack() {

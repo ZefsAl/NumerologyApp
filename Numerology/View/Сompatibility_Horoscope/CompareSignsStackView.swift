@@ -109,7 +109,7 @@ class CompareSignsStackView: UIStackView {
             let secondView = UIView()
             secondView.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            secondView.layer.borderWidth = 2
+            secondView.layer.borderWidth = DesignSystem.borderWidth
             secondView.backgroundColor =  #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             secondView.layer.borderColor = accentColor.cgColor
             secondView.layer.cornerRadius = 16
@@ -148,7 +148,7 @@ class CompareSignsStackView: UIStackView {
             let secondView = UIView()
             secondView.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            secondView.layer.borderWidth = 2
+            secondView.layer.borderWidth = DesignSystem.borderWidth
             secondView.backgroundColor =  #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             secondView.layer.borderColor = accentColor.cgColor
             secondView.layer.cornerRadius = 16

@@ -23,9 +23,8 @@ class AccordionButton: UIButton {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .semiBold, size: 24)
+        l.font = DesignSystem.TextCard.title
         l.textAlignment = .left
-//        l.text = "Tap here"
         return l
     }()
     // MARK: - Icon

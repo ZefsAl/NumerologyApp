@@ -14,21 +14,25 @@ class HoroscopeCell: UICollectionViewCell {
         String(describing: self)
     }
     
+    
+    
     // MARK: title
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 22)
+        l.font = DesignSystem.FeedCard.title
         l.textAlignment = .left
+        l.textColor = DesignSystem.Horoscope.feedCardTextColor
         return l
     }()
     // MARK: subtitle
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 15)
+        l.font = DesignSystem.FeedCard.subtitle
         l.numberOfLines = 0
         l.textAlignment = .left
+        l.textColor = DesignSystem.Horoscope.feedCardTextColor
         return l
     }()
     // MARK: Icon
@@ -38,11 +42,11 @@ class HoroscopeCell: UICollectionViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.image = UIImage(systemName: "chevron.right")
         iv.contentMode = UIView.ContentMode.scaleAspectFill
-        iv.tintColor = .white
+        iv.tintColor = DesignSystem.Horoscope.feedCardTextColor
         
         let configImage = UIImage(
             systemName: "chevron.right",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
         )
         iv.image = configImage
         
@@ -67,7 +71,7 @@ class HoroscopeCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
         self.layer.cornerRadius = 16
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
@@ -90,7 +94,7 @@ class HoroscopeCell: UICollectionViewCell {
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.image.image = setImage ?? UIImage(named: "plug")
+            self.image.image = setImage?.withTintColor(DesignSystem.Horoscope.feedCardTextColor) ?? UIImage(named: "plug")
         }
         
     }
@@ -104,7 +108,7 @@ class HoroscopeCell: UICollectionViewCell {
         let titleStack = UIStackView(arrangedSubviews: [title,subtitle])
         titleStack.axis = .vertical
         titleStack.alignment = .fill
-        titleStack.spacing = 4
+        titleStack.spacing = 0
         
         let contentStack = UIStackView(arrangedSubviews: [image,titleStack,UIView(),cardIcon])
         contentStack.translatesAutoresizingMaskIntoConstraints = false

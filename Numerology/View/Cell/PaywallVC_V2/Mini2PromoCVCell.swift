@@ -60,7 +60,7 @@ final class Mini2PromoCVCell: UICollectionViewCell {
         // Style
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.borderColor = UIColor.CellColors().cellDisableBorder.cgColor
         
         // Setup

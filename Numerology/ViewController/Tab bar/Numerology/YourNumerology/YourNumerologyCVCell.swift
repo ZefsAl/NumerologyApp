@@ -101,23 +101,20 @@ class YourNumerologyCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setUpStack() {
         
-        
-        
         let contentStack = UIStackView(arrangedSubviews: [title,subtitle])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.distribution = .fill
         contentStack.alignment = .leading
         contentStack.spacing = 0
-        
         // 1
         self.addSubview(contentStack)
         // 2
         self.addSubview(numberBgIMG)
         //
         NSLayoutConstraint.activate([
+            numberBgIMG.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             numberBgIMG.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -0),
-            numberBgIMG.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -0),
             
             contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 14),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 14),

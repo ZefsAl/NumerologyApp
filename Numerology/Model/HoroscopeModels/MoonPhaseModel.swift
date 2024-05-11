@@ -10,10 +10,12 @@ import Foundation
 struct MoonPhaseModel: Decodable {
     
     let moonDay: Int
+    let currentDay: Int
     let todayInfo: String
     
     enum CodingKeys: String, CodingKey {
         case moonDay = "moonDay"
+        case currentDay = "currentDay"
         case todayInfo = "todayInfo"
     }
 }

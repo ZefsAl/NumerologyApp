@@ -115,7 +115,7 @@ class CompatibilityViewController: UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.cornerRadius = 16
@@ -149,7 +149,7 @@ class CompatibilityViewController: UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.cornerRadius = 16

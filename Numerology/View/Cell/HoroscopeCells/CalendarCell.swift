@@ -26,7 +26,6 @@ class CalendarCell: UICollectionViewCell {
     var calendarView: CalendarView = {
         let v = CalendarView()
         v.isUserInteractionEnabled = false
-//        v.backgroundColor = .black
         return v
     }()
     
@@ -42,7 +41,7 @@ class CalendarCell: UICollectionViewCell {
         let lable: UILabel = {
             let l = UILabel()
             l.translatesAutoresizingMaskIntoConstraints = false
-            l.font = UIFont.init(weight: .semiBold, size: 15)
+            l.font = DesignSystem.TextCard.subtitle
             l.textAlignment = .left
             l.textColor = .white
             l.text = "Read more"
@@ -92,7 +91,7 @@ class CalendarCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
         self.layer.cornerRadius = 16
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
@@ -145,7 +144,7 @@ class CalendarCell: UICollectionViewCell {
         self.addSubview(contentStack)
         
         NSLayoutConstraint.activate([
-            contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             contentStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),

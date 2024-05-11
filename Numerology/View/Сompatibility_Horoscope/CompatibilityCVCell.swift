@@ -32,7 +32,7 @@ class CompatibilityCVCell: UICollectionViewCell {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         // Border
-        v.layer.borderWidth = 2
+        v.layer.borderWidth = DesignSystem.borderWidth
         v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
         v.layer.borderColor = primaryColor.cgColor
         v.layer.cornerRadius = 16

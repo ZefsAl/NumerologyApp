@@ -20,7 +20,7 @@ class PaywallCVCell: UICollectionViewCell {
 //                self.cardIcon.backgroundColor = .white
                 
                 // Selected state
-                self.layer.borderWidth = 2
+                self.layer.borderWidth = DesignSystem.borderWidth
                 self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
                 self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
                 self.layer.shadowOpacity = 1

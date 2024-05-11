@@ -15,7 +15,6 @@ class HoroscopeDescriptionVC: UIViewController {
     private var todayHoroscope: HoroscopeDefaultModel?
     private var tomorrowHoroscope: HoroscopeDefaultModel?
     private var weekHoroscope: HoroscopeDefaultModel?
-//    private var monthHoroscope: MonthModel?
     private var monthHoroscope: MonthCalendarModel?
     private var year2023Horoscope: Year2023Model?
     private var year2024Horoscope: Year2024Model?
@@ -89,7 +88,7 @@ class HoroscopeDescriptionVC: UIViewController {
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
             v.layer.cornerRadius = 16
-            v.layer.borderWidth = 2
+            v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -124,7 +123,7 @@ class HoroscopeDescriptionVC: UIViewController {
             // card View
             cardView.widthAnchor.constraint(equalTo: contentStack.widthAnchor),
             // horoscope Description About CV
-            horoscopeDescriptionAboutCV.heightAnchor.constraint(equalToConstant: 166),
+            horoscopeDescriptionAboutCV.heightAnchor.constraint(equalToConstant: 167),
             horoscopeDescriptionAboutCV.widthAnchor.constraint(equalTo: contentStack.widthAnchor, constant: 0),
             // horoscope Buttons CV
             horoscopeButtonsCV.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
@@ -212,7 +211,9 @@ extension HoroscopeDescriptionVC: UICollectionViewDelegate, UICollectionViewData
     // MARK: Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChipsCVCell().buttonCVCellID, for: indexPath as IndexPath) as! ChipsCVCell
-        cell.primaryColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
+        let color = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
+        cell.primaryColor = color
+        cell.configureBorder(borderColor: color)
         
         collectionView.selectItem(
             at: IndexPath(row: 0, section: 0),

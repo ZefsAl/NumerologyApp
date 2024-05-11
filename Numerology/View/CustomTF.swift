@@ -102,7 +102,7 @@ extension CustomTF: UITextFieldDelegate {
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
             
             // Selected TF state
-            textField.layer.borderWidth = 2
+            textField.layer.borderWidth = DesignSystem.borderWidth
             textField.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             textField.layer.shadowOpacity = 1
             textField.layer.shadowRadius = 16

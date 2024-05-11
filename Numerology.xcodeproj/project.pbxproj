@@ -148,9 +148,12 @@
 		C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */; };
 		C25BDACA2BC32EF60024636F /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C25BDAC92BC32EF60024636F /* FSCalendar */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
+		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
+		C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */; };
 		C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */; };
 		C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */; };
 		C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */; };
+		C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */; };
 		C2CAE6D62BD1D54A00E09933 /* DetailAngelNumbersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */; };
 		C2CAE6D82BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6D72BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift */; };
 		C2CAE6DC2BD3D21500E09933 /* NumerologyVC_2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6DB2BD3D21500E09933 /* NumerologyVC_2024.swift */; };
@@ -301,9 +304,11 @@
 		C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarDescriptionVC.swift; sourceTree = "<group>"; };
 		C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarModel.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
+		C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersDescriptionVC.swift; sourceTree = "<group>"; };
 		C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersModel.swift; sourceTree = "<group>"; };
 		C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersCV.swift; sourceTree = "<group>"; };
+		C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalendarManager.swift; sourceTree = "<group>"; };
 		C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAngelNumbersVC.swift; sourceTree = "<group>"; };
 		C2CAE6D72BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailAngelNumbersSignsCV.swift; path = ../NumerologyCompatibility/DetailAngelNumbersSignsCV.swift; sourceTree = "<group>"; };
 		C2CAE6DB2BD3D21500E09933 /* NumerologyVC_2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyVC_2024.swift; sourceTree = "<group>"; };
@@ -322,6 +327,7 @@
 			files = (
 				84420CC62A7165A500DE1812 /* FirebaseDatabase in Frameworks */,
 				84420CCC2A7165A500DE1812 /* FirebaseStorage in Frameworks */,
+				C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */,
 				84AA6AE92AA3558100BF6C0D /* FirebaseMessaging in Frameworks */,
 				84420CC82A7165A500DE1812 /* FirebaseFirestore in Frameworks */,
 				84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */,
@@ -476,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				841B55262B59868B002EE1F8 /* Сompatibility_Horoscope */,
-				84B895E92B14E42B0061680A /* Horoscope */,
 				84B895E62B14153C0061680A /* Buttons */,
 				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
@@ -511,8 +516,10 @@
 		845EB1E52A67F6C2003D6F5C /* SupportedClass */ = {
 			isa = PBXGroup;
 			children = (
+				84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */,
 				845EB1DD2A668D63003D6F5C /* Gradients.swift */,
 				844EA4082B117A6700D2D596 /* HoroscopeSign.swift */,
+				C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */,
 			);
 			path = SupportedClass;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 			children = (
 				8492D0922A6EA7E500761312 /* NumerologyManager.swift */,
 				844EA40A2B11815500D2D596 /* HoroscopeManager.swift */,
+				C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -610,7 +618,7 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		84B895E92B14E42B0061680A /* Horoscope */ = {
+		84B895E92B14E42B0061680A /* HoroscopeViews */ = {
 			isa = PBXGroup;
 			children = (
 				84B895DC2B139DD80061680A /* HoroscopeCV */,
@@ -619,12 +627,13 @@
 				84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */,
 				84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */,
 			);
-			path = Horoscope;
+			path = HoroscopeViews;
 			sourceTree = "<group>";
 		};
 		84B895F12B15542C0061680A /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
+				84B895E92B14E42B0061680A /* HoroscopeViews */,
 				84B895DA2B1392CB0061680A /* HoroscopeVC.swift */,
 				84B895E42B13D0950061680A /* AboutYouVC.swift */,
 				84BFE4FF2B15627200C06FB1 /* HoroscopeDescriptionVC.swift */,
@@ -691,7 +700,6 @@
 				84AC67132A810DBE00D2321B /* CompatibilityModel.swift */,
 				84D870952A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift */,
 				84D870972A892C0D00ACACA8 /* InfoDocModel.swift */,
-				84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */,
 				8492D0832A6BDD6500761312 /* DateFormat.swift */,
 				C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */,
 			);
@@ -844,6 +852,7 @@
 				84420CCB2A7165A500DE1812 /* FirebaseStorage */,
 				84AA6AE82AA3558100BF6C0D /* FirebaseMessaging */,
 				C25BDAC92BC32EF60024636F /* FSCalendar */,
+				C2671A172BEEA7520013DA2F /* EKAstrologyCalc */,
 			);
 			productName = Numerology;
 			productReference = 845EB1B72A657938003D6F5C /* Numerology.app */;
@@ -876,6 +885,7 @@
 			packageReferences = (
 				84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C25BDAC82BC32EF60024636F /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				C2671A162BEEA7520013DA2F /* XCRemoteSwiftPackageReference "EKAstrologyCalc_fixed" */,
 			);
 			productRefGroup = 845EB1B82A657938003D6F5C /* Products */;
 			projectDirPath = "";
@@ -1049,10 +1059,12 @@
 				C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */,
 				84B99A8A2AB88E5B008A3B49 /* RegularPromoCVCell.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
+				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
 				C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */,
+				C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */,
 				84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */,
 				841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */,
 				84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */,
@@ -1226,7 +1238,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.66;
+				CURRENT_PROJECT_VERSION = 1.70;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1259,7 +1271,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.66;
+				CURRENT_PROJECT_VERSION = 1.70;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1325,6 +1337,14 @@
 				minimumVersion = 2.8.4;
 			};
 		};
+		C2671A162BEEA7520013DA2F /* XCRemoteSwiftPackageReference "EKAstrologyCalc_fixed" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZefsAl/EKAstrologyCalc_fixed";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1357,6 +1377,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C25BDAC82BC32EF60024636F /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		C2671A172BEEA7520013DA2F /* EKAstrologyCalc */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2671A162BEEA7520013DA2F /* XCRemoteSwiftPackageReference "EKAstrologyCalc_fixed" */;
+			productName = EKAstrologyCalc;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

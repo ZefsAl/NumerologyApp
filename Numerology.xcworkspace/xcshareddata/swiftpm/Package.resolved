@@ -1,5 +1,5 @@
 {
-  "originHash" : "7baa8d26a0b1b322dd9b8bef7b808dfb690ae99b6bf1953ff9960b5be0f12802",
+  "originHash" : "60665f6dd616bdfe70ba7935b86500b279a1de5222322f47885a6abb01ce7c68",
   "pins" : [
     {
       "identity" : "abseil-cpp-swiftpm",
@@ -17,6 +17,24 @@
       "state" : {
         "revision" : "dd3eda2b05a3f459fc3073695ad1b28659066eab",
         "version" : "0.9.1"
+      }
+    },
+    {
+      "identity" : "ekastrologycalc_fixed",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZefsAl/EKAstrologyCalc_fixed",
+      "state" : {
+        "branch" : "master",
+        "revision" : "3254a08da0a0087fafb9c4c84f3c70e1cc042553"
+      }
+    },
+    {
+      "identity" : "esdatehelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ESKARIA/ESDateHelper.git",
+      "state" : {
+        "revision" : "6a1fedbbfc0a7ac1a8137d89fbcae0f9bf4e1ff3",
+        "version" : "1.1.1"
       }
     },
     {

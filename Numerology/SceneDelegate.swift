@@ -35,24 +35,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
         
 //        // MARK: App Config
-//        if
-//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-//                (dataName as? String != "" || dataSurname as? String != "")
-//        {
-//            print(dataName as Any)
-//            print(dataSurname as Any)
-//            print(dateOfBirth as Any)
-//            print("UserData - Have")
-//            self.window?.rootViewController = MainTabBarController()
-//        } else {
-//            self.window?.rootViewController = navOnboardingVC
-//            
-//            print("UserData - Empty")
-//        }
+        if
+            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
+                (dataName as? String != "" || dataSurname as? String != "")
+        {
+            print(dataName as Any)
+            print(dataSurname as Any)
+            print(dateOfBirth as Any)
+            print("UserData - Have")
+            self.window?.rootViewController = MainTabBarController()
+        } else {
+            self.window?.rootViewController = navOnboardingVC
+            
+            print("UserData - Empty")
+        }
         
         // test
-        let nav = CustomNavController(rootViewController: NumerologyVC_2024())
-        self.window?.rootViewController = nav
+//        let nav = CustomNavController(rootViewController: NumerologyVC_2024())
+//        self.window?.rootViewController = nav
         //
         
         self.window?.makeKeyAndVisible()
