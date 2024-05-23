@@ -22,7 +22,7 @@ class HoroscopeCell: UICollectionViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = DesignSystem.FeedCard.title
         l.textAlignment = .left
-        l.textColor = DesignSystem.Horoscope.feedCardTextColor
+        l.textColor = DesignSystem.Horoscope.lightTextColor
         return l
     }()
     // MARK: subtitle
@@ -32,7 +32,7 @@ class HoroscopeCell: UICollectionViewCell {
         l.font = DesignSystem.FeedCard.subtitle
         l.numberOfLines = 0
         l.textAlignment = .left
-        l.textColor = DesignSystem.Horoscope.feedCardTextColor
+        l.textColor = DesignSystem.Horoscope.lightTextColor
         return l
     }()
     // MARK: Icon
@@ -42,7 +42,7 @@ class HoroscopeCell: UICollectionViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.image = UIImage(systemName: "chevron.right")
         iv.contentMode = UIView.ContentMode.scaleAspectFill
-        iv.tintColor = DesignSystem.Horoscope.feedCardTextColor
+        iv.tintColor = DesignSystem.Horoscope.lightTextColor
         
         let configImage = UIImage(
             systemName: "chevron.right",
@@ -94,7 +94,7 @@ class HoroscopeCell: UICollectionViewCell {
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.image.image = setImage?.withTintColor(DesignSystem.Horoscope.feedCardTextColor) ?? UIImage(named: "plug")
+            self.image.image = setImage?.withTintColor(DesignSystem.Horoscope.lightTextColor) ?? UIImage(named: "plug")
         }
         
     }
@@ -117,7 +117,6 @@ class HoroscopeCell: UICollectionViewCell {
         contentStack.distribution = .fill
         contentStack.spacing = 8
         
-        
         self.addSubview(contentStack)
         
         NSLayoutConstraint.activate([            
@@ -127,4 +126,5 @@ class HoroscopeCell: UICollectionViewCell {
             contentStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
         ])
     }
+    
 }

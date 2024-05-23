@@ -27,9 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Data
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             // желательно обновлять status d UserDefaults
-            print("🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as Any)
+            print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool)
         }
-        print("🟢 User Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey"))
+        print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey"))
+        
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")

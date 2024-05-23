@@ -52,14 +52,19 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
         cv.clipsToBounds = false
         return cv
     }()
-    // MARK: - about you - 5
+    // MARK: - about you - 6
     let aboutCV: AboutCV = {
         let cv = AboutCV()
         cv.clipsToBounds = false
         return cv
     }()
-    
-   
+    // MARK: - pythagorean Square CV - 7
+    let pythagoreanSquareCV: PythagoreanSquareCV = {
+        let cv = PythagoreanSquareCV()
+        cv.clipsToBounds = false
+        cv.isScrollEnabled = false
+        return cv
+    }()
     
     
     // MARK: - viewDidLoad
@@ -92,6 +97,9 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
         // angel Numbers CV
         angelNumbersCV.remoteOpenDelegate = self
         angelNumbersCV.remoteOpenDelegate?.openFrom = self
+        // pythagorean Square CV
+        pythagoreanSquareCV.remoteOpenDelegate = self
+        pythagoreanSquareCV.remoteOpenDelegate?.openFrom = self
         
         self.openFrom = self
     }
@@ -106,6 +114,7 @@ extension NumerologyVC_2024 {
         
         // MARK: Content Stack
         let numerologyStack = UIStackView(arrangedSubviews: [
+            pythagoreanSquareCV,
             yournumerologyCV,
             dateCompatibilityCV,
             yourMoneyCV,
@@ -134,7 +143,7 @@ extension NumerologyVC_2024 {
             aboutCV.heightAnchor.constraint(equalToConstant: 110+50),
             dateCompatibilityCV.heightAnchor.constraint(equalToConstant: 108+50),
             angelNumbersCV.heightAnchor.constraint(equalToConstant: 112+50),
-
+            pythagoreanSquareCV.heightAnchor.constraint(equalToConstant: 300+50),
 
             contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 0),

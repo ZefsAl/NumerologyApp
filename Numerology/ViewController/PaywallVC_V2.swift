@@ -160,9 +160,6 @@ final class PaywallVC_V2: UIViewController {
         }
     }
     
-    
-    
-    
     // MARK: subscription Lable
     private let subscriptionLable: UILabel = {
         let l = UILabel()
@@ -264,7 +261,7 @@ final class PaywallVC_V2: UIViewController {
             // проверить есть ли подписка -> Предоставить доступ
             if customerInfo?.entitlements.all["Access"]?.isActive == true {
                 print("User restored!")
-                //                self.dismiss(animated: true)
+                self.dismiss(animated: true)
             } else {
                 print("User not restored")
             }
@@ -549,10 +546,12 @@ extension PaywallVC_V2 {
             // проверить есть ли подписка -> Предоставить доступ
             if customerInfo?.entitlements.all["Access"]?.isActive == true {
                 print("User restored!")
+                // тут проблема в то что push
                 self.dismiss(animated: true)
             } else {
                 print("User not restored!")
             }
         }
+        
     }
 }

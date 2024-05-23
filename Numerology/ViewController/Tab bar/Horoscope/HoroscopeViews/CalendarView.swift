@@ -38,7 +38,7 @@ final class CalendarView: FSCalendar, FSCalendarDataSource, FSCalendarDelegate {
         
         // Header Title
         self.appearance.headerTitleFont = DesignSystem.FeedCard.title
-        self.appearance.headerTitleColor = DesignSystem.Horoscope.feedCardTextColor
+        self.appearance.headerTitleColor = DesignSystem.Horoscope.lightTextColor
         
         // Week Day
         self.firstWeekday = 2

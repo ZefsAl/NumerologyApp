@@ -1,15 +1,17 @@
 //
-//  ViewController.swift
+//  File.swift
 //  Numerology
 //
-//  Created by Serj_M1Pro on 27.04.2024.
+//  Created by Serj_M1Pro on 22.05.2024.
 //
 
 import UIKit
 
-class AngelNumbersCV: UICollectionView {
+class PythagoreanSquareCV: UICollectionView {
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
+    
+    let pythagoreanSquareCVCell = PythagoreanSquareCVCell()
     
     // MARK: - init
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -25,7 +27,7 @@ class AngelNumbersCV: UICollectionView {
     private func setupCV_Layout() {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
-            heightDimension: NSCollectionLayoutDimension.absolute(112)
+            heightDimension: NSCollectionLayoutDimension.absolute(300)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: size)
@@ -68,25 +70,23 @@ class AngelNumbersCV: UICollectionView {
         // Delegate Collection View
         self.delegate = self
         self.dataSource = self
-        self.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: CardCollectionViewCell().cardCollectionID)
+        self.register(PythagoreanSquareCVCell.self, forCellWithReuseIdentifier: PythagoreanSquareCVCell().cardCollectionID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
-        // Footer
-        self.register(SectionFooterView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: SectionFooterView.reuseID)
     }
     
 }
 
 
 // MARK: Delegate
-extension AngelNumbersCV: UICollectionViewDataSource, UICollectionViewDelegate {
+extension PythagoreanSquareCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     //  Supplementary Element
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
-            sectionHeader?.label.text = "Angel numbers"
+            sectionHeader?.label.text = "Psychomatrix"
             return sectionHeader ?? UICollectionReusableView()
         }
         return UICollectionReusableView()
@@ -98,21 +98,10 @@ extension AngelNumbersCV: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell().cardCollectionID, for: indexPath as IndexPath) as! CardCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: pythagoreanSquareCVCell.cardCollectionID,
+            for: indexPath as IndexPath) as! PythagoreanSquareCVCell
         
-        if indexPath.row == 0 {
-            cell.title.font = UIFont(name: "Cinzel-Regular", size: 18)
-            cell.title.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
-            cell.subtitle.font = UIFont(name: "Cinzel-Regular", size: 14)
-            cell.subtitle.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.6)
-            //
-            cell.configure(
-                title: "Enigmatic Angelic Signs",
-                subtitle: "Immerse yourself in a place where numbers become wise messages from higher realms. Here you will delve into the realm of numerology and astrology to understand how each number in your life has special meaning and energy.",
-                bgImage: nil
-            )
-            return cell
-        }
 
         return cell
         
@@ -123,14 +112,28 @@ extension AngelNumbersCV: UICollectionViewDataSource, UICollectionViewDelegate {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
+        
+        
+        
+//        print("✅",pythagoreanSquareCVCell.content.pythagoreanDetailDataModel.count)
+//        
+//        
+//        for (key, model) in pythagoreanSquareCVCell.content.pythagoreanDetailDataModel {
+//            print("✅",model)
+//        }
+        
+        
         // MARK: Soul // 0
         if indexPath.row == 0 {
-            let vc = DetailAngelNumbersVC()
+            let vc = PythagoreanSquareDetailVC()
+            vc.configureHandleDataModels(
+                models: pythagoreanSquareCVCell.content.pythagoreanDetailDataModels
+            )
+            
             vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen
             self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            
         }
 
     }

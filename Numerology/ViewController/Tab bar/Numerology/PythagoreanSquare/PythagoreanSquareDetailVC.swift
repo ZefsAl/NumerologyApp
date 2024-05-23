@@ -7,7 +7,10 @@
 
 import UIKit
 
-class MoonVC: UIViewController {
+class PythagoreanSquareDetailVC: UIViewController {
+    
+    // MARK: - accordion Stack
+    let accordionStack = UIStackView()
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -20,52 +23,55 @@ class MoonVC: UIViewController {
     
     private let headerTitle: SectionHeaderView = {
         let v = SectionHeaderView()
-        v.label.text = "Moon Calendar"
-        v.label.textColor = .white
+        v.label.text = "About you"
+        v.label.textColor = DesignSystem.Numerology.lightTextColor
         v.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        return v
-    }()
-    
-    private let accordionView: AccordionView = {
-        let v = AccordionView()
-        v.showAccordion()
-        v.accordionButton.configure(title: "Today")
         return v
     }()
     
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setBackground(named: "MoonBG.png")
+        //
+        self.setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
         //
         setUpStack()
-        requestData()
-        
     }
     
-    private func requestData() {
+    func configureHandleDataModels(models: [PythagoreanDetailDataModel]) {
+
+        let models = models.sorted { one, two in
+            one.index < two.index
+        }
         
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-//        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        print("check ✅",models.count)
         
+
+        for models in models {
+            print("✅🟣 index",models.index)
+            print("✅🟣 title",models.title)
+            print("✅🟣 subtitle",models.subtitle)
+        }
         
-        let moonDay = MoonCalendarManager().getAfternoonMoonDay()
-        
-        HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
-            self.accordionView.info.text = model.todayInfo
-            self.accordionView.imageView.image = UIImage(named: "fullMoon.png")
-            self.accordionView.showConstraintImage()
-            self.accordionView.imageView.isHidden = false
+        for model in models {
+            let accordionView: AccordionView = {
+                let v = AccordionView()
+                v.showAccordion()
+                v.accordionButton.configure(title: model.title)
+                v.info.text = model.subtitle
+                v.imageView.image = nil
+                return v
+            }()
+            accordionStack.addArrangedSubview(accordionView)
         }
         
     }
     
+    
     // MARK: Set up Stack
     private func setUpStack() {
         
-        let accordionStack = UIStackView(arrangedSubviews: [accordionView])
         accordionStack.translatesAutoresizingMaskIntoConstraints = false
         accordionStack.axis = .vertical
         accordionStack.spacing = 8
@@ -75,15 +81,16 @@ class MoonVC: UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Style
-            v.backgroundColor = .black.withAlphaComponent(0.85)
+            v.backgroundColor = DesignSystem.Numerology.backgroundColor
             // Border
             v.layer.cornerRadius = 16
             v.layer.borderWidth = DesignSystem.borderWidth
-            v.layer.borderColor = UIColor.white.cgColor
+            v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = UIColor.white.withAlphaComponent(0.5).cgColor
+            v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+            
             
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([

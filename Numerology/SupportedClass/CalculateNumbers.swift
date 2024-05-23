@@ -182,7 +182,6 @@ class CalculateNumbers {
                 
                 if alphValue.contains(where: { alphChar in alphChar == nameChar }) {
                     alphNumArr.insert(key, at: 0)
-    //                print(key)
                 }
             }
         }
@@ -193,7 +192,6 @@ class CalculateNumbers {
                 
                 if alphValue.contains(where: { alphChar in alphChar == surnameChar }) {
                     alphNumArr.insert(key, at: 0)
-                    //                print(key)
                 }
             }
         }

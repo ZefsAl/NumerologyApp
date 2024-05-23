@@ -53,7 +53,6 @@ class NumerologyManager {
             for doc in documents {
                 do {
                     let val = try doc.data(as: NumbersOfSoulModel.self)
-                    //                   completion(val, nil)
                     let ref = val.image[0].ref // Путь
                     
                     let storage = Storage.storage()
@@ -413,6 +412,31 @@ class NumerologyManager {
             }
         }
     }
+    
+    // MARK: - Angel Numbers
+    func getPythagoreanSquare(cellNumber: Int, completion: @escaping (PythagoreanSquareModel) -> Void ) {
+        let docRef = db.collection("PythagoreanSquare").whereField("cell", isEqualTo: cellNumber)
+        
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            
+            if let error = error {
+                print("⚠️ Error getting documents: \(error)")
+            }
+            
+            // Decode
+            for doc in documents {
+                do {
+                    let val = try doc.data(as: PythagoreanSquareModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
+                }
+            }
+        }
+    }
+    
     
 }
 

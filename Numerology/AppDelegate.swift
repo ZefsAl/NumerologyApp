@@ -45,14 +45,14 @@ extension AppDelegate: PurchasesDelegate {
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         print("Check Access")
         if customerInfo.entitlements.all["Access"]?.isActive == true {
-            print("User have premium!")
+            print("✅User have premium!")
             UserDefaults.standard.setValue(true, forKey: "UserAccessObserverKey")
             UserDefaults.standard.synchronize()
             // unregister
             UIApplication.shared.unregisterForRemoteNotifications()
             print("isRegistered: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
         } else {
-            print("User not subscribe")
+            print("‼️⚠️User not subscribe")
             UserDefaults.standard.setValue(false, forKey: "UserAccessObserverKey")
             UserDefaults.standard.synchronize()
         }
@@ -88,6 +88,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
             }
         }
     }
+    
     // MARK: delagate FCM
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         let dataDict: [String: String] = ["token": fcmToken ?? ""]

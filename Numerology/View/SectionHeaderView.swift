@@ -19,7 +19,7 @@ final class SectionHeaderView: UICollectionReusableView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .white
-        l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
+        l.textColor = DesignSystem.Numerology.lightTextColor
         l.textAlignment = .center
         l.font = UIFont(name: "Cinzel-Regular", size: 26)
         l.sizeToFit()

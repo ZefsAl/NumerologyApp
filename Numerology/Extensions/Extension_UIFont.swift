@@ -24,4 +24,8 @@ extension UIFont {
     convenience init(weight: SourceSerifPro, size: CGFloat) {
         self.init(name: weight.fontName, size: size)!
     }
+    
+    public static func setCinzelRegular(size: CGFloat) -> UIFont? {
+        UIFont(name: "Cinzel-Regular", size: size)
+    }
 }

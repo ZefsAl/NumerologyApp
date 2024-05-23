@@ -206,12 +206,12 @@ class DescriptionCardView: UIView {
         
         NSLayoutConstraint.activate([
             // contentStack
-            contentStack.topAnchor.constraint(equalTo:      self.topAnchor, constant: 16),
-            contentStack.leadingAnchor.constraint(equalTo:  self.leadingAnchor, constant: 16),
-            contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            contentStack.bottomAnchor.constraint(equalTo:   self.bottomAnchor, constant: -16),
-            contentStack.widthAnchor.constraint(equalTo:    self.widthAnchor, constant: -32),
-            contentStack.heightAnchor.constraint(equalTo:   self.heightAnchor, constant: -32),
+            contentStack.topAnchor.constraint(equalTo:      self.topAnchor,     constant:  16),
+            contentStack.leadingAnchor.constraint(equalTo:  self.leadingAnchor, constant:  16),
+            contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -16),
+            contentStack.bottomAnchor.constraint(equalTo:   self.bottomAnchor,  constant: -16),
+            contentStack.widthAnchor.constraint(equalTo:    self.widthAnchor,   constant: -32),
+            contentStack.heightAnchor.constraint(equalTo:   self.heightAnchor,  constant: -32),
         ])
     }
     
