@@ -31,7 +31,6 @@ final class BigPromoCVCell: UICollectionViewCell {
         }
     }
     
-    
     // MARK: Discount Caption
     private let discountCaption: UILabel = {
         let l = UILabel()
@@ -86,8 +85,8 @@ final class BigPromoCVCell: UICollectionViewCell {
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
 
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -105,7 +104,7 @@ final class BigPromoCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // Left Stack
         let leftStack = UIStackView(arrangedSubviews: [mainTitle,subtitle])
@@ -114,7 +113,6 @@ final class BigPromoCVCell: UICollectionViewCell {
         leftStack.spacing = 0
         
         // Card Content
-//        let cardContent = UIStackView(arrangedSubviews: [leftStack,UIView(),priceTitle])
         cardContent.addArrangedSubview(leftStack)
         cardContent.addArrangedSubview(UIView())
         cardContent.addArrangedSubview(priceTitle)
@@ -126,7 +124,6 @@ final class BigPromoCVCell: UICollectionViewCell {
         cardContent.layer.cornerRadius = 14
         cardContent.layoutMargins = UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18)
         cardContent.isLayoutMarginsRelativeArrangement = true
-        
         
         // Discount Caption Stack
         let discountCaption_Stack = UIStackView(arrangedSubviews: [discountCaption])
@@ -146,12 +143,10 @@ final class BigPromoCVCell: UICollectionViewCell {
         self.addSubview(promoBorderStack)
         
         NSLayoutConstraint.activate([
-        
             promoBorderStack.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             promoBorderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             promoBorderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             promoBorderStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            
         ])
     }
 }

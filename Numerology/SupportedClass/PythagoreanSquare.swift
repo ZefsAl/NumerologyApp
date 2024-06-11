@@ -16,7 +16,7 @@ class PythagoreanSquare {
         guard
             number != 0,
             amountNumber != 0
-        else { return "0" }
+        else { return "----" }
         
         let result: String = {
             var partial = [String]()
@@ -48,7 +48,7 @@ class PythagoreanSquare {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         let formatedStrDate = df.string(from: date)
-        print(date,"---> ✅",formatedStrDate)
+//        print(date,"---> ✅",formatedStrDate)
         return formatedStrDate
     }
     

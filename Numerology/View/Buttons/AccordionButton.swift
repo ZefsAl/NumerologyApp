@@ -9,18 +9,22 @@ import UIKit
 
 class AccordionButton: UIButton {
     
-    private var didTapState: Bool = false {
+    let premiumBadgeManager = PremiumBadgeManager()
+    private var isPremium: Bool? = nil
+    
+    var didTapState: Bool = true {
         didSet {
-            changeIcon(bool: didTapState)
+            setIconChange(state: didTapState, isPremium: isPremium)
         }
     }
+    
     // MARK: - isTouchInside
     override var isTouchInside: Bool {
         didTapState = didTapState ? false : true
         return true
     }
     // MARK: - main Title
-    let mainTitle: UILabel = {
+    private let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = DesignSystem.TextCard.title
@@ -28,37 +32,66 @@ class AccordionButton: UIButton {
         return l
     }()
     // MARK: - Icon
-    let icon: UIImageView = {
+    private let icon: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = UIView.ContentMode.scaleAspectFill
         iv.tintColor = .white
-        let configImage = UIImage(
-            systemName: "chevron.up.circle",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
-        )
-        iv.image = configImage
         return iv
     }()
+    
     // MARK: - change Icon
-    private func changeIcon(bool: Bool) {
+    func setIconChange(state: Bool, isPremium: Bool? = nil) {
+        guard let isPremium = isPremium else { return }
+        self.isPremium = isPremium
+        
+        if isPremium {
+            let premiumImage = PremiumBadgeManager().getPremiumImageForAccordion(imageSize: 20)
+            if let premiumImage = premiumImage {
+                icon.image = premiumImage
+            } else {
+                setPremiumToggle(state: state)
+            }
+        } else {
+            setPremiumToggle(state: state)
+        }
+    }
+    
+    
+    private func setPremiumToggle(state: Bool) {
         let configImage = UIImage(
-            systemName: bool ? "chevron.down.circle" : "chevron.up.circle",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .bold)
+            systemName: state ? "chevron.down.circle" : "chevron.up.circle",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
         )
         icon.image = configImage
     }
+    
+    convenience init(isPremium: Bool?, didTapState: Bool = true) {
+        self.init()
+        self.isPremium = isPremium
+        self.didTapState = didTapState
+    }
     // MARK: - init
     override init(frame: CGRect) {
+        // Добавтьб в инит isLocked и var для разного конфига
         super.init(frame: frame)
         setupUI()
+        
+        self.premiumBadgeManager.setPremiumBadgeObserver(observer: self, action: #selector(self.notificationAllowPremiumContent(notification:)))
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Notification action
+    @objc private func notificationAllowPremiumContent(notification: Notification) {
+        guard let premiumState = notification.object as? Bool else { return }
+//        print("AccordionButton Notification 🟢‼️🟢‼️🟢 get ", premiumState)
+        self.setIconChange(state: true, isPremium: premiumState)
+
+    }
     // MARK: - configure
-    func configure(title: String) {
-        changeIcon(bool: false)
+    func setAccordionTitle(_ title: String) {
         self.mainTitle.text = title
     }
     // MARK: - setupUI
@@ -70,7 +103,7 @@ class AccordionButton: UIButton {
         contentStack.alignment = .center
         contentStack.spacing = 4
         //
-        contentStack.isUserInteractionEnabled = false 
+        contentStack.isUserInteractionEnabled = false
         //
         self.addSubview(contentStack)
         NSLayoutConstraint.activate([

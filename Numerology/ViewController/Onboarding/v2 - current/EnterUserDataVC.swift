@@ -115,7 +115,7 @@ class EnterUserDataVC: UIViewController {
         self.setBackground(named: "DarkBG.png")
         AnimatableBG().setBackground(vc: self)
         
-        setUpStack()
+        setupStack()
     }
     
     // MARK: viewWillAppear
@@ -142,7 +142,7 @@ class EnterUserDataVC: UIViewController {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // titles Stack
         let titlesStack = UIStackView(arrangedSubviews: [largeTitle])

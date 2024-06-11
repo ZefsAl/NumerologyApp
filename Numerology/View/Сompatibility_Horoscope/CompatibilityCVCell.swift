@@ -90,12 +90,12 @@ class CompatibilityCVCell: UICollectionViewCell {
         self.title.text = title
         self.signImage.image = signImage
         self.primaryColor = primaryColor ?? self.primaryColor
-        setUpStack()
+        setupStack()
     }
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let contentStack = UIStackView(arrangedSubviews: [userView,title])
         contentStack.translatesAutoresizingMaskIntoConstraints = false

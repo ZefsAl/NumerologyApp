@@ -35,7 +35,7 @@ class FourthViewController: UIViewController {
         super.viewDidLoad()
         
         setBackground(named: "MainBG2")
-        setUpStack()
+        setupStack()
         requestFB()
         
     }
@@ -64,7 +64,7 @@ class FourthViewController: UIViewController {
 
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         
         self.view.addSubview(verticalScrollView)

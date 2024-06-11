@@ -73,9 +73,6 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ColumnRefTableViewCell.reuseID, for: indexPath) as! ColumnRefTableViewCell
         
-        
-        
-        
         switch column {
         case .first:
             if indexPath.row == 0 {
@@ -143,45 +140,53 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         let width: CGFloat = 1
         let conren: CGFloat = 16
        
-        // UI
+        // cell UI
+        // костыли
         switch column {
         case .first:
             if indexPath.row == 0 {
-                cell.addBorder(toSide: .right, withColor: color, andThickness: width)
-                cell.addBorder(toSide: .bottom, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: width)
                 cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topLeft, corner: conren)
                 return cell
             }
             if indexPath.row == 1 {
-                // 🔴 баг скругления
-                cell.addBorder(toSide: .right, withColor: color, andThickness: width)
+                cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
+                cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .allCorners, corner: 0)
             }
             if indexPath.row == 2 {
-                cell.addBorder(toSide: .top, withColor: color, andThickness: width)
-                cell.addBorder(toSide: .right, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
                 cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomLeft, corner: conren)
             }
             break
         case .second:
             if indexPath.row == 0 {
-                cell.addBorder(toSide: .bottom, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: width)
+            }
+            if indexPath.row == 1 {
+                cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
+                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: 0)
             }
             if indexPath.row == 2 {
-                cell.addBorder(toSide: .top, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)
             }
             break
         case .third:
             if indexPath.row == 0 {
-                cell.addBorder(toSide: .left, withColor: color, andThickness: width)
-                cell.addBorder(toSide: .bottom, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: width)
                 cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topRight, corner: conren)
             }
             if indexPath.row == 1 {
-                cell.addBorder(toSide: .left, withColor: color, andThickness: width)
+                cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
+                cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: 0)
             }
             if indexPath.row == 2 {
-                cell.addBorder(toSide: .top, withColor: color, andThickness: width)
-                cell.addBorder(toSide: .left, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)
+                cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
                 cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomRight, corner: conren)
             }
             break

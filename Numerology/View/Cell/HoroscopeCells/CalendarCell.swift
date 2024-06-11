@@ -98,8 +98,8 @@ class CalendarCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
     }
     
     required init?(coder: NSCoder) {
@@ -119,7 +119,7 @@ class CalendarCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
 //        let cellWidth = self.frame.width - 32
 //        self.calendarView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)

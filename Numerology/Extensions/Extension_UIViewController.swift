@@ -95,7 +95,7 @@ extension UIViewController {
     }
      
     // MARK: isIphone_66
-    func isIphone_66(view: UIView) -> Bool {
+    func isIphone_12(view: UIView) -> Bool {
         // tryFix content size
         if (view.frame.height < 844.0) {
             print("✅ iphone 8")
@@ -106,5 +106,31 @@ extension UIViewController {
         }
         // 8 iphone - Screen height: 667.0
         // 12 iphone - Screen height: 844.0
+    }
+    
+    // MARK: - Share
+    func shareButtonClicked() {
+        
+        let textToShare = String(describing: "LED Banner App")
+        guard
+            let myAppURLToShare = URL(string: "https://apps.apple.com/app/the-led-banner-scroller/id6470816709"),
+            let image = UIImage(named: "AppIcon.jpg")
+        else { return }
+        let items = [textToShare, myAppURLToShare, image] as [Any]
+        let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        //Apps to exclude sharing to
+        avc.excludedActivityTypes = [
+            UIActivity.ActivityType.airDrop,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.addToReadingList
+        ]
+        //Present the shareView on iPhone
+        DispatchQueue.main.async(qos: .default) {
+            // Презент с ошибкой !
+//            self.delegateVC?.settingsVC?.present(avc, animated: true)
+            self.present(avc, animated: true)
+        }
     }
 }

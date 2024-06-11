@@ -61,7 +61,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
         
         self.setBackground(named: "MainBG3.png")
         AnimatableBG().setBackground(vc: self)
-        setUpStack()
+        setupStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         //
         self.detailAngelNumbersSignsCV.remoteOpenDelegate = self
@@ -90,7 +90,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     }
 
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // content Stack
         contentStackSV.addArrangedSubview(titleLabel)

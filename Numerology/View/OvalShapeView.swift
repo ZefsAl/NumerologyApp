@@ -7,28 +7,28 @@
 
 import UIKit
 
-class OvalShapeView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.backgroundColor = .clear
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        let bezierPath = UIBezierPath(ovalIn:CGRect(x: -self.frame.size.width / 2.5,y: -24,width: 700, height: 200))
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = bezierPath.cgPath;
-        UIColor.black.withAlphaComponent(0.7).setFill()
-        bezierPath.fill()
-        
+//class OvalShapeView: UIView {
+//    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        self.translatesAutoresizingMaskIntoConstraints = false
+//        self.backgroundColor = .clear
+//    }
+//    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//    override func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//        
+//        let bezierPath = UIBezierPath(ovalIn:CGRect(x: -self.frame.size.width / 2.5,y: -24,width: 700, height: 200))
+//        
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.path = bezierPath.cgPath;
+//        UIColor.black.withAlphaComponent(0.7).setFill()
+//        bezierPath.fill()
+//        
         
         // Gradient
 //        let gradientBounds = CGRectMake(
@@ -46,6 +46,6 @@ class OvalShapeView: UIView {
 //        ]
 ////        gradientLayer.mask = shapeLayer;
 //        self.layer.addSublayer(gradientLayer)
-    }
-    
-}
+//    }
+//    
+//}

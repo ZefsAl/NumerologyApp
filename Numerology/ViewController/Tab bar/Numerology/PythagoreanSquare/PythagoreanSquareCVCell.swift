@@ -15,8 +15,8 @@ class PythagoreanSquareCVCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
     }
     
     required init?(coder: NSCoder) {
@@ -24,7 +24,7 @@ class PythagoreanSquareCVCell: UICollectionViewCell {
     }
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         self.addSubview(content)
         NSLayoutConstraint.activate([
             content.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),

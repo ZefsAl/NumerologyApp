@@ -39,6 +39,10 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AngelNumbersCVCell.reuseID, for: indexPath as IndexPath) as! AngelNumbersCVCell
         
         cell.label.text = angelNumbersArr[indexPath.row]
+        
+        if [0, 1, 2].contains(indexPath.row) { // Free content
+            cell.premiumBadgeManager.invalidateBadgeAndNotification()
+        }
 
         return cell
     }
@@ -46,14 +50,15 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-            print("tapped cell =", indexPath)
+        guard [0, 1, 2].contains(indexPath.row) else {
+            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
+            self.сustomizedPresent(indexPath: indexPath)
+            return
+        }
         self.сustomizedPresent(indexPath: indexPath)
-        
     }
     
     private func сustomizedPresent(indexPath: IndexPath) {
-        
-        guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
         
         let vc = AngelNumbersDescriptionVC()
         NumerologyManager.shared.getAngelNumbers(stringNumber: angelNumbersArr[indexPath.row]) { model in
@@ -73,13 +78,12 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         if indexPath.row == 9 || 
-           indexPath.row == 10 
-        {
-            return CGSize(width: (collectionView.frame.size.width/2)-9.3, height: 60) // т.к  decimals после деления
+           indexPath.row == 10 {
+            return CGSize(width: (collectionView.frame.size.width/2)-9.3, height: 60)
+            // т.к  decimals после деления
         }
 
         return CGSize(width: (collectionView.frame.size.width/3)-12, height: 60)
-        
     }
     
     // Vertical spacing
@@ -95,6 +99,9 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
 
 
 final class AngelNumbersCVCell: UICollectionViewCell {
+    
+    let premiumBadgeManager = PremiumBadgeManager()
+    
     
     static var reuseID: String {
         String(describing: self)
@@ -120,6 +127,7 @@ final class AngelNumbersCVCell: UICollectionViewCell {
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
+        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -56,8 +56,8 @@ class BigCardCVCell: UICollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor(red: 1, green: 1, blue: 0.996, alpha: 1).cgColor
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -73,7 +73,7 @@ class BigCardCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         let iconStack = UIStackView(arrangedSubviews: [UIView(),cardIcon])
         iconStack.axis = .vertical
         iconStack.alignment = .bottom

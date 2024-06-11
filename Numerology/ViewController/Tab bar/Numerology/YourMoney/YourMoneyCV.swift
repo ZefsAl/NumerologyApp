@@ -71,28 +71,25 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+//        print("You selected cell #\(indexPath.item)!")
         
         if indexPath.row == 0 {
-            // Money
-            let vc = DescriptionVC()
-            vc.configure(
+            // MARK: Money // 1
+            guard
+                let info = numbersOfMoneyModel?.infoMoney,
+                let about = numbersOfMoneyModel?.aboutMoney
+            else { return }
+            //
+            let vc = PremiumDescriptionVC (
                 title: "Your money number",
-                info: numbersOfMoneyModel?.infoMoney,
-                about: numbersOfMoneyModel?.aboutMoney
+                info: info + about
             )
-            // Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            // Open
-            if numbersOfMoneyModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            }
+            //
+            guard numbersOfMoneyModel != nil else { return }
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
         }
-        
-        
-        
     }
     
     

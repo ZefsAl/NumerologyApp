@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func animateButton() {
+    func bounceAnimate() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2, animations: {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)

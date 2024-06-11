@@ -7,10 +7,12 @@
 
 import UIKit
 
-class PythagoreanSquareDetailVC: UIViewController {
+class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     
-    // MARK: - accordion Stack
-    let accordionStack = UIStackView()
+    var openFrom: UIViewController?
+    
+    // MARK: - content Stack
+    let contentStack = UIStackView()
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -35,47 +37,36 @@ class PythagoreanSquareDetailVC: UIViewController {
         //
         self.setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
+        // open from VC
+        self.openFrom = self
         //
-        setUpStack()
+        setupStack()
     }
     
     func configureHandleDataModels(models: [PythagoreanDetailDataModel]) {
 
-        let models = models.sorted { one, two in
-            one.index < two.index
-        }
+        let models = models.sorted { $0.index < $1.index }
         
         print("check ✅",models.count)
         
-
         for models in models {
             print("✅🟣 index",models.index)
             print("✅🟣 title",models.title)
             print("✅🟣 subtitle",models.subtitle)
         }
         
-        for model in models {
-            let accordionView: AccordionView = {
-                let v = AccordionView()
-                v.showAccordion()
-                v.accordionButton.configure(title: model.title)
-                v.info.text = model.subtitle
-                v.imageView.image = nil
-                return v
-            }()
-            accordionStack.addArrangedSubview(accordionView)
-        }
-        
-    }
-    
-    
-    // MARK: Set up Stack
-    private func setUpStack() {
-        
-        accordionStack.translatesAutoresizingMaskIntoConstraints = false
-        accordionStack.axis = .vertical
-        accordionStack.spacing = 8
-        
+        // description 
+        let accordionStack: PremiumAccordionView = {
+            let v = PremiumAccordionView(
+                title: "About Psychomatrix",
+                info: models[0].info,
+                isPremium: false
+            )
+            
+            v.remoteOpenDelegate = self
+            v.remoteOpenDelegate?.openFrom = self
+            return v
+        }()
         // cardView + Border
         let cardView: UIView = {
             let v = UIView()
@@ -90,8 +81,7 @@ class PythagoreanSquareDetailVC: UIViewController {
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
-            
-            
+            //
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([
                 accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
@@ -100,12 +90,79 @@ class PythagoreanSquareDetailVC: UIViewController {
                 accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
                 accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
             ])
-            
             return v
         }()
+        contentStack.insertArrangedSubview(cardView, at: 0)
+        
+        
+        
+        // others content
+        for model in models {
+            
+            let accordionStack = UIStackView()
+            accordionStack.translatesAutoresizingMaskIntoConstraints = false
+            accordionStack.axis = .vertical
+            accordionStack.spacing = 8
+            
+            let accordionView: PremiumAccordionView = {
+                
+                let v = PremiumAccordionView(
+                    title: model.title,
+                    info: model.subtitle,
+                    isPremium: isNotPremium(
+                        indexes: [1,2,3],
+                        model: model
+                    ),
+                    visibleConstant: 100
+                )
+                v.remoteOpenDelegate = self
+                v.remoteOpenDelegate?.openFrom = self
+                return v
+            }()
+            accordionStack.addArrangedSubview(accordionView)
+            
+            // cardView + Border
+            let cardView: UIView = {
+                let v = UIView()
+                v.translatesAutoresizingMaskIntoConstraints = false
+                // Style
+                v.backgroundColor = DesignSystem.Numerology.backgroundColor
+                // Border
+                v.layer.cornerRadius = 16
+                v.layer.borderWidth = DesignSystem.borderWidth
+                v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
+                v.layer.shadowOpacity = 1
+                v.layer.shadowRadius = 16
+                v.layer.shadowOffset = CGSize(width: 0, height: 4)
+                v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+                
+                v.addSubview(accordionStack)
+                NSLayoutConstraint.activate([
+                    accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
+                    accordionStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
+                    accordionStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
+                    accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
+                    accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
+                ])
+                
+                return v
+            }()
+            
+            contentStack.addArrangedSubview(cardView)
+        }
+        
+        // custom
+        func isNotPremium(indexes: [Int], model: PythagoreanDetailDataModel) -> Bool {
+            return !indexes.contains { $0 == model.index }
+        }
+    }
+    
+    
+    // MARK: Set up Stack
+    private func setupStack() {
         
         // MARK: content Stack
-        let contentStack = UIStackView(arrangedSubviews: [headerTitle,cardView])
+        contentStack.insertArrangedSubview(headerTitle, at: 1)
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.alignment = .fill
         contentStack.axis = .vertical

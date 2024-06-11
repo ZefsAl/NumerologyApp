@@ -135,9 +135,6 @@ extension PersonalPredictionsCV_2024: UICollectionViewDataSource, UICollectionVi
         
         // MARK: life stages // 2.4
         if indexPath.row == 3 {
-            // MARK: Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            //
             let vc = LifeStagesViewController()
             let navVC = UINavigationController(rootViewController: vc)
             navVC.modalPresentationStyle = .overFullScreen

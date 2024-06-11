@@ -94,14 +94,14 @@ class CompareSignsStackView: UIStackView {
     init(frame: CGRect, accentColor: UIColor) {
         self.accentColor = accentColor
         super.init(frame: frame)
-        setUpStack()
+        setupStack()
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpStack() {
+    private func setupStack() {
         
         // MARK: user view
         let userView: UIView = {

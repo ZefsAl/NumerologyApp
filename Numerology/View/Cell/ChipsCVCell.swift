@@ -11,6 +11,7 @@ class ChipsCVCell: UICollectionViewCell {
  
     let buttonCVCellID = "buttonCVCellID"
     
+    let premiumBadgeManager = PremiumBadgeManager()
     
     var primaryColor: UIColor? = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
     
@@ -39,7 +40,7 @@ class ChipsCVCell: UICollectionViewCell {
     private let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.subtitle
+        l.font = DesignSystem.ChipsButton.title
         l.textAlignment = .center
         
         return l
@@ -60,9 +61,9 @@ class ChipsCVCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = UIColor.clear.cgColor
         
-        // Setup
-        setUpStack()
-        
+        // setup
+        setupStack()
+        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18, side: .centerTrailing)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -85,7 +86,7 @@ class ChipsCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         self.addSubview(title)
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor, constant: 8),

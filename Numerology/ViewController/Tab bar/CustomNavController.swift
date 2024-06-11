@@ -20,7 +20,6 @@ final class CustomNavController: UINavigationController {
     
     let profileButton: ProfileNavButton = {
         let b = ProfileNavButton(type: .custom)
-        b.translatesAutoresizingMaskIntoConstraints = false
         b.addTarget(Any?.self, action: #selector(profileAct), for: .touchUpInside)
         return b
     }()

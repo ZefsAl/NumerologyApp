@@ -19,7 +19,7 @@ class RegularBigButton: UIButton {
     }()
     
     override var isTouchInside: Bool {
-        animateButton()
+        bounceAnimate()
         return true
     }
     
@@ -39,7 +39,7 @@ class RegularBigButton: UIButton {
         self.layer.shadowColor = (primaryColor ?? self.primaryColor).withAlphaComponent(0.7).cgColor
         // config
         self.lable.text = lable
-        setUpStack()
+        setupStack()
         setHeight(isActive: heightIsActive)
     }
     
@@ -47,7 +47,7 @@ class RegularBigButton: UIButton {
         self.heightAnchor.constraint(equalToConstant: 64).isActive = isActive
     }
     
-    private func setUpStack() {
+    private func setupStack() {
         let contentStack = UIStackView(arrangedSubviews: [lable])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .horizontal

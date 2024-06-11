@@ -59,11 +59,11 @@ final class RegularPromoCVCell: UICollectionViewCell {
         // Style
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
-        self.layer.borderWidth = DesignSystem.borderWidth
+        self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.CellColors().cellDisableBorder.cgColor
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -79,7 +79,7 @@ final class RegularPromoCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // Card Content
 //        let cardContent = UIStackView(arrangedSubviews: [mainTitle,UIView(),priceTitle])

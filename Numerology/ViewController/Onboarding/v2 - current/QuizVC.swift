@@ -67,7 +67,7 @@ class QuizVC: UIViewController {
         AnimatableBG().setBackground(vc: self)
         
         configureCollectionView()
-        setUpStack()
+        setupStack()
         setSelect()
     }
     // MARK: - set Select
@@ -92,7 +92,7 @@ class QuizVC: UIViewController {
     }
     
     // MARK: UI
-    private func setUpStack() {
+    private func setupStack() {
         
         // titleStack
         let textStack = UIStackView(arrangedSubviews: [questionTitle,subtitle])

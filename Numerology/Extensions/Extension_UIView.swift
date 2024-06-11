@@ -7,51 +7,60 @@
 
 import UIKit
 
-extension UIView {
+enum ViewSide {
+    case left, right, top, bottom
+}
 
-    enum ViewSide {
-        case left, right, top, bottom
-    }
+extension UIView {
     // MARK: - Border for side
-    func addBorder(toSide side: ViewSide, withColor color: UIColor, andThickness thickness: CGFloat) {
+    func addBorder(toView: UIView, toSide side: ViewSide?, withColor color: UIColor, andThickness thickness: CGFloat) {
+        let border = CALayer()
+        border.name = "BorderCALayerKey"
+        
+        guard let side = side else {
+            return
+        }
+        
         switch side {
-        case .left: 
-            let border = CALayer()
+        case .left:
             border.backgroundColor = color.cgColor
             border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.size.height)
-            self.layer.addSublayer(border)
+            toView.layer.addSublayer(border)
             break
-        case .right: 
-            let border = CALayer()
+        case .right:
             border.backgroundColor = color.cgColor
             border.frame = CGRect(x: self.frame.size.width - thickness, y: 0, width: thickness, height: self.frame.size.height)
-            self.layer.addSublayer(border)
+            toView.layer.addSublayer(border)
             break
         case .top:
-            let border = CALayer()
             border.backgroundColor = color.cgColor
             border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: thickness)
-            self.layer.addSublayer(border)
+            toView.layer.addSublayer(border)
             break
-        case .bottom: 
-            let border = CALayer()
+        case .bottom:
             border.backgroundColor = color.cgColor
             border.frame = CGRect(x: 0, y: self.frame.size.height - thickness, width: self.frame.size.width, height: thickness)
-            self.layer.addSublayer(border)
+            toView.layer.addSublayer(border)
             break
+        }
+        
+    }
+    func removeCALayerByName(fromView: UIView, name: String) {
+        for item in fromView.layer.sublayers! where item.name == name {
+            item.removeFromSuperlayer()
         }
     }
     
     // MARK: - custom Corner Radius
-    func customCornerRadius(viewToRound: UIView, byRoundingCorners: UIRectCorner?, corner: CGFloat) {
+    func customCornerRadius(viewToRound: UIView, byRoundingCorners: UIRectCorner?, corner: CGFloat?) {
         
         let maskLayer = CAShapeLayer()
         maskLayer.name = "CustomCornerRadius"
         
-        guard let byRoundingCorners = byRoundingCorners else {
-            for item in viewToRound.layer.sublayers! where item.name == "CustomCornerRadius" {
-                item.removeFromSuperlayer()
-            }
+        guard 
+            let byRoundingCorners = byRoundingCorners,
+            let corner = corner
+        else {
             return
         }
         let path = UIBezierPath(
@@ -63,17 +72,9 @@ extension UIView {
         viewToRound.layer.mask = maskLayer
         
     }
-//    func removeCustomCornerRadius(rmoveFrom: UIView) {
-//        
-//        for item in rmoveFrom.layer.sublayers! where item.name == "CustomCornerRadius" {
-//            item.removeFromSuperlayer()
-////            item.backgroundColor = UIColor.systemOrange.cgColor
-//            
-//        }
-//    }
     
     
-    // color Animate Tap
+    // MARK: - color Animate Tap
     func colorAnimateTap(selectedColor: UIColor) {
         let bgColor = self.backgroundColor
         UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) {
@@ -84,5 +85,16 @@ extension UIView {
             }
         }
     }
+    
+    func addSystemBlur(to view: UIView, style: UIBlurEffect.Style) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+//        view.layer.addSublayer(blurEffectView)
+    }
+    
+    
     
 }

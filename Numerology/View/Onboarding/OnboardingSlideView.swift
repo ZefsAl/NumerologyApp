@@ -53,7 +53,7 @@ class OnboardingSlideView: UIView {
         super.init(frame: frame)
         
         setOnboardingBG(named: namedBG) // First
-        setUpStack() // Second
+        setupStack() // Second
     }
     
     required init?(coder: NSCoder) {
@@ -89,7 +89,7 @@ class OnboardingSlideView: UIView {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let contentStack = UIStackView(arrangedSubviews: [title,promoSubtitle])
         contentStack.translatesAutoresizingMaskIntoConstraints = false

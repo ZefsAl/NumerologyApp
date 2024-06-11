@@ -74,8 +74,8 @@ final class CarouselCard_CVCell: UICollectionViewCell {
 //        // Border
         self.layer.cornerRadius = 16
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -124,7 +124,7 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
 
         
         // Left Title Stack

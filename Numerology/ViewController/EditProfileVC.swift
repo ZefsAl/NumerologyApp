@@ -123,7 +123,7 @@ class EditProfileVC: UIViewController {
         AnimatableBG().setBackground(vc: self)
         
         configureNavView()
-        setUpStack()
+        setupStack()
         configureEditData()
     }
     
@@ -191,7 +191,7 @@ class EditProfileVC: UIViewController {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // Name Field Stack
         let nameFieldStack = UIStackView(arrangedSubviews: [nameFieldTitle,userNameField])

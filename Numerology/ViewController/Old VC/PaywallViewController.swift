@@ -325,7 +325,7 @@
 //        self.contentCollectionView.dataSource = self
 //        self.contentCollectionView.register(PaywallCVCell.self, forCellWithReuseIdentifier: PaywallCVCell().payWallCVCellID)
 //        // UI content
-//        setUpStack()
+//        setupStack()
 //        // Manager
 //        initializeIAP()
 //        
@@ -366,7 +366,7 @@
 //    
 //    
 //    // MARK: Set up Stack
-//    private func setUpStack() {
+//    private func setupStack() {
 //        
 //        // DocsStack
 //        let docsStack = UIStackView(arrangedSubviews: [termsButton,restoreButton,privacyButton])

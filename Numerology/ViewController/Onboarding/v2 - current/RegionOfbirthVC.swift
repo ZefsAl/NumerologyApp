@@ -128,7 +128,7 @@ class RegionOfbirthVC: UIViewController {
         AnimatableBG().setBackground(vc: self)
         playVideo()
         // Config
-        setUpStack()
+        setupStack()
     }
     
     // MARK: viewWillAppear
@@ -160,7 +160,7 @@ class RegionOfbirthVC: UIViewController {
         guard let path = Bundle.main.path(forResource: ref, ofType: "mp4") else { return }
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.borderColor = UIColor.white.cgColor
+//        playerLayer.borderColor = UIColor.white.cgColor
         self.view.addSubview(iv)
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -181,7 +181,7 @@ class RegionOfbirthVC: UIViewController {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // titles Stack
         let titlesStack = UIStackView(arrangedSubviews: [largeTitle,subtitle])
@@ -190,7 +190,6 @@ class RegionOfbirthVC: UIViewController {
         titlesStack.spacing = 16
         
         // Field Stack
-//        let nameFieldStack = UIStackView(arrangedSubviews: [userPlaceTF,userTimeOfBirth])
         fieldsStack.addArrangedSubview(userPlaceTF)
         fieldsStack.addArrangedSubview(userTimeOfBirth)
         fieldsStack.axis = .vertical

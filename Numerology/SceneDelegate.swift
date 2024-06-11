@@ -12,30 +12,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
-    let navOnboardingVC: UINavigationController = {
-        let nav = UINavigationController(rootViewController: OnboardingVC_v2())
-        return nav
-    }()
-    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let winScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: winScene)
         UIBarButtonItem.appearance().tintColor = UIColor.white
-        //        window = UIWindow(frame: UIScreen.main.bounds) // Appdelegate
         
         // Data
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             // желательно обновлять status d UserDefaults
-            print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool)
+            print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool as Any)
         }
-        print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey"))
+        print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
         
+//        // MARK: App Config
+        setAppFlow()
+        
+        // test
+//        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
+//        self.window?.rootViewController = nav
+//        self.window?.makeKeyAndVisible()
+        //
+        
+        
+        
+        print("🔴scene🔴")
+    }
+    
+    private func setAppFlow() {
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
         
-//        // MARK: App Config
         if
             (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
                 (dataName as? String != "" || dataSurname as? String != "")
@@ -43,22 +51,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(dataName as Any)
             print(dataSurname as Any)
             print(dateOfBirth as Any)
-            print("UserData - Have")
             self.window?.rootViewController = MainTabBarController()
         } else {
-            self.window?.rootViewController = navOnboardingVC
-            
-            print("UserData - Empty")
+            self.window?.rootViewController = UINavigationController(rootViewController: OnboardingVC_v2())
         }
-        
-        // test
-//        let nav = CustomNavController(rootViewController: NumerologyVC_2024())
-//        self.window?.rootViewController = nav
-        //
-        
         self.window?.makeKeyAndVisible()
-        
-        print("🔴scene🔴")
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -83,34 +80,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
 }
-
-
-//    private func appScreenConfiguration() {
-//        // test
-////        window?.rootViewController = UINavigationController(rootViewController: LocationSearchVC())
-////        window?.rootViewController = CustomNavController(rootViewController: RegionOfbirthVC())
-////        UserDefaults.standard.removeObject(forKey: "nameKey")
-////        UserDefaults.standard.removeObject(forKey: "surnameKey")
-////        UserDefaults.standard.removeObject(forKey: "dateOfBirthKey")
-//
-////          Data
-//        let dataName = UserDefaults.standard.object(forKey: "nameKey")
-//        let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
-//
-//        // MARK: App Config
-//        if
-//            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-//                (dataName as? String != "" || dataSurname as? String != "")
-//        {
-//            print(dataName as Any)
-//            print(dataSurname as Any)
-//            print(dateOfBirth as Any)
-//            print("UserData - Have")
-//            window?.rootViewController = MainTabBarController()
-//        } else {
-//            window?.rootViewController = navOnboardingVC
-//            print("UserData - Empty")
-//        }
-//        //
-//    }

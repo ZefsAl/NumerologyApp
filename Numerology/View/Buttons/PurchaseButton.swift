@@ -9,6 +9,8 @@ import UIKit
 
 class PurchaseButton: UIButton {
     
+    private var primaryColor: UIColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+    
     let lable: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -28,23 +30,18 @@ class PurchaseButton: UIButton {
     }()
     
     override var isTouchInside: Bool {
-        animateButton()
+        bounceAnimate()
         return true
     }
     
-    init(frame: CGRect, title: String) {
+    init(frame: CGRect, title: String, primaryColor: UIColor) {
+        self.primaryColor = primaryColor
         lable.text = title
         super.init(frame: frame)
         // Style
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 16
         self.backgroundColor = .systemGray2
-        // Shadow
-        self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = 16
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1).withAlphaComponent(0.7).cgColor
-        
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])
         btnContentStack.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +53,6 @@ class PurchaseButton: UIButton {
         self.addSubview(btnContentStack)
         btnContentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         btnContentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        
     }
     
     required init?(coder: NSCoder) {
@@ -72,7 +67,12 @@ class PurchaseButton: UIButton {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: duration) {
                     self.lable.textColor = .white
-                    self.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
+                    self.backgroundColor = self.primaryColor
+                    // Shadow
+                    self.layer.shadowOpacity = 1
+                    self.layer.shadowRadius = 16
+                    self.layer.shadowOffset = CGSize(width: 0, height: 4)
+                    self.layer.shadowColor = self.primaryColor.withAlphaComponent(0.7).cgColor 
                 }
             }
         } else {
@@ -80,6 +80,11 @@ class PurchaseButton: UIButton {
                 UIView.animate(withDuration: duration) {
                     self.lable.textColor = .lightGray
                     self.backgroundColor = .systemGray2
+                    // Shadow
+                    self.layer.shadowOpacity = 1
+                    self.layer.shadowRadius = 16
+                    self.layer.shadowOffset = CGSize(width: 0, height: 4)
+                    self.layer.shadowColor = UIColor.clear.cgColor
                 }
             }
         }   

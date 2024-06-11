@@ -9,6 +9,7 @@ import UIKit
 
 struct PythagoreanDetailDataModel {
     var index: Int
+    var info: String
     var title: String
     var subtitle: String
 }
@@ -35,10 +36,6 @@ final class PythagoreanSquareView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    
-    
     private func requestData() {
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
         
@@ -46,19 +43,17 @@ final class PythagoreanSquareView: UIView {
             print("🔴 error dateOfBirth PythagoreanSquareView");
             return
         }
-        
-        
-        
+           
         // Table Request + Configure Cell, make Models
         let numbers = PythagoreanSquare().pythagoreanSquare(dateOfBirth: dateOfBirth)
         
         for val in 1...9 {
             let characterVal = Character(String(val))
-            print("🌕",val,numbers.filter{$0 == characterVal}.count)
-            
+//            print("🌕",val,numbers.filter{$0 == characterVal}.count)
+            //
             let count = numbers.filter{$0 == characterVal}.count
-            
-            
+            //
+            let spacer = " "
             DispatchQueue.main.async {
                 NumerologyManager.shared.getPythagoreanSquare(cellNumber: val) { fetchedModel in
                     
@@ -72,8 +67,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView1.firstCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 1,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 1, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -87,8 +83,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView1.secondCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 2,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 2, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -102,8 +99,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView1.thirdCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 3,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 3, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -117,8 +115,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView2.firstCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 4,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 4, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         break
@@ -131,8 +130,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView2.secondCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 5,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 5, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -147,8 +147,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView2.thirdCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 6,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 6, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -163,8 +164,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView3.firstCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 7,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 7, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -179,8 +181,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView3.secondCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 8,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 8, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -195,8 +198,9 @@ final class PythagoreanSquareView: UIView {
                         self.columnRefTableView3.thirdCellModel = cellModel
                         
                         self.pythagoreanDetailDataModels.append(PythagoreanDetailDataModel(
-                            index: 9,
-                            title: cellModel.subtitle + " " + cellModel.title,
+                            index: 9, 
+                            info: fetchedModel.info,
+                            title: cellModel.subtitle + spacer + cellModel.title,
                             subtitle: ConvertPythagoreanNumbers.intToConstName(count: count, model: fetchedModel))
                         )
                         
@@ -206,12 +210,7 @@ final class PythagoreanSquareView: UIView {
                     }
                 }
             }
-            
-            
-            
-            
         }
-        
     }
     
     // MARK: - setup UI

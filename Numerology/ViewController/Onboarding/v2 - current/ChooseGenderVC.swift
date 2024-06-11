@@ -53,7 +53,7 @@ class ChooseGenderVC: UIViewController {
         AnimatableBG().setBackground(vc: self)
         
         configureCollectionView()
-        setUpStack()
+        setupStack()
         
     }
     
@@ -79,7 +79,7 @@ class ChooseGenderVC: UIViewController {
     }
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // Content Stack
         let contentStack = UIStackView(arrangedSubviews: [mainTitle,contentCollectionView])

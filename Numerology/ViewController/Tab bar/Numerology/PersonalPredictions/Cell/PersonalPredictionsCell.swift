@@ -68,8 +68,8 @@ class PersonalPredictionsCell: UICollectionViewCell {
         self.layer.shadowRadius = 16
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
     }
     
     required init?(coder: NSCoder) {
@@ -84,7 +84,7 @@ class PersonalPredictionsCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let titleStack = UIStackView(arrangedSubviews: [title,cardIcon])
         titleStack.axis = .horizontal

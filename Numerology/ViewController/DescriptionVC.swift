@@ -58,7 +58,7 @@ class DescriptionVC: UIViewController {
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setBackground(named: self.bgImageNamed ?? "MainBG2.png")
         AnimatableBG().setBackground(vc: self)
-        setUpStack()
+        setupStack()
     }
     
     
@@ -75,7 +75,7 @@ class DescriptionVC: UIViewController {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let contentStack = UIStackView(arrangedSubviews: [mainTitle,info,about])
         contentStack.translatesAutoresizingMaskIntoConstraints = false

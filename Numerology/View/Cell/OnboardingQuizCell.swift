@@ -87,8 +87,8 @@ final class OnboardingQuizCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7).withAlphaComponent(0.7)
         layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -103,7 +103,7 @@ final class OnboardingQuizCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // Card Content
         let cardContent = UIStackView(arrangedSubviews: [mainTitle,UIView(),selectedIcon])

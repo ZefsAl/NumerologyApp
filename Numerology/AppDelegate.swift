@@ -43,18 +43,28 @@ func application(_ application: UIApplication, configurationForConnecting connec
 extension AppDelegate: PurchasesDelegate {
     
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        print("Check Access")
+        print("🟠 Purchases delegate")
         if customerInfo.entitlements.all["Access"]?.isActive == true {
-            print("✅User have premium!")
+            print("✅ User have premium!")
             UserDefaults.standard.setValue(true, forKey: "UserAccessObserverKey")
             UserDefaults.standard.synchronize()
-            // unregister
+            // unregister // cust logic
             UIApplication.shared.unregisterForRemoteNotifications()
-            print("isRegistered: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
+            print("⚠️ isRegistered: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
+            
+            NotificationCenter.default.post(
+                name: Notification.Name(PremiumBadgeManager.notificationKey),
+                object: true
+            )
         } else {
             print("‼️⚠️User not subscribe")
             UserDefaults.standard.setValue(false, forKey: "UserAccessObserverKey")
             UserDefaults.standard.synchronize()
+            //
+            NotificationCenter.default.post(
+                name: Notification.Name(PremiumBadgeManager.notificationKey),
+                object: false
+            )
         }
     }
 }
@@ -102,8 +112,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     // Delegate Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-        //          let token = tokenParts.joined()
+//        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        //          let token = tokenParts.joined
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Push: \(error)")

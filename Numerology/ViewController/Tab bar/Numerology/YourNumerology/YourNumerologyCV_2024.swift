@@ -131,81 +131,76 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
         
-        // MARK: Soul // 0
-        if indexPath.row == 0 {
-            let vc = DescriptionVC()
-            vc.configure(
+        switch indexPath.row {
+        case 0:
+            // MARK: Soul // 0
+            guard
+                let info = numbersOfSoulModel?.infoSoul,
+                let about = numbersOfSoulModel?.aboutSoul
+            else { return }
+            //
+            let vc = PremiumDescriptionVC (
                 title: "Your soul number",
-                info: numbersOfSoulModel?.infoSoul,
-                about: numbersOfSoulModel?.aboutSoul
+                info: info + about
             )
-            // MARK: Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            
-            if numbersOfSoulModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            }
-        }
-        
-        // MARK: Destiny // 1
-        if indexPath.row == 1 {
-            let vc = DescriptionVC()
-            vc.configure(
+            //
+            guard numbersOfSoulModel != nil else { return }
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        case 1:
+            // MARK: Destiny // 1
+            guard
+                let info = numbersOfDestinyModel?.infoDestiny,
+                let about = numbersOfDestinyModel?.aboutDestiny
+            else { return }
+            //
+            let vc = PremiumDescriptionVC (
                 title: "Your destiny number",
-                info: numbersOfDestinyModel?.infoDestiny,
-                about: numbersOfDestinyModel?.aboutDestiny
+                info: info + about
             )
+            //
+            guard numbersOfDestinyModel != nil else { return }
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
             
-            // MARK: Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            
-            if numbersOfDestinyModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            }
-        }
-        
-        // MARK: Name // 2
-        if indexPath.row == 2 {
-            let vc = DescriptionVC()
-            vc.configure(
+        case 2:
+            // MARK: Name // 2
+            guard
+                let info = numbersOfNameModel?.infoName,
+                let about = numbersOfNameModel?.aboutName
+            else { return }
+            //
+            let vc = PremiumDescriptionVC (
                 title: "Your name number",
-                info: numbersOfNameModel?.infoName,
-                about: numbersOfNameModel?.aboutName
+                info: info + about
             )
-            
-            // MARK: Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            
-            if numbersOfNameModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            }
-        }
-        // MARK: Power Code // 3
-        if indexPath.row == 3 {
-            let vc = DescriptionVC()
-            vc.configure(
+            //
+            guard numbersOfNameModel != nil else { return }
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        case 3:
+            // MARK: Power Code // 3
+            guard
+                let info = powerCodeModel?.infoPower,
+                let about = powerCodeModel?.aboutPower
+            else { return }
+            //
+            let vc = PremiumDescriptionVC (
                 title: "Power Code",
-                info: powerCodeModel?.infoPower,
-                about: powerCodeModel?.aboutPower
+                info: info + about
             )
+            //
+            guard powerCodeModel != nil else { return }
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
             
-            // MARK: Check
-            guard self.remoteOpenDelegate?.openFrom?.checkAccessContent() == true else { return }
-            
-            if powerCodeModel != nil {
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            }
+        default:
+            break
         }
     }
     

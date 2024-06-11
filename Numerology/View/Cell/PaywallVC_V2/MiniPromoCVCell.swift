@@ -86,8 +86,8 @@ final class MiniPromoCVCell: UICollectionViewCell {
         self.layer.cornerRadius = 16
         self.clipsToBounds = true
 
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -105,17 +105,15 @@ final class MiniPromoCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let contentStack = UIStackView(arrangedSubviews: [mainTitle,priceTitle,subtitle])
         contentStack.axis = .vertical
         contentStack.alignment = .center
-        contentStack.spacing = 6
+        contentStack.spacing = 4
         
         // Card Content
         cardContent.addArrangedSubview(contentStack)
-//        cardContent.addArrangedSubview(priceTitle)
-//        cardContent.addArrangedSubview(subtitle)
         
         // Config
         cardContent.axis = .vertical
@@ -126,7 +124,6 @@ final class MiniPromoCVCell: UICollectionViewCell {
         cardContent.layer.cornerRadius = 14
         cardContent.layoutMargins = UIEdgeInsets(top: 8, left: 18, bottom: 8, right: 18)
         cardContent.isLayoutMarginsRelativeArrangement = true
-        
         
         // Discount Caption Stack
         let discountCaption_Stack = UIStackView(arrangedSubviews: [discountCaption])

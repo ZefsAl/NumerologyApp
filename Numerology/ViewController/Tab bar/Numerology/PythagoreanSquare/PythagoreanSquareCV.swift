@@ -109,32 +109,20 @@ extension PythagoreanSquareCV: UICollectionViewDataSource, UICollectionViewDeleg
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
         
+        guard 
+            indexPath.row == 0 &&
+            pythagoreanSquareCVCell.content.pythagoreanDetailDataModels.isEmpty == false
+        else { return }
         
+        let vc = PythagoreanSquareDetailVC()
+        vc.configureHandleDataModels(
+            models: pythagoreanSquareCVCell.content.pythagoreanDetailDataModels
+        )
+        vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .overFullScreen
+        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
         
-        
-//        print("✅",pythagoreanSquareCVCell.content.pythagoreanDetailDataModel.count)
-//        
-//        
-//        for (key, model) in pythagoreanSquareCVCell.content.pythagoreanDetailDataModel {
-//            print("✅",model)
-//        }
-        
-        
-        // MARK: Soul // 0
-        if indexPath.row == 0 {
-            let vc = PythagoreanSquareDetailVC()
-            vc.configureHandleDataModels(
-                models: pythagoreanSquareCVCell.content.pythagoreanDetailDataModels
-            )
-            
-            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-        }
-
     }
 }

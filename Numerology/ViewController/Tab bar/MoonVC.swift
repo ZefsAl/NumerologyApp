@@ -28,8 +28,7 @@ class MoonVC: UIViewController {
     
     private let accordionView: AccordionView = {
         let v = AccordionView()
-        v.showAccordion()
-        v.accordionButton.configure(title: "Today")
+        v.accordionButton.setAccordionTitle("Today")
         return v
     }()
     
@@ -40,30 +39,25 @@ class MoonVC: UIViewController {
         self.setBackground(named: "MoonBG.png")
         AnimatableBG().setBackground(vc: self)
         //
-        setUpStack()
+        setupStack()
         requestData()
         
     }
     
     private func requestData() {
-        
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-//        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
-        
-        
         let moonDay = MoonCalendarManager().getAfternoonMoonDay()
-        
+        //
         HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
             self.accordionView.info.text = model.todayInfo
             self.accordionView.imageView.image = UIImage(named: "fullMoon.png")
             self.accordionView.showConstraintImage()
             self.accordionView.imageView.isHidden = false
         }
-        
     }
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let accordionStack = UIStackView(arrangedSubviews: [accordionView])
         accordionStack.translatesAutoresizingMaskIntoConstraints = false

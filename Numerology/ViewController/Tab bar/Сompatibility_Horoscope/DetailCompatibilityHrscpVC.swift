@@ -7,7 +7,10 @@
 
 import UIKit
 
-class DetailCompatibilityHrscpVC: UIViewController {
+class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
+    
+    var openFrom: UIViewController?
+    
     
     private let vcAccentColor: UIColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
     
@@ -27,22 +30,32 @@ class DetailCompatibilityHrscpVC: UIViewController {
     
     let compatibilityStatsStackView = CompatibilityStatsStackView()
     
-    private let accordionView: AccordionView = {
-       let v = AccordionView()
-       v.showAccordion()
+    private lazy var accordionView: PremiumAccordionView = {
+       let v = PremiumAccordionView(
+        title: "",
+        info: "",
+        isPremium: true,
+        visibleConstant: 200
+       )
+        v.remoteOpenDelegate = self
+        v.remoteOpenDelegate?.openFrom = self
+//        v.accordionButton.setAccordionTitle("")
+//        v.info.text = ""
+//       v.showAccordion()
        return v
    }()
     
     // MARK: - init
     init(compatibilityHrscpModel: CompatibilityHrscpModel, compareSignsStackView: CompareSignsStackView) {
-        
         compatibilityStatsStackView.setStats(model: compatibilityHrscpModel)
         super.init(nibName: nil, bundle: nil)
-        
+        //
+        self.openFrom = self
+        //
         self.compareSignsStackView.firstSignModel = compareSignsStackView.firstSignModel
         self.compareSignsStackView.secondSignModel = compareSignsStackView.secondSignModel
         
-        accordionView.accordionButton.configure(title: "Generally")
+        accordionView.accordionButton.setAccordionTitle("Generally")
         accordionView.info.text = compatibilityHrscpModel.aboutThisSign
     }
     
@@ -57,12 +70,12 @@ class DetailCompatibilityHrscpVC: UIViewController {
         self.setBackground(named: "CompatibilityBG.png")
         AnimatableBG().setBackground(vc: self)
         //
-        setUpStack()
+        setupStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
     }
 
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let accordionStack = UIStackView(arrangedSubviews: [accordionView])
         accordionStack.translatesAutoresizingMaskIntoConstraints = false

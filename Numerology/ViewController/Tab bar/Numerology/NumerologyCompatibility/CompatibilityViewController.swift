@@ -89,7 +89,7 @@ class CompatibilityViewController: UIViewController {
         super.viewDidLoad()
         
         self.setBackground(named: "MainBG2.png")
-        setUpStack()
+        setupStack()
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
     }
     
@@ -108,7 +108,7 @@ class CompatibilityViewController: UIViewController {
     
 
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         // MARK: user view
         let userView: UIView = {

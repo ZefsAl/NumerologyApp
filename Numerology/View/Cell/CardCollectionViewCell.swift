@@ -83,8 +83,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -105,7 +105,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         self.addSubview(bgImage)
         let titleStack = UIStackView(arrangedSubviews: [title,cardIcon])

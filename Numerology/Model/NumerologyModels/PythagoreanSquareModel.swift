@@ -33,6 +33,7 @@ struct PythagoreanSquareModel: Codable {
     let threeSign: String
     let fourSign: String
     let fiveSign: String
+    let info: String
 
     enum CodingKeys: String, CodingKey {
         case cell       = "cell"
@@ -42,5 +43,6 @@ struct PythagoreanSquareModel: Codable {
         case threeSign  = "threeSign"
         case fourSign   = "fourSign"
         case fiveSign   = "fiveSign"
+        case info       = "info"
     }
 }

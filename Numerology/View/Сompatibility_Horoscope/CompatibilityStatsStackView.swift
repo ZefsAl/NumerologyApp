@@ -62,7 +62,7 @@ class StatsStackView: UIStackView {
     // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpStack()
+        setupStack()
         
     }
     
@@ -71,7 +71,7 @@ class StatsStackView: UIStackView {
     }
     
     
-    private func setUpStack() {
+    private func setupStack() {
         let firstStack = UIStackView(arrangedSubviews: [title,percentTitle])
         firstStack.axis = .horizontal
         firstStack.alignment = .fill
@@ -121,7 +121,7 @@ class CompatibilityStatsStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpStack()
+        setupStack()
     }
     
     required init(coder: NSCoder) {
@@ -152,7 +152,7 @@ class CompatibilityStatsStackView: UIStackView {
         work.setProgressValue(value: valArr[4])
     }
     
-    private func setUpStack() {
+    private func setupStack() {
         
         let firstStack = UIStackView(arrangedSubviews: [relationship,intimacy])
         firstStack.axis = .horizontal

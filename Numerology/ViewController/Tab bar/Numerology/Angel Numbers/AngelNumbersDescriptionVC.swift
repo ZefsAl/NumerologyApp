@@ -57,7 +57,7 @@ class AngelNumbersDescriptionVC: UIViewController {
         self.setBackground(named: "MainBG2.png")
         AnimatableBG().setBackground(vc: self)
         //
-        setUpStack()
+        setupStack()
     }
     
     func configure(number: String, info: String) {
@@ -66,7 +66,7 @@ class AngelNumbersDescriptionVC: UIViewController {
     }
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let cardContentStack = UIStackView(arrangedSubviews: [
             imageView,

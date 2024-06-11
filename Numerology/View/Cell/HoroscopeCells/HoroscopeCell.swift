@@ -78,8 +78,8 @@ class HoroscopeCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -101,7 +101,7 @@ class HoroscopeCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         self.addSubview(image)
         

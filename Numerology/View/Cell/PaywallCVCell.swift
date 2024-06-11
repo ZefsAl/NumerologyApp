@@ -88,8 +88,8 @@ class PaywallCVCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.clear.cgColor
         
         
-        // Setup
-        setUpStack()
+        // setup
+        setupStack()
         
     }
     
@@ -105,7 +105,7 @@ class PaywallCVCell: UICollectionViewCell {
     
     
     // MARK: Set up Stack
-    private func setUpStack() {
+    private func setupStack() {
         
         let lableStack = UIStackView(arrangedSubviews: [title,subtitle])
         lableStack.axis = .vertical
