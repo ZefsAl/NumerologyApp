@@ -28,16 +28,34 @@ struct TrendsFieldID {
     static let usefulID_5 = "Useful5";
     
 }
+class TrendsArticlesUserDefaults {
+    
+    static func setUserData(name: String, surname: String) {
+        UserDefaults.standard.setValue(name, forKey: "nameKey")
+        UserDefaults.standard.setValue(surname, forKey: "surnameKey")
+        UserDefaults.standard.synchronize()
+    }
+
+    static func set(likeState: Bool, for articleKey: String) {
+        UserDefaults.standard.setValue(likeState, forKey: articleKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func getLikeState(for key: String) -> Bool {
+        return UserDefaults.standard.bool(forKey: key)
+    }
+}
 
 final class TrendsArticlesManager {
     
     static let shared: TrendsArticlesManager = TrendsArticlesManager()
     private let firestore = Firestore.firestore()
     
-    
+    // MARK: - set Toggle Like
     func setToggleLike(docID: String, bool: Bool) {
         let docRef = firestore.collection("TrendsArticles").document(docID)
-        
+
+        // как проверять что бы случайно не было <0
         if bool {
             docRef.updateData(["likes" : FieldValue.increment(Double(1))])
         } else {
@@ -45,8 +63,8 @@ final class TrendsArticlesManager {
         }
     }
     
-    
-    func getTrendsArticles(articleID: String, completion: @escaping ((TrendsArticlesModel, UIImage?) -> Void) ) {
+    // MARK: - get Trends Articles
+    func getTrendsArticles(articleID: String, completion: @escaping ((TrendsArticlesModel, UIImage?, String) -> Void)) {
         let docRef = firestore.collection("TrendsArticles").whereField("article", isEqualTo: articleID)
         
         
@@ -62,10 +80,11 @@ final class TrendsArticlesManager {
                 do {
                     let val = try doc.data(as: TrendsArticlesModel.self)
                     let ref = val.image.first?.ref // Путь
-                    print("ref 🔴🌕", ref as Any)
+                    print("ref 🟣⚠️🌕", ref as Any)
+//                    print("🟣⚠️🌕 ID",doc.documentID)
                     
                     guard let ref = ref else {
-                        completion(val, nil)
+                        completion(val, nil, doc.documentID)
                         return
                     }
                         
@@ -77,7 +96,7 @@ final class TrendsArticlesManager {
                         } else {
                             // origin
                             let image = UIImage(data: data!)
-                            completion(val, image ?? nil)
+                            completion(val, image ?? nil, doc.documentID)
                         }
                     }
                 }
@@ -86,6 +105,33 @@ final class TrendsArticlesManager {
                 }
             }
         }
+    }
+    
+    /// completion( Model, ID )
+    func setLikeListener(articleID: String, completion: @escaping ((TrendsArticlesModel, String) -> Void)) {
+        firestore.collection("TrendsArticles").document(articleID)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("🟣⚠️☑️ Document data was empty.")
+                    return
+                }
+                print("✅ Current data: \(data)")
+
+                do {
+                    let val = try document.data(as: TrendsArticlesModel.self)
+                    print("✅ decoded data: \(val.article)")
+                    print("✅ decoded data: \(val.likes)")
+                    print("✅ decoded data: \(document.documentID)")
+                    completion(val,document.documentID)
+                } catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
+                }
+            }
+        // https://firebase.google.com/docs/firestore/query-data/listen#swift
     }
 
 }

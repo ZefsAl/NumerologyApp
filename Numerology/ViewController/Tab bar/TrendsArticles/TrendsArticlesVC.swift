@@ -23,21 +23,13 @@ final class TrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         // 2
         setupUI()
         remoteOpen()
-
-//        TrendsArticlesManager.shared.getTrendsArticles(articleID: .horoscopeID_1) { model, image in
-//            print(model.article)
-//            print(model.cardText)
-//            print(model.cardTitle)
-//            print(model.isPremium)
-//            print(model.likes)
-//        }
     }
+
     
     private func remoteOpen() {
         // date Compatibility CV
         trendsArticlesCV.remoteOpenDelegate = self
         trendsArticlesCV.remoteOpenDelegate?.openFrom = self
-        
         self.openFrom = self
     }
     

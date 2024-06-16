@@ -186,6 +186,7 @@
 		C2CFA40C2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA40B2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift */; };
 		C2CFA40F2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA40E2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift */; };
 		C2D1C6FE2C00EF2500C2D481 /* PremiumAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */; };
+		C2E144992C1B28FC00FA23FD /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E144982C1B28FC00FA23FD /* TrendsView.swift */; };
 		C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */; };
 		C2FDF12E2C168ADA007EB282 /* TrendsArticlesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */; };
 /* End PBXBuildFile section */
@@ -367,6 +368,7 @@
 		C2CFA40B2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCV_2024.swift; sourceTree = "<group>"; };
 		C2CFA40E2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCell.swift; sourceTree = "<group>"; };
 		C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionView.swift; sourceTree = "<group>"; };
+		C2E144982C1B28FC00FA23FD /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall.swift; sourceTree = "<group>"; };
 		C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesManager.swift; sourceTree = "<group>"; };
 		DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -831,6 +833,7 @@
 				C25143F52C157B6D005019C6 /* TrendsArticlesVM.swift */,
 				C25143F92C164644005019C6 /* LikeButton.swift */,
 				C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */,
+				C2E144982C1B28FC00FA23FD /* TrendsView.swift */,
 			);
 			path = TrendsArticles;
 			sourceTree = "<group>";
@@ -1221,6 +1224,7 @@
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				841B552C2B5AA760002EE1F8 /* CompareSignsStackView.swift in Sources */,
 				84DBB9CB2AE955D500A0784F /* EnterUserDataVC.swift in Sources */,
+				C2E144992C1B28FC00FA23FD /* TrendsView.swift in Sources */,
 				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
 				844EA4092B117A6700D2D596 /* HoroscopeSign.swift in Sources */,
 				848DFACC2AC41BDF0043512C /* Mini2PromoCVCell.swift in Sources */,

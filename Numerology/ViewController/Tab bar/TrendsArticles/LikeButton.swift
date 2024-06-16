@@ -7,27 +7,23 @@
 
 import UIKit
 
+protocol LikeButtonDelegate {
+    func likeAction()
+}
+
 class LikeButton: UIButton {
+    
+    // MARK: - Const
+    var likeButtonDelegate: LikeButtonDelegate? = nil
+    
+    private var articleID: String? = nil
     
     private var amountLikes: Int = 0 {
         didSet {
             self.likeTitle.text = String(amountLikes)
         }
     }
-    
-    private var didTapState: Bool = false {
-        didSet {
-            self.amountLikes = didTapState ? amountLikes + 1 : amountLikes - 1
-            setIconToggle(didTapState)
-        }
-    }
-    
-    // MARK: - isTouchInside
-    override var isTouchInside: Bool {
-        didTapState = didTapState ? false : true
-        return true
-    }
-    
+
     private let likeTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -54,13 +50,68 @@ class LikeButton: UIButton {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         setUI()
-        setAmountLikes(amount: self.amountLikes)
+        //
+        self.addTarget(self, action: #selector(likeAction), for: .touchUpInside)
     }
     
-    func setAmountLikes(amount: Int) {
-        self.amountLikes = amount
+    @objc private func likeAction(_ sender: UIButton) {
+        sender.isSelected.toggle() // 1
+        print("🔵✅likeAction", sender.isSelected)
+        self.likeButtonDelegate?.likeAction() // delegate trigger
+        self.amountLikes = sender.isSelected ? amountLikes + 1 : amountLikes - 1
+        setIconToggle(sender.isSelected)
+        postLikeEvent(sender.isSelected)
+        //
+        NotificationCenter.default.post(
+            name: Notification.Name(TrendsArticlesVM.notificationKey),
+            object: nil
+        )
     }
     
+    private func postLikeEvent(_ isSelected: Bool) {
+        guard let articleID = articleID else { return }
+        // User defaults
+        TrendsArticlesUserDefaults.set(likeState: isSelected, for: articleID)
+        // upd locale arr
+        TrendsArticlesVM.shared.updateLikes(
+            model: &TrendsArticlesVM.shared.trendsArticlesModel,
+            likeValue: self.amountLikes,
+            articleID: articleID
+        )
+        // post Firbase field
+        TrendsArticlesManager.shared.setToggleLike(docID: articleID, bool: isSelected)
+        
+        // допустим тут будет Notification который .reloadData collection 
+        
+    }
+    
+    
+    
+    
+    
+    func configureLike(
+        model: TrendsCellModel
+    ) {
+        self.amountLikes = model.likes
+        self.articleID = model.articleID
+
+        guard let articleID = model.articleID else { return }
+
+        if model.likes <= 0 { // cannot be liked
+            TrendsArticlesUserDefaults.set(likeState: false, for: articleID)
+            self.isSelected = false
+            self.setIconToggle(false)
+        } else {
+            self.isSelected = TrendsArticlesUserDefaults.getLikeState(for: articleID)
+            self.setIconToggle(TrendsArticlesUserDefaults.getLikeState(for: articleID))
+        }
+        
+        
+        // и нужен релоад даты при дидсет ?
+    }
+    
+    
+    // MARK: - set Icon Toggle
     private func setIconToggle(_ state: Bool) {
         let configImage = UIImage(
             systemName: state ? "hand.thumbsup.fill" : "hand.thumbsup",

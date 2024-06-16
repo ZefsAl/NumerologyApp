@@ -52,14 +52,14 @@ extension UIView {
     }
     
     // MARK: - custom Corner Radius
-    func customCornerRadius(viewToRound: UIView, byRoundingCorners: UIRectCorner?, corner: CGFloat?) {
+    func customCornerRadius(viewToRound: UIView, byRoundingCorners: UIRectCorner?, cornerValue: CGFloat?) {
         
         let maskLayer = CAShapeLayer()
         maskLayer.name = "CustomCornerRadius"
         
         guard 
             let byRoundingCorners = byRoundingCorners,
-            let corner = corner
+            let corner = cornerValue
         else {
             return
         }
@@ -70,7 +70,6 @@ extension UIView {
         )
         maskLayer.path = path.cgPath
         viewToRound.layer.mask = maskLayer
-        
     }
     
     

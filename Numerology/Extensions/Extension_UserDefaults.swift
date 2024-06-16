@@ -28,8 +28,8 @@ extension UserDefaults {
     }
     
     // kvo
-    @objc dynamic var userAccess: Bool {
-        return bool(forKey: "UserAccessObserverKey")
-    }
+//    @objc dynamic var userAccess: Bool {
+//        return bool(forKey: "UserAccessObserverKey")
+//    }
     
 }

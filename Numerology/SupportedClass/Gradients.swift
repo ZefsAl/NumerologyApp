@@ -76,6 +76,7 @@ class Gradients {
         }
         
         forView.layer.addSublayer(gradient)
+//        forView.layer.inse
     }
     
     

@@ -222,58 +222,12 @@ final class HoroscopeManager {
     
     
     // MARK: - get Modey Calendar
-    // Правка 🔴 июнь
-    // можно добавить новый праметр SpecificMonth? ->  if Date().get(.day) == 27 -> SpecificMonth? + 1
-    // specificMonth? = nil
-    // specificMonth ?? .month
-    
-    // нет ннужно переписать функцию которая будет возвращать запрос текущий месяц или конкретно указанный
     func getMoneyCalendar(zodiacSign: String, completion: @escaping (MonthCalendarModel) -> Void) {
         
-//        var docRef: Query {
-//            switch Date().get(.month) {
-//            case 1:
-//                print("1 Month API")
-//                return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 2:
-//                print("2 Month API")
-//                return firestore.collection("February-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 3:
-//                print("3 Month API")
-//                return firestore.collection("March-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 4:
-//                print("4 Month API")
-//                return firestore.collection("April-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 5:
-//                print("5 Month API")
-//                return firestore.collection("May-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 6:
-//                print("6 Month API")
-//                return firestore.collection("June-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 7:
-//                print("7 Month API")
-//                return firestore.collection("July-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 8:
-//                print("8 Month API")
-//                return firestore.collection("August-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 9:
-//                print("9 Month API")
-//                return firestore.collection("September-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 10:
-//                print("10 Month API")
-//                return firestore.collection("October-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 11:
-//                print("11 Month API")
-//                return firestore.collection("November-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            case 12:
-//                print("12 Month API")
-//                return firestore.collection("December-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            default:
-//                return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
-//            }
-//        }
-        
         func makeDocRef(byMonth: Int) -> Query {
+            //        var docRef: Query {
+            //            switch Date().get(.month) { // old
+            
             switch byMonth {
             case 1:
                 print("1 Month API")
@@ -316,14 +270,23 @@ final class HoroscopeManager {
             }
         }
         
-        // cust: change to next horoscope if day "27"
-        if Date().get(.day) >= 27 {
-            
-        }
-        let changeHoroscope
+        let changeHoroscope: Int = {
+            // cust: change to next horoscope if day "27"
+            let date = Date()
+            let currentDay = date.get(.day)
+            let current = date.get(.month)
+            let next = date.getNext(.month)
+            //
+//            print("✅ curr", date)
+//            print("⚠️ curr day", date.get(.day))
+//            print("⚠️ curr month", current)
+//            print("⚠️ next month", date.getNext(.month))
+            //
+            return currentDay >= 27 ? next : current
+        }()
         
         // request
-        makeDocRef(byMonth: Date().get(.month)).getDocuments() { (querySnapshot, error) in
+        makeDocRef(byMonth: changeHoroscope).getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             //
             if let error = error {

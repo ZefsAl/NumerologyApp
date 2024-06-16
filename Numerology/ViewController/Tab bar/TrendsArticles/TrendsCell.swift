@@ -15,43 +15,12 @@ class TrendsCell: UICollectionViewCell {
     
     let premiumBadgeManager = PremiumBadgeManager()
     
-    // MARK: title
-    let imageTitle: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(name: "Cinzel-Regular", size: 26)
-        l.textAlignment = .left
-        l.textColor = DesignSystem.TrendsArticles.textColor
-        return l
-    }()
-    
-    let shareButton: UIButton = {
-        let b = UIButton(type: .system)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        let configImage = UIImage(
-            systemName: "square.and.arrow.up",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-        )?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        b.setImage(configImage, for: .normal)
-        return b
-    }()
-    
-    
-    
-    let likeButton = LikeButton(type: .system)
-    
-//    // MARK: Icon
-    let bgImage: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = UIView.ContentMode.scaleAspectFill
-        return iv
-    }()
+    let trendsView = TrendsView(edgeMargin: 12)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Style
-        self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
+        self.backgroundColor = DesignSystem.TrendsArticles.backgroundColor
         // Border
         self.layer.cornerRadius = 16
         self.layer.borderWidth = 1
@@ -71,16 +40,13 @@ class TrendsCell: UICollectionViewCell {
     }
     
     // MARK: Configure
-    func configure(
-        imageTitle: String,
-        bgImage: UIImage?,
-        isPremium: Bool,
-        likes: Int
+    func configureCell(
+        model: TrendsCellModel
     ) {
-        self.imageTitle.text = imageTitle
-        self.bgImage.image = bgImage
-        likeButton.setAmountLikes(amount: likes)
-        if isPremium {
+        // тут проблема при скроле почему то reloadData
+        self.trendsView.setDataModel(model: model)
+        //
+        if model.isPremium {
             self.premiumBadgeManager.setPremiumBadgeToCard(
                 view: self,
                 imageSize: 18,
@@ -92,35 +58,17 @@ class TrendsCell: UICollectionViewCell {
         }
     }
     
-    
-    
-    
     // MARK: Set up Stack
     private func setupStack() {
         // add
-        self.addSubview(bgImage) // 1
-        Gradients().setBlackGradient(forView: self, height: 66, framePosition: .top)
-        Gradients().setBlackGradient(forView: self, height: 66, framePosition: .bottom)
-        self.addSubview(imageTitle)
-        self.addSubview(shareButton)
-        self.addSubview(likeButton)
+        self.addSubview(trendsView) // 1
         //
-        
         NSLayoutConstraint.activate([
-            // bg Image
-            bgImage.topAnchor.constraint(      equalTo: self.topAnchor,      constant: 0),
-            bgImage.leadingAnchor.constraint(  equalTo: self.leadingAnchor,  constant: 0),
-            bgImage.trailingAnchor.constraint( equalTo: self.trailingAnchor, constant: 0),
-            bgImage.bottomAnchor.constraint(   equalTo: self.bottomAnchor,   constant: 0),
-            // title
-            imageTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 12),
-            imageTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            // share
-            shareButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            shareButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
-            // like
-            likeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
-            likeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12),
+            // view
+            trendsView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            trendsView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            trendsView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            trendsView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
         ])
     }
 }

@@ -28,37 +28,41 @@ enum CellSectionType {
 }
 // Cell
 struct TrendsCellModel {
-    let article: String? 
-    let cardText: String? 
-    let cardTitle: String? 
+    var articleID: String?
     //
-    let imageTitle: String
-    let image: UIImage?
-    let isPremium: Bool
-    let likes: Int
-    let handler: (() -> Void)? = nil
+    var article: String?
+    var cardText: String?
+    var cardTitle: String?
+    //
+    var imageTitle: String
+    var image: UIImage?
+    var isPremium: Bool
+    var likes: Int
+//    var likeState: Bool
+    //
+    var handler: (() -> Void)? = nil
 }
 
-
-
-struct DiffableSectionModel: Hashable {
-    var id = UUID().uuidString
-    let sectionTitle: String
-//    var sectionCells: [DiffableCellModel]
-}
-
-
-
-struct DiffableCellModel: Hashable {
-    let id = UUID().uuidString
-    //
-    let article: String? = nil
-    let cardText: String? = nil
-    let cardTitle: String? = nil
-    //
-    let imageTitle: String
-    let image: UIImage?
-    let isPremium: Bool
-    let likes: Int
-//    let handler: (() -> Void)? = nil
-}
+//
+//
+//struct DiffableSectionModel: Hashable {
+//    var id = UUID().uuidString
+//    let sectionTitle: String
+////    var sectionCells: [DiffableCellModel]
+//}
+//
+//
+//
+//struct DiffableCellModel: Hashable {
+//    let id = UUID().uuidString
+//    //
+//    let article: String? = nil
+//    let cardText: String? = nil
+//    let cardTitle: String? = nil
+//    //
+//    let imageTitle: String
+//    let image: UIImage?
+//    let isPremium: Bool
+//    let likes: Int
+////    let handler: (() -> Void)? = nil
+//}

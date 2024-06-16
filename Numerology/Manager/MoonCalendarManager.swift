@@ -17,10 +17,9 @@ final class MoonCalendarManager {
     
     func getAfternoonMoonDay() -> Int {
         let info = moonPhaseManager.getInfo(date: Date())
-         let result = info.moonModels.max { $0.age < $1.age }?.age // !!!!
+         let result = info.moonModels.max { $0.age < $1.age }?.age // fixed!
         print("🌕🌚 Afternoon is day is",result as Any)
         print("Current Date",Date())
-//        calculateMoon()
         return result ?? 1
     }
 

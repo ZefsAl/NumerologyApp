@@ -29,21 +29,6 @@ class PythagoreanSquare {
         return result
     }
     
-    static func makeDate(year: String, month: String, day: String) -> Date {
-        let strDate = "\(year)-\(month)-\(day)T00:00:00+0000"
-        let df = DateFormatter()
-        // full format
-        df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let new = df.date(from: strDate)
-        if let new = new {
-            print("date ✅ Unwrapped")
-            return new
-        } else {
-            print("date 🔴 Not Unwrap")
-            return Date()
-        }
-    }
-    
     func convertDateFormat(date: Date) -> String {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"

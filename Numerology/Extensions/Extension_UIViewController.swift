@@ -111,10 +111,10 @@ extension UIViewController {
     // MARK: - Share
     func shareButtonClicked() {
         
-        let textToShare = String(describing: "LED Banner App")
+        let textToShare = String(describing: "Numerology")
         guard
-            let myAppURLToShare = URL(string: "https://apps.apple.com/app/the-led-banner-scroller/id6470816709"),
-            let image = UIImage(named: "AppIcon.jpg")
+            let myAppURLToShare = URL(string: "https://apps.apple.com/ru/app/id1622398869"),
+            let image = UIImage(named: "AppIcon")
         else { return }
         let items = [textToShare, myAppURLToShare, image] as [Any]
         let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)

@@ -147,18 +147,18 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
             if indexPath.row == 0 {
                 cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
                 cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: width)
-                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topLeft, corner: conren)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topLeft, cornerValue: conren)
                 return cell
             }
             if indexPath.row == 1 {
                 cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
                 cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
-                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .allCorners, corner: 0)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .allCorners, cornerValue: 0)
             }
             if indexPath.row == 2 {
                 cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)
                 cell.addBorder(toView: cell, toSide: .right, withColor: color, andThickness: width)
-                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomLeft, corner: conren)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomLeft, cornerValue: conren)
             }
             break
         case .second:
@@ -177,7 +177,7 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
             if indexPath.row == 0 {
                 cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
                 cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: width)
-                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topRight, corner: conren)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .topRight, cornerValue: conren)
             }
             if indexPath.row == 1 {
                 cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
@@ -187,7 +187,7 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
             if indexPath.row == 2 {
                 cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)
                 cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
-                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomRight, corner: conren)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .bottomRight, cornerValue: conren)
             }
             break
         }

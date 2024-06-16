@@ -26,17 +26,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
         
 //        // MARK: App Config
-        setAppFlow()
+//        setAppFlow()
         
         // test
-//        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
-//        self.window?.rootViewController = nav
-//        self.window?.makeKeyAndVisible()
+        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
         //
         
         
         
-        print("🔴scene🔴")
+        print("🔄 scene")
     }
     
     private func setAppFlow() {
@@ -59,24 +59,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        print("🔴sceneDidDisconnect🔴")
+        print("🔄sceneDidDisconnect")
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        print("🔴sceneDidBecomeActive🔴")
+        print("🔄 sceneDidBecomeActive")
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        print("🔴sceneWillResignActive🔴")
+        print("🔄 sceneWillResignActive")
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print("🔴sceneWillEnterForeground🔴")
+        print("🔄 sceneWillEnterForeground")
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        print("🔴sceneDidEnterBackground🔴")
+        print("🔄 sceneDidEnterBackground")
     }
     
 }

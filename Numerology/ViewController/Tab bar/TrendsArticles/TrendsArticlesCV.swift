@@ -12,7 +12,7 @@ final class TrendsArticlesCV: UICollectionView {
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
-    let trendsArticlesVM = TrendsArticlesVM()
+    let trendsArticlesVM = TrendsArticlesVM.shared
     
     // MARK: - init
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -26,43 +26,14 @@ final class TrendsArticlesCV: UICollectionView {
     
     func configure() {
         self.translatesAutoresizingMaskIntoConstraints = false
-//        self.backgroundColor = .clear
+        self.backgroundColor = .clear
         self.alwaysBounceVertical = true
         self.showsVerticalScrollIndicator = false
-        
-        self.backgroundColor = .systemGray6
-        
+        //
         register()
         setCompositionalLayoutCV(model: self.trendsArticlesVM.trendsArticlesModel)
         requestData()
     }
-    
-    
-//    private func remoteOpen() {
-//        // date Compatibility CV
-//        dateCompatibilityCV.remoteOpenDelegate = self
-//        dateCompatibilityCV.remoteOpenDelegate?.openFrom = self
-//        // your numerology CV
-//        yournumerologyCV.remoteOpenDelegate = self
-//        yournumerologyCV.remoteOpenDelegate?.openFrom = self
-//        // personal Predictions CV
-//        personalPredictionsCV.remoteOpenDelegate = self
-//        personalPredictionsCV.remoteOpenDelegate?.openFrom = self
-//        // about CV
-//        aboutCV.remoteOpenDelegate = self
-//        aboutCV.remoteOpenDelegate?.openFrom = self
-//        // your Money CV
-//        yourMoneyCV.remoteOpenDelegate = self
-//        yourMoneyCV.remoteOpenDelegate?.openFrom = self
-//        // angel Numbers CV
-//        angelNumbersCV.remoteOpenDelegate = self
-//        angelNumbersCV.remoteOpenDelegate?.openFrom = self
-//        // pythagorean Square CV
-//        pythagoreanSquareCV.remoteOpenDelegate = self
-//        pythagoreanSquareCV.remoteOpenDelegate?.openFrom = self
-//
-//        self.openFrom = self
-//    }
     
     private func register() {
         // Delegates
@@ -72,11 +43,19 @@ final class TrendsArticlesCV: UICollectionView {
         self.register(TrendsCell.self, forCellWithReuseIdentifier: TrendsCell.reuseID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
-        //
+        self.trendsArticlesVM.setLikeNotification(observer: self, action: #selector(self.notificationLikeAction(notification:)))
     }
-    @objc func shareCellAction() {
-        self.remoteOpenDelegate?.openFrom?.shareButtonClicked()
+    
+    
+    @objc private func notificationLikeAction(notification: Notification) {
+//        guard let bool = notification.object as? Bool else { return }
+        print("🟣🟢 notificationLikeAction 🟣🟢")
+        DispatchQueue.main.async {
+            self.reloadData()
+        }
+        // что в логах ??
     }
+    
     
     func requestData() {
         
@@ -108,15 +87,10 @@ final class TrendsArticlesCV: UICollectionView {
         DispatchQueue.main.async {
             for (sectionKey, sectionOfIDs) in sections {
                 for (cellKey, articleID) in sectionOfIDs {
-                    TrendsArticlesManager.shared.getTrendsArticles(articleID: articleID) { model, image in
-//                        let model = TrendsCellModel(
-//                            imageTitle: model.imageTitle,
-//                            image: image,
-//                            isPremium: model.isPremium ?? false,
-//                            likes: model.likes
-//                        )
+                    TrendsArticlesManager.shared.getTrendsArticles(articleID: articleID) { model, image, id in
                         
                         let model = TrendsCellModel(
+                            articleID: id,
                             article: model.article,
                             cardText: model.cardText,
                             cardTitle: model.cardTitle,
@@ -125,7 +99,7 @@ final class TrendsArticlesCV: UICollectionView {
                             isPremium: model.isPremium ?? false,
                             likes: model.likes
                         )
-                        print("🔴⚠️🌕 section",sectionKey,"cell",cellKey,model.isPremium)
+                        print("⚠️🌕 section",sectionKey,"cell isPremium ==",cellKey,model.isPremium)
                         
                         self.trendsArticlesVM.trendsArticlesModel.sections[sectionKey].sectionCells[cellKey] = model
                         self.reloadData()
@@ -133,24 +107,6 @@ final class TrendsArticlesCV: UICollectionView {
                 }
             }
         }
-        
-        
-        
-        
-//            DispatchQueue.main.async {
-//                TrendsArticlesManager.shared.getTrendsArticles(articleID: TrendsFieldID.astrologyID_1 ) { model, image in
-//                    let model = TrendsCellModel(
-//                        imageTitle: model.imageTitle,
-//                        image: image,
-//                        isPremium: model.isPremium ?? false,
-//                        likes: model.likes
-//                    )
-//                    
-//                    self.trendsArticlesVM.trendsArticlesModel.sections[0].sectionCells[0] = model
-//                    self.reloadData()
-//            }
-            
-//        }
     }
 }
 
@@ -167,7 +123,7 @@ extension TrendsArticlesCV: UICollectionViewDataSource {
         return self.trendsArticlesVM.trendsArticlesModel.sections[section].sectionCells.count
     }
 
-    // MARK: - cell
+    // MARK: - Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(
@@ -175,78 +131,13 @@ extension TrendsArticlesCV: UICollectionViewDataSource {
             for: indexPath as IndexPath
         ) as! TrendsCell
         
-        cell.shareButton.addTarget(self, action: #selector(shareCellAction), for: .touchUpInside)
+        cell.trendsView.remoteOpenDelegate = remoteOpenDelegate
+        cell.trendsView.remoteOpenDelegate?.openFrom = remoteOpenDelegate?.openFrom
         
-        let row = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
-        
-        cell.configure(
-//            imageTitle: row.imageTitle,
-            imageTitle: row.article ?? "error" ,
-            bgImage: row.image,
-            isPremium: row.isPremium,
-            likes: row.likes
-        )
-        
-//        switch indexPath {
-//        case [0, 0]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.astrologyID_1, cell: cell)
-//            return cell
-//        case [0, 1]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.astrologyID_2, cell: cell)
-//            return cell
-//        case [0, 2]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.astrologyID_3, cell: cell)
-//            return cell
-//        //
-//        case [1, 0]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.numerologyID_1, cell: cell)
-//            return cell
-//        case [1, 1]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.numerologyID_2, cell: cell)
-//            return cell
-//        case [1, 2]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.numerologyID_3, cell: cell)
-//            return cell
-//        case [1, 3]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.numerologyID_4, cell: cell)
-//            return cell
-//        //
-//        case [2, 0]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.usefulID_1, cell: cell)
-//            return cell
-//        case [2, 1]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.usefulID_2, cell: cell)
-//            return cell
-//        case [2, 2]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.usefulID_3, cell: cell)
-//            return cell
-//        case [2, 3]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.usefulID_4, cell: cell)
-//            return cell
-//        case [2, 4]:
-//            self.makeRequestAndCell(articleID: TrendsFieldID.usefulID_5, cell: cell)
-//            return cell
-//            
-//        default:
-//            break
-//        }
-        
-        
+        let model = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
+        cell.configureCell(model: model)
         
         return cell
-    }
-    
-    private func makeRequestAndCell(articleID: String, cell: TrendsCell) {
-        DispatchQueue.main.async {
-            TrendsArticlesManager.shared.getTrendsArticles(articleID: articleID) { model, image in
-                cell.configure(
-                    imageTitle: model.imageTitle,
-                    bgImage: image,
-                    isPremium: model.isPremium ?? false,
-                    likes: model.likes
-                )
-            }
-        }
     }
 
     // MARK: - Supplementary Element
@@ -271,11 +162,7 @@ extension TrendsArticlesCV: UICollectionViewDelegateFlowLayout {
         let model = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
         
         print("TAP cell TrendsArticlesCV✅",indexPath)
-        let vc = DatailTrendsArticlesVC()
-        vc.configureUI(model: model, visibleConstant: 150)
-        
-        
-//        vc.view.backgroundColor = .red
+        let vc = DatailTrendsArticlesVC(model: model, visibleConstant: 150)
         
         vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         let navVC = UINavigationController(rootViewController: vc)

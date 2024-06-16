@@ -218,7 +218,6 @@ extension HoroscopeDescriptionVC: UICollectionViewDelegate, UICollectionViewData
         )
         if indexPath.row == 0 {
             cell.configure(title: "Today")
-            cell.premiumBadgeManager.invalidateBadgeAndNotification()
         } else if indexPath.row == 1 {
             cell.configure(title: "Tomorrow")
         } else if indexPath.row == 2 {
@@ -230,6 +229,7 @@ extension HoroscopeDescriptionVC: UICollectionViewDelegate, UICollectionViewData
         } else if indexPath.row == 5 {
             cell.configure(title: "Year 2024")
         }
+        cell.premiumBadgeManager.invalidateBadgeAndNotification()
         return cell
     }
     
