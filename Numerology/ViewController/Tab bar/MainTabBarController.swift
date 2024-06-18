@@ -103,12 +103,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
     
     lazy var fiveTabNav: CustomNavController = {
         let fiveVC = TrendsArticlesVC()
-        
-        let configImage = UIImage(
-            systemName: "info.bubble.fill",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)
-        )
-        let fiveImage = configImage
+        let fiveImage = UIImage(named: "Trends")
         fiveVC.tabBarItem.image = fiveImage
         fiveVC.tabBarItem.title = "Trends"
         fiveVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
@@ -160,12 +155,11 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         super.viewDidAppear(true)
     
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
-            
             guard
                 customerInfo?.entitlements["Access"]?.isActive == false ||
                 customerInfo?.entitlements["Access"]?.isActive == nil
             else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+80) {
                 // MARK: - Special Offer ✅
                 self.presentViewControllerFromVisibleViewController(SpecialOfferPaywall(), animated: true) {}
             }

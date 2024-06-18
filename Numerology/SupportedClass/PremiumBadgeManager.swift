@@ -41,10 +41,10 @@ final class PremiumBadgeManager {
         view: UIView,
         imageSize: CGFloat = 18,
         side: AvalibleConstraint = .bottomTrailing,
-        tintColor: UIColor = DesignSystem.BadgeColor.dark
+        tintColor: UIColor = DesignSystem.BadgeColor.transparent
     ) {
         
-        // set if user defaults not have access
+        // ✅ check, set if user defaults not have access
         let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
         guard 
             let accessVal = accessVal,
@@ -86,10 +86,6 @@ final class PremiumBadgeManager {
         
     }
     
-    
-
-    
-
     /// return if user defaults not have access
     func getPremiumImageForAccordion(imageSize: CGFloat) -> UIImage? {
         let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
@@ -98,7 +94,7 @@ final class PremiumBadgeManager {
             accessVal == false
         else { return nil }
         //
-        let color = #colorLiteral(red: 0.3137254902, green: 0.3019607843, blue: 0.3490196078, alpha: 1)
+        let color = DesignSystem.BadgeColor.transparent
         let configImage = UIImage(
             systemName: "lock.fill",
             withConfiguration: UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)
@@ -109,7 +105,6 @@ final class PremiumBadgeManager {
     // MARK: - Notification action
     @objc private func notificationAllowPremiumContent(notification: Notification) {
         guard let bool = notification.object as? Bool else { return }
-//        print("premiumBadgeNotificationAction 🟣🟢 get ", bool)
         self.miniCardPremiumIcon.isHidden = bool
 
     }

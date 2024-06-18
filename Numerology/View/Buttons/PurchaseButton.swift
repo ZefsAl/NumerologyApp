@@ -29,11 +29,6 @@ class PurchaseButton: UIButton {
         return aiv
     }()
     
-    override var isTouchInside: Bool {
-        bounceAnimate()
-        return true
-    }
-    
     init(frame: CGRect, title: String, primaryColor: UIColor) {
         self.primaryColor = primaryColor
         lable.text = title
@@ -53,6 +48,8 @@ class PurchaseButton: UIButton {
         self.addSubview(btnContentStack)
         btnContentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         btnContentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        //
+        self.addTarget(Any?.self, action: #selector(animateAction), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

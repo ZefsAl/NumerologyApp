@@ -23,8 +23,8 @@ final class TrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         // 2
         setupUI()
         remoteOpen()
+        //
     }
-
     
     private func remoteOpen() {
         // date Compatibility CV

@@ -14,6 +14,8 @@ final class TrendsArticlesCV: UICollectionView {
     
     let trendsArticlesVM = TrendsArticlesVM.shared
     
+//    let premiumBadgeManager = PremiumBadgeManager()
+    
     // MARK: - init
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -48,7 +50,6 @@ final class TrendsArticlesCV: UICollectionView {
     
     
     @objc private func notificationLikeAction(notification: Notification) {
-//        guard let bool = notification.object as? Bool else { return }
         print("🟣🟢 notificationLikeAction 🟣🟢")
         DispatchQueue.main.async {
             self.reloadData()
@@ -99,7 +100,6 @@ final class TrendsArticlesCV: UICollectionView {
                             isPremium: model.isPremium ?? false,
                             likes: model.likes
                         )
-                        print("⚠️🌕 section",sectionKey,"cell isPremium ==",cellKey,model.isPremium)
                         
                         self.trendsArticlesVM.trendsArticlesModel.sections[sectionKey].sectionCells[cellKey] = model
                         self.reloadData()
@@ -136,7 +136,6 @@ extension TrendsArticlesCV: UICollectionViewDataSource {
         
         let model = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
         cell.configureCell(model: model)
-        
         return cell
     }
 
@@ -161,38 +160,12 @@ extension TrendsArticlesCV: UICollectionViewDelegateFlowLayout {
         
         let model = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
         
-        print("TAP cell TrendsArticlesCV✅",indexPath)
         let vc = DatailTrendsArticlesVC(model: model, visibleConstant: 150)
-        
         vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         let navVC = UINavigationController(rootViewController: vc)
         navVC.modalPresentationStyle = .overFullScreen
         self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        return CGSize(width: ((collectionView.frame.size.width-36)/2)-8, height: 112)
-//    }
-//    
-//    
-//    // Vertical spacing
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 24
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 24
-//    }
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
-//        return CGSize(width: collectionView.frame.width, height: 50)
-//    }
 }
 
 // MARK: - Compositional Layout
@@ -237,8 +210,6 @@ extension TrendsArticlesCV {
 //            }
 //        }()
         
-        
-            
         let trailingMargin: CGFloat = 36
         //
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: items )

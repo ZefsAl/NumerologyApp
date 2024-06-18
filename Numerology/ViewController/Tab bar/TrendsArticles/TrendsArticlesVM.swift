@@ -23,10 +23,9 @@ final class TrendsArticlesVM {
     // MARK: - init
     init() {
         presetData()
-//        setListener()
-//        self.setLikeNotification(observer: self, action: #selector(self.notificationLikeAction(notification:)))
+
     }
-    
+//    self.setLikeNotification(observer: self, action: #selector(self.notificationLikeAction(notification:)))
 //    @objc private func notificationLikeAction(notification: Notification) {
 //        guard let bool = notification.object as? Bool else { return }
 //        print("notificationLikeAction 🟣🟢 get ", bool)
@@ -48,18 +47,18 @@ final class TrendsArticlesVM {
 //            for cellIndex in 0..<model.sections[sectionIndex].sectionCells.count {
 //                if model.sections[sectionIndex].sectionCells[cellIndex].articleID == articleID {
 //                    model.sections[sectionIndex].sectionCells[cellIndex] = newModel
-//                    return // выходим из функции, так как элемент найден и обновлен
+//                    return
 //                }
 //            }
 //        }
 //    }
-//    
+    
     func updateLikes(model: inout CollectionModel, likeValue: Int, articleID: String?) {
         for sectionIndex in 0..<model.sections.count {
             for cellIndex in 0..<model.sections[sectionIndex].sectionCells.count {
                 if model.sections[sectionIndex].sectionCells[cellIndex].articleID == articleID {
                     model.sections[sectionIndex].sectionCells[cellIndex].likes = likeValue < 0 ? 0 : likeValue
-                    return // выходим из функции, так как элемент найден и обновлен
+                    return 
                 }
             }
         }
@@ -75,9 +74,9 @@ final class TrendsArticlesVM {
             astrology.sectionCells.append(
                 TrendsCellModel(
                     articleID: nil,
-                    article: "",
-                    cardText: "",
-                    cardTitle: "",
+                    article: nil,
+                    cardText: nil,
+                    cardTitle: nil,
                     imageTitle: "",
                     image: nil,
                     isPremium: false,
@@ -92,9 +91,9 @@ final class TrendsArticlesVM {
             numerology.sectionCells.append(
                 TrendsCellModel(
                     articleID: nil,
-                    article: "",
-                    cardText: "",
-                    cardTitle: "",
+                    article: nil,
+                    cardText: nil,
+                    cardTitle: nil,
                     imageTitle: "",
                     image: nil,
                     isPremium: false,
@@ -109,9 +108,9 @@ final class TrendsArticlesVM {
             useful.sectionCells.append(
                 TrendsCellModel(
                     articleID: nil,
-                    article: "",
-                    cardText: "",
-                    cardTitle: "",
+                    article: nil,
+                    cardText: nil,
+                    cardTitle: nil,
                     imageTitle: "",
                     image: nil,
                     isPremium: false,

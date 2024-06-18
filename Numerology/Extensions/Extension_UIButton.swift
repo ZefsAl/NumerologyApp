@@ -9,15 +9,13 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func bounceAnimate() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, animations: {
-                self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.transform = CGAffineTransform.identity
-                }
-            })
-        }
+    
+    @objc func animateAction() {
+        TouchSupport.tapDefaultAnimate(view: self)
+    }
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        TouchSupport.hapticImpact(style: .soft)
     }
 }

@@ -165,6 +165,8 @@
 		C25A4D9E2C0A522C0040A104 /* DeviceMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */; };
 		C25B717B2BFCBA2E00E41E98 /* PythagoreanSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */; };
 		C25BDACA2BC32EF60024636F /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C25BDAC92BC32EF60024636F /* FSCalendar */; };
+		C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */; };
+		C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6E2C209459007B65F3 /* TouchSupport.swift */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
 		C27EBBD52C10A5C10087241D /* PremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */; };
@@ -348,6 +350,8 @@
 		C2592EE12BFE32670080E271 /* PythagoreanSquareDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareDetailVC.swift; sourceTree = "<group>"; };
 		C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMenager.swift; sourceTree = "<group>"; };
 		C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquare.swift; sourceTree = "<group>"; };
+		C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UICollectionViewCell.swift; sourceTree = "<group>"; };
+		C25E7E6E2C209459007B65F3 /* TouchSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSupport.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
@@ -566,6 +570,7 @@
 				84FF997C2B6988FC00E69401 /* Extension_Date.swift */,
 				C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */,
 				C22A3E772BF9325300104D0A /* Extension_UIView.swift */,
+				C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */,
 				C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */,
 				C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */,
+				C25E7E6E2C209459007B65F3 /* TouchSupport.swift */,
 			);
 			path = SupportedClass;
 			sourceTree = "<group>";
@@ -1093,6 +1099,7 @@
 				C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */,
 				84D89D002AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift in Sources */,
 				84B99A8C2AB99D2D008A3B49 /* Extension_UIColor.swift in Sources */,
+				C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */,
 				C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */,
 				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				C2CFA40C2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift in Sources */,
@@ -1208,6 +1215,7 @@
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
 				C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */,
+				C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */,
 				C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */,
 				84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */,
 				841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */,
@@ -1386,7 +1394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.76;
+				CURRENT_PROJECT_VERSION = 1.78;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1419,7 +1427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.76;
+				CURRENT_PROJECT_VERSION = 1.78;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;

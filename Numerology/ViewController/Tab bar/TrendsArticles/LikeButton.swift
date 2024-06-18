@@ -72,22 +72,15 @@ class LikeButton: UIButton {
         guard let articleID = articleID else { return }
         // User defaults
         TrendsArticlesUserDefaults.set(likeState: isSelected, for: articleID)
-        // upd locale arr
+        // post Firbase field
+        TrendsArticlesManager.shared.setToggleLike(docID: articleID, bool: isSelected)
+        // upd locale data
         TrendsArticlesVM.shared.updateLikes(
             model: &TrendsArticlesVM.shared.trendsArticlesModel,
             likeValue: self.amountLikes,
             articleID: articleID
         )
-        // post Firbase field
-        TrendsArticlesManager.shared.setToggleLike(docID: articleID, bool: isSelected)
-        
-        // допустим тут будет Notification который .reloadData collection 
-        
     }
-    
-    
-    
-    
     
     func configureLike(
         model: TrendsCellModel
@@ -97,7 +90,7 @@ class LikeButton: UIButton {
 
         guard let articleID = model.articleID else { return }
 
-        if model.likes <= 0 { // cannot be liked
+        if model.likes <= 0 { // couldn't be liked
             TrendsArticlesUserDefaults.set(likeState: false, for: articleID)
             self.isSelected = false
             self.setIconToggle(false)
@@ -105,9 +98,6 @@ class LikeButton: UIButton {
             self.isSelected = TrendsArticlesUserDefaults.getLikeState(for: articleID)
             self.setIconToggle(TrendsArticlesUserDefaults.getLikeState(for: articleID))
         }
-        
-        
-        // и нужен релоад даты при дидсет ?
     }
     
     

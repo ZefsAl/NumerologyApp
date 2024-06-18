@@ -18,11 +18,6 @@ class RegularBigButton: UIButton {
         return l
     }()
     
-    override var isTouchInside: Bool {
-        bounceAnimate()
-        return true
-    }
-    
     private var primaryColor: UIColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
     
     // MARK: Init
@@ -41,6 +36,8 @@ class RegularBigButton: UIButton {
         self.lable.text = lable
         setupStack()
         setHeight(isActive: heightIsActive)
+        //
+        self.addTarget(Any?.self, action: #selector(animateAction), for: .touchUpInside)
     }
     
     private func setHeight(isActive: Bool) {

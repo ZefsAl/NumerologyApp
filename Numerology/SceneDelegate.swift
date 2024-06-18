@@ -26,12 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
         
 //        // MARK: App Config
-//        setAppFlow()
+        startAppFlow()
         
         // test
-        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
-        self.window?.rootViewController = nav
-        self.window?.makeKeyAndVisible()
+//        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
+//        self.window?.rootViewController = nav
+//        self.window?.makeKeyAndVisible()
         //
         
         
@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("🔄 scene")
     }
     
-    private func setAppFlow() {
+    private func startAppFlow() {
         let dataName = UserDefaults.standard.object(forKey: "nameKey")
         let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")

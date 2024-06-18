@@ -17,8 +17,8 @@ struct DesignSystem {
         static let title = UIFont(weight: .semiBold, size: 14)
     }
     enum BadgeColor {
-        static let dark = #colorLiteral(red: 0.3137254902, green: 0.3019607843, blue: 0.3490196078, alpha: 1)
-        static let white = UIColor.white
+        static let transparent: UIColor = UIColor.white.withAlphaComponent(0.5)
+        static let white: UIColor = .white
     }
     let color = #colorLiteral(red: 0.3137254902, green: 0.3019607843, blue: 0.3490196078, alpha: 1)
     

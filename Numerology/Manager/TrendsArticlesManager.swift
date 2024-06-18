@@ -54,7 +54,6 @@ final class TrendsArticlesManager {
     // MARK: - set Toggle Like
     func setToggleLike(docID: String, bool: Bool) {
         let docRef = firestore.collection("TrendsArticles").document(docID)
-
         // как проверять что бы случайно не было <0
         if bool {
             docRef.updateData(["likes" : FieldValue.increment(Double(1))])
@@ -81,7 +80,6 @@ final class TrendsArticlesManager {
                     let val = try doc.data(as: TrendsArticlesModel.self)
                     let ref = val.image.first?.ref // Путь
                     print("ref 🟣⚠️🌕", ref as Any)
-//                    print("🟣⚠️🌕 ID",doc.documentID)
                     
                     guard let ref = ref else {
                         completion(val, nil, doc.documentID)

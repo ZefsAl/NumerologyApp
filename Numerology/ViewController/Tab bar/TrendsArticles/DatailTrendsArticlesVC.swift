@@ -55,22 +55,16 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         visibleConstant: CGFloat
     ) {
         // like
-//        self.trendsView.likeButton.articleID = model.articleID
-//        self.trendsView.likeButton.setAmountLikes(amount: model.likes)
-        
         self.trendsView.likeButton.configureLike(model: model)
-        
-        
-        
         //
         trendsView.bgImage.image = model.image
         trendsView.imageTitle.text = model.imageTitle
-        
+        //
         let accordionStack = UIStackView()
         accordionStack.translatesAutoresizingMaskIntoConstraints = false
         accordionStack.axis = .vertical
         accordionStack.spacing = 8
-        
+        //
         let accordionView: PremiumAccordionView = {
             let v = PremiumAccordionView(
                 title: model.cardTitle ?? "",
@@ -171,7 +165,7 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
             blackTopview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             blackTopview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             blackTopview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            blackTopview.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 30),
+            blackTopview.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16),
         ])
     }
 }

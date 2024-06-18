@@ -12,6 +12,8 @@ final class TrendsView: UIView, LikeButtonDelegate {
     
     var articleID: String? = nil
     
+    
+    
     func likeAction() {
     }
     
@@ -76,42 +78,12 @@ final class TrendsView: UIView, LikeButtonDelegate {
     }
     
     func setDataModel(model: TrendsCellModel) {
-        print("✅⚠️⚠️⚠️⚠️ setDataModel to cell", model.articleID)
-        print("🟠 setDataModel to cell", model.likes)
-        
         self.imageTitle.text = model.imageTitle
         self.bgImage.image = model.image
         // like
         self.articleID = model.articleID
-//        self.setListener(articleID: model.articleID)
         self.likeButton.configureLike(model: model)
     }
-    
-    
-//    func setListener(articleID: String?) {
-//        guard let articleID = articleID else { return }
-//        TrendsArticlesManager.shared.setLikeListener(articleID: articleID) { model, id in
-//            print(id)
-//            print(model.likes)
-//            self.likeButton.setAmountLikes(amount: model.likes)
-//            
-//            // допустим отсюда можно запостить в N.Center изменения в модель
-//            // Обновить модель like
-//            // Изменить состояние кнопки на true
-//
-//
-//        }
-        
-        
-//        TrendsArticlesVM.shared.updateLikes(
-//            model: &TrendsArticlesVM.shared.trendsArticlesModel,
-//            likeValue: self.likeButton.amountLikes,
-//            articleID: articleID
-//        )
-        
-//    }
-    
-    
     
     private func setupStack(edgeMargin: CGFloat) {
         // add

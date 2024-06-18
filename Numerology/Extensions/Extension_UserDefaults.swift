@@ -26,10 +26,4 @@ extension UserDefaults {
         }
         synchronize()
     }
-    
-    // kvo
-//    @objc dynamic var userAccess: Bool {
-//        return bool(forKey: "UserAccessObserverKey")
-//    }
-    
 }
