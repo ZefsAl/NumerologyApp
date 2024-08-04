@@ -87,7 +87,7 @@ extension AboutYouCV: UICollectionViewDataSource, UICollectionViewDelegate {
         
         if kind == UICollectionView.elementKindSectionHeader {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
-            sectionHeader?.label.text = "About You"
+            sectionHeader?.label.text = "Your charisma" 
             sectionHeader?.label.textColor = #colorLiteral(red: 0.6980392157, green: 0.6901960784, blue: 0.9725490196, alpha: 1)
             
             return sectionHeader ?? UICollectionReusableView()

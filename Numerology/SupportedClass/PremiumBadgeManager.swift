@@ -94,9 +94,9 @@ final class PremiumBadgeManager {
             accessVal == false
         else { return nil }
         //
-        let color = DesignSystem.BadgeColor.transparent
+        let color = DesignSystem.BadgeColor.white
         let configImage = UIImage(
-            systemName: "lock.fill",
+            systemName: "chevron.down.circle", // cust-fix lock.fill
             withConfiguration: UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)
         )?.withTintColor(color, renderingMode: .alwaysOriginal)
         return configImage

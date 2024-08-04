@@ -132,6 +132,13 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
+        func getVisibleConstant() -> CGFloat? {
+            guard let height = self.remoteOpenDelegate?.openFrom?.view.bounds.height else { return nil }
+            let visibleConstant: CGFloat? = height/4
+            return visibleConstant ?? nil
+        }
+        
         switch indexPath.row {
         case 0:
             // MARK: Soul // 0
@@ -142,7 +149,9 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             //
             let vc = PremiumDescriptionVC (
                 title: "Your soul number",
-                info: info + about
+                info: info + about,
+                isPremium: false,
+                visibleConstant: getVisibleConstant()
             )
             //
             guard numbersOfSoulModel != nil else { return }
@@ -158,7 +167,8 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             //
             let vc = PremiumDescriptionVC (
                 title: "Your destiny number",
-                info: info + about
+                info: info + about,
+                visibleConstant: getVisibleConstant()
             )
             //
             guard numbersOfDestinyModel != nil else { return }
@@ -175,7 +185,8 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             //
             let vc = PremiumDescriptionVC (
                 title: "Your name number",
-                info: info + about
+                info: info + about,
+                visibleConstant: getVisibleConstant()
             )
             //
             guard numbersOfNameModel != nil else { return }
@@ -191,7 +202,8 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             //
             let vc = PremiumDescriptionVC (
                 title: "Power Code",
-                info: info + about
+                info: info + about,
+                visibleConstant: getVisibleConstant()
             )
             //
             guard powerCodeModel != nil else { return }

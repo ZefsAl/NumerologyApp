@@ -23,7 +23,7 @@ final class SignContentView: UIView {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.title
+        l.font = DesignSystem.SourceSerifProFont.title
         l.textAlignment = .center
         return l
     }()
@@ -31,7 +31,7 @@ final class SignContentView: UIView {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle
         l.textAlignment = .center
         l.numberOfLines = 0
         return l

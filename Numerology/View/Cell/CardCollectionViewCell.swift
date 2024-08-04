@@ -18,7 +18,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.FeedCard.title
+        l.font = DesignSystem.CinzelFont.title
         l.textAlignment = .left
         l.clipsToBounds = false
         return l
@@ -27,7 +27,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.FeedCard.subtitle
+        l.font = DesignSystem.CinzelFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 3
         return l

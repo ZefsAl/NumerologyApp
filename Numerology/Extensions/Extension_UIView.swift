@@ -45,6 +45,7 @@ extension UIView {
         }
         
     }
+    
     func removeCALayerByName(fromView: UIView, name: String) {
         for item in fromView.layer.sublayers! where item.name == name {
             item.removeFromSuperlayer()

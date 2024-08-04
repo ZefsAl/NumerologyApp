@@ -70,8 +70,12 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-//        print("You selected cell #\(indexPath.item)!")
+        
+        func getVisibleConstant() -> CGFloat? {
+            guard let height = self.remoteOpenDelegate?.openFrom?.view.bounds.height else { return nil }
+            let visibleConstant: CGFloat? = height/4
+            return visibleConstant ?? nil
+        }
         
         if indexPath.row == 0 {
             // MARK: Money // 1
@@ -82,7 +86,8 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             //
             let vc = PremiumDescriptionVC (
                 title: "Your money number",
-                info: info + about
+                info: info + about,
+                visibleConstant: getVisibleConstant()
             )
             //
             guard numbersOfMoneyModel != nil else { return }

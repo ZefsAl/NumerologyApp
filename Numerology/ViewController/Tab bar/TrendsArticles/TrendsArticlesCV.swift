@@ -60,17 +60,19 @@ final class TrendsArticlesCV: UICollectionView {
     
     func requestData() {
         
-        let astrologyIDs = [
-            0 : TrendsFieldID.astrologyID_1,
-            1 : TrendsFieldID.astrologyID_2,
-            2 : TrendsFieldID.astrologyID_3,
-        ]
         let numerologyIDs = [
             0 : TrendsFieldID.numerologyID_1,
             1 : TrendsFieldID.numerologyID_2,
             2 : TrendsFieldID.numerologyID_3,
-            3 : TrendsFieldID.numerologyID_4,
         ]
+        
+        let astrologyIDs = [
+            0 : TrendsFieldID.astrologyID_1,
+            1 : TrendsFieldID.astrologyID_2,
+            2 : TrendsFieldID.astrologyID_3,
+            3 : TrendsFieldID.astrologyID_4,
+        ]
+        
         let usefulIDs = [
             0 : TrendsFieldID.usefulID_1,
             1 : TrendsFieldID.usefulID_2,
@@ -80,8 +82,8 @@ final class TrendsArticlesCV: UICollectionView {
         ]
         
         let sections = [
-            0 : astrologyIDs,
-            1 : numerologyIDs,
+            0 : numerologyIDs,
+            1 : astrologyIDs,
             2 : usefulIDs,
         ]
         
@@ -194,21 +196,6 @@ extension TrendsArticlesCV {
         let items: [NSCollectionLayoutItem] = sectionItems.compactMap({ _ in
                 .init(layoutSize: itemSize)
         })
-        
-//        let items: [NSCollectionLayoutItem] = {
-//            // костыль что бы не падала прила
-//            if sectionItems.isEmpty {
-//                return [NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .estimated(0),
-//                    heightDimension: .estimated(0)
-//                ))]
-//            } else {
-//                let val: [NSCollectionLayoutItem] = sectionItems.compactMap({ _ in
-//                        .init(layoutSize: itemSize)
-//                })
-//                return val 
-//            }
-//        }()
         
         let trailingMargin: CGFloat = 36
         //

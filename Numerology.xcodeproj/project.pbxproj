@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */; };
 		8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */; };
-		841B55252B594E63002EE1F8 /* CompatibilityHoroscopeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC.swift */; };
+		841B55252B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift */; };
 		841B55282B598FD6002EE1F8 /* CompatibilityStatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */; };
 		841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55292B599074002EE1F8 /* CompatibilityCVCell.swift */; };
 		841B552C2B5AA760002EE1F8 /* CompareSignsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */; };
@@ -81,7 +80,7 @@
 		84AC66FC2A7C175100D2321B /* SecondViewController_OLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FB2A7C175100D2321B /* SecondViewController_OLD.swift */; };
 		84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */; };
 		84AC67002A7C663200D2321B /* ChipsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC66FF2A7C663200D2321B /* ChipsCVCell.swift */; };
-		84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67012A7C6DAB00D2321B /* ChipsButton.swift */; };
+		84AC67022A7C6DAB00D2321B /* CapsuleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67012A7C6DAB00D2321B /* CapsuleButton.swift */; };
 		84AC67062A7FDA0800D2321B /* PersonalDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67052A7FDA0800D2321B /* PersonalDayModel.swift */; };
 		84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67072A7FE12100D2321B /* PersonalMonthModel.swift */; };
 		84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AC67092A7FE5AD00D2321B /* PersonalYearModel.swift */; };
@@ -96,7 +95,7 @@
 		84B895E12B13A2140061680A /* HoroscopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E02B13A2140061680A /* HoroscopeCell.swift */; };
 		84B895E32B13AEED0061680A /* AboutYouCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E22B13AEED0061680A /* AboutYouCV.swift */; };
 		84B895E52B13D0950061680A /* AboutYouVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E42B13D0950061680A /* AboutYouVC.swift */; };
-		84B895E82B14159F0061680A /* AccordionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E72B14159F0061680A /* AccordionButton.swift */; };
+		84B895E82B14159F0061680A /* PremiumAccordionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E72B14159F0061680A /* PremiumAccordionButton.swift */; };
 		84B895EB2B14E4760061680A /* SignContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895EA2B14E4760061680A /* SignContentView.swift */; };
 		84B895EE2B14E5120061680A /* AccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895ED2B14E5120061680A /* AccordionView.swift */; };
 		84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */; };
@@ -116,7 +115,6 @@
 		84BFE50C2B17842700C06FB1 /* Year2024Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50B2B17842700C06FB1 /* Year2024Model.swift */; };
 		84BFE50E2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */; };
 		84BFE5102B1859DD00C06FB1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */; };
-		84BFE5142B18701E00C06FB1 /* TestCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */; };
 		84BFE5162B1A2D7700C06FB1 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */; };
 		84BFE51A2B1A36E900C06FB1 /* MoneyCalendarCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BFE5192B1A36E900C06FB1 /* MoneyCalendarCV.swift */; };
 		84D47DEE2B7374090076BC25 /* StoreKitConfigure.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 84D47DED2B7374090076BC25 /* StoreKitConfigure.storekit */; };
@@ -140,16 +138,17 @@
 		84DBB9D02AE9951B00A0784F /* GenderCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9CF2AE9951B00A0784F /* GenderCVCell.swift */; };
 		84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9D12AEA69EF00A0784F /* OnboardingVC_v2.swift */; };
 		84DCE5D52B61658B0001D41F /* CustomProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DCE5D42B61658B0001D41F /* CustomProgressBarView.swift */; };
-		84DD4C2D2B5E894500485317 /* CompatibilityHrscpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD4C2C2B5E894500485317 /* CompatibilityHrscpModel.swift */; };
 		84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EEF4982AA20C7E0054B430 /* StoreKit.framework */; };
 		84FF997B2B6982A800E69401 /* MoonPhaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF997A2B6982A800E69401 /* MoonPhaseModel.swift */; };
 		84FF997D2B6988FC00E69401 /* Extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF997C2B6988FC00E69401 /* Extension_Date.swift */; };
+		A3A4B75D331E27EC365CEF9E /* libPods-Numerology.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909C20961D13C0084BDEB2F3 /* libPods-Numerology.a */; };
 		C2004BC62BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */; };
 		C20820462C078E7B005BF648 /* PaywallVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = C20820452C078E7A005BF648 /* PaywallVideo.mov */; };
 		C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */; };
 		C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */; };
 		C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */; };
 		C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E772BF9325300104D0A /* Extension_UIView.swift */; };
+		C23540832C5BB9E1001C66E9 /* CompatibilityHrscpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */; };
 		C23752572C0B4DE900000C68 /* PremiumBadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */; };
 		C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */; };
 		C24879592C181D6100DDC84B /* DatailTrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */; };
@@ -169,7 +168,12 @@
 		C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6E2C209459007B65F3 /* TouchSupport.swift */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
+		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
+		C27D2E382C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */; };
+		C27D2E3A2C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */; };
+		C27D2E3C2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */; };
 		C27EBBD52C10A5C10087241D /* PremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */; };
+		C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */; };
 		C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */; };
 		C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */; };
 		C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */; };
@@ -197,7 +201,7 @@
 		25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.debug.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.debug.xcconfig"; sourceTree = "<group>"; };
 		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
 		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
-		841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHoroscopeVC.swift; sourceTree = "<group>"; };
+		841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHoroscopeVC_OLD.swift; sourceTree = "<group>"; };
 		841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityStatsStackView.swift; sourceTree = "<group>"; };
 		841B55292B599074002EE1F8 /* CompatibilityCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityCVCell.swift; sourceTree = "<group>"; };
 		841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareSignsStackView.swift; sourceTree = "<group>"; };
@@ -264,7 +268,7 @@
 		84AC66FB2A7C175100D2321B /* SecondViewController_OLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController_OLD.swift; sourceTree = "<group>"; };
 		84AC66FD2A7C647400D2321B /* LifeStagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStagesViewController.swift; sourceTree = "<group>"; };
 		84AC66FF2A7C663200D2321B /* ChipsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsCVCell.swift; sourceTree = "<group>"; };
-		84AC67012A7C6DAB00D2321B /* ChipsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsButton.swift; sourceTree = "<group>"; };
+		84AC67012A7C6DAB00D2321B /* CapsuleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton.swift; sourceTree = "<group>"; };
 		84AC67052A7FDA0800D2321B /* PersonalDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalDayModel.swift; sourceTree = "<group>"; };
 		84AC67072A7FE12100D2321B /* PersonalMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalMonthModel.swift; sourceTree = "<group>"; };
 		84AC67092A7FE5AD00D2321B /* PersonalYearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalYearModel.swift; sourceTree = "<group>"; };
@@ -279,7 +283,7 @@
 		84B895E02B13A2140061680A /* HoroscopeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell.swift; sourceTree = "<group>"; };
 		84B895E22B13AEED0061680A /* AboutYouCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYouCV.swift; sourceTree = "<group>"; };
 		84B895E42B13D0950061680A /* AboutYouVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYouVC.swift; sourceTree = "<group>"; };
-		84B895E72B14159F0061680A /* AccordionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionButton.swift; sourceTree = "<group>"; };
+		84B895E72B14159F0061680A /* PremiumAccordionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionButton.swift; sourceTree = "<group>"; };
 		84B895EA2B14E4760061680A /* SignContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignContentView.swift; sourceTree = "<group>"; };
 		84B895ED2B14E5120061680A /* AccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionView.swift; sourceTree = "<group>"; };
 		84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallVC_V2.swift; sourceTree = "<group>"; };
@@ -299,7 +303,6 @@
 		84BFE50B2B17842700C06FB1 /* Year2024Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year2024Model.swift; sourceTree = "<group>"; };
 		84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDescriptionAboutCV.swift; sourceTree = "<group>"; };
 		84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestCalendar.storyboard; sourceTree = "<group>"; };
 		84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		84BFE5192B1A36E900C06FB1 /* MoneyCalendarCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarCV.swift; sourceTree = "<group>"; };
 		84D47DED2B7374090076BC25 /* StoreKitConfigure.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfigure.storekit; sourceTree = "<group>"; };
@@ -330,12 +333,14 @@
 		84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Numerology.entitlements; sourceTree = "<group>"; };
 		84FF997A2B6982A800E69401 /* MoonPhaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhaseModel.swift; sourceTree = "<group>"; };
 		84FF997C2B6988FC00E69401 /* Extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Date.swift; sourceTree = "<group>"; };
+		909C20961D13C0084BDEB2F3 /* libPods-Numerology.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Numerology.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarDescriptionVC.swift; sourceTree = "<group>"; };
 		C20820452C078E7A005BF648 /* PaywallVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = PaywallVideo.mov; sourceTree = "<group>"; };
 		C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarModel.swift; sourceTree = "<group>"; };
 		C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareView.swift; sourceTree = "<group>"; };
 		C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableView.swift; sourceTree = "<group>"; };
 		C22A3E772BF9325300104D0A /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
+		C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpView.swift; sourceTree = "<group>"; };
 		C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumBadgeManager.swift; sourceTree = "<group>"; };
 		C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferCVCell.swift; sourceTree = "<group>"; };
 		C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatailTrendsArticlesVC.swift; sourceTree = "<group>"; };
@@ -353,13 +358,19 @@
 		C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UICollectionViewCell.swift; sourceTree = "<group>"; };
 		C25E7E6E2C209459007B65F3 /* TouchSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSupport.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
+		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
+		C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpCV.swift; sourceTree = "<group>"; };
+		C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpCell.swift; sourceTree = "<group>"; };
+		C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpFooter.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumDescriptionVC.swift; sourceTree = "<group>"; };
+		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
 		C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersDescriptionVC.swift; sourceTree = "<group>"; };
 		C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersModel.swift; sourceTree = "<group>"; };
 		C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallPresenterManager.swift; sourceTree = "<group>"; };
 		C2B590942BFA40A800118B89 /* ColumnRefTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableViewCell.swift; sourceTree = "<group>"; };
 		C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersCV.swift; sourceTree = "<group>"; };
+		C2C65DEF2C5BF56B004EA5A3 /* libMMMHorizontalPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMMHorizontalPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CA6AA92BF810A000A6E3FC /* PythagoreanSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareModel.swift; sourceTree = "<group>"; };
 		C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalendarManager.swift; sourceTree = "<group>"; };
 		C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAngelNumbersVC.swift; sourceTree = "<group>"; };
@@ -375,7 +386,6 @@
 		C2E144982C1B28FC00FA23FD /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall.swift; sourceTree = "<group>"; };
 		C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesManager.swift; sourceTree = "<group>"; };
-		DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Numerology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,7 +401,7 @@
 				84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */,
 				C25BDACA2BC32EF60024636F /* FSCalendar in Frameworks */,
 				84420CCA2A7165A500DE1812 /* FirebaseFirestoreSwift in Frameworks */,
-				4EDF73B839F0941CBA3CD302 /* Pods_Numerology.framework in Frameworks */,
+				A3A4B75D331E27EC365CEF9E /* libPods-Numerology.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,8 +420,12 @@
 		841B55222B594D42002EE1F8 /* Сompatibility_Horoscope */ = {
 			isa = PBXGroup;
 			children = (
-				841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC.swift */,
+				841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift */,
 				848B4E5D2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift */,
+				C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */,
+				C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */,
+				C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */,
+				C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */,
 			);
 			path = "Сompatibility_Horoscope";
 			sourceTree = "<group>";
@@ -612,6 +626,7 @@
 				C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */,
 				C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */,
 				C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */,
+				C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -656,18 +671,6 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		84B895DC2B139DD80061680A /* HoroscopeCV */ = {
-			isa = PBXGroup;
-			children = (
-				84B895DD2B139E340061680A /* YourHoroscopeCV.swift */,
-				84BFE5012B16146200C06FB1 /* HoroscopeButtonsCV.swift */,
-				84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */,
-				84BFE4FF2B15627200C06FB1 /* HoroscopeDescriptionVC.swift */,
-				C2004BC22BCF167300F5A483 /* MoneyCalendar */,
-			);
-			path = HoroscopeCV;
-			sourceTree = "<group>";
-		};
 		84B895DF2B13A1910061680A /* HoroscopeCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,9 +684,10 @@
 			isa = PBXGroup;
 			children = (
 				8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */,
-				84AC67012A7C6DAB00D2321B /* ChipsButton.swift */,
+				84AC67012A7C6DAB00D2321B /* CapsuleButton.swift */,
 				84AC66F92A7BE4D900D2321B /* RegularBigButton.swift */,
-				84B895E72B14159F0061680A /* AccordionButton.swift */,
+				84B895E72B14159F0061680A /* PremiumAccordionButton.swift */,
+				C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -691,10 +695,12 @@
 		84B895E92B14E42B0061680A /* YourHoroscope */ = {
 			isa = PBXGroup;
 			children = (
-				84B895DC2B139DD80061680A /* HoroscopeCV */,
 				84B895EA2B14E4760061680A /* SignContentView.swift */,
-				84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */,
-				84BFE5132B18701E00C06FB1 /* TestCalendar.storyboard */,
+				84B895DD2B139E340061680A /* YourHoroscopeCV.swift */,
+				84BFE5012B16146200C06FB1 /* HoroscopeButtonsCV.swift */,
+				84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */,
+				84BFE4FF2B15627200C06FB1 /* HoroscopeDescriptionVC.swift */,
+				C2004BC22BCF167300F5A483 /* MoneyCalendar */,
 			);
 			path = YourHoroscope;
 			sourceTree = "<group>";
@@ -702,9 +708,9 @@
 		84B895F12B15542C0061680A /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
+				84B895DA2B1392CB0061680A /* HoroscopeVC.swift */,
 				C27BFDA82C11B0470087A876 /* AboutYou */,
 				84B895E92B14E42B0061680A /* YourHoroscope */,
-				84B895DA2B1392CB0061680A /* HoroscopeVC.swift */,
 			);
 			path = Horoscope;
 			sourceTree = "<group>";
@@ -745,8 +751,9 @@
 		84D870A22A8D14B300ACACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2C65DEF2C5BF56B004EA5A3 /* libMMMHorizontalPicker.a */,
 				84EEF4982AA20C7E0054B430 /* StoreKit.framework */,
-				DD3E708E4F345F1DB3BF5CE9 /* Pods_Numerology.framework */,
+				909C20961D13C0084BDEB2F3 /* libPods-Numerology.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -801,6 +808,7 @@
 		C2004BC22BCF167300F5A483 /* MoneyCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				84BFE50F2B1859DD00C06FB1 /* CalendarView.swift */,
 				84BFE5192B1A36E900C06FB1 /* MoneyCalendarCV.swift */,
 				C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */,
 			);
@@ -965,7 +973,6 @@
 				845EB1B32A657938003D6F5C /* Sources */,
 				845EB1B42A657938003D6F5C /* Frameworks */,
 				845EB1B52A657938003D6F5C /* Resources */,
-				616156C44DE440F989AA3512 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -993,7 +1000,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					845EB1B62A657938003D6F5C = {
 						CreatedOnToolsVersion = 14.1;
@@ -1038,7 +1045,6 @@
 				845EB1C42A65793E003D6F5C /* Assets.xcassets in Resources */,
 				84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */,
 				8471D12F2B6CFB7F00C42F26 /* planet.mp4 in Resources */,
-				84BFE5142B18701E00C06FB1 /* TestCalendar.storyboard in Resources */,
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
 				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
 				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
@@ -1048,23 +1054,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		616156C44DE440F989AA3512 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Numerology/Pods-Numerology-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A5670CCA45F8DA928E8FB770 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1150,9 +1139,10 @@
 				8437D3D92A862A59003592A7 /* PersonalYearVC.swift in Sources */,
 				84B895E12B13A2140061680A /* HoroscopeCell.swift in Sources */,
 				84BFE50E2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift in Sources */,
-				84B895E82B14159F0061680A /* AccordionButton.swift in Sources */,
+				84B895E82B14159F0061680A /* PremiumAccordionButton.swift in Sources */,
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
+				C23540832C5BB9E1001C66E9 /* CompatibilityHrscpView.swift in Sources */,
 				84BFE5022B16146200C06FB1 /* HoroscopeButtonsCV.swift in Sources */,
 				84BFE51A2B1A36E900C06FB1 /* MoneyCalendarCV.swift in Sources */,
 				84B895EE2B14E5120061680A /* AccordionView.swift in Sources */,
@@ -1177,7 +1167,7 @@
 				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
 				84AC670E2A7FFEB100D2321B /* FourthViewController.swift in Sources */,
-				841B55252B594E63002EE1F8 /* CompatibilityHoroscopeVC.swift in Sources */,
+				841B55252B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift in Sources */,
 				C25143F42C157737005019C6 /* CollectionModel.swift in Sources */,
 				C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */,
 				C2D1C6FE2C00EF2500C2D481 /* PremiumAccordionView.swift in Sources */,
@@ -1192,6 +1182,7 @@
 				C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */,
 				848B4E5E2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift in Sources */,
 				C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */,
+				C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */,
 				84AC66F82A7BDF4700D2321B /* NumerologyCompatibilityVC.swift in Sources */,
 				C25143F22C157171005019C6 /* TrendsCell.swift in Sources */,
 				C25B717B2BFCBA2E00E41E98 /* PythagoreanSquare.swift in Sources */,
@@ -1215,6 +1206,7 @@
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
 				C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */,
+				C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */,
 				C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */,
 				C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */,
 				84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */,
@@ -1222,10 +1214,11 @@
 				84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */,
 				84BFE50A2B17838300C06FB1 /* Year2023Model.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
-				84DD4C2D2B5E894500485317 /* CompatibilityHrscpModel.swift in Sources */,
+				C27D2E3C2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift in Sources */,
 				84BFE50C2B17842700C06FB1 /* Year2024Model.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				C2CFA40F2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift in Sources */,
+				C27D2E3A2C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift in Sources */,
 				84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
@@ -1250,10 +1243,11 @@
 				84BFE5002B15627200C06FB1 /* HoroscopeDescriptionVC.swift in Sources */,
 				C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */,
 				845EB1D72A663F60003D6F5C /* HeaderUIView.swift in Sources */,
-				84AC67022A7C6DAB00D2321B /* ChipsButton.swift in Sources */,
+				84AC67022A7C6DAB00D2321B /* CapsuleButton.swift in Sources */,
 				84BFE5102B1859DD00C06FB1 /* CalendarView.swift in Sources */,
 				84FF997B2B6982A800E69401 /* MoonPhaseModel.swift in Sources */,
 				84BFE5062B1662C300C06FB1 /* HoroscopeDefaultModel.swift in Sources */,
+				C27D2E382C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift in Sources */,
 				8437D3D72A862983003592A7 /* PersonalYearDP.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1394,7 +1388,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.78;
+				CURRENT_PROJECT_VERSION = 1.84;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1410,7 +1404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.16;
+				MARKETING_VERSION = 3.0.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1427,7 +1421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.78;
+				CURRENT_PROJECT_VERSION = 1.84;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1443,7 +1437,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.16;
+				MARKETING_VERSION = 3.0.18;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -39,6 +39,16 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         return cv
     }()
     
+    // MARK: - datingCalendarCV
+    let compatibilityHrscpView: CompatibilityHrscpView = CompatibilityHrscpView()
+//        let cv = CompatibilityHrscpCV()
+////        cv.clipsToBounds = false
+//        return cv
+//    }()
+    
+    
+    
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -53,6 +63,9 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
     }
     
     private func remoteOpen() {
+        // compatibilityHrscpView
+        self.compatibilityHrscpView.remoteOpenDelegate = self
+        self.compatibilityHrscpView.remoteOpenDelegate?.openFrom = self
         // yourHoroscopeCV
         self.yourHoroscopeCV.remoteOpenDelegate = self
         self.yourHoroscopeCV.remoteOpenDelegate?.openFrom = self
@@ -75,13 +88,14 @@ extension HoroscopeVC {
         // MARK: Content Stack
         let numerologyStack = UIStackView(arrangedSubviews: [
             yourHoroscopeCV,
+            compatibilityHrscpView,
             aboutYouCV,
             moneyCalendarCV
         ])
         numerologyStack.translatesAutoresizingMaskIntoConstraints = false
         numerologyStack.axis = .vertical
         numerologyStack.alignment = .fill
-        numerologyStack.spacing = 16
+        numerologyStack.spacing = 32
         
         // MARK: Content Stack
         let contentStack = UIStackView(arrangedSubviews: [numerologyStack])
@@ -97,7 +111,6 @@ extension HoroscopeVC {
         NSLayoutConstraint.activate([
             yourHoroscopeCV.heightAnchor.constraint(equalToConstant: 117+50),
             aboutYouCV.heightAnchor.constraint(equalToConstant: 117+50),
-            
             moneyCalendarCV.heightAnchor.constraint(equalToConstant: 390+50),
 
             contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 40),

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "812757038A6D038165CB0322330E3EA6"
-               BuildableName = "Pods_Numerology.framework"
+               BuildableName = "libPods-Numerology.a"
                BlueprintName = "Pods-Numerology"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

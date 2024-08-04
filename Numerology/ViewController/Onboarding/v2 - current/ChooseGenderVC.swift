@@ -31,10 +31,8 @@ class ChooseGenderVC: UIViewController {
     // MARK: Continue Btn Action
     @objc private func continueBtnAction() {
         print("continueBtnAction")
-        
         let selected = self.contentCollectionView.indexPathsForSelectedItems
         guard selected != [] else { return }
-        
         self.navigationController?.pushViewController(EnterUserDataVC(), animated: true)
     }
     

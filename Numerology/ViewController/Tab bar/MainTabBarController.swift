@@ -21,6 +21,8 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         NSAttributedString.Key.font: UIFont.init(weight: .bold, size: 10)
     ]
     
+    
+    // есть баг с инициализацией т.е каждый раз запрашивает знак гороскопа при view did load в каждой вкладке. Желательно сделать 1 раз
     // MARK: FirstVC
     lazy var firstTabNav: CustomNavController = {
         let firstVC = NumerologyVC_2024()
@@ -59,25 +61,25 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
     }()
     
     
-    lazy var thirdTabNav: CustomNavController = {
-        // MARK: ThirdVC
-        let thirdVC = CompatibilityHoroscopeVC()
-        let thirdImage = UIImage(named: "Compatibility_3x_75px")
-        thirdVC.tabBarItem.image = thirdImage
-        thirdVC.tabBarItem.title = "Compatibility"
-        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-        // Navigation
-        let thirdTintColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
-        let thirdTabNav = CustomNavController(primaryColor: thirdTintColor)
-        // description VC
-        thirdTabNav.descriptionVC.bgImageNamed = "CompatibilityBG_Full"
-        thirdTabNav.descriptionVC.primaryColor = thirdTintColor
-        // add
-        thirdTabNav.setViewControllers([thirdVC], animated: true)
-        //
-        return thirdTabNav
-    }()
+//    lazy var thirdTabNav: CustomNavController = {
+//        // MARK: ThirdVC
+//        let thirdVC = CompatibilityHoroscopeVC()
+//        let thirdImage = UIImage(named: "Compatibility_3x_75px")
+//        thirdVC.tabBarItem.image = thirdImage
+//        thirdVC.tabBarItem.title = "Compatibility"
+//        thirdVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+//        thirdVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+//        // Navigation
+//        let thirdTintColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
+//        let thirdTabNav = CustomNavController(primaryColor: thirdTintColor)
+//        // description VC
+//        thirdTabNav.descriptionVC.bgImageNamed = "CompatibilityBG_Full"
+//        thirdTabNav.descriptionVC.primaryColor = thirdTintColor
+//        // add
+//        thirdTabNav.setViewControllers([thirdVC], animated: true)
+//        //
+//        return thirdTabNav
+//    }()
     
     
     lazy var fourthTabNav: CustomNavController = {
@@ -85,8 +87,11 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         let fourthVC = MoonVC()
         let fourtImage = UIImage(named: "Moon_3x_75px")
         fourthVC.tabBarItem.image = fourtImage
-        fourthVC.tabBarItem.title = "Moon"
-        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        fourthVC.tabBarItem.title = "Moonly"
+        fourthVC.tabBarItem.titlePositionAdjustment = UIOffset(
+            horizontal: 5, // horizontal for optical compensation
+            vertical: -5 // same
+        )
         fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         //
         let fourthTintColor = UIColor.white
@@ -128,12 +133,11 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         //
         setTabBarStyle()
         //
-        self.viewControllers = [firstTabNav,secondTabNav,thirdTabNav,fourthTabNav,fiveTabNav]
+        self.viewControllers = [firstTabNav,secondTabNav,fourthTabNav,fiveTabNav]
     }
     
     func setTabBarStyle() {
         self.tabBar.tintColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
-//        self.tabBar.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
         setBlurBG()
     }
     
@@ -159,7 +163,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
                 customerInfo?.entitlements["Access"]?.isActive == false ||
                 customerInfo?.entitlements["Access"]?.isActive == nil
             else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now()+80) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+400) { // ~ 420=7 min
                 // MARK: - Special Offer ✅
                 self.presentViewControllerFromVisibleViewController(SpecialOfferPaywall(), animated: true) {}
             }

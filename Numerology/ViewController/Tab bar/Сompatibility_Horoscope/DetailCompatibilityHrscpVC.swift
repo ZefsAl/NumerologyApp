@@ -12,7 +12,7 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     var openFrom: UIViewController?
     
     
-    private let vcAccentColor: UIColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
+    private let vcAccentColor: UIColor = DesignSystem.Horoscope.primaryColor
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -35,25 +35,22 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
         title: "",
         info: "",
         isPremium: true,
-        visibleConstant: 200
+        visibleConstant: 150
        )
         v.remoteOpenDelegate = self
         v.remoteOpenDelegate?.openFrom = self
-//        v.accordionButton.setAccordionTitle("")
-//        v.info.text = ""
-//       v.showAccordion()
        return v
    }()
     
     // MARK: - init
-    init(compatibilityHrscpModel: CompatibilityHrscpModel, compareSignsStackView: CompareSignsStackView) {
+    init(compatibilityHrscpModel: CompatibilityHrscpModel, secondSign: String) {
         compatibilityStatsStackView.setStats(model: compatibilityHrscpModel)
         super.init(nibName: nil, bundle: nil)
         //
         self.openFrom = self
         //
-        self.compareSignsStackView.firstSignModel = compareSignsStackView.firstSignModel
-        self.compareSignsStackView.secondSignModel = compareSignsStackView.secondSignModel
+        firstSignConfigure()
+        secondSignConfigure(sign: secondSign)
         
         accordionView.accordionButton.setAccordionTitle("Generally")
         accordionView.info.text = compatibilityHrscpModel.aboutThisSign
@@ -62,12 +59,59 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    // config 1
+    private func firstSignConfigure() {
+        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+
+        
+//        let model = CompatibilityData.simpleSigns.filter({$0.title.lowercased() == sign.lowercased() }).first
+        let model = CompatibilityData.compatibilitySignsData.filter({$0.sign.lowercased() == sign.lowercased()}).first
+        
+//        guard
+//            let title = model?.sign,
+//            let signImage = model?.image
+//        else { return }
+        self.compareSignsStackView.firstSignModel = model
+        
+//        self.compareSignsStackView.firstSignModel = CompatibilitySignsModel(
+//            title: title.capitalized,
+//            signImage: signImage,
+//            itemIndexPath: nil
+//        )
+//        self.compareSignsStackView.firstSignModel = CompatibilitySignsModel(
+//            index: <#T##Int#>,
+//            sign: title.capitalized,
+//            signDateRange: signImage,
+//            image: <#T##UIImage?#>
+//        )
+        
+        
+        
+    }
+    // config 2
+    private func secondSignConfigure(sign: String) {
+
+//        let model = CompatibilityData.simpleSigns.filter({$0.title.lowercased() == sign.lowercased()}).first
+        let model = CompatibilityData.compatibilitySignsData.filter({$0.sign.lowercased() == sign.lowercased()}).first
+        
+//        guard
+//            let title = model?.sign,
+//            let signImage = model?.image
+//        else { return }
+//        self.compareSignsStackView.secondSignModel = SimpleSignModel(
+//            title: title.capitalized,
+//            signImage: signImage,
+//            itemIndexPath: nil
+//        )
+        self.compareSignsStackView.secondSignModel = model
+    }
     
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBackground(named: "CompatibilityBG.png")
+        setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
         //
         setupStack()
@@ -91,11 +135,11 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
             // Border
             v.layer.cornerRadius = 16
             v.layer.borderWidth = DesignSystem.borderWidth
-            v.layer.borderColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
+            v.layer.borderColor = self.vcAccentColor.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
+            v.layer.shadowColor = vcAccentColor.withAlphaComponent(0.5).cgColor
             
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([

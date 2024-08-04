@@ -35,7 +35,7 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
         title: String,
         info: String?,
         isPremium: Bool = true,
-        visibleConstant: CGFloat = 100
+        visibleConstant: CGFloat? = 100
     ) {
         self.init()
         self.openFrom = self
@@ -44,7 +44,7 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
             title: title,
             info: info,
             isPremium: isPremium,
-            visibleConstant: visibleConstant
+            visibleConstant: visibleConstant ?? 100
         )
     }
     
@@ -66,7 +66,7 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
                 title: title,
                 info: info,
                 isPremium: isPremium,
-                visibleConstant: 100
+                visibleConstant: visibleConstant
             )
             v.remoteOpenDelegate = self
             v.remoteOpenDelegate?.openFrom = self

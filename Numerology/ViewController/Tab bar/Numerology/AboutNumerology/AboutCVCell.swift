@@ -14,7 +14,7 @@ class AboutCVCell: UICollectionViewCell {
     }
     
     // MARK: title
-    let title: UILabel = {
+    let readMore: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(weight: .semiBold, size: 15)
@@ -74,7 +74,7 @@ class AboutCVCell: UICollectionViewCell {
     // MARK: Set up Stack
     private func setupStack() {
         
-        let readMoreBTNStack = UIStackView(arrangedSubviews: [title,cardIcon,UIView()])
+        let readMoreBTNStack = UIStackView(arrangedSubviews: [readMore,cardIcon])
         readMoreBTNStack.axis = .horizontal
         readMoreBTNStack.alignment = .center
         readMoreBTNStack.spacing = 6
@@ -83,7 +83,7 @@ class AboutCVCell: UICollectionViewCell {
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.distribution = .fill
-        contentStack.alignment = .leading
+        contentStack.alignment = .center
         contentStack.spacing = 0
         
         
@@ -91,8 +91,9 @@ class AboutCVCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             
-            readMoreBTNStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
-            readMoreBTNStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
+//            readMoreBTNStack.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor),
+//            readMoreBTNStack.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor),
+//            readMoreBTNStack.widthAnchor.constraint(equalToConstant: 100),
             
             contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),

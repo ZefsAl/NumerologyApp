@@ -76,5 +76,5 @@ final class HoroscopeSign {
         }
         return ""
     }
-    //
+    
 }

@@ -1,16 +1,51 @@
 PODS:
+  - MMMCommonCore (1.16.2):
+    - MMMCommonCore/ObjC (= 1.16.2)
+    - MMMCommonCore/Swift (= 1.16.2)
+  - MMMCommonCore/ObjC (1.16.2)
+  - MMMCommonCore/Swift (1.16.2):
+    - MMMCommonCore/ObjC
+  - MMMCommonUI/ObjC (3.12.1):
+    - MMMCommonCore (~> 1.15)
+    - MMMLoadable/ObjC
+    - MMMLog/ObjC
+    - MMMObservables/ObjC
+  - MMMHorizontalPicker (1.1.0):
+    - MMMHorizontalPicker/ObjC (= 1.1.0)
+  - MMMHorizontalPicker/ObjC (1.1.0):
+    - MMMCommonUI/ObjC
+  - MMMLoadable/ObjC (2.2.2):
+    - MMMCommonCore/ObjC
+    - MMMLog/ObjC
+    - MMMObservables/ObjC
+  - MMMLog/ObjC (1.4.1)
+  - MMMObservables/ObjC (1.5.0)
   - RevenueCat (4.25.6)
 
 DEPENDENCIES:
+  - MMMHorizontalPicker
   - RevenueCat
 
 SPEC REPOS:
+  https://github.com/mediamonks/MMMSpecs.git:
+    - MMMCommonCore
+    - MMMCommonUI
+    - MMMHorizontalPicker
+    - MMMLoadable
+    - MMMLog
+    - MMMObservables
   trunk:
     - RevenueCat
 
 SPEC CHECKSUMS:
+  MMMCommonCore: e33fafa38466ac6d1212f2eece8e6bb98d477f2e
+  MMMCommonUI: 36b2b32058a99fa1f08609b93d7d81628a97a619
+  MMMHorizontalPicker: fb831166ee8bc53e78e61b6e051d8283f8729830
+  MMMLoadable: 56723a3a4257f4b235b100806fc2bda46b1420ee
+  MMMLog: 5b5279696ca683f031815044c59024870365a3bd
+  MMMObservables: 8e74f72767137893b215038d492dc0ab2dc87be2
   RevenueCat: 9726d792ed47b41dfe83754c1391fa3d08e1bbdf
 
-PODFILE CHECKSUM: b8498944a3806a08f1da9ef3b5e3dd8ef5c2b74b
+PODFILE CHECKSUM: 4f66696d662f5e29e76162f8f82757c19f7f0f54
 
 COCOAPODS: 1.15.2

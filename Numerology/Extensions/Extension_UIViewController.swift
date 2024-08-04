@@ -64,18 +64,15 @@ extension UIViewController {
         self.navigationItem.rightBarButtonItem = dismissButtonItem
     }
     
-    
-    
-    
     // MARK: Action dissmiss
     @objc func dismissButtonAction() {
         self.dismiss(animated: true)
         print("dismissButtonAction")
     }
+    
     // MARK: Action popToRoot
     @objc func popToRootButtonAction() {
         self.navigationController?.popToRootViewController(animated: true)
-        
         print("popToRootButtonAction")
     }
     
@@ -83,8 +80,12 @@ extension UIViewController {
     // MARK: checkAccessContent
     func checkAccessContent() -> Bool {
         
-        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as! Bool
-        guard accessVal == false else { return true }
+        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
+        
+        guard
+            let accessVal = accessVal,
+            accessVal == false
+        else { return true }
         
         let vc2 = PaywallVC_V2(onboardingIsCompleted: true)
         let navVC = UINavigationController(rootViewController: vc2)

@@ -20,7 +20,7 @@ class HoroscopeCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.FeedCard.title
+        l.font = DesignSystem.CinzelFont.title
         l.textAlignment = .left
         l.textColor = DesignSystem.Horoscope.lightTextColor
         return l
@@ -29,7 +29,7 @@ class HoroscopeCell: UICollectionViewCell {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.FeedCard.subtitle
+        l.font = DesignSystem.CinzelFont.subtitle
         l.numberOfLines = 0
         l.textAlignment = .left
         l.textColor = DesignSystem.Horoscope.lightTextColor

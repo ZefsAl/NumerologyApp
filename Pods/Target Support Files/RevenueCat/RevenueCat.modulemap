@@ -1,4 +1,4 @@
-framework module RevenueCat {
+module RevenueCat {
   umbrella header "RevenueCat-umbrella.h"
 
   export *

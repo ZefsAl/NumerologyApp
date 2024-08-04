@@ -14,13 +14,16 @@ import Firebase
 import UIKit
 
 struct TrendsFieldID {
-    static let astrologyID_1 = "Astrology1";
-    static let astrologyID_2 = "Astrology2";
-    static let astrologyID_3 = "Astrology3";
+    
     static let numerologyID_1 = "Numerology1";
     static let numerologyID_2 = "Numerology2";
     static let numerologyID_3 = "Numerology3";
-    static let numerologyID_4 = "Numerology4";
+    
+    static let astrologyID_1 = "Astrology1";
+    static let astrologyID_2 = "Astrology2";
+    static let astrologyID_3 = "Astrology3";
+    static let astrologyID_4 = "Astrology4";
+    
     static let usefulID_1 = "Useful1";
     static let usefulID_2 = "Useful2";
     static let usefulID_3 = "Useful3";

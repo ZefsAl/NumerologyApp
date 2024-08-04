@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerForPushNotifications()
         configureTokenFCM()
         
+        // preload Data
+        MoneyCalendarManager.shared.preloadData()
+        
         return true
     }
 }

@@ -81,7 +81,7 @@ final class CustomNavController: UINavigationController {
         configName()
         
         requestDayTip()
-        requestUserSign()
+        requestUserSign() // 🔴 Возможно тут Crash
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +97,7 @@ final class CustomNavController: UINavigationController {
     
     private func requestUserSign() {
         let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        guard let dateOfBirth = dateOfBirth else { return }
         let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         HoroscopeManager.shared.getSign(zodiacSign: sign) { model, image1, image2  in
             self.profileButton.horoscopeIcon.image = image2

@@ -425,11 +425,11 @@ class CalculateNumbers {
         let components = calendar.dateComponents([.month], from: enteredDate)
         let enteredMonth = components.month ?? 0
 
-        var monthArr: [String] = {
+        let monthArr: [String] = {
             let df = DateFormatter()
         //    df.dateFormat = "MMMM"
             let month = df.standaloneMonthSymbols
-            var arr: [String] = month ?? ["⚠️ Error"]
+            let arr: [String] = month ?? ["⚠️ Error"]
             return arr
         }()
         

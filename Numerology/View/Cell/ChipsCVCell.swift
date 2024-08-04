@@ -63,7 +63,7 @@ class ChipsCVCell: UICollectionViewCell {
         
         // setup
         setupStack()
-        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18, side: .centerTrailing)
+//        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18, side: .centerTrailing) // cust Reject
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

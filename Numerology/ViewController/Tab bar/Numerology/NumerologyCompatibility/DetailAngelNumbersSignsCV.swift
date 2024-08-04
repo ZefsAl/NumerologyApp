@@ -127,7 +127,7 @@ final class AngelNumbersCVCell: UICollectionViewCell {
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             label.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
-        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18)
+//        self.premiumBadgeManager.setPremiumBadgeToCard(view: self, imageSize: 18) // cust Reject
     }
     
     required init?(coder aDecoder: NSCoder) {

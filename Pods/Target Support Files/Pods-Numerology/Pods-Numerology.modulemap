@@ -1,4 +1,4 @@
-framework module Pods_Numerology {
+module Pods_Numerology {
   umbrella header "Pods-Numerology-umbrella.h"
 
   export *

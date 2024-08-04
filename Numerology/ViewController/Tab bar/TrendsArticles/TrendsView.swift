@@ -27,6 +27,8 @@ final class TrendsView: UIView, LikeButtonDelegate {
         l.font = UIFont(name: "Cinzel-Regular", size: 26)
         l.textAlignment = .left
         l.textColor = DesignSystem.TrendsArticles.textColor
+        l.numberOfLines = 1
+        l.adjustsFontSizeToFitWidth = true
         return l
     }()
     
@@ -95,18 +97,19 @@ final class TrendsView: UIView, LikeButtonDelegate {
         //
         NSLayoutConstraint.activate([
             // bg Image
-            bgImage.topAnchor.constraint(      equalTo: self.topAnchor,      constant: 0),
-            bgImage.leadingAnchor.constraint(  equalTo: self.leadingAnchor,  constant: 0),
-            bgImage.trailingAnchor.constraint( equalTo: self.trailingAnchor, constant: 0),
-            bgImage.bottomAnchor.constraint(   equalTo: self.bottomAnchor,   constant: 0),
+            bgImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            bgImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            bgImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            bgImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             // black Smooth Gradient
-            blackSmoothGradient.topAnchor.constraint(      equalTo: self.topAnchor,      constant: 0),
-            blackSmoothGradient.leadingAnchor.constraint(  equalTo: self.leadingAnchor,  constant: 0),
-            blackSmoothGradient.trailingAnchor.constraint( equalTo: self.trailingAnchor, constant: 0),
-            blackSmoothGradient.bottomAnchor.constraint(   equalTo: self.bottomAnchor,   constant: 0),
+            blackSmoothGradient.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            blackSmoothGradient.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            blackSmoothGradient.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            blackSmoothGradient.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             // title
             imageTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: edgeMargin),
             imageTitle.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: edgeMargin),
+            imageTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -edgeMargin),
             // share
             shareButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: edgeMargin),
             shareButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -edgeMargin),

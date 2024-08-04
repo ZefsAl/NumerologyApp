@@ -26,6 +26,7 @@ class StatsStackView: UIStackView {
         l.font = UIFont(weight: .semiBold, size: 14)
         l.textAlignment = .right
         l.text = "0.0"
+        l.alpha = 0.7
         return l
     }()
     
@@ -47,7 +48,7 @@ class StatsStackView: UIStackView {
         // Gradient
         let gradientImage = UIImage.gradientImage(
             with: pv.frame,
-            colors: [#colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1).cgColor, UIColor.white.cgColor],
+            colors: [DesignSystem.Horoscope.primaryColor.cgColor,DesignSystem.Horoscope.primaryColor.cgColor, UIColor.white.cgColor],
             locations: nil
         )
         pv.progressImage = gradientImage
@@ -94,14 +95,14 @@ class StatsStackView: UIStackView {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.borderColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1)
+        self.layer.borderColor = DesignSystem.Horoscope.primaryColor.cgColor
         self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.cornerRadius = 16
         // Shadow
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowColor = #colorLiteral(red: 0.5254901961, green: 0.8078431373, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
+        self.layer.shadowColor = DesignSystem.Horoscope.primaryColor.withAlphaComponent(0.5).cgColor
         
         self.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         self.isLayoutMarginsRelativeArrangement = true
@@ -131,11 +132,11 @@ class CompatibilityStatsStackView: UIStackView {
     func setStats(model: CompatibilityHrscpModel) {
         let valArr = model.compatibilityStats.components(separatedBy: ",").compactMap({Int($0)})
         
-        general.title.text = "General сompatibility"
+        general.title.text = "General"
         general.percentTitle.text = "\(valArr[0])%"
         general.setProgressValue(value: valArr[0])
         
-        relationship.title.text = "Relationship"
+        relationship.title.text = "Friendship"
         relationship.percentTitle.text = "\(valArr[1])%"
         relationship.setProgressValue(value: valArr[1])
         

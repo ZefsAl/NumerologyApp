@@ -25,13 +25,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
         
-//        // MARK: App Config
-        startAppFlow()
+        // MARK: App Config
+//        startAppFlow()
         
         // test
-//        let nav = CustomNavController(rootViewController: TrendsArticlesVC())
-//        self.window?.rootViewController = nav
-//        self.window?.makeKeyAndVisible()
+        let nav = CustomNavController(rootViewController: HoroscopeVC())
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
         //
         
         

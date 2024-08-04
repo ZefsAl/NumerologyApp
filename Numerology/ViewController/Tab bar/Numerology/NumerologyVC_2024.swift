@@ -52,7 +52,7 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
         cv.clipsToBounds = false
         return cv
     }()
-    // MARK: - about you - 6
+    // MARK: - about  - 6
     let aboutCV: AboutCV = {
         let cv = AboutCV()
         cv.clipsToBounds = false

@@ -22,12 +22,12 @@ struct DesignSystem {
     }
     let color = #colorLiteral(red: 0.3137254902, green: 0.3019607843, blue: 0.3490196078, alpha: 1)
     
-    enum TextCard {
+    enum SourceSerifProFont {
         static let title = UIFont(weight: .semiBold, size: 24)
         static let subtitle = UIFont(weight: .semiBold, size: 15)
     }
     
-    enum FeedCard {
+    enum CinzelFont {
         static let title = UIFont(name: "Cinzel-Regular", size: 18)
         static let subtitle = UIFont(name: "Cinzel-Regular", size: 14)
     }
@@ -53,6 +53,12 @@ struct DesignSystem {
         static let backgroundColor = #colorLiteral(red: 0.2156862745, green: 0.1607843137, blue: 0.1333333333, alpha: 0.7)
     }
     
-    
+    // func
+    public static func setDesignedShadow(to view: UIView, accentColor: UIColor) {
+        view.layer.shadowOpacity = 1
+        view.layer.shadowRadius = 16
+        view.layer.shadowOffset = CGSize(width: 0, height: 4)
+        view.layer.shadowColor = accentColor.withAlphaComponent(0.5).cgColor
+    }
     
 }

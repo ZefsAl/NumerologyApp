@@ -8,27 +8,17 @@
 import Foundation
 import UIKit
 
-
-protocol CustomCalendarCellDelagete {
-//    var openFrom: UIViewController? { get set }
-    func readMoreAction()
-}
-
 class CalendarCell: UICollectionViewCell {
-    
-    var customCalendarCellDelagete: CustomCalendarCellDelagete? = nil
 
     static var reuseID: String {
         String(describing: self)
     }
-    
     
     var calendarView: CalendarView = {
         let v = CalendarView()
         v.isUserInteractionEnabled = false
         return v
     }()
-    
     
     // MARK: - delete Data Button
     let readMoreBtn: UIButton = {
@@ -41,7 +31,7 @@ class CalendarCell: UICollectionViewCell {
         let lable: UILabel = {
             let l = UILabel()
             l.translatesAutoresizingMaskIntoConstraints = false
-            l.font = DesignSystem.TextCard.subtitle
+            l.font = DesignSystem.SourceSerifProFont.subtitle
             l.textAlignment = .left
             l.textColor = .white
             l.text = "Read more"
@@ -67,8 +57,6 @@ class CalendarCell: UICollectionViewCell {
         contentStack.alignment = .center
         contentStack.spacing = 4
         //
-        contentStack.isUserInteractionEnabled = false
-        //
         b.addSubview(contentStack)
         NSLayoutConstraint.activate([
             contentStack.leadingAnchor.constraint(equalTo: b.leadingAnchor, constant: 16),
@@ -76,13 +64,10 @@ class CalendarCell: UICollectionViewCell {
             contentStack.centerYAnchor.constraint(equalTo: b.centerYAnchor),
             contentStack.heightAnchor.constraint(equalToConstant: 40),
         ])
-        b.addTarget(Any?.self, action: #selector(readMoreAction), for: .touchUpInside)
+        // сделал Action на ячейку
+        b.isUserInteractionEnabled = false
         return b
     }()
-    
-    @objc private func readMoreAction() {
-        self.customCalendarCellDelagete?.readMoreAction()
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -106,40 +91,13 @@ class CalendarCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Configure
-    func configure(title: String, subtitle: String?, bgImage: UIImage?) {
-//        self.title.text = title
-//        self.subtitle.text = subtitle
-//
-//        DispatchQueue.main.async { [weak self] in
-//            guard let self = self else { return }
-//            self.image.image = bgImage ?? UIImage(named: "plug")
-//        }
-    }
-    
-    
     // MARK: Set up Stack
     private func setupStack() {
-        
-//        let cellWidth = self.frame.width - 32
-//        self.calendarView.frame = CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth)
-//        self.calendarView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        
-//        let titleStack = UIStackView(arrangedSubviews: [calendarView])
-//        titleStack.axis = .vertical
-//        titleStack.alignment = .fill
-//        titleStack.spacing = 4
-        
-//        readMoreBtn
         let contentStack = UIStackView(arrangedSubviews: [calendarView,UIView(),readMoreBtn])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .center
-//        contentStack.distribution = .fill
         contentStack.spacing = 0
-        
-        
-        
         
         self.addSubview(contentStack)
         

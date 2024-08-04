@@ -69,7 +69,7 @@ final class TrendsArticlesVM {
     
     private func presetData() {
 
-        var astrology = SectionModel(sectionTitle: "Astrology", sectionCells: [])
+        var astrology = SectionModel(sectionTitle: "Numerology", sectionCells: [])
         for _ in 0...2 {
             astrology.sectionCells.append(
                 TrendsCellModel(
@@ -86,7 +86,7 @@ final class TrendsArticlesVM {
         }
         trendsArticlesModel.sections.append(astrology)
         
-        var numerology = SectionModel(sectionTitle: "Numerology", sectionCells: [])
+        var numerology = SectionModel(sectionTitle: "Astrology", sectionCells: [])
         for _ in 0...3 {
             numerology.sectionCells.append(
                 TrendsCellModel(

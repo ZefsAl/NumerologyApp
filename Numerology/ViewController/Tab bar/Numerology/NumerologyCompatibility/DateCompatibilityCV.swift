@@ -107,7 +107,6 @@ extension DateCompatibilityCV: UICollectionViewDataSource, UICollectionViewDeleg
             cell.subtitle.textAlignment = .center
             cell.subtitle.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.6)
             //
-//            cell.contentStack.distribution = .
             cell.configure(
                 title: "Unveil your compatibility!",
                 subtitle: "\(setDateFormat(date: Date()))",

@@ -10,8 +10,8 @@ import UIKit
 
 final class AccordionView: UIView {
     
-    let accordionButton: AccordionButton = {
-        let b = AccordionButton(isPremium: false, didTapState: false)
+    let accordionButton: PremiumAccordionButton = {
+        let b = PremiumAccordionButton(isPremium: false, didTapState: false)
         b.setIconChange(state: false, isPremium: false)
         b.addTarget(Any?.self, action: #selector(accordionButtonAct), for: .touchUpInside)
         return b
@@ -27,7 +27,7 @@ final class AccordionView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         l.isHidden = true
@@ -37,7 +37,7 @@ final class AccordionView: UIView {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle
         l.isHidden = true
         l.textAlignment = .left
         l.numberOfLines = 0

@@ -14,8 +14,8 @@ final class PremiumAccordionView: UIView {
     
     private var isPremium: Bool? = nil
     
-    lazy var accordionButton: AccordionButton = {
-        let b = AccordionButton()
+    lazy var accordionButton: PremiumAccordionButton = {
+        let b = PremiumAccordionButton()
         return b
     }()
 
@@ -35,7 +35,7 @@ final class PremiumAccordionView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.TextCard.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         return l

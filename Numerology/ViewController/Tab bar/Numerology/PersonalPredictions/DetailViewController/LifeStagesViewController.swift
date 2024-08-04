@@ -232,7 +232,7 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
         
         if indexPath.row == 0 {
             cell.configure(title: "First")
-            cell.premiumBadgeManager.invalidateBadgeAndNotification()
+//            cell.premiumBadgeManager.invalidateBadgeAndNotification() // cust Reject
         } else if indexPath.row == 1 {
             cell.configure(title: "Second")
         } else if indexPath.row == 2 {
