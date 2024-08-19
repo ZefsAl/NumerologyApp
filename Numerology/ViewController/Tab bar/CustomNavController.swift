@@ -6,14 +6,33 @@
 //
 
 import UIKit
+//import RevenueCat
 
-//protocol CustomNavControllerDelegate {
-//    var vcDelegate: CustomNavController? { get set }
-//}
-
-final class CustomNavController: UINavigationController {
+final class CustomNavController: UINavigationController, RemoteOpenDelegate, SpecialOfferButtonDelegate {
+    
+    static func navBarHeight() -> CGFloat {
+        return CustomNavController().navigationBar.frame.size.height
+    }
+    
+    // delegate
+    func todayTipAction() {
+        descriptionVC.configure(
+            title: "Your tip of the day!",
+            info: boardOfDayModel?.dayTip,
+            about: nil
+        )
+        if boardOfDayModel != nil {
+            let navVC = UINavigationController(rootViewController: descriptionVC)
+            navVC.modalPresentationStyle = .overFullScreen
+            self.present(navVC, animated: true)
+        }
+    }
+    
+    
+    var openFrom: UIViewController?
     
     let descriptionVC = DescriptionVC()
+    
     var boardOfDayModel: BoardOfDayModel?
     
     var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
@@ -30,35 +49,47 @@ final class CustomNavController: UINavigationController {
     }
     
     // MARK: dayTip Button
-    lazy var dayTipButton: UIButton = {
-        let b = UIButton(type: .custom)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        
-        b.titleLabel?.font = UIFont.init(weight: .bold, size: 20)
-        b.setTitle("Today", for: .normal)
-        b.setTitleColor(.white, for: .normal)
-        // Shadow
-        b.titleLabel?.layer.shadowOpacity = 1
-        b.titleLabel?.layer.shadowRadius = 16
-        b.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
-        b.titleLabel?.layer.shadowColor = self.primaryColor.cgColor
-        
-        b.addTarget(Any?.self, action: #selector(dayTipAct), for: .touchUpInside)
+//    lazy var dayTipButton: UIButton = {
+//        let b = UIButton(type: .custom)
+//        b.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        b.titleLabel?.font = UIFont.init(weight: .bold, size: 20)
+//        b.setTitle("Today", for: .normal)
+//        b.setTitleColor(.white, for: .normal)
+//        // Shadow
+//        b.titleLabel?.layer.shadowOpacity = 1
+//        b.titleLabel?.layer.shadowRadius = 16
+//        b.titleLabel?.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        b.titleLabel?.layer.shadowColor = self.primaryColor.cgColor
+//        
+//        b.addTarget(Any?.self, action: #selector(dayTipAct), for: .touchUpInside)
+//        return b
+//    }()
+    
+    lazy var specialOfferButton = {
+        let b = SpecialOfferButton()
+        // Delegate
+        b.remoteOpenDelegate = self
+        b.remoteOpenDelegate?.openFrom = self
+        //
+        b.specialOfferButtonDelegate = self
         return b
     }()
     
-    @objc private func dayTipAct() {
-        descriptionVC.configure(
-            title: "Your tip of the day!",
-            info: boardOfDayModel?.dayTip,
-            about: nil
-        )
-        if boardOfDayModel != nil {
-            let navVC = UINavigationController(rootViewController: descriptionVC)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.present(navVC, animated: true)
-        }
-    }
+    
+    // ⚠️ Можем делегировать Action из кнопки например
+//    @objc private func dayTipAct() {
+//        descriptionVC.configure(
+//            title: "Your tip of the day!",
+//            info: boardOfDayModel?.dayTip,
+//            about: nil
+//        )
+//        if boardOfDayModel != nil {
+//            let navVC = UINavigationController(rootViewController: descriptionVC)
+//            navVC.modalPresentationStyle = .overFullScreen
+//            self.present(navVC, animated: true)
+//        }
+//    }
     
     
     
@@ -67,6 +98,8 @@ final class CustomNavController: UINavigationController {
             self.boardOfDayModel = model
         }
     }
+    
+  
     
     // MARK: - init with color
     convenience init(primaryColor: UIColor) {
@@ -90,15 +123,15 @@ final class CustomNavController: UINavigationController {
     
     private func configName() {
         guard
-            let name = UserDefaults.standard.object(forKey: "nameKey") as? String
+            let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
         else { return }
         self.profileButton.nameTitle.text = name
     }
     
     private func requestUserSign() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         guard let dateOfBirth = dateOfBirth else { return }
-        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
         HoroscopeManager.shared.getSign(zodiacSign: sign) { model, image1, image2  in
             self.profileButton.horoscopeIcon.image = image2
         }
@@ -107,19 +140,14 @@ final class CustomNavController: UINavigationController {
     
     // MARK: - setup UI
     private func setupUI() {
-        
-        let contentStack = UIStackView(arrangedSubviews: [dayTipButton,UIView(),profileButton])
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.axis = .horizontal
-        contentStack.alignment = .fill
-        contentStack.spacing = 24
-        
-        self.navigationBar.addSubview(contentStack)
+        self.navigationBar.addSubview(specialOfferButton)
+        self.navigationBar.addSubview(profileButton)
         
         NSLayoutConstraint.activate([
-            contentStack.centerYAnchor.constraint(equalTo: self.navigationBar.centerYAnchor),
-            contentStack.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 18),
-            contentStack.trailingAnchor.constraint(equalTo: self.navigationBar.trailingAnchor, constant: -18),
+            specialOfferButton.centerYAnchor.constraint(equalTo: self.navigationBar.centerYAnchor),
+            specialOfferButton.leadingAnchor.constraint(equalTo: self.navigationBar.leadingAnchor, constant: 18),
+            profileButton.centerYAnchor.constraint(equalTo: self.navigationBar.centerYAnchor),
+            profileButton.trailingAnchor.constraint(equalTo: self.navigationBar.trailingAnchor, constant: -18),
         ])
     }
 }
@@ -143,7 +171,6 @@ class ProfileNavButton: UIButton {
     let nameTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        //        l.text = "Name"
         l.font = UIFont.init(weight: .bold, size: 20)
         l.textColor = .white
         return l

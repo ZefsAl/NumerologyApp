@@ -43,10 +43,16 @@ class EnterUserDataVC: UIViewController {
         
         if nameVal != "" || surnameVal != "" {
             // Save data to UserDefaults
-            DispatchQueue.main.async {
-                UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
-                UserDefaults.standard.synchronize()
-            }
+//            DispatchQueue.main.async {
+//                UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
+//                UserDefaults.standard.synchronize()
+                
+                
+                
+//            }
+            UserDataKvoManager.shared.set(type: .name, value: nameVal)
+            UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
+            
             guard (nameVal != "" && surnameVal != "" && valDateOfBirth != "") else { return }
             self.navigationController?.pushViewController(QuizVC(), animated: true)
         }
@@ -100,10 +106,17 @@ class EnterUserDataVC: UIViewController {
         
         // Save data to UserDefaults
         DispatchQueue.main.async {
-            UserDefaults.standard.setDateOfBirth(dateOfBirth: sender.date)
-            UserDefaults.standard.synchronize()
+//            UserDefaults.standard.setDateOfBirth(dateOfBirth: sender.date)
+//            UserDefaults.standard.synchronize()
             // test
-            print(UserDefaults.standard.object(forKey: "dateOfBirthKey") as Any)
+            
+            
+            
+            // New
+            UserDataKvoManager.shared.set(type: .dateOfBirth, value: sender.date)
+            print(UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as Any)
+            // test
+//            print(UserDataKvoManager.shared.dateOfBirth)
         }
     }
     

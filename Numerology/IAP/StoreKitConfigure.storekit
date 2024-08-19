@@ -11,7 +11,7 @@
       "localizations" : [
         {
           "description" : "Numerology: Lifetime Purchase",
-          "displayName" : "Lifetime ",
+          "displayName" : "Special Offer",
           "locale" : "en_US"
         }
       ],
@@ -22,9 +22,12 @@
   ],
   "settings" : {
     "_applicationInternalID" : "1622398869",
+    "_compatibilityTimeRate" : {
+      "3" : 6
+    },
     "_developerTeamID" : "25F5UMN333",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 738784917.09704304,
+    "_lastSynchronizedDate" : 744833763.65991199,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -62,7 +65,7 @@
       },
       {
         "current" : {
-          "index" : 2,
+          "index" : 1,
           "type" : "generic"
         },
         "enabled" : false,
@@ -100,7 +103,8 @@
         "enabled" : false,
         "name" : "Offer Code Redeem Sheet"
       }
-    ]
+    ],
+    "_timeRate" : 15
   },
   "subscriptionGroups" : [
     {
@@ -113,7 +117,7 @@
         {
           "adHocOffers" : [
             {
-              "internalID" : "2E54BA7B",
+              "internalID" : "F0A5978D",
               "numberOfPeriods" : 1,
               "offerID" : "numerology_promo_offer",
               "paymentMode" : "free",
@@ -179,7 +183,7 @@
           "groupNumber" : 3,
           "internalID" : "6471103437",
           "introductoryOffer" : {
-            "internalID" : "49C948AC",
+            "internalID" : "B886772E",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"

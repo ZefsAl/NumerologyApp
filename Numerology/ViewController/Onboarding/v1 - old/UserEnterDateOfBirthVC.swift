@@ -55,7 +55,7 @@
 //    @objc private func nextBtnAction() {
 //        print("doneBtnAction")
 //        
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+//        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth)
 //        print(dateOfBirth as Any)
 //        guard
 //            let valDateOfBirth = userDateOfBirthField.text
@@ -125,7 +125,7 @@
 //            UserDefaults.standard.setDateOfBirth(dateOfBirth: sender.date)
 //            UserDefaults.standard.synchronize()
 //            // test
-//            print(UserDefaults.standard.object(forKey: "dateOfBirthKey") as Any)
+//            print(UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as Any)
 //        }
 //    }
 //    

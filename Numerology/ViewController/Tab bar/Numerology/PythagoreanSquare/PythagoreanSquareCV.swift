@@ -100,7 +100,8 @@ extension PythagoreanSquareCV: UICollectionViewDataSource, UICollectionViewDeleg
         
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: pythagoreanSquareCVCell.cardCollectionID,
-            for: indexPath as IndexPath) as! PythagoreanSquareCVCell
+            for: indexPath as IndexPath
+        ) as! PythagoreanSquareCVCell
         
 
         return cell

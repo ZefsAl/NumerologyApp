@@ -10,39 +10,42 @@ import RevenueCat
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    var window: UIWindow?
+//    var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        guard let winScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(windowScene: winScene)
+        // Style
         UIBarButtonItem.appearance().tintColor = UIColor.white
         
-        // Data
+        // MARK: App Config
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        AppRouter.shared.setWindow(window: UIWindow(windowScene: winScene))
+        self.validateAppFlow()
+        
+        
+        
+        
+        
+        // Test Check
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             // желательно обновлять status d UserDefaults
             print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool as Any)
         }
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
-        
-        // MARK: App Config
-//        startAppFlow()
-        
         // test
-        let nav = CustomNavController(rootViewController: HoroscopeVC())
-        self.window?.rootViewController = nav
-        self.window?.makeKeyAndVisible()
-        //
-        
-        
+//        let vc = UIViewController()
+//        vc.view.backgroundColor = .systemBlue
+//        let nav = UINavigationController(rootViewController: vc)
+////        let nav = CustomNavController(rootViewController: HoroscopeVC())
+//        AppRouter.shared.window?.rootViewController = nav
+//        AppRouter.shared.window?.makeKeyAndVisible()
         
         print("🔄 scene")
     }
     
-    private func startAppFlow() {
-        let dataName = UserDefaults.standard.object(forKey: "nameKey")
-        let dataSurname = UserDefaults.standard.object(forKey: "surnameKey")
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey")
+    private func validateAppFlow() {
+        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name)
+        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname)
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth)
         
         if
             (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
@@ -51,11 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(dataName as Any)
             print(dataSurname as Any)
             print(dateOfBirth as Any)
-            self.window?.rootViewController = MainTabBarController()
+            AppRouter.shared.setAppFlow(.app, animated: false)
         } else {
-            self.window?.rootViewController = UINavigationController(rootViewController: OnboardingVC_v2())
+            AppRouter.shared.setAppFlow(.onboarding, animated: false)
         }
-        self.window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

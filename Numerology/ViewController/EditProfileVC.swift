@@ -102,9 +102,15 @@ class EditProfileVC: UIViewController {
         
         let alert = UIAlertController(title: "Delete?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { act in
-            UserDefaults.standard.setUserData(name: "", surname: "")
-            UserDefaults.standard.setDateOfBirth(dateOfBirth: Date())
-            UserDefaults.standard.synchronize()
+//            UserDefaults.standard.setUserData(name: "", surname: "")
+//            UserDefaults.standard.setDateOfBirth(dateOfBirth: Date())
+//            UserDefaults.standard.synchronize()
+            
+            UserDataKvoManager.shared.set(type: .dateOfBirth, value: Date())
+            UserDataKvoManager.shared.set(type: .name, value: "")
+            UserDataKvoManager.shared.set(type: .surname, value: "")
+            
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { act in
             alert.dismiss(animated: true)
@@ -170,16 +176,23 @@ class EditProfileVC: UIViewController {
             let nameVal = userNameField.text,
             let surnameVal = userSurnameField.text,
             let dateOfBirthVal = userDateOfBirthField.text,
-            let newDateOfBirth = self.newDateOfBirth ?? UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+            let newDateOfBirth = self.newDateOfBirth ?? UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         else {
             print("⚠️ Error getting data for save")
             return
         }
         
         if nameVal != "" && surnameVal != "" && dateOfBirthVal != "" {
-            UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
-            UserDefaults.standard.setDateOfBirth(dateOfBirth: newDateOfBirth)
-            UserDefaults.standard.synchronize()
+//            UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
+//            UserDefaults.standard.setDateOfBirth(dateOfBirth: newDateOfBirth)
+//            UserDefaults.standard.synchronize()
+            
+            
+            UserDataKvoManager.shared.set(type: .dateOfBirth, value: newDateOfBirth)
+            UserDataKvoManager.shared.set(type: .name, value: nameVal)
+            UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
+            
+            
             print("saved")
             self.dismiss(animated: true)
         } else {
@@ -251,9 +264,9 @@ extension EditProfileVC {
     private func configureEditData() {
         
         guard
-            let name = UserDefaults.standard.object(forKey: "nameKey") as? String,
-            let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String,
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+            let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String,
+            let surname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as? String,
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         else {
             return
         }

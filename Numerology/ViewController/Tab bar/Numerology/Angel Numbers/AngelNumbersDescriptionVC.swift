@@ -37,7 +37,7 @@ class AngelNumbersDescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title
+        l.font = DesignSystem.SourceSerifProFont.title_Sb_24
         l.textAlignment = .left
         return l
     }()

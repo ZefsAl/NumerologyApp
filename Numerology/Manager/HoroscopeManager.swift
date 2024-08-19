@@ -20,7 +20,7 @@ final class HoroscopeManager {
     
     // MARK: - Signs
     func getSign(zodiacSign: String, completion: @escaping ((SignsModel, UIImage?, UIImage? ) -> Void) ) {
-        let docRef = firestore.collection("Signs").whereField("zodiacSigns", isEqualTo: zodiacSign)
+        let docRef = firestore.collection("Signs-hrscp").whereField("zodiacSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
@@ -36,11 +36,11 @@ final class HoroscopeManager {
                     let storage = Storage.storage()
                     let megaByte = Int64(1 * 1024 * 1024)
                     
-                    let ref = val.image[0].ref // Путь
-                    let pathReference = storage.reference(withPath: "\(ref)")
+                    let ref = val.image?[0].ref // Путь
+                    let pathReference = storage.reference(withPath: "\(ref ?? ref!)")
                     
-                    let ref2 = val.image[1].ref // Путь
-                    let pathReference2 = storage.reference(withPath: "\(ref2)")
+                    let ref2 = val.image?[1].ref // Путь
+                    let pathReference2 = storage.reference(withPath: "\(ref2 ?? ref2!)")
                     
                     pathReference.getData(maxSize: megaByte) { data1, error in
                         pathReference2.getData(maxSize: megaByte) { data2, error in
@@ -70,37 +70,87 @@ final class HoroscopeManager {
 
     // MARK: - Today
     func getTodayHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        let docRef = firestore.collection("Today-tomor-hrscp")
+        let fixNotFilledData = Array(1...58).randomElement() ?? 1
+        
+        let docRef = firestore.collection("Today-tomor-hrscp").whereField("number", isEqualTo: fixNotFilledData)
         
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             if let error = error { print("⚠️ Error getting documents: \(error)") }
             
-            if let random = documents.randomElement() {
+            
+//            if let random = documents.randomElement() {
+//                do {
+//                    let val = try random.data(as: HoroscopeDefaultModel.self)
+//                    completion(val)
+//                } catch {
+//                    print("⚠️ Error decode documents: \(error)")
+//                }
+//            }
+//            
+//            if let random = documents.first {
+//                do {
+//                    let val = try random.data(as: HoroscopeDefaultModel.self)
+//                    completion(val)
+//                    
+//                    print("🌕‼️🟢 Request Today - hrscp:",
+//                    """
+//                    \(val),
+//                    \(val.number as Any),
+//                    \(val.info as Any) ,
+//                    \(val.charts as Any) ,
+//                    \(val.business as Any),
+//                    \(val.health as Any)
+//                    """
+//                    )
+//                    
+//                    
+//                } catch {
+//                    print("⚠️ Error decode documents: \(error)")
+//                }
+//            }
+            
+            for doc in documents {
                 do {
-                    let val = try random.data(as: HoroscopeDefaultModel.self)
+                    let val = try doc.data(as: HoroscopeDefaultModel.self)
                     completion(val)
-                } catch {
-                    print("⚠️ Error decode documents: \(error)")
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
+            
         }
     }
     
     // MARK: - Week
     func getWeekHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        let docRef = firestore.collection("Week-hrscp")
+        
+        
+        let fixNotFilledData = Array(1...25).randomElement() ?? 1
+        
+        let docRef = firestore.collection("Week-hrscp").whereField("number", isEqualTo: fixNotFilledData)
         
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             if let error = error { print("⚠️ Error getting documents: \(error)") }
             // Random
-            if let random = documents.randomElement() {
+//            if let random = documents.randomElement() {
+//                do {
+//                    let val = try random.data(as: HoroscopeDefaultModel.self)
+//                    completion(val)
+//                } catch {
+//                    print("⚠️ Error decode documents: \(error)")
+//                }
+//            }
+            // Decode
+            for doc in documents {
                 do {
-                    let val = try random.data(as: HoroscopeDefaultModel.self)
+                    let val = try doc.data(as: HoroscopeDefaultModel.self)
                     completion(val)
-                } catch {
-                    print("⚠️ Error decode documents: \(error)")
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -298,42 +348,42 @@ final class HoroscopeManager {
         }
     }
     
-    func fetchMonthCalendarModel_v2(zodiacSign: String) async throws -> MonthCalendarModel? {
-        let changeHoroscope: Int = {
-            // cust: change to next horoscope if day "27"
-            let date = Date()
-            let currentDay = date.get(.day)
-            let current = date.get(.month)
-            let next = date.getNext(.month)
-            //
-//            print("✅ curr", date)
-//            print("⚠️ curr day", date.get(.day))
-//            print("⚠️ curr month", current)
-//            print("⚠️ next month", date.getNext(.month))
-            //
-            return currentDay >= 27 ? next : current
-        }()
-        
-        
-        let db = Firestore.firestore()
-        let query = makeMoneyCalendarRef(byMonth: changeHoroscope, zodiacSign: zodiacSign)
-        let snapshot = try await query.getDocuments()
-        
-        var resultModel: MonthCalendarModel? = nil
-
-        for document in snapshot.documents {
-            do {
-                let model = try document.data(as: MonthCalendarModel.self)
-                //                models.append(model)
-                resultModel = model
-            } catch {
-                print("⚠️ Error when trying to decode document: \(error)")
-            }
-        }
-        
-        
-        return resultModel ?? nil
-    }
+//    func fetchMonthCalendarModel_v2(zodiacSign: String) async throws -> MonthCalendarModel? {
+//        let changeHoroscope: Int = {
+//            // cust: change to next horoscope if day "27"
+//            let date = Date()
+//            let currentDay = date.get(.day)
+//            let current = date.get(.month)
+//            let next = date.getNext(.month)
+//            //
+////            print("✅ curr", date)
+////            print("⚠️ curr day", date.get(.day))
+////            print("⚠️ curr month", current)
+////            print("⚠️ next month", date.getNext(.month))
+//            //
+//            return currentDay >= 27 ? next : current
+//        }()
+//        
+//        
+////        let db = Firestore.firestore()
+//        let query = makeMoneyCalendarRef(byMonth: changeHoroscope, zodiacSign: zodiacSign)
+//        let snapshot = try await query.getDocuments()
+//        
+//        var resultModel: MonthCalendarModel? = nil
+//
+//        for document in snapshot.documents {
+//            do {
+//                let model = try document.data(as: MonthCalendarModel.self)
+//                //                models.append(model)
+//                resultModel = model
+//            } catch {
+//                print("⚠️ Error when trying to decode document: \(error)")
+//            }
+//        }
+//        
+//        
+//        return resultModel ?? nil
+//    }
 
 }
 

@@ -93,8 +93,8 @@ final class NumerologyCompatibilityVC: UIViewController {
         
         guard
             let partnerDate = self.partnerDate,
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date,
-            let userName = UserDefaults.standard.object(forKey: "nameKey") as? String
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date,
+            let userName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
         else { return }
         
         let userNum = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)

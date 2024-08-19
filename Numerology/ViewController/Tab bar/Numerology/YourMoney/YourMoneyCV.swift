@@ -50,8 +50,8 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YourNumerologyCVCell.reuseID, for: indexPath as IndexPath) as! YourNumerologyCVCell
         
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
         
         // MARK: Money
         guard let name = name else { return cell }

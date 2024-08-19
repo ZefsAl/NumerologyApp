@@ -35,7 +35,7 @@ final class PremiumAccordionView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -45,6 +45,7 @@ final class PremiumAccordionView: UIView {
     private override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        setupStack()
     }
     
     init(
@@ -55,7 +56,6 @@ final class PremiumAccordionView: UIView {
     ) {
         self.init()
         // setup
-        setupStack()
         configureData(
             title: title,
             info: info,
@@ -106,7 +106,6 @@ final class PremiumAccordionView: UIView {
         let contentStack = UIStackView(arrangedSubviews: [
             accordionButton,
             info,
-            divider
         ])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical

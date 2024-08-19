@@ -9,21 +9,15 @@ import Foundation
 
 extension UserDefaults {
     
-    func setUserData(name: String, surname: String) {
-        setValue(name, forKey: "nameKey")
-        setValue(surname, forKey: "surnameKey")
-        synchronize()
-    }
+//    func setUserData(name: String, surname: String) {
+//        setValue(name, forKey: UserDefaultsKeys.name)
+//        setValue(surname, forKey: UserDefaultsKeys.surname)
+//        synchronize()
+//    }
     
-    func setDateOfBirth(dateOfBirth: Date) {
-        setValue(dateOfBirth, forKey: "dateOfBirthKey")
-        synchronize()
-    }
-    
-    func setDayTipModel(model: BoardOfDayModel) {
-        if let encoded = try? JSONEncoder().encode(model) {
-            UserDefaults.standard.set(encoded, forKey: "BoardOfDayModelKey")
-        }
-        synchronize()
-    }
+//    func setDateOfBirth(dateOfBirth: Date) {
+//        setValue(dateOfBirth, forKey: UserDefaultsKeys.dateOfBirth)
+//        synchronize()
+//    }
+
 }

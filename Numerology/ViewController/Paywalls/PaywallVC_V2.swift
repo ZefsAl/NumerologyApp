@@ -31,11 +31,7 @@ final class PaywallVC_V2: UIViewController {
     }()
     
     // MARK: Collection View
-    private let productsCollectionView: ContentCollectionView = {
-        var cv = ContentCollectionView()
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        return cv
-    }()
+    private let productsCollectionView: ContentCollectionView = ContentCollectionView()
     
     // MARK: - config Compositional Layout CV
     private func configCompositionalLayoutCV() {
@@ -56,11 +52,6 @@ final class PaywallVC_V2: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         self.productsCollectionView.collectionViewLayout = layout
         self.productsCollectionView.heightAnchor.constraint(equalToConstant: 190).isActive = true // 😢
-        
-//        // Register
-//        productsCollectionView.register(BigPromoCVCell.self, forCellWithReuseIdentifier: BigPromoCVCell().bigPromoCVCell_ID)
-//        productsCollectionView.register(RegularPromoCVCell.self, forCellWithReuseIdentifier: RegularPromoCVCell().regularPromoCVCell_ID)
-        
     }
     // MARK: - config Flow Layout CV
     private func configFlowLayoutCV() {
@@ -294,7 +285,17 @@ final class PaywallVC_V2: UIViewController {
         if bool {
             self.dismiss(animated: true)
         } else {
-            self.navigationController?.pushViewController(MainTabBarController(), animated: true)
+            
+            AppRouter.shared.setAppFlow(.app, animated: true)
+            // 🔴 Test
+            let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name)
+            let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname)
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth)
+            
+            print(dataName as Any)
+            print(dataSurname as Any)
+            print(dateOfBirth as Any)
+            
         }
     }
     

@@ -100,7 +100,7 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
 
 final class AngelNumbersCVCell: UICollectionViewCell {
     
-    let premiumBadgeManager = PremiumBadgeManager()
+    let premiumBadgeManager = PremiumManager()
     
     
     static var reuseID: String {

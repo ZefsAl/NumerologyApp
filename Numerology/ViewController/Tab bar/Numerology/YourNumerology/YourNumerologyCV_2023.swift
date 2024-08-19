@@ -147,9 +147,9 @@ extension YourNumerologyCV: UICollectionViewDataSource, UICollectionViewDelegate
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell().cardCollectionID, for: indexPath as IndexPath) as! CardCollectionViewCell
         
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
-        let surname = UserDefaults.standard.object(forKey: "surnameKey") as? String
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
+        let surname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as? String
         
         if indexPath.row == 0 {
             // MARK: SOUL

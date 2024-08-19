@@ -148,7 +148,7 @@ import UIKit
 //    }
 //    
 //    private func firstSignConfigure() {
-//        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+//        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
 //        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
 //
 //        

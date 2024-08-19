@@ -7,7 +7,13 @@
 
 import UIKit
 
+// Collection View Auto height size
 class ContentCollectionView: UICollectionView {
+
+    // For size cell by content + Constraints in Cell
+//    if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
+//        collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//    }
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
            super.init(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -15,7 +21,8 @@ class ContentCollectionView: UICollectionView {
         
         self.backgroundColor = .clear
         self.isScrollEnabled = false
-        
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.clipsToBounds = false
        }
 
        required init?(coder aDecoder: NSCoder) {

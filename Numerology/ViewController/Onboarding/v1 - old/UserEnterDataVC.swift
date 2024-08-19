@@ -64,8 +64,8 @@
 //            }
 //            // TEST
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                print(UserDefaults.standard.object(forKey: "nameKey") as Any)
-//                print(UserDefaults.standard.object(forKey: "surnameKey") as Any)
+//                print(UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as Any)
+//                print(UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as Any)
 //            }
 //            
 //            self.navigationController?.pushViewController(UserEnterDateOfBirthVC(), animated: true)

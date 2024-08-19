@@ -9,25 +9,26 @@ import Foundation
 
 class SignsModel: Decodable, Identifiable {
     
-    let zodiacSigns: String
-    let dateAboutYou: String
-    let compatibility2: String
-    let month: String
-    let monthCopy: String
-    let signCharacteristics: String
-    let year: String
-    let yearCopy: String
-    let image: [Image]
+    let dateAboutYou: String?
+    let zodiacSigns: String?
+    let signCharacteristics: String?
+    let image: [Image]?
+    let charts: String?
+    let family: String?
+    let friendship: String?
+    let intimacy: String?
+    let work: String?
+    
     
     enum CodingKeys: String, CodingKey {
-        case zodiacSigns = "zodiacSigns"
         case dateAboutYou = "dateAboutYou"
-        case compatibility2 = "compatibility2"
-        case month = "month"
-        case monthCopy = "monthCopy"
+        case zodiacSigns = "zodiacSigns"
         case signCharacteristics = "signCharacteristics"
-        case year = "year"
-        case yearCopy = "yearCopy"
         case image = "image"
+        case charts = "charts"
+        case family = "family"
+        case friendship = "friendship"
+        case intimacy = "intimacy"
+        case work = "work"
     }
 }

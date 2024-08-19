@@ -74,11 +74,11 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = DesignSystem.Numerology.backgroundColor
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = 16
+            v.layer.shadowRadius = DesignSystem.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
             //
@@ -87,7 +87,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
                 accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
                 accordionStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
                 accordionStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
-                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
+                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -16),
                 accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
             ])
             return v
@@ -128,11 +128,11 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
                 // Style
                 v.backgroundColor = DesignSystem.Numerology.backgroundColor
                 // Border
-                v.layer.cornerRadius = 16
+                v.layer.cornerRadius = DesignSystem.maxCornerRadius
                 v.layer.borderWidth = DesignSystem.borderWidth
                 v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
                 v.layer.shadowOpacity = 1
-                v.layer.shadowRadius = 16
+                v.layer.shadowRadius = DesignSystem.maxCornerRadius
                 v.layer.shadowOffset = CGSize(width: 0, height: 4)
                 v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
                 
@@ -141,7 +141,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
                     accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
                     accordionStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
                     accordionStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
-                    accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
+                    accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -16),
                     accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
                 ])
                 

@@ -9,8 +9,6 @@ import UIKit
 
 class YourHoroscopeCV: UICollectionView {
     
-    let horoscopeDescriptionVC = HoroscopeDescriptionVC()
-    
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
     // MARK: - init
@@ -27,7 +25,7 @@ class YourHoroscopeCV: UICollectionView {
     private func setupCV_Layout() {
         let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1.0),
-            heightDimension: NSCollectionLayoutDimension.absolute(117)
+            heightDimension: NSCollectionLayoutDimension.absolute(370)
         )
         
         let item = NSCollectionLayoutItem(layoutSize: size)
@@ -70,7 +68,7 @@ class YourHoroscopeCV: UICollectionView {
         // Delegate Collection View
         self.delegate = self
         self.dataSource = self
-        self.register(HoroscopeCell.self, forCellWithReuseIdentifier: HoroscopeCell.reuseID)
+        self.register(HoroscopeCell_v2.self, forCellWithReuseIdentifier: HoroscopeCell_v2.reuseID)
         // Header
         self.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderView.reuseID)
         //
@@ -101,15 +99,14 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HoroscopeCell.reuseID, for: indexPath as IndexPath) as! HoroscopeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HoroscopeCell_v2.reuseID, for: indexPath as IndexPath) as! HoroscopeCell_v2
         
-        let name = UserDefaults.standard.object(forKey: "nameKey") as? String
+        let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
         
         if indexPath.row == 0 {
-            cell.configure(
+            cell.configureUserGreeting(
                 title: "Hello, \(name ?? "")!",
-                subtitle: "Find out your horoscope",
-                setImage: UIImage(named: "HoroscopeImage")
+                subtitle: "Find out your horoscope"
             )
             return cell
         }
@@ -118,13 +115,11 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
     
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if indexPath.row == 0 {
-            let navVC = UINavigationController(rootViewController: horoscopeDescriptionVC)
+            let navVC = UINavigationController(rootViewController: HoroscopeDescriptionVC())
             navVC.modalPresentationStyle = .overFullScreen
             self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
         }
-
     }
 }
 

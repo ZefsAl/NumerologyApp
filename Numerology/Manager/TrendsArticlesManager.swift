@@ -32,12 +32,6 @@ struct TrendsFieldID {
     
 }
 class TrendsArticlesUserDefaults {
-    
-    static func setUserData(name: String, surname: String) {
-        UserDefaults.standard.setValue(name, forKey: "nameKey")
-        UserDefaults.standard.setValue(surname, forKey: "surnameKey")
-        UserDefaults.standard.synchronize()
-    }
 
     static func set(likeState: Bool, for articleKey: String) {
         UserDefaults.standard.setValue(likeState, forKey: articleKey)
@@ -82,7 +76,6 @@ final class TrendsArticlesManager {
                 do {
                     let val = try doc.data(as: TrendsArticlesModel.self)
                     let ref = val.image.first?.ref // Путь
-                    print("ref 🟣⚠️🌕", ref as Any)
                     
                     guard let ref = ref else {
                         completion(val, nil, doc.documentID)

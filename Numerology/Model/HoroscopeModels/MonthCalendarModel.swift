@@ -14,6 +14,8 @@ struct MonthCalendarModel: Decodable {
     let mainTrends: String
     let badDays: String
     let goodDays: String
+    let charts: String?
+    
     
     enum CodingKeys: String, CodingKey {
         case monthSigns = "monthSigns"
@@ -21,5 +23,6 @@ struct MonthCalendarModel: Decodable {
         case mainTrends = "mainTrends"
         case badDays = "badDays"
         case goodDays = "goodDays"
+        case charts = "charts"
     }
 }

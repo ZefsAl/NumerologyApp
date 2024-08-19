@@ -45,7 +45,7 @@ class MoonVC: UIViewController {
     }
     
     private func requestData() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         let moonDay = MoonCalendarManager().getAfternoonMoonDay()
         //
         HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in

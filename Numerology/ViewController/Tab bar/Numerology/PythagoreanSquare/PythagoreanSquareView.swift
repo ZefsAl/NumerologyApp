@@ -37,7 +37,7 @@ final class PythagoreanSquareView: UIView {
     }
     
     private func requestData() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         
         guard let dateOfBirth = dateOfBirth else {
             print("🔴 error dateOfBirth PythagoreanSquareView");
@@ -49,7 +49,6 @@ final class PythagoreanSquareView: UIView {
         
         for val in 1...9 {
             let characterVal = Character(String(val))
-//            print("🌕",val,numbers.filter{$0 == characterVal}.count)
             //
             let count = numbers.filter{$0 == characterVal}.count
             //

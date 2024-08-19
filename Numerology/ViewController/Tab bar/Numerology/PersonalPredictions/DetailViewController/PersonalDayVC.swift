@@ -86,7 +86,7 @@ final class PersonalDayVC: UIViewController {
 
         // Get data
         guard
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date,
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date,
             let enteredDate = self.enteredDate
         else { return }
 

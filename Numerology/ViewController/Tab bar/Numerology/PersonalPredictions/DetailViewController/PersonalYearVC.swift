@@ -57,7 +57,7 @@ final class PersonalYearVC: UIViewController {
         
         // Get data
         guard
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date,
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date,
             let receivedDate = self.customDateTextfield.receivedDate
         else { return }
         print(receivedDate)

@@ -26,7 +26,7 @@ class DescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title
+        l.font = DesignSystem.SourceSerifProFont.title_Sb_24
         l.textAlignment = .left
         return l
     }()
@@ -34,7 +34,7 @@ class DescriptionVC: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -44,7 +44,7 @@ class DescriptionVC: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
         

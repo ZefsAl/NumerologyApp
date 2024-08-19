@@ -11,7 +11,7 @@ class ChipsCVCell: UICollectionViewCell {
  
     let buttonCVCellID = "buttonCVCellID"
     
-    let premiumBadgeManager = PremiumBadgeManager()
+    let premiumBadgeManager = PremiumManager()
     
     var primaryColor: UIColor? = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
     

@@ -59,9 +59,9 @@ final class HoroscopeSign {
     }
     
     // MARK: - find Horoscope Sign
-    func findHoroscopeSign(find: Date?) -> String {
+    func findHoroscopeSign(byDate: Date?) -> String {
         guard
-            let find = find,
+            let find = byDate,
             let find = mainFormatter.date(from: "\(2000)-\(find.get(.month))-\(find.get(.day))T00:00:00+0000")
         else { return "" }
         //

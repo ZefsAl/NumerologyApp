@@ -15,7 +15,7 @@ class TrendsCell: UICollectionViewCell {
     
     let trendsView = TrendsView(edgeMargin: 12)
     
-    let premiumBadgeManager = PremiumBadgeManager()
+    let premiumBadgeManager = PremiumManager()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,28 +44,6 @@ class TrendsCell: UICollectionViewCell {
         model: TrendsCellModel
     ) {
         self.trendsView.setDataModel(model: model)
-        
-        // Очень специфичный баг
-        // ➡️ by default, model.isPremium = false -> request вернет -> model.isPremium == true || false
-        
-        // Баг При reloadData
-        
-        // ⚠️ Проблема точно в конфиге ячейки (т.к при открытии detail view все правильно)
-        // Если есть хотябы 1 (model.isPremium == true) то будет баг который добавит в другие ячейки .setPremiumBadgeToCard()
-        
-        // Предположения ❓❓❓
-        // может что то происходит с данными в model, хотя в логах все правильно ❓
-        // Может потому что я использую standart DataSource это не правильно, а не UICollectionViewDiffableDataSource (не пробовал) ❓
-        
-        // Проверить ☑️
-        // ☑️ Модель данных после fetched request
-        
-//        print(
-//            """
-//            ✅🟠🔴imageTitle - \(model.imageTitle) - isPremium - \(model.isPremium)
-//            """
-//        )
-        
     }
     
     // MARK: Set up Stack

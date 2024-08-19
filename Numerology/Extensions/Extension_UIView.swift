@@ -86,15 +86,24 @@ extension UIView {
         }
     }
     
+    // MARK: - add System Blur
     func addSystemBlur(to view: UIView, style: UIBlurEffect.Style) {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(blurEffectView)
+//        view.addSubview(blurEffectView)
+        view.insertSubview(blurEffectView, at: 0)
 //        view.layer.addSublayer(blurEffectView)
     }
     
-    
+    // MARK: - Fade text
+    func fadeTransition(_ duration:CFTimeInterval) {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
+    }
     
 }

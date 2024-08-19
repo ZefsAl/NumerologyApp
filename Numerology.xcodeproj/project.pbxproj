@@ -93,8 +93,8 @@
 		84B895DB2B1392CB0061680A /* HoroscopeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895DA2B1392CB0061680A /* HoroscopeVC.swift */; };
 		84B895DE2B139E340061680A /* YourHoroscopeCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895DD2B139E340061680A /* YourHoroscopeCV.swift */; };
 		84B895E12B13A2140061680A /* HoroscopeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E02B13A2140061680A /* HoroscopeCell.swift */; };
-		84B895E32B13AEED0061680A /* AboutYouCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E22B13AEED0061680A /* AboutYouCV.swift */; };
-		84B895E52B13D0950061680A /* AboutYouVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E42B13D0950061680A /* AboutYouVC.swift */; };
+		84B895E32B13AEED0061680A /* CharismaCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E22B13AEED0061680A /* CharismaCV.swift */; };
+		84B895E52B13D0950061680A /* CharismaDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E42B13D0950061680A /* CharismaDetailVC.swift */; };
 		84B895E82B14159F0061680A /* PremiumAccordionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895E72B14159F0061680A /* PremiumAccordionButton.swift */; };
 		84B895EB2B14E4760061680A /* SignContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895EA2B14E4760061680A /* SignContentView.swift */; };
 		84B895EE2B14E5120061680A /* AccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B895ED2B14E5120061680A /* AccordionView.swift */; };
@@ -143,14 +143,20 @@
 		84FF997D2B6988FC00E69401 /* Extension_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF997C2B6988FC00E69401 /* Extension_Date.swift */; };
 		A3A4B75D331E27EC365CEF9E /* libPods-Numerology.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909C20961D13C0084BDEB2F3 /* libPods-Numerology.a */; };
 		C2004BC62BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */; };
+		C201A0082C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C201A0072C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift */; };
 		C20820462C078E7B005BF648 /* PaywallVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = C20820452C078E7A005BF648 /* PaywallVideo.mov */; };
+		C20EAC712C6F2965008E7532 /* CharismaCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */; };
+		C20EAC762C70D8A1008E7532 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC752C70D8A1008E7532 /* AppRouter.swift */; };
 		C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */; };
 		C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */; };
 		C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */; };
 		C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E772BF9325300104D0A /* Extension_UIView.swift */; };
 		C23540832C5BB9E1001C66E9 /* CompatibilityHrscpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */; };
-		C23752572C0B4DE900000C68 /* PremiumBadgeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */; };
+		C23752572C0B4DE900000C68 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23752562C0B4DE900000C68 /* PremiumManager.swift */; };
 		C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */; };
+		C245A0A12C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */; };
+		C245A0A32C67D16600BCB676 /* YourHoroscopeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A22C67D16600BCB676 /* YourHoroscopeManager.swift */; };
+		C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A42C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift */; };
 		C24879592C181D6100DDC84B /* DatailTrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */; };
 		C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */; };
 		C25143F02C156B11005019C6 /* TrendsArticlesCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EF2C156B11005019C6 /* TrendsArticlesCV.swift */; };
@@ -170,16 +176,21 @@
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
 		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
 		C27D2E382C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */; };
-		C27D2E3A2C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */; };
-		C27D2E3C2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */; };
 		C27EBBD52C10A5C10087241D /* PremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */; };
 		C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */; };
+		C28A1AB62C610212003EDACA /* ChartsCV_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */; };
+		C28A1AB82C610331003EDACA /* ChartCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB72C610331003EDACA /* ChartCVCell.swift */; };
 		C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */; };
 		C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */; };
 		C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */; };
 		C2B3F5132C08FDD50042B9F3 /* OverallPresenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */; };
 		C2B590952BFA40A800118B89 /* ColumnRefTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B590942BFA40A800118B89 /* ColumnRefTableViewCell.swift */; };
 		C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */; };
+		C2C38AD42C62D92B001235F4 /* TechnicalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */; };
+		C2C38AD62C62D9E8001235F4 /* TechnicalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD52C62D9E8001235F4 /* TechnicalManager.swift */; };
+		C2C38AD82C63CFE5001235F4 /* MainTabBarController_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD72C63CFE5001235F4 /* MainTabBarController_v2.swift */; };
+		C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD92C65816F001235F4 /* HoroscopeCell_v2.swift */; };
+		C2C38ADC2C665763001235F4 /* SegmentedControlHRSCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */; };
 		C2CA6AAA2BF810A000A6E3FC /* PythagoreanSquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA6AA92BF810A000A6E3FC /* PythagoreanSquareModel.swift */; };
 		C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */; };
 		C2CAE6D62BD1D54A00E09933 /* DetailAngelNumbersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */; };
@@ -192,6 +203,11 @@
 		C2CFA40C2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA40B2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift */; };
 		C2CFA40F2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA40E2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift */; };
 		C2D1C6FE2C00EF2500C2D481 /* PremiumAccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */; };
+		C2D72D242C71E1AA005B7143 /* UserDataKvoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D232C71E1AA005B7143 /* UserDataKvoManager.swift */; };
+		C2D72D262C738A0E005B7143 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D252C738A0E005B7143 /* Keys.swift */; };
+		C2D72D282C73CFDF005B7143 /* CharismaDetailVC_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D272C73CFDF005B7143 /* CharismaDetailVC_Ext.swift */; };
+		C2D72D2A2C73D281005B7143 /* ChartCVCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */; };
+		C2D72D2C2C73D348005B7143 /* CharismaCV_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D2B2C73D348005B7143 /* CharismaCV_ViewModel.swift */; };
 		C2E144992C1B28FC00FA23FD /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E144982C1B28FC00FA23FD /* TrendsView.swift */; };
 		C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */; };
 		C2FDF12E2C168ADA007EB282 /* TrendsArticlesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */; };
@@ -281,8 +297,8 @@
 		84B895DA2B1392CB0061680A /* HoroscopeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeVC.swift; sourceTree = "<group>"; };
 		84B895DD2B139E340061680A /* YourHoroscopeCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourHoroscopeCV.swift; sourceTree = "<group>"; };
 		84B895E02B13A2140061680A /* HoroscopeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell.swift; sourceTree = "<group>"; };
-		84B895E22B13AEED0061680A /* AboutYouCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYouCV.swift; sourceTree = "<group>"; };
-		84B895E42B13D0950061680A /* AboutYouVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutYouVC.swift; sourceTree = "<group>"; };
+		84B895E22B13AEED0061680A /* CharismaCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaCV.swift; sourceTree = "<group>"; };
+		84B895E42B13D0950061680A /* CharismaDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaDetailVC.swift; sourceTree = "<group>"; };
 		84B895E72B14159F0061680A /* PremiumAccordionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionButton.swift; sourceTree = "<group>"; };
 		84B895EA2B14E4760061680A /* SignContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignContentView.swift; sourceTree = "<group>"; };
 		84B895ED2B14E5120061680A /* AccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionView.swift; sourceTree = "<group>"; };
@@ -335,14 +351,20 @@
 		84FF997C2B6988FC00E69401 /* Extension_Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_Date.swift; sourceTree = "<group>"; };
 		909C20961D13C0084BDEB2F3 /* libPods-Numerology.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Numerology.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2004BC52BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarDescriptionVC.swift; sourceTree = "<group>"; };
+		C201A0072C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeDescriptionVC_Ext.swift; sourceTree = "<group>"; };
 		C20820452C078E7A005BF648 /* PaywallVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = PaywallVideo.mov; sourceTree = "<group>"; };
+		C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaCVCell.swift; sourceTree = "<group>"; };
+		C20EAC752C70D8A1008E7532 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarModel.swift; sourceTree = "<group>"; };
 		C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareView.swift; sourceTree = "<group>"; };
 		C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableView.swift; sourceTree = "<group>"; };
 		C22A3E772BF9325300104D0A /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
 		C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpView.swift; sourceTree = "<group>"; };
-		C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumBadgeManager.swift; sourceTree = "<group>"; };
+		C23752562C0B4DE900000C68 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferCVCell.swift; sourceTree = "<group>"; };
+		C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell_v2_Ext.swift; sourceTree = "<group>"; };
+		C245A0A22C67D16600BCB676 /* YourHoroscopeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourHoroscopeManager.swift; sourceTree = "<group>"; };
+		C245A0A42C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell_ViewModel.swift; sourceTree = "<group>"; };
 		C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatailTrendsArticlesVC.swift; sourceTree = "<group>"; };
 		C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesVC.swift; sourceTree = "<group>"; };
 		C25143EF2C156B11005019C6 /* TrendsArticlesCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesCV.swift; sourceTree = "<group>"; };
@@ -360,16 +382,21 @@
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
 		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
 		C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpCV.swift; sourceTree = "<group>"; };
-		C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpCell.swift; sourceTree = "<group>"; };
-		C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpFooter.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* PremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
+		C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCV_Ext.swift; sourceTree = "<group>"; };
+		C28A1AB72C610331003EDACA /* ChartCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCVCell.swift; sourceTree = "<group>"; };
 		C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersDescriptionVC.swift; sourceTree = "<group>"; };
 		C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersModel.swift; sourceTree = "<group>"; };
 		C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallPresenterManager.swift; sourceTree = "<group>"; };
 		C2B590942BFA40A800118B89 /* ColumnRefTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableViewCell.swift; sourceTree = "<group>"; };
 		C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersCV.swift; sourceTree = "<group>"; };
+		C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalModel.swift; sourceTree = "<group>"; };
+		C2C38AD52C62D9E8001235F4 /* TechnicalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalManager.swift; sourceTree = "<group>"; };
+		C2C38AD72C63CFE5001235F4 /* MainTabBarController_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController_v2.swift; sourceTree = "<group>"; };
+		C2C38AD92C65816F001235F4 /* HoroscopeCell_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell_v2.swift; sourceTree = "<group>"; };
+		C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHRSCP.swift; sourceTree = "<group>"; };
 		C2C65DEF2C5BF56B004EA5A3 /* libMMMHorizontalPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMMHorizontalPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CA6AA92BF810A000A6E3FC /* PythagoreanSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareModel.swift; sourceTree = "<group>"; };
 		C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalendarManager.swift; sourceTree = "<group>"; };
@@ -383,6 +410,11 @@
 		C2CFA40B2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCV_2024.swift; sourceTree = "<group>"; };
 		C2CFA40E2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCell.swift; sourceTree = "<group>"; };
 		C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionView.swift; sourceTree = "<group>"; };
+		C2D72D232C71E1AA005B7143 /* UserDataKvoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKvoManager.swift; sourceTree = "<group>"; };
+		C2D72D252C738A0E005B7143 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C2D72D272C73CFDF005B7143 /* CharismaDetailVC_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaDetailVC_Ext.swift; sourceTree = "<group>"; };
+		C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCVCellModel.swift; sourceTree = "<group>"; };
+		C2D72D2B2C73D348005B7143 /* CharismaCV_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaCV_ViewModel.swift; sourceTree = "<group>"; };
 		C2E144982C1B28FC00FA23FD /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall.swift; sourceTree = "<group>"; };
 		C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesManager.swift; sourceTree = "<group>"; };
@@ -423,9 +455,9 @@
 				841B55242B594E63002EE1F8 /* CompatibilityHoroscopeVC_OLD.swift */,
 				848B4E5D2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift */,
 				C27D2E372C5A3A2D008D0DE4 /* CompatibilityHrscpCV.swift */,
-				C27D2E392C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift */,
-				C27D2E3B2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift */,
 				C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */,
+				C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */,
+				841B55262B59868B002EE1F8 /* View */,
 			);
 			path = "Сompatibility_Horoscope";
 			sourceTree = "<group>";
@@ -440,7 +472,7 @@
 			path = "Old VC";
 			sourceTree = "<group>";
 		};
-		841B55262B59868B002EE1F8 /* Сompatibility_Horoscope */ = {
+		841B55262B59868B002EE1F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */,
@@ -448,7 +480,7 @@
 				841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */,
 				84DCE5D42B61658B0001D41F /* CustomProgressBarView.swift */,
 			);
-			path = "Сompatibility_Horoscope";
+			path = View;
 			sourceTree = "<group>";
 		};
 		8437D3D32A862351003592A7 /* SecondViewController */ = {
@@ -517,6 +549,7 @@
 			children = (
 				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
 				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
+				C20EAC752C70D8A1008E7532 /* AppRouter.swift */,
 				845EB1D92A6664D9003D6F5C /* View */,
 				845EB1D82A6664C1003D6F5C /* ViewController */,
 				8492D0912A6EA78500761312 /* Manager */,
@@ -555,7 +588,6 @@
 			children = (
 				84B895ED2B14E5120061680A /* AccordionView.swift */,
 				C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */,
-				841B55262B59868B002EE1F8 /* Сompatibility_Horoscope */,
 				84B895E62B14153C0061680A /* Buttons */,
 				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
@@ -568,6 +600,7 @@
 				84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */,
 				84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */,
 				84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */,
+				C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,8 +631,9 @@
 				C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */,
 				C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */,
 				C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */,
-				C23752562C0B4DE900000C68 /* PremiumBadgeManager.swift */,
+				C23752562C0B4DE900000C68 /* PremiumManager.swift */,
 				C25E7E6E2C209459007B65F3 /* TouchSupport.swift */,
+				C2D72D252C738A0E005B7143 /* Keys.swift */,
 			);
 			path = SupportedClass;
 			sourceTree = "<group>";
@@ -608,6 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				845EB1D22A6630C3003D6F5C /* MainTabBarController.swift */,
+				C2C38AD72C63CFE5001235F4 /* MainTabBarController_v2.swift */,
 				841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */,
 				C2CAE6D22BD1544200E09933 /* Numerology */,
 				84B895F12B15542C0061680A /* Horoscope */,
@@ -627,6 +662,9 @@
 				C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */,
 				C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */,
 				C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */,
+				C2C38AD52C62D9E8001235F4 /* TechnicalManager.swift */,
+				C245A0A22C67D16600BCB676 /* YourHoroscopeManager.swift */,
+				C2D72D232C71E1AA005B7143 /* UserDataKvoManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -637,6 +675,8 @@
 				844EA40C2B1184EF00D2D596 /* HoroscopeModels */,
 				84DBB9A72AE40F5300A0784F /* NumerologyModels */,
 				C2CB43452C16DBBF00B337A0 /* TrendsArticlesModel.swift */,
+				C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */,
+				C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -676,6 +716,7 @@
 			children = (
 				84B895E02B13A2140061680A /* HoroscopeCell.swift */,
 				84BFE5152B1A2D7600C06FB1 /* CalendarCell.swift */,
+				C28A1AB72C610331003EDACA /* ChartCVCell.swift */,
 			);
 			path = HoroscopeCells;
 			sourceTree = "<group>";
@@ -695,12 +736,14 @@
 		84B895E92B14E42B0061680A /* YourHoroscope */ = {
 			isa = PBXGroup;
 			children = (
-				84B895EA2B14E4760061680A /* SignContentView.swift */,
 				84B895DD2B139E340061680A /* YourHoroscopeCV.swift */,
 				84BFE5012B16146200C06FB1 /* HoroscopeButtonsCV.swift */,
 				84BFE50D2B178E9700C06FB1 /* HoroscopeDescriptionAboutCV.swift */,
 				84BFE4FF2B15627200C06FB1 /* HoroscopeDescriptionVC.swift */,
-				C2004BC22BCF167300F5A483 /* MoneyCalendar */,
+				C201A0072C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift */,
+				C2C38AD92C65816F001235F4 /* HoroscopeCell_v2.swift */,
+				C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */,
+				C245A0A42C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift */,
 			);
 			path = YourHoroscope;
 			sourceTree = "<group>";
@@ -709,7 +752,8 @@
 			isa = PBXGroup;
 			children = (
 				84B895DA2B1392CB0061680A /* HoroscopeVC.swift */,
-				C27BFDA82C11B0470087A876 /* AboutYou */,
+				C2004BC22BCF167300F5A483 /* MoneyCalendar */,
+				C27BFDA82C11B0470087A876 /* Charisma */,
 				84B895E92B14E42B0061680A /* YourHoroscope */,
 			);
 			path = Horoscope;
@@ -852,13 +896,17 @@
 			path = TrendsArticles;
 			sourceTree = "<group>";
 		};
-		C27BFDA82C11B0470087A876 /* AboutYou */ = {
+		C27BFDA82C11B0470087A876 /* Charisma */ = {
 			isa = PBXGroup;
 			children = (
-				84B895E22B13AEED0061680A /* AboutYouCV.swift */,
-				84B895E42B13D0950061680A /* AboutYouVC.swift */,
+				84B895E22B13AEED0061680A /* CharismaCV.swift */,
+				84B895E42B13D0950061680A /* CharismaDetailVC.swift */,
+				C2D72D272C73CFDF005B7143 /* CharismaDetailVC_Ext.swift */,
+				84B895EA2B14E4760061680A /* SignContentView.swift */,
+				C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */,
+				C2D72D2B2C73D348005B7143 /* CharismaCV_ViewModel.swift */,
 			);
-			path = AboutYou;
+			path = Charisma;
 			sourceTree = "<group>";
 		};
 		C2BC8B222BDC836800F59A62 /* AboutNumerology */ = {
@@ -947,8 +995,8 @@
 		C2F4EF892C04AD1100A326B4 /* Paywalls */ = {
 			isa = PBXGroup;
 			children = (
-				C2439B1A2C05C80A00AE789B /* SpecialOfferPaywall */,
 				84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */,
+				C2439B1A2C05C80A00AE789B /* SpecialOfferPaywall */,
 			);
 			path = Paywalls;
 			sourceTree = "<group>";
@@ -1090,12 +1138,15 @@
 				84B99A8C2AB99D2D008A3B49 /* Extension_UIColor.swift in Sources */,
 				C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */,
 				C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */,
+				C2C38AD62C62D9E8001235F4 /* TechnicalManager.swift in Sources */,
 				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				C2CFA40C2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift in Sources */,
 				84DBB9B82AE7D37C00A0784F /* OnboardingQuizCell.swift in Sources */,
 				C25143F62C157B6D005019C6 /* TrendsArticlesVM.swift in Sources */,
+				C28A1AB82C610331003EDACA /* ChartCVCell.swift in Sources */,
 				C2CAE6DE2BD3D7D100E09933 /* YourNumerologyCV_2024.swift in Sources */,
 				84420CD22A72D6FB00DE1812 /* Extension_UIViewController.swift in Sources */,
+				C2C38ADC2C665763001235F4 /* SegmentedControlHRSCP.swift in Sources */,
 				84420CD02A7297EE00DE1812 /* DescriptionVC.swift in Sources */,
 				84AC67162A81180B00D2321B /* CompatibilityViewController.swift in Sources */,
 				8437D3DB2A863FA3003592A7 /* PersonalDayVC.swift in Sources */,
@@ -1103,10 +1154,13 @@
 				8496CA362A7805FB00FB9592 /* PowerCodeModel.swift in Sources */,
 				C25143F02C156B11005019C6 /* TrendsArticlesCV.swift in Sources */,
 				84DBB9B42AE7B7FA00A0784F /* QuizVC.swift in Sources */,
+				C2D72D2C2C73D348005B7143 /* CharismaCV_ViewModel.swift in Sources */,
 				84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */,
 				845EB1ED2A6973E6003D6F5C /* UserEnterDataVC.swift in Sources */,
+				C2D72D282C73CFDF005B7143 /* CharismaDetailVC_Ext.swift in Sources */,
 				8437D3CD2A83A694003592A7 /* PersonalMonthDatePicker.swift in Sources */,
 				84BFE5162B1A2D7700C06FB1 /* CalendarCell.swift in Sources */,
+				C2D72D262C738A0E005B7143 /* Keys.swift in Sources */,
 				84BFE5082B166EC100C06FB1 /* MonthModel.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
 				C2592EE02BFE2F9B0080E271 /* PythagoreanSquareCVCell.swift in Sources */,
@@ -1115,8 +1169,9 @@
 				84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */,
 				84AC66FE2A7C647400D2321B /* LifeStagesViewController.swift in Sources */,
 				84A3A29A2B676A08001EF8F2 /* MoonVC.swift in Sources */,
-				84B895E52B13D0950061680A /* AboutYouVC.swift in Sources */,
+				84B895E52B13D0950061680A /* CharismaDetailVC.swift in Sources */,
 				84420CCE2A728DF500DE1812 /* Extension_UIImage.swift in Sources */,
+				C245A0A12C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift in Sources */,
 				C2CAE6D62BD1D54A00E09933 /* DetailAngelNumbersVC.swift in Sources */,
 				8496CA342A77FB4900FB9592 /* NumbersOfMoneyModel.swift in Sources */,
 				845EB1EF2A697F58003D6F5C /* RegularTextField.swift in Sources */,
@@ -1132,6 +1187,7 @@
 				845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */,
 				C2CA6AAA2BF810A000A6E3FC /* PythagoreanSquareModel.swift in Sources */,
 				C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */,
+				C20EAC712C6F2965008E7532 /* CharismaCVCell.swift in Sources */,
 				841B9DD82AFFD2B1007DCAE3 /* AboutCV.swift in Sources */,
 				845EB1D32A6630C3003D6F5C /* MainTabBarController.swift in Sources */,
 				C2FDF12E2C168ADA007EB282 /* TrendsArticlesManager.swift in Sources */,
@@ -1151,6 +1207,7 @@
 				84D89CFE2AFE421F000CF2FB /* SectionFooterView.swift in Sources */,
 				C2CAE6E02BD3E7A700E09933 /* YourNumerologyCVCell.swift in Sources */,
 				C2CB43462C16DBBF00B337A0 /* TrendsArticlesModel.swift in Sources */,
+				C2D72D242C71E1AA005B7143 /* UserDataKvoManager.swift in Sources */,
 				845EB1E82A68124E003D6F5C /* OvalShapeView.swift in Sources */,
 				84B895EB2B14E4760061680A /* SignContentView.swift in Sources */,
 				C27EBBD52C10A5C10087241D /* PremiumDescriptionVC.swift in Sources */,
@@ -1158,11 +1215,13 @@
 				8492D0842A6BDD6500761312 /* DateFormat.swift in Sources */,
 				84D89CFA2AFD3593000CF2FB /* YourNumerologyCV_2023.swift in Sources */,
 				84D89D032AFFB0EB000CF2FB /* DateCompatibilityCV.swift in Sources */,
+				C245A0A32C67D16600BCB676 /* YourHoroscopeManager.swift in Sources */,
 				8437D3D22A84DE76003592A7 /* PersonalMonthTF.swift in Sources */,
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */,
 				C2592EDE2BFE2BE70080E271 /* PythagoreanSquareCV.swift in Sources */,
 				841B55282B598FD6002EE1F8 /* CompatibilityStatsStackView.swift in Sources */,
+				C2D72D2A2C73D281005B7143 /* ChartCVCellModel.swift in Sources */,
 				84B895DE2B139E340061680A /* YourHoroscopeCV.swift in Sources */,
 				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
 				845EB1EB2A692114003D6F5C /* OnboardingVC.swift in Sources */,
@@ -1178,7 +1237,8 @@
 				84B99A882AB73A1E008A3B49 /* CarouselCard_CVCell.swift in Sources */,
 				845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */,
 				C25A4D9E2C0A522C0040A104 /* DeviceMenager.swift in Sources */,
-				C23752572C0B4DE900000C68 /* PremiumBadgeManager.swift in Sources */,
+				C201A0082C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift in Sources */,
+				C23752572C0B4DE900000C68 /* PremiumManager.swift in Sources */,
 				C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */,
 				848B4E5E2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift in Sources */,
 				C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */,
@@ -1191,6 +1251,7 @@
 				8496CA322A77EEC700FB9592 /* NumbersOfNameModel.swift in Sources */,
 				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
 				C2CAE6E32BD43E7200E09933 /* YourMoneyCV.swift in Sources */,
+				C20EAC762C70D8A1008E7532 /* AppRouter.swift in Sources */,
 				84D8709C2A8B248200ACACA8 /* PaywallViewController.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
 				844EA40E2B11869C00D2D596 /* SignsModel.swift in Sources */,
@@ -1199,6 +1260,8 @@
 				84FF997D2B6988FC00E69401 /* Extension_Date.swift in Sources */,
 				C25143FA2C164644005019C6 /* LikeButton.swift in Sources */,
 				C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */,
+				C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */,
+				C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */,
 				84B99A8A2AB88E5B008A3B49 /* RegularPromoCVCell.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
 				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */,
@@ -1213,15 +1276,15 @@
 				841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */,
 				84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */,
 				84BFE50A2B17838300C06FB1 /* Year2023Model.swift in Sources */,
+				C28A1AB62C610212003EDACA /* ChartsCV_Ext.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
-				C27D2E3C2C5A786D008D0DE4 /* CompatibilityHrscpFooter.swift in Sources */,
 				84BFE50C2B17842700C06FB1 /* Year2024Model.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				C2CFA40F2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift in Sources */,
-				C27D2E3A2C5A3AD6008D0DE4 /* CompatibilityHrscpCell.swift in Sources */,
 				84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
+				C2C38AD82C63CFE5001235F4 /* MainTabBarController_v2.swift in Sources */,
 				845EB1CF2A662E42003D6F5C /* FirstViewController.swift in Sources */,
 				841B552C2B5AA760002EE1F8 /* CompareSignsStackView.swift in Sources */,
 				84DBB9CB2AE955D500A0784F /* EnterUserDataVC.swift in Sources */,
@@ -1232,10 +1295,11 @@
 				84B895DB2B1392CB0061680A /* HoroscopeVC.swift in Sources */,
 				C2B590952BFA40A800118B89 /* ColumnRefTableViewCell.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
-				84B895E32B13AEED0061680A /* AboutYouCV.swift in Sources */,
+				84B895E32B13AEED0061680A /* CharismaCV.swift in Sources */,
 				845EB1DE2A668D63003D6F5C /* Gradients.swift in Sources */,
 				C2004BC62BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift in Sources */,
 				84DBB9A42AE2F51D00A0784F /* AnimatableBG.swift in Sources */,
+				C2C38AD42C62D92B001235F4 /* TechnicalModel.swift in Sources */,
 				84AC670C2A7FEACB00D2321B /* LifeStagesModel.swift in Sources */,
 				C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */,
 				84DCE5D52B61658B0001D41F /* CustomProgressBarView.swift in Sources */,
@@ -1388,7 +1452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.84;
+				CURRENT_PROJECT_VERSION = 1.87;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1421,7 +1485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.84;
+				CURRENT_PROJECT_VERSION = 1.87;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;

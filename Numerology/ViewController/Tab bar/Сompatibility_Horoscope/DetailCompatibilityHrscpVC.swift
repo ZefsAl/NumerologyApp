@@ -7,6 +7,10 @@
 
 import UIKit
 
+
+// 🔴 проблема запроса не открывается вью при нажатии на кнопку совместимости
+
+
 class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     
     var openFrom: UIViewController?
@@ -23,14 +27,22 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
         return sv
     }()
     
+    // MARK: - Signs
     private lazy var compareSignsStackView: CompareSignsStackView = {
         let sv = CompareSignsStackView(frame: .null, accentColor: vcAccentColor)
         return sv
     }()
     
-    let compatibilityStatsStackView = CompatibilityStatsStackView()
+    // MARK: - Charts
+    let chartsCV: ContentCollectionView = {
+        let cv = ContentCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        cv.clipsToBounds = false
+        return cv
+    }()
     
-    private lazy var accordionView: PremiumAccordionView = {
+    lazy var chartsDescriptionDataCV = [ChartCVCellModel]()
+    
+    lazy var accordionView: PremiumAccordionView = {
        let v = PremiumAccordionView(
         title: "",
         info: "",
@@ -44,66 +56,41 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     
     // MARK: - init
     init(compatibilityHrscpModel: CompatibilityHrscpModel, secondSign: String) {
-        compatibilityStatsStackView.setStats(model: compatibilityHrscpModel)
         super.init(nibName: nil, bundle: nil)
-        //
-        self.openFrom = self
-        //
-        firstSignConfigure()
-        secondSignConfigure(sign: secondSign)
-        
-        accordionView.accordionButton.setAccordionTitle("Generally")
-        accordionView.info.text = compatibilityHrscpModel.aboutThisSign
+        self.register()
+        self.setChartsData(model: compatibilityHrscpModel)
+        self.firstSignConfigure()
+        self.secondSignConfigure(sign: secondSign) // использовать Model вместо secondSign
+        self.accordionView.accordionButton.setAccordionTitle("Generally")
+        self.accordionView.info.text = compatibilityHrscpModel.aboutThisSign
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - register
+    private func register() {
+        // delegate
+        self.openFrom = self
+        //
+        self.chartsCV.delegate = self
+        self.chartsCV.dataSource = self
+        self.chartsCV.register(ChartCVCell.self, forCellWithReuseIdentifier: ChartCVCell.reuseID)
+    }
+    
     // config 1
     private func firstSignConfigure() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
-
-        
-//        let model = CompatibilityData.simpleSigns.filter({$0.title.lowercased() == sign.lowercased() }).first
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
+        //
         let model = CompatibilityData.compatibilitySignsData.filter({$0.sign.lowercased() == sign.lowercased()}).first
-        
-//        guard
-//            let title = model?.sign,
-//            let signImage = model?.image
-//        else { return }
         self.compareSignsStackView.firstSignModel = model
-        
-//        self.compareSignsStackView.firstSignModel = CompatibilitySignsModel(
-//            title: title.capitalized,
-//            signImage: signImage,
-//            itemIndexPath: nil
-//        )
-//        self.compareSignsStackView.firstSignModel = CompatibilitySignsModel(
-//            index: <#T##Int#>,
-//            sign: title.capitalized,
-//            signDateRange: signImage,
-//            image: <#T##UIImage?#>
-//        )
-        
-        
-        
     }
+    
     // config 2
     private func secondSignConfigure(sign: String) {
-
-//        let model = CompatibilityData.simpleSigns.filter({$0.title.lowercased() == sign.lowercased()}).first
         let model = CompatibilityData.compatibilitySignsData.filter({$0.sign.lowercased() == sign.lowercased()}).first
-        
-//        guard
-//            let title = model?.sign,
-//            let signImage = model?.image
-//        else { return }
-//        self.compareSignsStackView.secondSignModel = SimpleSignModel(
-//            title: title.capitalized,
-//            signImage: signImage,
-//            itemIndexPath: nil
-//        )
         self.compareSignsStackView.secondSignModel = model
     }
     
@@ -121,10 +108,10 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     // MARK: Set up Stack
     private func setupStack() {
         
-        let accordionStack = UIStackView(arrangedSubviews: [accordionView])
+        let accordionStack = UIStackView(arrangedSubviews: [chartsCV,accordionView])
         accordionStack.translatesAutoresizingMaskIntoConstraints = false
         accordionStack.axis = .vertical
-        accordionStack.spacing = 8
+        accordionStack.spacing = 16
         
         // cardView + Border
         let cardView: UIView = {
@@ -133,20 +120,20 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = self.vcAccentColor.cgColor
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = 16
+            v.layer.shadowRadius = DesignSystem.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = vcAccentColor.withAlphaComponent(0.5).cgColor
             
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([
-                accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
+                accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 20),
                 accordionStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
                 accordionStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
-                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
+                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -20),
                 accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
             ])
             
@@ -156,7 +143,6 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
         // MARK: content Stack
         let contentStack = UIStackView(arrangedSubviews: [
             compareSignsStackView,
-            compatibilityStatsStackView,
             cardView,
         ])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
@@ -170,7 +156,6 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
-            
             contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 20),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
@@ -184,3 +169,4 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
         ])
     }
 }
+

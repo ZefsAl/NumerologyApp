@@ -7,23 +7,12 @@
 import UIKit
 import MMMHorizontalPicker
 
-
-// remote open delegate
-// pass data to detail vc
-// change detail vc style
-
 struct CompatibilitySignsModel {
     let index: Int
     let sign: String
     let signDateRange: String
     let image: UIImage?
 }
-
-//struct SimpleSignModel {
-//    let title: String
-//    let signImage: UIImage?
-//    var itemIndexPath: IndexPath?
-//}
 
 class CompatibilityData {
     static let compatibilitySignsData = [
@@ -33,28 +22,13 @@ class CompatibilityData {
         CompatibilitySignsModel(index: 3  , sign: "Cancer",      signDateRange: "22.06 - 22.07", image: UIImage(named: "Cancer-CMPTB")),
         CompatibilitySignsModel(index: 4  , sign: "Leo",         signDateRange: "23.07 - 23.08", image: UIImage(named: "Leo-CMPTB")),
         CompatibilitySignsModel(index: 5  , sign: "Virgo",       signDateRange: "24.08 - 23.09", image: UIImage(named: "Virgo-CMPTB")),
-        CompatibilitySignsModel(index: 6  , sign: "Libra",       signDateRange: "24.09 - 23.10", image: UIImage(named: "Libra-CMPTB")),
-        CompatibilitySignsModel(index: 7  , sign: "Scorpio",     signDateRange: "24.10 - 22.11", image: UIImage(named: "Scorpio-CMPTB")),
-        CompatibilitySignsModel(index: 8  , sign: "Sagittarius", signDateRange: "23.11 - 21.12", image: UIImage(named: "Sagittarius-CMPTB")),
+        CompatibilitySignsModel(index: 6  , sign: "Sagittarius", signDateRange: "23.11 - 21.12", image: UIImage(named: "Sagittarius-CMPTB")),
+        CompatibilitySignsModel(index: 7  , sign: "Libra",       signDateRange: "24.09 - 23.10", image: UIImage(named: "Libra-CMPTB")),
+        CompatibilitySignsModel(index: 8  , sign: "Scorpio",     signDateRange: "24.10 - 22.11", image: UIImage(named: "Scorpio-CMPTB")),
         CompatibilitySignsModel(index: 9  , sign: "Capricorn",   signDateRange: "22.12 - 20.01",  image: UIImage(named: "Capricorn-CMPTB")),
         CompatibilitySignsModel(index: 10 , sign: "Aquarius",    signDateRange: "21.01 - 20.02",  image: UIImage(named: "Aquarius-CMPTB")),
         CompatibilitySignsModel(index: 11 , sign: "Pisces",      signDateRange: "21.02 - 20.03",  image: UIImage(named: "Pisces-CMPTB")),
     ]
-    
-//    static let simpleSigns: [SimpleSignModel] = [
-//        SimpleSignModel(title: "aries",       signImage: UIImage(named: "aries")!),
-//        SimpleSignModel(title: "taurus",      signImage: UIImage(named: "taurus")!),
-//        SimpleSignModel(title: "gemini",      signImage: UIImage(named: "gemini")!),
-//        SimpleSignModel(title: "cancer",      signImage: UIImage(named: "cancer")!),
-//        SimpleSignModel(title: "leo",         signImage: UIImage(named: "leo")!),
-//        SimpleSignModel(title: "virgo",       signImage: UIImage(named: "virgo")!),
-//        SimpleSignModel(title: "sagittarius", signImage: UIImage(named: "sagittarius")!),
-//        SimpleSignModel(title: "pisces",      signImage: UIImage(named: "pisces")!),
-//        SimpleSignModel(title: "libra",       signImage: UIImage(named: "libra")!),
-//        SimpleSignModel(title: "capricorn",   signImage: UIImage(named: "capricorn")!),
-//        SimpleSignModel(title: "aquarius",    signImage: UIImage(named: "aquarius")!),
-//        SimpleSignModel(title: "scorpio",     signImage: UIImage(named: "scorpio")!),
-//    ]
 }
 
 class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
@@ -62,7 +36,7 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     
     
-    private let pickerView = MMMHorizontalPicker()
+    private let pickerView = MMMHorizontalPicker(style: .uniform)
     
     // View Models
     private var items = [Item]()
@@ -96,7 +70,7 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
     private let signsDateTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .center
         l.textColor = .white
         l.numberOfLines = 2
@@ -183,10 +157,14 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
         
         self.signsDateTitle.text = "\(data[initialIndex].sign)\n\(data[initialIndex].signDateRange)"
         
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
         
         self.compareButton.title.text = "\(sign) + \(data[initialIndex].sign)"
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.6, execute: {
+            self.pickerView.setCurrentItemIndex(6, animated: true)
+        })
     }
     
     // MARK: - Actions
@@ -196,8 +174,8 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
     
     @objc private func compareButtonAction(_ sender: UIButton) {
         // user
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let userSign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        let userSign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
         // selected sign
         let secondSign = CompatibilityData.compatibilitySignsData[pickerView.currentItemIndex].sign
         
@@ -215,19 +193,13 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
     
     // MARK: - MMMHorizontalPickerDelegate
     func horizontalPickerDidChangeCurrentItemIndex(_ picker: MMMHorizontalPicker) {
-        print("Current item index changed:", picker.currentItemIndex)
-        
-        
-        
         DispatchQueue.main.async {
             let data = CompatibilityData.compatibilitySignsData
             self.signsDateTitle.text = "\(data[picker.currentItemIndex].sign)\n\(data[picker.currentItemIndex].signDateRange)"
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-            let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+            let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
             self.compareButton.title.text = "\(sign) + \(data[picker.currentItemIndex].sign)"
         }
-        
-        
     }
     
     func numberOfItemsForHorizontalPicker(_ picker: MMMHorizontalPicker) -> Int {
@@ -260,10 +232,8 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
         //
         // This is handy when you need to dim or transforms items when they get farther from the center, but be careful with doing heavy things here.
         
-        
-        
         DispatchQueue.main.async {
-            // Scale
+             // Scale
             let scale = 1 - (abs(centerProximity) / 3.5)
             view.transform = CGAffineTransform(scaleX: scale, y: scale)
             
@@ -274,7 +244,6 @@ class CompatibilityHrscpView: UIView, MMMHorizontalPickerDelegate {
                 view.alpha = picker.currentItemIndex == view.model.index ? 1 : 0.3
             }
         }
-
     }
 }
 

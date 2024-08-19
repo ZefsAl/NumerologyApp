@@ -17,6 +17,7 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
+//        sv.contentInsetAdjustmentBehavior = .never
         return sv
     }()
     // MARK: - your Horoscope CV
@@ -25,12 +26,15 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         cv.clipsToBounds = false
         return cv
     }()
-    // MARK: - AboutYouCV
-    let aboutYouCV: AboutYouCV = {
-        let cv = AboutYouCV()
+    
+    // MARK: - CharismaCV
+    let charismaCV: CharismaCV = {
+        let cv = CharismaCV()
         cv.clipsToBounds = false
         return cv
     }()
+    
+    
     
     // MARK: - datingCalendarCV
     let moneyCalendarCV: MoneyCalendarCV = {
@@ -41,12 +45,6 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
     
     // MARK: - datingCalendarCV
     let compatibilityHrscpView: CompatibilityHrscpView = CompatibilityHrscpView()
-//        let cv = CompatibilityHrscpCV()
-////        cv.clipsToBounds = false
-//        return cv
-//    }()
-    
-    
     
     
     
@@ -59,7 +57,12 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         // 2
         setupUI()
         remoteOpen()
-        
+        //
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        HoroscopeCellViewModel.shared.setTodayData()
     }
     
     private func remoteOpen() {
@@ -70,8 +73,8 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         self.yourHoroscopeCV.remoteOpenDelegate = self
         self.yourHoroscopeCV.remoteOpenDelegate?.openFrom = self
         // aboutYouCV
-        self.aboutYouCV.remoteOpenDelegate = self
-        self.aboutYouCV.remoteOpenDelegate?.openFrom = self
+        self.charismaCV.remoteOpenDelegate = self
+        self.charismaCV.remoteOpenDelegate?.openFrom = self
         // datingCalendarCV
         self.moneyCalendarCV.remoteOpenDelegate = self
         self.moneyCalendarCV.remoteOpenDelegate?.openFrom = self
@@ -87,9 +90,9 @@ extension HoroscopeVC {
         
         // MARK: Content Stack
         let numerologyStack = UIStackView(arrangedSubviews: [
+            charismaCV,
             yourHoroscopeCV,
             compatibilityHrscpView,
-            aboutYouCV,
             moneyCalendarCV
         ])
         numerologyStack.translatesAutoresizingMaskIntoConstraints = false
@@ -105,21 +108,23 @@ extension HoroscopeVC {
         contentStack.spacing = 0
         
         contentScrollView.addSubview(contentStack)
-        let viewMargin = self.view.layoutMarginsGuide
+//        let viewMargin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         
+        
+        let navHeight = CustomNavController.navBarHeight()
+        
         NSLayoutConstraint.activate([
-            yourHoroscopeCV.heightAnchor.constraint(equalToConstant: 117+50),
-            aboutYouCV.heightAnchor.constraint(equalToConstant: 117+50),
+            yourHoroscopeCV.heightAnchor.constraint(equalToConstant: 370+50),
             moneyCalendarCV.heightAnchor.constraint(equalToConstant: 390+50),
 
-            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 40),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 0),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -0),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -16),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
             
-            contentScrollView.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -34),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

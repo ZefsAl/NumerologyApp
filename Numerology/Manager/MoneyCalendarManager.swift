@@ -18,21 +18,12 @@ final class MoneyCalendarManager {
     lazy var negative = [Int]()
     
     
-    init() {
-        preloadData()
-    }
-    
     func preloadData() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
-        let sign = HoroscopeSign().findHoroscopeSign(find: dateOfBirth)
         
-        print("🔴 find Horoscope Sign = ",sign)
+        let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
+        
         DispatchQueue.main.async {
             HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
-                    
-                print("🔴 get Money Calendar = ",model.monthSigns)
-                print("🔴 badDays = ",model.badDays)
-                print("🔴 goodDays = ",model.goodDays)
                 self.monthCalendarModel = model
                 self.positive = model.goodDays.components(separatedBy: ",").compactMap { Int($0) }
                 self.negative = model.badDays.components(separatedBy: ",").compactMap { Int($0) }

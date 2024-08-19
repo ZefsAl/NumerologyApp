@@ -56,7 +56,6 @@ class LikeButton: UIButton {
     
     @objc private func likeAction(_ sender: UIButton) {
         sender.isSelected.toggle() // 1
-        print("🔵✅likeAction", sender.isSelected)
         self.likeButtonDelegate?.likeAction() // delegate trigger
         self.amountLikes = sender.isSelected ? amountLikes + 1 : amountLikes - 1
         setIconToggle(sender.isSelected)

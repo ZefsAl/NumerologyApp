@@ -18,7 +18,7 @@ final class AccordionView: UIView {
     }()
 
     @objc private func accordionButtonAct() {
-        about.isHidden = about.isHidden ? false : true
+//        about.isHidden = about.isHidden ? false : true
         info.isHidden = info.isHidden ? false : true
         imageView.isHidden = imageView.isHidden ? false : true
         imageView.isHidden ? showConstraintImage() : hideConstraintImage()
@@ -27,22 +27,22 @@ final class AccordionView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
         l.isHidden = true
         return l
     }()
 
-    let about: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
-        l.isHidden = true
-        l.textAlignment = .left
-        l.numberOfLines = 0
-        return l
-    }()
+//    let about: UILabel = {
+//        let l = UILabel()
+//        l.translatesAutoresizingMaskIntoConstraints = false
+//        l.font = DesignSystem.SourceSerifProFont.subtitle
+//        l.isHidden = true
+//        l.textAlignment = .left
+//        l.numberOfLines = 0
+//        return l
+//    }()
     
     let imageView: UIImageView = {
         let iv = UIImageView()
@@ -65,11 +65,11 @@ final class AccordionView: UIView {
     func configure(title: String, info: String?, about: String?) {
         self.accordionButton.setAccordionTitle(title) 
         self.info.text = info
-        self.about.text = about
+//        self.about.text = about
     }
     
     func showAccordion() {
-        about.isHidden = false
+//        about.isHidden = false
         info.isHidden = false
     }
     
@@ -84,19 +84,11 @@ final class AccordionView: UIView {
 
     // MARK: Set up Stack
     private func setupStack() {
-        let divider: UIView = {
-            let v = UIView()
-            v.backgroundColor = .systemGray.withAlphaComponent(0.5)
-            v.heightAnchor.constraint(equalToConstant: 2).isActive = true
-            return v
-        }()
 
         let contentStack = UIStackView(arrangedSubviews: [
             accordionButton,
             imageView,
-            info,
-            about,
-            divider
+            info
         ])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical

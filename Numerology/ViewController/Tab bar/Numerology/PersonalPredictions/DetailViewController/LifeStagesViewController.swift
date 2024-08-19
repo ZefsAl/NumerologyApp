@@ -103,7 +103,7 @@ class LifeStagesViewController: UIViewController {
     func requestLifeStages() {
         
         guard
-            let dateOfBirth = UserDefaults.standard.object(forKey: "dateOfBirthKey") as? Date
+            let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         else { return }
         
         let destiny = CalculateNumbers().calculateNumberOfDestiny(date: dateOfBirth)

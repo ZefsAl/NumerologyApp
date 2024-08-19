@@ -12,11 +12,7 @@ final class TrendsView: UIView, LikeButtonDelegate {
     
     var articleID: String? = nil
     
-    
-    
-    func likeAction() {
-    }
-    
+    func likeAction() {} // ???
     
     var remoteOpenDelegate: RemoteOpenDelegate? = nil
     

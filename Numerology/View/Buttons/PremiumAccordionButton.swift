@@ -9,7 +9,7 @@ import UIKit
 
 class PremiumAccordionButton: UIButton {
     
-    let premiumBadgeManager = PremiumBadgeManager()
+    let premiumBadgeManager = PremiumManager()
     private var isPremium: Bool? = nil
     
     var didTapState: Bool = true {
@@ -24,10 +24,10 @@ class PremiumAccordionButton: UIButton {
         return true
     }
     // MARK: - main Title
-    private let mainTitle: UILabel = {
+    let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title
+        l.font = DesignSystem.SourceSerifProFont.title_Sb_24
         l.textAlignment = .left
         return l
     }()
@@ -46,7 +46,7 @@ class PremiumAccordionButton: UIButton {
         self.isPremium = isPremium
         
         if isPremium {
-            let premiumImage = PremiumBadgeManager().getPremiumImageForAccordion(imageSize: 20)
+            let premiumImage = PremiumManager().getPremiumImageForAccordion(imageSize: 20)
             if let premiumImage = premiumImage {
                 icon.image = premiumImage
             } else {

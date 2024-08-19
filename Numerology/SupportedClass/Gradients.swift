@@ -22,15 +22,14 @@ class GradientView: UIView {
         self.backgroundColor = .white
         self.translatesAutoresizingMaskIntoConstraints = false
         self.heightAnchor.constraint(equalToConstant: viewHeight).isActive = true
-//            Gradients().setBlackGradient(forView: self, direction: gradientDirection)
-        self.setGradientBackground(direction: gradientDirection)
+        self.setGradientBackground()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setGradientBackground(direction: Direction) {
+    func setGradientBackground() {
         let colorOne = #colorLiteral(red: 0.2235294118, green: 0.2705882353, blue: 0.4156862745, alpha: 1)
         let colorTwo = #colorLiteral(red: 0.137254902, green: 0.1803921569, blue: 0.3019607843, alpha: 1)
         let gradientlayer = CAGradientLayer()

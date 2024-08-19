@@ -34,33 +34,42 @@ extension UIViewController {
     
     // MARK: set Dismiss Nav Item
     public func setDismissNavButtonItem(selectorStr: Selector) {
-        
-        let dismissButton: UIView = {
+//        
+        let dismissButtonView: UIView = {
             
-            let v = UIView()
-            v.translatesAutoresizingMaskIntoConstraints = false
-            
-            let configImage = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24, weight: .regular))
+            let configImage = UIImage(
+                systemName: "xmark",
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .bold)
+            )
             
             let iv = UIImageView(image: configImage)
             iv.translatesAutoresizingMaskIntoConstraints = false
             iv.tintColor = .white
-//            iv.backgroundColor = .black
-            iv.layer.cornerRadius = 30
+            iv.contentMode = .scaleAspectFit
             iv.isUserInteractionEnabled = false
+            
+
+            let v = UIView()
+            v.translatesAutoresizingMaskIntoConstraints = false
+            v.layer.cornerRadius = 15
+            v.addSystemBlur(to: v, style: .systemUltraThinMaterialDark)
+            v.clipsToBounds = true
             
             v.addSubview(iv)
             
-            v.heightAnchor.constraint(equalToConstant: 32).isActive = true
-            v.widthAnchor.constraint(equalToConstant: 32).isActive = true
-            
+            NSLayoutConstraint.activate([
+                iv.centerXAnchor.constraint(equalTo: v.centerXAnchor),
+                iv.centerYAnchor.constraint(equalTo: v.centerYAnchor),
+                v.heightAnchor.constraint(equalToConstant: 30),
+                v.widthAnchor.constraint(equalToConstant: 30),
+            ])
             return v
         }()
         
         // Add Nav Item
-        let dismissButtonItem = UIBarButtonItem(customView: dismissButton)
+        let dismissButtonItem = UIBarButtonItem(customView: dismissButtonView)
         let gesture = UITapGestureRecognizer(target: self, action: selectorStr)
-        dismissButton.addGestureRecognizer(gesture)
+        dismissButtonView.addGestureRecognizer(gesture)
         self.navigationItem.rightBarButtonItem = dismissButtonItem
     }
     
@@ -80,7 +89,7 @@ extension UIViewController {
     // MARK: checkAccessContent
     func checkAccessContent() -> Bool {
         
-        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
+        let accessVal = UserDefaults.standard.object(forKey: UserDefaultsKeys.userAccessObserverKey) as? Bool
         
         guard
             let accessVal = accessVal,

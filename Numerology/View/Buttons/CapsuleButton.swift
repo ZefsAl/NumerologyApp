@@ -9,14 +9,24 @@ import UIKit
 
 class CapsuleButton: UIButton {
     
+    // MARK: - Loader
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        aiv.translatesAutoresizingMaskIntoConstraints = false
+        aiv.contentMode = .scaleAspectFit
+        aiv.color = .white
+        aiv.hidesWhenStopped = true
+        aiv.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        return aiv
+    }()
+    
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.textColor = .white
-        l.text = "Next"
-        
+        l.isUserInteractionEnabled = false
         return l
     }()
     
@@ -33,10 +43,20 @@ class CapsuleButton: UIButton {
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
         self.layer.shadowColor = DesignSystem.Horoscope.shadowColor.cgColor
         // add
-        self.addSubview(self.title)
+        
+        
+        let contentStack = UIStackView(arrangedSubviews: [title,activityIndicatorView])
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        contentStack.axis = .horizontal
+        contentStack.alignment = .center
+        contentStack.distribution = .fill
+        contentStack.spacing = 4
+        contentStack.isUserInteractionEnabled = false 
+        self.addSubview(contentStack)
+        
         NSLayoutConstraint.activate([
-            self.title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.title.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            contentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
     }
     

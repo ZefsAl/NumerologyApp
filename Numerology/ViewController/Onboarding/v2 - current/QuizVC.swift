@@ -81,7 +81,6 @@ class QuizVC: UIViewController {
     private func configureCollectionView() {
         contentCollectionView.dataSource = self
         contentCollectionView.delegate = self
-        
         contentCollectionView.register(OnboardingQuizCell.self, forCellWithReuseIdentifier: OnboardingQuizCell.reuseID)
     }
     

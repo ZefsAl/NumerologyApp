@@ -65,7 +65,6 @@ final class SpecialOfferPaywall: UIViewController {
     // MARK: Collection View
     private let productsCollectionView: ContentCollectionView = {
         var cv = ContentCollectionView()
-        cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
     

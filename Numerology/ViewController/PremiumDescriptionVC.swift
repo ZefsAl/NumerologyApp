@@ -95,7 +95,7 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
                 accordionStack.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
                 accordionStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
                 accordionStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
-                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -0),
+                accordionStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -16),
                 accordionStack.widthAnchor.constraint(equalTo: v.widthAnchor, constant: -32),
             ])
             
