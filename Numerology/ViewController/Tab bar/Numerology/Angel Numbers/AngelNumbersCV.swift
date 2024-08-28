@@ -126,11 +126,7 @@ extension AngelNumbersCV: UICollectionViewDataSource, UICollectionViewDelegate {
         // MARK: Soul // 0
         if indexPath.row == 0 {
             let vc = DetailAngelNumbersVC()
-            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
 
     }

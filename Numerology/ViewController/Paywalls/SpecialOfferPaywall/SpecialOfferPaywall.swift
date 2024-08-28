@@ -14,7 +14,7 @@ import AVFoundation
 final class SpecialOfferPaywall: UIViewController {
     
     //
-    let bottomSideStack = UIStackView()
+    let cardContentStack = UIStackView()
     
     //
     private let player = AVPlayer()
@@ -108,20 +108,23 @@ final class SpecialOfferPaywall: UIViewController {
     
     // MARK: Purchase Button
     private let purchaseButton: PurchaseButton = {
-        let color = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.7921568627, alpha: 1)
-        let b = PurchaseButton(frame: .zero, title: "Continue", primaryColor: color)
+        let b = PurchaseButton(
+            title: "Continue",
+            primaryColor: DesignSystem.PaywallTint.primaryPaywall,
+            tapToBounce: false
+        )
         b.addTarget(Any?.self, action: #selector(actPurchaseButton), for: .touchUpInside)
         return b
     }()
     
-    // MARK: Purchase Action
+    // MARK: - ➡️ Purchase Action
     @objc private func actPurchaseButton() {
         // Loader
         self.purchaseButton.activityIndicatorView.startAnimating()
         
         // product
         guard let product = self.storeProductArr?.first else { return }
-
+        
         // Purchase
         Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
             self.purchaseButton.activityIndicatorView.stopAnimating()
@@ -139,12 +142,13 @@ final class SpecialOfferPaywall: UIViewController {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Terms Of Use", for: .normal)
-        b.titleLabel?.font = UIFont(weight: .regular, size: 13)
+        b.titleLabel?.font = UIFont.setSourceSerifPro(weight: .regular, size: 13)
         b.setTitleColor(UIColor.white, for: .normal)
         
         b.addTarget(Any?.self, action: #selector(termsOfUseAct), for: .touchUpInside)
         return b
     }()
+    // MARK: - ➡️ terms
     @objc private func termsOfUseAct() {
         print("termsOfUseAct")
         
@@ -163,13 +167,13 @@ final class SpecialOfferPaywall: UIViewController {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Privacy Policy", for: .normal)
-        b.titleLabel?.font = UIFont(weight: .regular, size: 13)
+        b.titleLabel?.font = UIFont.setSourceSerifPro(weight: .regular, size: 13)
         b.setTitleColor(UIColor.white, for: .normal)
         
         b.addTarget(Any?.self, action: #selector(privacyPolicyAct), for: .touchUpInside)
         return b
     }()
-    
+    // MARK: - ➡️ privacy
     @objc private func privacyPolicyAct() {
         guard let url = URL(string: "https://numerology-privacy.web.app/") else { return }
         
@@ -186,12 +190,13 @@ final class SpecialOfferPaywall: UIViewController {
         let b = UIButton(type: .system)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.setTitle("Restore purchases", for: .normal)
-        b.titleLabel?.font = UIFont(weight: .regular, size: 13)
+        b.titleLabel?.font = UIFont.setSourceSerifPro(weight: .regular, size: 13)
         b.setTitleColor(UIColor.white, for: .normal)
         
         b.addTarget(Any?.self, action: #selector(restoreAct), for: .touchUpInside)
         return b
     }()
+    // MARK: - ➡️ restore
     @objc private func restoreAct() {
         print("Restore purchases")
         
@@ -215,22 +220,17 @@ final class SpecialOfferPaywall: UIViewController {
     
     // MARK: - closeButton
     private let closeButton: UIButton = {
-        
-        let b = UIButton() // customView: type
+        let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        
         let configImage = UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))
-        
         let iv = UIImageView(image: configImage)
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.tintColor = .systemGray
         iv.isUserInteractionEnabled = false
-        
         b.addSubview(iv)
         b.heightAnchor.constraint(equalToConstant: 20).isActive = true
         b.widthAnchor.constraint(equalToConstant: 20).isActive = true
         b.addTarget(Any?.self, action: #selector(dismissAction), for: .touchUpInside)
-        
         return b
     }()
     
@@ -239,12 +239,13 @@ final class SpecialOfferPaywall: UIViewController {
         self.dismiss(animated: true)
     }
     
-    // MARK: viewDidLoad
+    // MARK: 🟢 viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Background
-        self.setBackground(named: "PaywallRadialBG")
-        playLoopedVideo()
+        self.setBG()
+        // Animation
+        CustomAnimation.setPulseAnimation(to: self.purchaseButton, toValue: 1, fromValue: 0.90)
         // UI
         setupUI()
         // Delegate
@@ -260,6 +261,27 @@ final class SpecialOfferPaywall: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    // MARK: - viewDidDisappear
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.player.pause()
+    }
+    
+    private func setBG() {
+        self.setBackground(named: "PaywallRadialBG") // plug!
+        self.setLoopedVideoLayer(
+            player: self.player,
+            named: "SpecialOffer",
+            to: self.view,
+            margins: UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: DeviceMenager.isSmallDevice ? 100 : 250,
+                right: 0
+            )
+        )
     }
     
     // MARK: setup UI
@@ -280,28 +302,36 @@ final class SpecialOfferPaywall: UIViewController {
         docsStack.distribution = .fillEqually
         
         // MARK: Bottom Side Stack
-        bottomSideStack.addSystemBlur(to: bottomSideStack, style: .systemThinMaterialDark)
+        cardContentStack.addSystemBlur(to: cardContentStack, style: .systemThinMaterialDark)
         // Add
-        bottomSideStack.addArrangedSubview(topTextStack)
-        bottomSideStack.addArrangedSubview(productsCollectionView)
-        bottomSideStack.addArrangedSubview(purchaseButton)
-        bottomSideStack.addArrangedSubview(docsStack)
+        cardContentStack.addArrangedSubview(topTextStack)
+        cardContentStack.addArrangedSubview(productsCollectionView)
+        cardContentStack.addArrangedSubview(purchaseButton)
+        cardContentStack.addArrangedSubview(docsStack)
         // Configure
-        bottomSideStack.translatesAutoresizingMaskIntoConstraints = false
-        bottomSideStack.axis = .vertical
-        bottomSideStack.alignment = .center
-        bottomSideStack.distribution = .fill
-        bottomSideStack.spacing = 18
-        bottomSideStack.layoutMargins = UIEdgeInsets(top: 18, left: 18, bottom: 0, right: 18)
-        bottomSideStack.isLayoutMarginsRelativeArrangement = true
+        cardContentStack.translatesAutoresizingMaskIntoConstraints = false
+        cardContentStack.axis = .vertical
+        cardContentStack.alignment = .center
+        cardContentStack.distribution = .fill
+        cardContentStack.spacing = 18
+        cardContentStack.layoutMargins = UIEdgeInsets(top: 18, left: 18, bottom: 0, right: 18)
+        
+        cardContentStack.layoutMargins = UIEdgeInsets(
+            top: 18,
+            left: 18,
+            bottom: self.view.layoutMargins.bottom+6,
+            right: 18
+        )
+        
+        cardContentStack.isLayoutMarginsRelativeArrangement = true
         // Corner
-        bottomSideStack.layer.cornerRadius = 16
-        bottomSideStack.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        bottomSideStack.clipsToBounds = true
+        cardContentStack.layer.cornerRadius = DesignSystem.maxCornerRadius
+        cardContentStack.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        cardContentStack.clipsToBounds = true
         
         // MARK: Main Stack
         let mainStack = UIStackView(arrangedSubviews: [
-            bottomSideStack
+            cardContentStack
         ])
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         mainStack.axis = .vertical
@@ -328,69 +358,20 @@ final class SpecialOfferPaywall: UIViewController {
     
     // MARK: - Adapttive
     private func setAdapttiveLayout() {
-        
-        if DeviceMenager.shared.device == .iPhone_Se2_3Gen_8_7_6S {
-            let cellWidth: CGFloat = 176
-            // Layout CV
-            configCompositionalLayoutCV(absoluteCellWidth: cellWidth, cvHeight: 104)
-            //
-            mainTitle.font = .setSourceSerifPro(weight: .regular, size: 24)
-            subtitle.font = .setSourceSerifPro(weight: .regular, size: 15)
-            // Constraints
-            productsCollectionView.widthAnchor.constraint(equalToConstant: cellWidth).isActive = true
-            purchaseButton.widthAnchor.constraint(equalTo: bottomSideStack.widthAnchor, constant: -36).isActive = true
-            purchaseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        } else {
-            // Default 12 iphone
-            let cellWidth: CGFloat = 200
-            // Layout CV
-            configCompositionalLayoutCV(absoluteCellWidth: cellWidth, cvHeight: 128)
-            // Fonts
-            mainTitle.font = .setSourceSerifPro(weight: .regular, size: 35)
-            subtitle.font = .setSourceSerifPro(weight: .regular, size: 17)
-            // Constraints
-            productsCollectionView.widthAnchor.constraint(equalToConstant: cellWidth).isActive = true
-            purchaseButton.widthAnchor.constraint(equalTo: bottomSideStack.widthAnchor, constant: -36).isActive = true
-            purchaseButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        }
-        
-        
-    }
-    
-    private func playLoopedVideo() {
-        let ref = "PaywallVideo"
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        guard let path = Bundle.main.path(forResource: ref, ofType: "mov") else { return }
         //
-        player.replaceCurrentItem(with: AVPlayerItem(url: URL(fileURLWithPath: path)))
+        let cellWidth: CGFloat = DeviceMenager.isSmallDevice ? 176 : 200
+        // Layout CV
+        self.configCompositionalLayoutCV(absoluteCellWidth: cellWidth, cvHeight: DeviceMenager.isSmallDevice ? 104 : 128)
         //
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
-        self.view.addSubview(iv)
-//        let margin = self.view.layoutMarginsGuide
+        self.mainTitle.font = .setSourceSerifPro(weight: .regular, size: DeviceMenager.isSmallDevice ? 24 : 35)
+        self.subtitle.font = .setSourceSerifPro(weight: .regular, size: DeviceMenager.isSmallDevice ? 15 : 17)
+        // Constraints
         NSLayoutConstraint.activate([
-            iv.topAnchor.constraint(equalTo: self.view.topAnchor),
-            iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
-            iv.heightAnchor.constraint(equalToConstant: self.view.frame.height-270),
-            iv.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.productsCollectionView.widthAnchor.constraint(equalToConstant: cellWidth),
+            self.purchaseButton.widthAnchor.constraint(equalTo: cardContentStack.widthAnchor, constant: -36),
+            self.purchaseButton.heightAnchor.constraint(equalToConstant: 60),
         ])
-        
-        iv.layoutIfNeeded()
-        playerLayer.frame = iv.bounds
-        iv.layer.addSublayer(playerLayer)
-        player.play()
-        //
-        NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime,
-            object: self.player.currentItem,
-            queue: .main) { [weak self] _ in
-                self?.player.seek(to: CMTime.zero)
-                self?.player.play()
-            }
     }
-    
 }
 
 
@@ -408,11 +389,6 @@ extension SpecialOfferPaywall: UICollectionViewDelegate, UICollectionViewDataSou
         guard let product = product else { return UICollectionViewCell() }
         
         // MARK: - Config cells
-        //        if isIphone_66(view: self.view) {
-        //            return longCellsConfig(product: product, collectionView: collectionView, indexPath: IndexPath(row: 0, section: 0))
-        //        } else {
-        //            return miniCellsConfig(product: product, collectionView: collectionView, indexPath: indexPath)
-        //        }
         
         let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: SpecialOfferCVCell.reuseID, for: indexPath as IndexPath) as! SpecialOfferCVCell
         
@@ -424,74 +400,11 @@ extension SpecialOfferPaywall: UICollectionViewDelegate, UICollectionViewDataSou
         )
         
         collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-        self.purchaseButton.stateConfig(state: true)
+        self.purchaseButton.buttonStateConfig(state: true)
         
         return bigCell
         
     }
-    
-    // MARK: - mini Cells Config
-    //    private func miniCellsConfig(product: StoreProduct, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-    // FOR iphone 8 case
-    //        if indexPath.row == 0 {
-    //            let miniCell = collectionView.dequeueReusableCell(withReuseIdentifier: MiniPromoCVCell().miniPromoCVCell_ID, for: indexPath as IndexPath) as! MiniPromoCVCell
-    //            miniCell.configure(
-    //                discount: "save 68%".uppercased(),
-    //                title: "\(product.localizedTitle)",
-    //                subtitle: "3.33 $ / month",
-    //                price: "\(product.localizedPriceString) / year"
-    //            )
-    ////            toggleOnState()
-    //            return miniCell
-    //        } else if indexPath.row == 1 {
-    //            let miniCell = collectionView.dequeueReusableCell(withReuseIdentifier: Mini2PromoCVCell().mini2PromoCVCell_ID, for: indexPath as IndexPath) as! Mini2PromoCVCell
-    //
-    //            miniCell.configure(
-    //                title: "\(product.localizedTitle)",
-    //                price: "\(product.localizedPriceString) / month"
-    //            )
-    //            return miniCell
-    //        } else {
-    //            return UICollectionViewCell()
-    //        }
-    //    }
-    
-    // MARK: - long Cells Config
-    //    private func longCellsConfig(product: StoreProduct, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
-    //        //        // Config Cell normal case
-    //        if indexPath.row == 0 {
-    //            let bigCell = collectionView.dequeueReusableCell(withReuseIdentifier: SpecialOfferCVCell.reuseID, for: indexPath as IndexPath) as! SpecialOfferCVCell
-    //
-    //            bigCell.configure(
-    //                discount: "save 68%".uppercased(),
-    //                title: "\(product.localizedTitle)",
-    //                subtitle: "3.33 $ / month",
-    //                price: "\(product.localizedPriceString) / year"
-    //            )
-    ////            toggleOnState()
-    //            return bigCell
-    //        }
-    ////        else if indexPath.row == 1 {
-    ////            let regularCell = collectionView.dequeueReusableCell(withReuseIdentifier: RegularPromoCVCell().regularPromoCVCell_ID, for: indexPath as IndexPath) as! RegularPromoCVCell
-    ////            regularCell.configure(
-    ////                title: "\(product.localizedTitle)",
-    ////                price: "\(product.localizedPriceString) / month"
-    ////            )
-    ////            return regularCell
-    ////        } else {
-    //            return UICollectionViewCell()
-    ////        }
-    //    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        
-//        if !isIphone_12(view: self.view) {
-//            return CGSize(width: (collectionView.frame.size.width/2)-4, height: 122)
-//        } else {
-//            return CGSize()
-//        }
-//    }
-    
 }
 
 

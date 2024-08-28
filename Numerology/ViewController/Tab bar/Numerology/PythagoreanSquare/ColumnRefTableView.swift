@@ -61,10 +61,6 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         self.backgroundColor = .clear
     }
     
-    
- 
-    
-    
     // UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -138,7 +134,7 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         
         let color = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         let width: CGFloat = 1
-        let conren: CGFloat = 16
+        let conren: CGFloat = DesignSystem.maxCornerRadius
        
         // cell UI
         // костыли
@@ -182,7 +178,8 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
             if indexPath.row == 1 {
                 cell.removeCALayerByName(fromView: cell, name: "BorderCALayerKey") // first delete everything
                 cell.addBorder(toView: cell, toSide: .left, withColor: color, andThickness: width)
-                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: 0)
+//                cell.addBorder(toView: cell, toSide: .bottom, withColor: color, andThickness: 0)
+                cell.customCornerRadius(viewToRound: cell, byRoundingCorners: .allCorners, cornerValue: 0)
             }
             if indexPath.row == 2 {
                 cell.addBorder(toView: cell, toSide: .top, withColor: color, andThickness: width)

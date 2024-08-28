@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 29.04.2024.

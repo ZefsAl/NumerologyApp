@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 10.08.2024.
@@ -12,9 +12,7 @@ class YourHoroscopeManager {
     
     static let shared: YourHoroscopeManager = YourHoroscopeManager()
     
-    
-//    var yourHrscpImages: [UIImage?]?
-    var yourHrscpImages_v2: [String:UIImage?]? {
+    var yourHrscpImages: [String:UIImage?]? {
         didSet {
             NotificationCenter.default.post(name: .hrscpImagesDataUpdated, object: nil)
             print("🔵 hrscpImagesDataUpdated - Notification")
@@ -34,53 +32,86 @@ class YourHoroscopeManager {
     var monthHoroscope: MonthCalendarModel?
     var year2024Horoscope: Year2024Model?
     
-    
-    
-    
-    // Сохранить предыдущий
-    // Today -> request by number
-    
-    // Tomorrow -> (Random if UserDefaults val == nil) ||
-    
-//    let somese = "сохранять Key(number) поля предыдущего(Tomorrow) случайного запроса"
-//    
-//    func save(currentDay: Int, ) {
-//
-//    }
-    
-    
+    func todayTomorrHrscpRequest() {
+        
+        // saved Values
+        let savedDay = UserDefaults.standard.object(forKey: UserDefaultsKeys.currentDay) as? Int
+        let todayHrscpNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.todayHrscpNumber) as? Int
+        let tomorrowHrscpNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.tomorrowHrscpNumber) as? Int
+        
+        // current
+        let currntDay = Date().get(.day)
+        
+        func old() {
+            // Old horoscopes
+            HoroscopeManager.shared.getTodayHrscp(requestType: .oldSpecific) { model in
+                self.todayHoroscope = model
+//                print("🔴🔴⚠️ old - todayHoroscope", model.number as Any)
+            }
+            HoroscopeManager.shared.getTomorrowHrscp(requestType: .oldSpecific) { model in
+                self.tomorrowHoroscope = model
+//                print("🔴🔴⚠️ old - tomorrowHoroscope", model.number as Any)
+            }
+        }
+        
+        func new() {
+            // New horoscopes
+            
+            // обновляем savedDay
+            UserDefaults.standard.setValue(currntDay, forKey: UserDefaultsKeys.currentDay)
+            
+            let serialQueue = DispatchQueue(label: "serialQueue")
+            let group = DispatchGroup()
+            
+            // 1
+            serialQueue.async{
+                group.wait()
+                group.enter()
+                HoroscopeManager.shared.getTomorrowHrscp(requestType: .newRandom) { model in
+                    self.tomorrowHoroscope = model
+//                    print("🔴🔴✅ new - tomorrowHoroscope", model.number as Any)
+                    //
+                    if let tomorrowHrscpNumber = tomorrowHrscpNumber {
+                        UserDefaults.standard.setValue(tomorrowHrscpNumber, forKey: UserDefaultsKeys.todayHrscpNumber)
+                        // для todayHrscpNumber нужно сохранить старый tomorrowHrscpNumber
+                    }
+                    if let number = model.number {
+                        UserDefaults.standard.setValue(number, forKey: UserDefaultsKeys.tomorrowHrscpNumber)
+                    }
+                }
+                group.leave()
+            }
+            // 2
+            serialQueue.async {
+                group.enter()
+                // request
+                HoroscopeManager.shared.getTodayHrscp(requestType: .newRandom) { model in
+                    self.todayHoroscope = model
+//                    print("🔴🔴✅ new - todayHoroscope", model.number as Any)
+                    
+                    if todayHrscpNumber == nil,
+                       let number = model.number {
+                        UserDefaults.standard.setValue(number, forKey: UserDefaultsKeys.todayHrscpNumber)
+                    }
+                }
+                group.leave()
+            }
+        }
+        
+        guard let savedDay = savedDay else {
+            new()
+            return
+        }
+        // Сhange of day
+        currntDay == savedDay ? old() : new()
+    }
     
     
     func requestData() {
         let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
-
-        // random Today-tomor ‼️
-        // Today //
-        DispatchQueue.main.async {
-            HoroscopeManager.shared.getTodayHoroscope { model in
-                self.todayHoroscope = model
-//                print("🌕‼️🟢 request Today:",
-//                """
-//                \(self.todayHoroscope?.number),
-//                \(self.todayHoroscope?.charts),
-//                \(self.todayHoroscope?.love),
-//                """
-//                )
-            }
-        }
-        // Tomorrow
-        DispatchQueue.main.async {
-            HoroscopeManager.shared.getTodayHoroscope { model in
-                self.tomorrowHoroscope = model
-//                print("🌕‼️🟢 request tomorow:",
-//                """
-//                \(self.tomorrowHoroscope?.number),
-//                \(self.tomorrowHoroscope?.charts),
-//                \(self.tomorrowHoroscope?.love),
-//                """
-//                )
-            }
-        }
+        
+        todayTomorrHrscpRequest()
+        
         // Week
         DispatchQueue.main.async {
             HoroscopeManager.shared.getWeekHoroscope { model in
@@ -91,14 +122,7 @@ class YourHoroscopeManager {
         DispatchQueue.main.async {
             HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
                 self.monthHoroscope = model
-//                print("🌕‼️🟢 request Week:",
-//                """
-//                \(self.monthHoroscope?.monthSigns),
-//                "Trends" - \(self.monthHoroscope?.mainTrends),
-//                "info" - \(self.monthHoroscope?.monthInfo),
-//                "Trends" - \(self.monthHoroscope?.charts),
-//                """
-//                )
+                MoneyCalendarManager.shared.monthCalendarModel = model
             }
         }
         // Year 2024
@@ -111,7 +135,7 @@ class YourHoroscopeManager {
         // Your Hrscp Images
         DispatchQueue.main.async {
             TechnicalManager.shared.getYourHrscpImages_v2 { dict in
-                self.yourHrscpImages_v2 = dict
+                self.yourHrscpImages = dict
             }
         }
         

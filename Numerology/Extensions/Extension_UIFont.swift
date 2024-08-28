@@ -23,9 +23,9 @@ extension UIFont {
         }
     }
     
-    convenience init(weight: SourceSerifPro, size: CGFloat) {
-        self.init(name: weight.fontName, size: size)!
-    }
+//    convenience init(weight: SourceSerifPro, size: CGFloat) {
+//        self.init(name: weight.fontName, size: size)!
+//    }
     
     static func setSourceSerifPro(weight: SourceSerifPro, size: CGFloat) -> UIFont? {
         UIFont(name: "SourceSerifPro-\(weight.rawValue.capitalized)", size: size)

@@ -67,10 +67,7 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
                 info: model.info
             )
         }
-        vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .overFullScreen
-        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -138,7 +135,7 @@ final class AngelNumbersCVCell: UICollectionViewCell {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
         self.layer.shadowOpacity = 1

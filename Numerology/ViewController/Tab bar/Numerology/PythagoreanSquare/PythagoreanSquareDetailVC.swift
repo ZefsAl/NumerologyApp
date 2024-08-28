@@ -34,6 +34,8 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Nav
+        self.setDetaiVcNavItems()
         //
         self.setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)

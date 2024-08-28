@@ -14,7 +14,7 @@ class RegularBigButton: UIButton {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
         l.textColor = .white
-        l.font = UIFont(weight: .regular, size: 23)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 23)
         return l
     }()
     
@@ -25,7 +25,7 @@ class RegularBigButton: UIButton {
         super.init(frame: frame)
 
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.backgroundColor = (primaryColor ?? self.primaryColor)
         // Shadow
         self.layer.shadowOpacity = 1

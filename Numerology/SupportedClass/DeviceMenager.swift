@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 31.05.2024.
@@ -13,7 +13,9 @@ class DeviceMenager {
     // - MARK: Properties
     static let shared = DeviceMenager()
     
-    lazy var device: Device = {
+    static let isSmallDevice = DeviceMenager.device == .iPhone_Se2_3Gen_8_7_6S
+    
+    static let device: Device = {
         switch UIScreen.main.nativeBounds.height {
         // Iphones
         case 1334:

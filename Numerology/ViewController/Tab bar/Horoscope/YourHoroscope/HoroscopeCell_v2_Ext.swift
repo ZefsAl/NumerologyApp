@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 10.08.2024.
@@ -19,7 +19,6 @@ extension HoroscopeCell_v2: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.chartsDataSource.count
         return self.horoscopeCellViewModel.chartsDataSource.count
     }
     
@@ -30,15 +29,14 @@ extension HoroscopeCell_v2: UICollectionViewDataSource, UICollectionViewDelegate
             for: indexPath
         ) as! ChartCVCell
         
-
         let data = self.horoscopeCellViewModel.chartsDataSource
         cell.title.text = data[indexPath.row].title
         cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
         cell.setProgressValue(value: data[indexPath.row].progressValue)
         cell.setProgressColor(data[indexPath.row].progressColor)
-        cell.title.font = UIFont(weight: .semiBold, size: 12)
+        cell.title.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
         cell.title.adjustsFontSizeToFitWidth = true
-        cell.percentTitle.font = UIFont(weight: .semiBold, size: 12)
+        cell.percentTitle.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
         //
         if ![3, 4].contains(self.segmentedControl.selectedSegmentIndex) {
             collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: [])
@@ -53,8 +51,8 @@ extension HoroscopeCell_v2: UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.setCardText(model: self.horoscopeCellViewModel.chartsDataSource[indexPath.row])
-        self.chartsTitle.fadeTransition(0.3)
-        self.chartsText.fadeTransition(0.3)
+        self.chartsTitle.fadeTransition()
+        self.chartsText.fadeTransition()
     }
     
     // MARK: - layout

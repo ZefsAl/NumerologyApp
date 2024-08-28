@@ -17,7 +17,7 @@ class AboutCVCell: UICollectionViewCell {
     let readMore: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 15)
+        l.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 15)   
         l.textAlignment = .center
         l.text = "Read more"
         l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)

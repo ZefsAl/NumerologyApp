@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 28.04.2024.
@@ -44,7 +44,7 @@ class AngelNumbersDescriptionVC: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -53,7 +53,9 @@ class AngelNumbersDescriptionVC: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG2.png")
         AnimatableBG().setBackground(vc: self)
         //
@@ -85,7 +87,7 @@ class AngelNumbersDescriptionVC: UIViewController {
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.shadowOpacity = 1

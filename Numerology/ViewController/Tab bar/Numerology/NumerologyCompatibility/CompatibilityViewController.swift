@@ -87,10 +87,11 @@ class CompatibilityViewController: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG2.png")
         setupStack()
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -118,7 +119,7 @@ class CompatibilityViewController: UIViewController {
             v.layer.borderWidth = DesignSystem.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             // Shadow
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -152,7 +153,7 @@ class CompatibilityViewController: UIViewController {
             v.layer.borderWidth = DesignSystem.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             // Shadow
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -192,7 +193,7 @@ class CompatibilityViewController: UIViewController {
             v.layer.borderWidth = 1
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             
             v.addSubview(lableDescription)
             NSLayoutConstraint.activate([

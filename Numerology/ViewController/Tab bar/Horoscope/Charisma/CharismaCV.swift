@@ -87,18 +87,15 @@ extension CharismaCV: UICollectionViewDataSource, UICollectionViewDelegate, UICo
             vc.signSubtitle.text = model.dateAboutYou ?? ""
             
             vc.configureUI(
-                title: "Sign characteristics",
-                info: model.signCharacteristics,
+                title: "",
+                info: "model.signCharacteristics",
                 isPremium: true,
-                visibleConstant: 200
+                visibleConstant: 120
             )
-            vc.chartsDataSource = model?.charts?.replacingOccurrences(of: ".", with: ",").components(separatedBy: ",").compactMap({Int($0)})
+
+            vc.charismaCVViewModel = CharismaCVViewModel(signsModel: model)
             
-            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
 
     }
@@ -106,17 +103,12 @@ extension CharismaCV: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     
     // MARK: - layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width,height: 164)
+        return CGSize(width: 164, height: 164)
     }
-
-    // Horizontal spacing
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-
-    // Vertical spacing
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let val = (collectionView.frame.width-164)/2
+        return UIEdgeInsets(top: 0, left: val, bottom: 0, right: val)
     }
     
 }

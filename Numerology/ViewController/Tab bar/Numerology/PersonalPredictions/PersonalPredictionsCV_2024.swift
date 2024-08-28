@@ -112,34 +112,25 @@ extension PersonalPredictionsCV_2024: UICollectionViewDataSource, UICollectionVi
         // MARK: pers. Day
         if indexPath.row == 0 {
             let vc = PersonalDayVC()
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
         
         // MARK: pers. month // 2.2
         if indexPath.row == 1 {
             let vc = PersonalMonthVC()
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
         
         // MARK: pers. year // 2.3
         if indexPath.row == 2 {
             let vc = PersonalYearVC()
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
         
         // MARK: life stages // 2.4
         if indexPath.row == 3 {
             let vc = LifeStagesViewController()
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

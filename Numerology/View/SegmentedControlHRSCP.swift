@@ -23,7 +23,7 @@ class SegmentedControlHRSCP: UISegmentedControl {
         // Style
         self.selectedSegmentIndex = 0
         self.backgroundColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.15)
-        let font = UIFont(weight: .semiBold, size: 11)
+        let font = UIFont.setSourceSerifPro(weight: .semiBold, size: 11)
         self.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
         fixBackgroundSegmentControl(self)

@@ -13,6 +13,17 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
     
     let signContent = SignContentView()
     
+    var charismaCVViewModel: CharismaCVViewModel? {
+        didSet {
+            DispatchQueue.main.async {
+                self.chartsCV.reloadData()
+                
+            }
+        }
+    }
+    
+    var accordionView: PremiumAccordionView?
+    
     // MARK: title
     let signTitle: UILabel = {
         let l = UILabel()
@@ -40,8 +51,6 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
         return sv
     }()
     
-    var chartsDataSource = [ChartCVCellModel]()
-    
     let chartsCV: ContentCollectionView = {
         let cv = ContentCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         return cv
@@ -51,13 +60,22 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
     // MARK: 🟢 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Nav
+        self.setDetaiVcNavItems()
         //
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
         // open from VC
         self.openFrom = self
         self.registerChartsCV()
+    }
+    
+    
+    func setCardText(model: ChartCVCellModel) {
+        accordionView?.accordionButton.setAccordionTitle(model.title)
+        accordionView?.info.text = model.text
+        accordionView?.accordionButton.mainTitle.fadeTransition()
+        accordionView?.info.fadeTransition()
     }
     
     // MARK: Setup Stack
@@ -68,11 +86,11 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
         visibleConstant: CGFloat
     ) {
         
-        let textStack = UIStackView(arrangedSubviews: [signTitle,signSubtitle])
-        textStack.translatesAutoresizingMaskIntoConstraints = false
-        textStack.axis = .vertical
-        textStack.alignment = .center
-        textStack.spacing = 4
+        let signTitleStack = UIStackView(arrangedSubviews: [signTitle,signSubtitle])
+        signTitleStack.translatesAutoresizingMaskIntoConstraints = false
+        signTitleStack.axis = .vertical
+        signTitleStack.alignment = .center
+        signTitleStack.spacing = 4
         
         //
         let accordionStack = UIStackView()
@@ -91,8 +109,14 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
             v.remoteOpenDelegate?.openFrom = self
             return v
         }()
+        
+        self.accordionView = accordionView
             
-        accordionStack.addArrangedSubview(accordionView)
+        accordionStack.addArrangedSubview(chartsCV)
+        if let accordionView = self.accordionView {
+            accordionStack.addArrangedSubview(accordionView)
+        }
+        
         
         // cardView + Border
         let cardView: UIView = {
@@ -101,11 +125,11 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = DesignSystem.Horoscope.backgroundColor
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = DesignSystem.Horoscope.primaryColor.cgColor
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = 16
+            v.layer.shadowRadius = DesignSystem.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = DesignSystem.Horoscope.shadowColor.cgColor
             
@@ -122,7 +146,7 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
         }()
         
         // MARK: - content Stack
-        let contentStack = UIStackView(arrangedSubviews: [signContent,textStack,cardView])
+        let contentStack = UIStackView(arrangedSubviews: [signContent,signTitleStack,cardView])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.alignment = .center
         contentStack.axis = .vertical
@@ -135,6 +159,8 @@ class CharismaDetailVC: UIViewController, RemoteOpenDelegate {
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
 
+            cardView.widthAnchor.constraint(equalTo: contentStack.widthAnchor),
+            
             signContent.heightAnchor.constraint(equalTo: signContent.widthAnchor),
             
             contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),

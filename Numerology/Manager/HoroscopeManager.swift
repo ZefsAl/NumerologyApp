@@ -15,6 +15,10 @@ import UIKit
 
 final class HoroscopeManager {
     
+    enum HrscpRequestType {
+        case newRandom, oldSpecific
+    }
+    
     static let shared: HoroscopeManager = HoroscopeManager()
     private let firestore = Firestore.firestore()
     
@@ -67,50 +71,109 @@ final class HoroscopeManager {
             }
         }
     }
-
+    
     // MARK: - Today
-    func getTodayHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        let fixNotFilledData = Array(1...58).randomElement() ?? 1
+    func getTodayHrscp(requestType: HrscpRequestType, completion: @escaping (HoroscopeDefaultModel) -> Void ) {
+        // random || specific
         
-        let docRef = firestore.collection("Today-tomor-hrscp").whereField("number", isEqualTo: fixNotFilledData)
+        let range = Array(1...58) // костыль
+        let randomElement = range.randomElement() ?? 1
+        // Primary request -> save tomorrowArticleNumber
+        // Array(1...58) или let random = documents.randomElement() или let random = documents.count
+        // Array(1...58) // временный fix
         
+        let todayNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.todayHrscpNumber) as? Int
+        let tomorrowNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.tomorrowHrscpNumber) as? Int
+        
+        switch requestType {
+        case .newRandom:
+            // Unwrap
+            guard
+                let tomorrowNumber = tomorrowNumber
+            else {
+                // Not unwraped -> random
+                getTodayTomorrHrscp(number: randomElement) { val in
+                    completion(val)
+                }
+                return
+            }
+            // Unwraped -> old tomorrow like new today
+            getTodayTomorrHrscp(number: tomorrowNumber) { val in
+                completion(val)
+            }
+        case .oldSpecific:
+            // Unwrap
+            guard
+                let todayNumber = todayNumber
+            else {
+                // не извлекли -> random
+                getTodayTomorrHrscp(number: randomElement) { val in
+                    completion(val)
+                }
+                return
+            }
+            // Unwraped -> сохраненный
+            getTodayTomorrHrscp(number: todayNumber) { val in
+                completion(val)
+            }
+        }
+
+    }
+    
+    // MARK: - Tomorrow
+    func getTomorrowHrscp(requestType: HrscpRequestType, completion: @escaping (HoroscopeDefaultModel) -> Void ) {
+        // random || specific
+        
+        let range = Array(1...58)
+        let randomElement = range.randomElement() ?? 1
+        // Primary request -> save tomorrowArticleNumber
+        // Array(1...58) или let random = documents.randomElement() или let random = documents.count
+        // Array(1...58) // временный fix
+        
+        let todayNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.todayHrscpNumber) as? Int
+        let tomorrowNumber = UserDefaults.standard.object(forKey: UserDefaultsKeys.tomorrowHrscpNumber) as? Int
+        
+        switch requestType {
+        case .newRandom:
+            // unwrap
+            guard
+                let todayNumber = todayNumber,
+                let excludeSameMatch = range.filter({ $0 != todayNumber }).randomElement()
+            else {
+                // Not unwraped -> random
+                getTodayTomorrHrscp(number: randomElement) { val in
+                    completion(val)
+                }
+                return
+            }
+            // unwraped -> Гороскоп != today
+                getTodayTomorrHrscp(number: excludeSameMatch) { val in
+                    completion(val)
+                }
+        case .oldSpecific:
+            guard 
+                let tomorrowNumber = tomorrowNumber
+            else {
+                // Not unwraped -> random
+                getTodayTomorrHrscp(number: randomElement) { val in
+                    completion(val)
+                }
+                return
+            }
+            // Unwraped -> сохраненный
+            getTodayTomorrHrscp(number: tomorrowNumber) { val in
+                completion(val)
+            }
+        }
+
+    }
+    
+    private func getTodayTomorrHrscp(number: Int, completion: @escaping (HoroscopeDefaultModel) -> Void ) {
+        let docRef = firestore.collection("Today-tomor-hrscp").whereField("number", isEqualTo: number)
         docRef.getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
             if let error = error { print("⚠️ Error getting documents: \(error)") }
-            
-            
-//            if let random = documents.randomElement() {
-//                do {
-//                    let val = try random.data(as: HoroscopeDefaultModel.self)
-//                    completion(val)
-//                } catch {
-//                    print("⚠️ Error decode documents: \(error)")
-//                }
-//            }
-//            
-//            if let random = documents.first {
-//                do {
-//                    let val = try random.data(as: HoroscopeDefaultModel.self)
-//                    completion(val)
-//                    
-//                    print("🌕‼️🟢 Request Today - hrscp:",
-//                    """
-//                    \(val),
-//                    \(val.number as Any),
-//                    \(val.info as Any) ,
-//                    \(val.charts as Any) ,
-//                    \(val.business as Any),
-//                    \(val.health as Any)
-//                    """
-//                    )
-//                    
-//                    
-//                } catch {
-//                    print("⚠️ Error decode documents: \(error)")
-//                }
-//            }
-            
-            for doc in documents {
+            documents.forEach { doc in
                 do {
                     let val = try doc.data(as: HoroscopeDefaultModel.self)
                     completion(val)
@@ -119,13 +182,11 @@ final class HoroscopeManager {
                     print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
-            
         }
     }
     
     // MARK: - Week
     func getWeekHoroscope(completion: @escaping (HoroscopeDefaultModel) -> Void ) {
-        
         
         let fixNotFilledData = Array(1...25).randomElement() ?? 1
         

@@ -25,7 +25,7 @@ final class CustomCarousel_CV: UICollectionView {
         CardContentModel(title: "Amazing Insights!",
                          date: "September 05.2023",
                          fullname: "Emily Davis",
-                         comment: "The readings from this app are deeply insightful and thought-provoking. It feels like a guiding light through the mysteries of life. I absolutely love it!"),
+                         comment: "The readings from this app are deeply insightful and thought-provoking. It feels like a guiding light through the mysteries of life.\nI absolutely love it!"),
         
         CardContentModel(title: "Deeply Insightful",
                          date: "September 18.2023",

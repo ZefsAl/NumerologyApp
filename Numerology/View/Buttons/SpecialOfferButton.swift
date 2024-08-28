@@ -24,7 +24,8 @@ final class SpecialOfferButton: UIButton {
     private var isHavePremium: Bool? 
     
     // MARK: - Timer
-    private var countDownTimer = Timer()
+    private var countDownTimer: Timer?
+    
     private let keyUD = "CountDownSO"
     private let defaultVal: Double = 86400
     private lazy var counter: Double = {
@@ -77,6 +78,7 @@ final class SpecialOfferButton: UIButton {
         iv.isHidden = true
         return iv
     }()
+    
     // MARK: - icon constraint
     private lazy var iconHeight = icon.heightAnchor.constraint(equalToConstant: 22)
     private lazy var iconWidth = icon.widthAnchor.constraint(equalToConstant: 22)
@@ -88,12 +90,12 @@ final class SpecialOfferButton: UIButton {
         self.layer.shadowRadius = self.bounds.height/2
     }
     
-    // MARK: - init
+    // MARK: - 🟢 init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setupUI()
-        self.setPulseAnimation()
+        CustomAnimation.setPulseAnimation(to: self)
         self.validateConfigState()
         // target
         self.addTarget(Any?.self, action: #selector(specialOfferAct), for: .touchUpInside)
@@ -105,14 +107,6 @@ final class SpecialOfferButton: UIButton {
     
     // MARK: - button Config State
     private func validateConfigState() {
-        // При Onboarding приложение уже проверило и прислало скорее всего Nil purchase delegate
-        
-        
-//        if PremiumManager.isUserPremium() {
-//            
-//        } else {
-//            self.buttonConfigure(isHavePremium: PremiumManager.isUserPremium())
-//        }
         self.buttonConfigure(isHavePremium: PremiumManager.isUserPremium())
         NotificationCenter.default.addObserver(
             self,
@@ -120,7 +114,6 @@ final class SpecialOfferButton: UIButton {
             name: .premiumBadgeNotificationKey,
             object: nil
         )
-    
     }
     
     // MARK: - setup UI
@@ -168,17 +161,6 @@ final class SpecialOfferButton: UIButton {
         gradientlayer.cornerRadius = 36/2
         self.layer.insertSublayer(gradientlayer, at: 0)
     }
-    // MARK: - Animation
-    private func setPulseAnimation() {
-        let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
-        pulseAnimation.duration = 1
-        pulseAnimation.toValue = 0.95
-        pulseAnimation.fromValue = 0.79
-        pulseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = Float.infinity
-        self.layer.add(pulseAnimation, forKey: "pulse")
-    }
     
     // MARK: - Actions
     @objc private func updateCounter() {
@@ -208,37 +190,35 @@ final class SpecialOfferButton: UIButton {
     // MARK: - target - notification
     @objc private func notificationConfigState(notification: Notification) {
         guard let bool = notification.object as? Bool else { return }
+        print("🌕‼️🟢 notification buttonConfigure", bool)
+        
         self.buttonConfigure(isHavePremium: bool)
     }
     
     // MARK: - Config
     private func buttonConfigure(isHavePremium: Bool) {
         self.isHavePremium = isHavePremium
-        
-        if isHavePremium {
-            //
-            self.countDownTimer.invalidate()
-            // Today
-            self.countDownLabel.font = UIFont(weight: .bold, size: 15)
-            self.countDownLabel.textAlignment = .center
-            self.countDownLabel.textColor = .white
-            self.countDownLabel.text = "Today"
-        } else {
-            // SpecialOffer
-            self.countDownLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-            self.countDownLabel.textAlignment = .left
-            self.countDownLabel.textColor = .white
-            self.countDownLabel.text = "24:00:00"
-            // timer
-//            self.countDownTimer.invalidate()
-            self.countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        }
+        // clear
+        self.countDownTimer?.invalidate()
+        self.countDownTimer = nil
+        // font
+        let systemFont = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        let sourceSerifPro = UIFont.setSourceSerifPro(weight: .bold, size: 15)
+        // State
+        self.countDownLabel.font = isHavePremium ? sourceSerifPro : systemFont
+        self.countDownLabel.text = isHavePremium ? "Today" : "24:00:00"
+        self.countDownLabel.textAlignment = isHavePremium ? .center : .left
+        self.countDownLabel.textColor = .white
         // Update
         self.gradientlayer.frame = self.bounds
         // icon
         self.icon.isHidden = isHavePremium
         self.iconHeight.isActive = isHavePremium ? false : true
         self.iconWidth.isActive = isHavePremium ? false : true
+        // timer
+        if !isHavePremium {
+            self.countDownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        }
     }
     
 }

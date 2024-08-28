@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 10.06.2024.
@@ -9,13 +9,13 @@ import Foundation
 
 class TrendsArticlesModel: Codable, Identifiable {
  
-    let article: String
-    let cardText: String
-    let cardTitle: String
-    let imageTitle: String
-    let image: [Image]
+    let article: String?
+    let cardText: String?
+    let cardTitle: String?
+    let imageTitle: String?
+    let image: [Image]?
     let isPremium: Bool?
-    let likes: Int
+    let likes: Int?
     
     enum CodingKeys: String, CodingKey {
         case article    = "article"

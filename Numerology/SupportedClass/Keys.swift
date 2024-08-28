@@ -13,6 +13,12 @@ struct UserDefaultsKeys {
     static let surname = "surnameKey";
     static let dateOfBirth = "dateOfBirthKey";
     static let userAccessObserverKey = "UserAccessObserverKey";
+    //
+    static let todayHrscpNumber = "previousDayHrscpNumberKey" // previousDayHrscpNumber == today
+    static let tomorrowHrscpNumber = "currentDayHrscpNumberKey" // currentDayHrscpNumber == tomorrow
+    static let currentDay = "currentDayKey"
+    // Music State
+    static let bgMusicState = "bgMusicState"
 }
 
 extension Notification.Name {

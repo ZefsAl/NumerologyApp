@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 14.08.2024.
@@ -17,7 +17,6 @@ extension HoroscopeDescriptionVC: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.chartsDataSource.count
         return self.horoscopeCellViewModel.chartsDataSource.count
     }
     
@@ -28,15 +27,14 @@ extension HoroscopeDescriptionVC: UICollectionViewDataSource, UICollectionViewDe
             for: indexPath
         ) as! ChartCVCell
         
-
         let data = self.horoscopeCellViewModel.chartsDataSource
         cell.title.text = data[indexPath.row].title
         cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
         cell.setProgressValue(value: data[indexPath.row].progressValue)
         cell.setProgressColor(data[indexPath.row].progressColor)
-        cell.title.font = UIFont(weight: .semiBold, size: 12)
+        cell.title.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
         cell.title.adjustsFontSizeToFitWidth = true
-        cell.percentTitle.font = UIFont(weight: .semiBold, size: 12)
+        cell.percentTitle.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
         //
         if ![3, 4].contains(self.segmentedControl.selectedSegmentIndex) {
             collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: [])
@@ -50,8 +48,8 @@ extension HoroscopeDescriptionVC: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.setSingleCardText(model: self.horoscopeCellViewModel.chartsDataSource[indexPath.row])
-        self.mainInfo.accordionButton.mainTitle.fadeTransition(0.3)
-        self.mainInfo.info.fadeTransition(0.3)
+        self.mainInfo.accordionButton.mainTitle.fadeTransition()
+        self.mainInfo.info.fadeTransition()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

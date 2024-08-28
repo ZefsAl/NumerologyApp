@@ -68,7 +68,7 @@
 //        // Style
 //        self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
 //        // Border
-//        self.layer.cornerRadius = 16
+//        self.layer.cornerRadius = DesignSystem.maxCornerRadius
 //        self.layer.borderWidth = DesignSystem.borderWidth
 //        self.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
 //        self.layer.shadowOpacity = 1

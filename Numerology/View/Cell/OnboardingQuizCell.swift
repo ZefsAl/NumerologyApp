@@ -81,7 +81,7 @@ final class OnboardingQuizCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.clipsToBounds = false
         self.layer.borderWidth = 1
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7).withAlphaComponent(0.7)
@@ -112,7 +112,7 @@ final class OnboardingQuizCell: UICollectionViewCell {
         cardContent.axis = .horizontal
         cardContent.alignment = .center
         cardContent.distribution = .fill
-        cardContent.layer.cornerRadius = 16
+        cardContent.layer.cornerRadius = DesignSystem.maxCornerRadius
         cardContent.layoutMargins = UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18)
         cardContent.isLayoutMarginsRelativeArrangement = true
         

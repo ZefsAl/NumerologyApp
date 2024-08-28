@@ -27,7 +27,7 @@
     },
     "_developerTeamID" : "25F5UMN333",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 744833763.65991199,
+    "_lastSynchronizedDate" : 746022896.48446298,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -116,14 +116,7 @@
       "subscriptions" : [
         {
           "adHocOffers" : [
-            {
-              "internalID" : "F0A5978D",
-              "numberOfPeriods" : 1,
-              "offerID" : "numerology_promo_offer",
-              "paymentMode" : "free",
-              "referenceName" : "numerology_promo_offer",
-              "subscriptionPeriod" : "P1M"
-            }
+
           ],
           "codeOffers" : [
 
@@ -143,6 +136,31 @@
           "productID" : "Month_9.99",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Monthly",
+          "subscriptionGroupID" : "21373774",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 4,
+          "internalID" : "6654888925",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Weekly - Numerology Subscription ",
+              "displayName" : "Weekly",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Weekly.ID",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Weekly",
           "subscriptionGroupID" : "21373774",
           "type" : "RecurringSubscription"
         },
@@ -183,7 +201,7 @@
           "groupNumber" : 3,
           "internalID" : "6471103437",
           "introductoryOffer" : {
-            "internalID" : "B886772E",
+            "internalID" : "F4B95223",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"

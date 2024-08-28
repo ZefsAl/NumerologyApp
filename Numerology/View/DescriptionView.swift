@@ -13,7 +13,7 @@ class DescriptionView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0 
         
@@ -24,7 +24,7 @@ class DescriptionView: UIView {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
 //        l.font = UIFont.systemFont(ofSize: 150, weight: .regular)
-        l.font = UIFont.init(weight: .regular, size: 150)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 150)
         l.textAlignment = .center
         l.textColor = .white.withAlphaComponent(0.35)
         

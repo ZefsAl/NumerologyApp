@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AppRouter.swift
 //  Numerology
 //
 //  Created by Serj_M1Pro on 17.08.2024.
@@ -12,10 +12,6 @@ class AppRouter {
     static let shared = AppRouter()
     
     var window: UIWindow? = nil
-    
-//    private let onboardingNav: UINavigationController = UINavigationController(rootViewController: OnboardingVC_v2())
-//    private let appNav: CustomNavController = CustomNavController(rootViewController: MainTabBarController())
-    
     
     enum FlowType {
         case onboarding

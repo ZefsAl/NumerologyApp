@@ -116,9 +116,7 @@ extension YourHoroscopeCV: UICollectionViewDataSource, UICollectionViewDelegate 
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let navVC = UINavigationController(rootViewController: HoroscopeDescriptionVC())
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(HoroscopeDescriptionVC(), animated: true)
         }
     }
 }

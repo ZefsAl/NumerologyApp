@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 09.06.2024.
@@ -22,15 +22,9 @@ final class TrendsArticlesVM {
     
     // MARK: - init
     init() {
-        presetData()
+        setEmptyData()
 
     }
-//    self.setLikeNotification(observer: self, action: #selector(self.notificationLikeAction(notification:)))
-//    @objc private func notificationLikeAction(notification: Notification) {
-//        guard let bool = notification.object as? Bool else { return }
-//        print("notificationLikeAction 🟣🟢 get ", bool)
-//        // что в логах ??
-//    }
     
     func setLikeNotification(observer: Any, action: Selector) {
         NotificationCenter.default.addObserver(
@@ -40,18 +34,6 @@ final class TrendsArticlesVM {
             object: nil
         )
     }
-    
-    
-//    func updatecCellModel(in model: inout CollectionModel, to newModel: TrendsCellModel, for articleID: String?) {
-//        for sectionIndex in 0..<model.sections.count {
-//            for cellIndex in 0..<model.sections[sectionIndex].sectionCells.count {
-//                if model.sections[sectionIndex].sectionCells[cellIndex].articleID == articleID {
-//                    model.sections[sectionIndex].sectionCells[cellIndex] = newModel
-//                    return
-//                }
-//            }
-//        }
-//    }
     
     func updateLikes(model: inout CollectionModel, likeValue: Int, articleID: String?) {
         for sectionIndex in 0..<model.sections.count {
@@ -64,10 +46,7 @@ final class TrendsArticlesVM {
         }
     }
     
-    
-    
-    
-    private func presetData() {
+    private func setEmptyData() {
 
         var astrology = SectionModel(sectionTitle: "Numerology", sectionCells: [])
         for _ in 0...2 {
@@ -103,6 +82,49 @@ final class TrendsArticlesVM {
         }
         trendsArticlesModel.sections.append(numerology)
         
+        
+        
+        var symbolsOfLife = SectionModel(sectionTitle: "Symbols of Life.", sectionCells: [])
+        
+        for _ in 0...6 {
+            symbolsOfLife.sectionCells.append(
+                TrendsCellModel(
+                    articleID: nil,
+                    article: nil,
+                    cardText: nil,
+                    cardTitle: nil,
+                    imageTitle: "",
+                    image: nil,
+                    isPremium: false,
+                    likes: 0
+                )
+            )
+        }
+        trendsArticlesModel.sections.append(symbolsOfLife)
+        
+        
+        var chakras = SectionModel(sectionTitle: "Chakras", sectionCells: [])
+        for _ in 0...14 {
+            chakras.sectionCells.append(
+                TrendsCellModel(
+                    articleID: nil,
+                    article: nil,
+                    cardText: nil,
+                    cardTitle: nil,
+                    imageTitle: "",
+                    image: nil,
+                    isPremium: false,
+                    likes: 0
+                )
+            )
+        }
+        trendsArticlesModel.sections.append(chakras)
+        
+        
+        
+        
+        
+        
         var useful = SectionModel(sectionTitle: "Useful", sectionCells: [])
         for _ in 0...4 {
             useful.sectionCells.append(
@@ -120,6 +142,13 @@ final class TrendsArticlesVM {
         }
         trendsArticlesModel.sections.append(useful)
     }
+    
+    
+    
+    
+    
+    
+    
 }
 
 

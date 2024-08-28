@@ -59,20 +59,48 @@ final class TrendsArticlesCV: UICollectionView {
     
     
     func requestData() {
-        
+        // 1
         let numerologyIDs = [
             0 : TrendsFieldID.numerologyID_1,
             1 : TrendsFieldID.numerologyID_2,
             2 : TrendsFieldID.numerologyID_3,
         ]
-        
+        // 2
         let astrologyIDs = [
             0 : TrendsFieldID.astrologyID_1,
             1 : TrendsFieldID.astrologyID_2,
             2 : TrendsFieldID.astrologyID_3,
             3 : TrendsFieldID.astrologyID_4,
         ]
-        
+        // 3
+        let symbolsOfLife = [
+            0 : TrendsFieldID.symbolsOfLifeID_1,
+            1 : TrendsFieldID.symbolsOfLifeID_2,
+            2 : TrendsFieldID.symbolsOfLifeID_3,
+            3 : TrendsFieldID.symbolsOfLifeID_4,
+            4 : TrendsFieldID.symbolsOfLifeID_5,
+            5 : TrendsFieldID.symbolsOfLifeID_6,
+            6 : TrendsFieldID.symbolsOfLifeID_7,
+        ]
+        // 4
+        let chakras = [
+            0 : TrendsFieldID.chakrasID_1,
+            1 : TrendsFieldID.chakrasID_2,
+            2 : TrendsFieldID.chakrasID_3,
+            3 : TrendsFieldID.chakrasID_4,
+            4 : TrendsFieldID.chakrasID_5,
+            5 : TrendsFieldID.chakrasID_6,
+            6 : TrendsFieldID.chakrasID_7,
+            7 : TrendsFieldID.chakrasID_8,
+            8 : TrendsFieldID.chakrasID_9,
+            9 : TrendsFieldID.chakrasID_10,
+            10 : TrendsFieldID.chakrasID_11,
+            11 : TrendsFieldID.chakrasID_12,
+            12 : TrendsFieldID.chakrasID_13,
+            13 : TrendsFieldID.chakrasID_14,
+            14 : TrendsFieldID.chakrasID_15,
+        ]
+        // 5
         let usefulIDs = [
             0 : TrendsFieldID.usefulID_1,
             1 : TrendsFieldID.usefulID_2,
@@ -84,7 +112,9 @@ final class TrendsArticlesCV: UICollectionView {
         let sections = [
             0 : numerologyIDs,
             1 : astrologyIDs,
-            2 : usefulIDs,
+            2 : symbolsOfLife,
+            3 : chakras,
+            4 : usefulIDs,
         ]
         
         DispatchQueue.main.async {
@@ -163,10 +193,7 @@ extension TrendsArticlesCV: UICollectionViewDelegateFlowLayout {
         let model = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionCells[indexPath.row]
         
         let vc = DatailTrendsArticlesVC(model: model, visibleConstant: 150)
-        vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .overFullScreen
-        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

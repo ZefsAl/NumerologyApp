@@ -83,7 +83,7 @@ class PaywallCVCell: UICollectionViewCell {
         // Style
         self.backgroundColor = .black.withAlphaComponent(0.5)
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.layer.borderWidth = 0
         self.layer.borderColor = UIColor.clear.cgColor
         

@@ -155,9 +155,7 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             )
             //
             guard numbersOfSoulModel != nil else { return }
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         case 1:
             // MARK: Destiny // 1
             guard
@@ -172,9 +170,7 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             )
             //
             guard numbersOfDestinyModel != nil else { return }
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
             
         case 2:
             // MARK: Name // 2
@@ -190,9 +186,7 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             )
             //
             guard numbersOfNameModel != nil else { return }
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         case 3:
             // MARK: Power Code // 3
             guard
@@ -207,10 +201,7 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             )
             //
             guard powerCodeModel != nil else { return }
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-            
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }

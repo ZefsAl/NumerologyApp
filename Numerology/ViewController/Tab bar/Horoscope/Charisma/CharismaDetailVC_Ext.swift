@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension CharismaDetailVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -16,7 +17,8 @@ extension CharismaDetailVC: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.horoscopeCellViewModel.chartsDataSource.count
+
+        return self.charismaCVViewModel?.chartsDataSource.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,21 +28,32 @@ extension CharismaDetailVC: UICollectionViewDataSource, UICollectionViewDelegate
             for: indexPath
         ) as! ChartCVCell
         
-
-        let data = self.horoscopeCellViewModel.chartsDataSource
-        cell.title.text = data[indexPath.row].title
-        cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
-        cell.setProgressValue(value: data[indexPath.row].progressValue)
-        cell.setProgressColor(data[indexPath.row].progressColor)
-        cell.title.font = UIFont(weight: .semiBold, size: 12)
-        cell.title.adjustsFontSizeToFitWidth = true
-        cell.percentTitle.font = UIFont(weight: .semiBold, size: 12)
-        //
-        if ![3, 4].contains(self.segmentedControl.selectedSegmentIndex) {
-            collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: [])
-            collectionView.isUserInteractionEnabled = true
+        guard let data = self.charismaCVViewModel?.chartsDataSource else { return UICollectionViewCell() }
+        
+        
+        let initialIndex = IndexPath(item: 0, section: 0)
+        self.chartsCV.selectItem(at: initialIndex, animated: true, scrollPosition: [])
+        self.setCardText(model: data[initialIndex.row])
+        
+        if indexPath.row == 0 {
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = UIImage(
+                systemName: "chevron.right",
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 13, weight: .semibold)
+            )?.withTintColor(.white)
+            let fullString = NSMutableAttributedString(string: "\(data[indexPath.row].title) ")
+            fullString.append(NSAttributedString(attachment: imageAttachment))
+            cell.title.attributedText = fullString
+            cell.title.adjustsFontSizeToFitWidth = true
+            cell.changeCellToBigBtn()
         } else {
-            collectionView.isUserInteractionEnabled = false
+            cell.title.text = data[indexPath.row].title
+            cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
+            cell.setProgressValue(value: data[indexPath.row].progressValue)
+            cell.setProgressColor(data[indexPath.row].progressColor)
+            cell.title.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
+            cell.title.adjustsFontSizeToFitWidth = true
+            cell.percentTitle.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 12)
         }
         
         //
@@ -48,17 +61,19 @@ extension CharismaDetailVC: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.setCardText(model: self.horoscopeCellViewModel.chartsDataSource[indexPath.row])
-        self.chartsTitle.fadeTransition(0.3)
-        self.chartsText.fadeTransition(0.3)
+        guard let data = self.charismaCVViewModel?.chartsDataSource else { return }
+        self.setCardText(model: data[indexPath.row])
     }
     
     // MARK: - layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let fourItems = self.horoscopeCellViewModel.chartsDataSource.count == 4
-        let width = collectionView.bounds.size.width/(fourItems ? 2 : 3.1) - 3
+        
+        
+        let state = indexPath.row == 0
+        let width = collectionView.bounds.size.width
+        
         return CGSize(
-            width: width,
+            width: state ? width : (width/2)-3,
             height: 52
         )
     }

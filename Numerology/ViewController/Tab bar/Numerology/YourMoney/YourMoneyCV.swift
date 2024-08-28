@@ -91,9 +91,7 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             )
             //
             guard numbersOfMoneyModel != nil else { return }
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

@@ -84,6 +84,7 @@ class EditProfileVC: UIViewController {
             print("new Date is \(self.newDateOfBirth as Any)")
         }
     }
+    
     // MARK: - delete Data Button
     let deleteDataButton: UIButton = {
         let b = UIButton(type: .custom)
@@ -92,37 +93,52 @@ class EditProfileVC: UIViewController {
         b.setImage(UIImage(systemName: "trash.fill"), for: .normal)
         b.tintColor = .white
         b.backgroundColor = .systemBlue
-        b.layer.cornerRadius = 16
-        
         b.addTarget(Any?.self, action: #selector(deleteAct), for: .touchUpInside)
         return b
     }()
     
     @objc private func deleteAct() {
-        
         let alert = UIAlertController(title: "Delete?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { act in
-//            UserDefaults.standard.setUserData(name: "", surname: "")
-//            UserDefaults.standard.setDateOfBirth(dateOfBirth: Date())
-//            UserDefaults.standard.synchronize()
-            
             UserDataKvoManager.shared.set(type: .dateOfBirth, value: Date())
             UserDataKvoManager.shared.set(type: .name, value: "")
             UserDataKvoManager.shared.set(type: .surname, value: "")
-            
-            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { act in
             alert.dismiss(animated: true)
         }))
         self.present(alert, animated: true)
-        
     }
     
-
+    // MARK: - toggle BG Music
+    lazy var bgMusicStateButton: UIButton = {
+        let b = UIButton(type: .custom)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        // State
+        b.isSelected = UserDefaults.standard.bool(forKey: UserDefaultsKeys.bgMusicState)
+        // On
+        b.setTitle("Music: On", for: .selected)
+        b.setImage(UIImage(systemName: "speaker.wave.3.fill"), for: .selected)
+        // Off
+        b.setTitle("Music: Off", for: .normal)
+        b.setImage(UIImage(systemName: "speaker.slash.fill"), for: .normal)
+        //
+        b.tintColor = .white
+        b.backgroundColor = b.isSelected ? .systemBlue : .systemGray
+        b.addTarget(Any?.self, action: #selector(toggleMusicAct), for: .touchUpInside)
+        return b
+    }()
+    // MARK: - toggle Music Action
+    @objc private func toggleMusicAct(_ sender: UIButton) {
+        let state = sender.isSelected ? false : true
+        sender.isSelected = state
+        sender.backgroundColor = state ? .systemBlue : .systemGray
+        UserDefaults.standard.setValue(state, forKey: UserDefaultsKeys.bgMusicState)
+        state ? MusicManager.shared.playSound() : MusicManager.shared.stopSound()
+    }
     
-    
-    // MARK: View Did load
+        
+    // MARK: 🟢View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 1)
@@ -133,43 +149,50 @@ class EditProfileVC: UIViewController {
         configureEditData()
     }
     
+    // MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    // MARK: - view Did Layout Subviews
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.deleteDataButton.layer.cornerRadius = self.deleteDataButton.frame.height/2
+        self.bgMusicStateButton.layer.cornerRadius = self.bgMusicStateButton.frame.height/2
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
     
     // MARK: Configure Nav View
     private func configureNavView() {
         self.title = "Profile"
         let attributes = [
-            NSAttributedString.Key.font: UIFont.init(weight: .regular, size: 34),
+            NSAttributedString.Key.font: UIFont.setSourceSerifPro(weight: .regular, size: 34),
             NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.9649999738, green: 0.8550000191, blue: 1, alpha: 1),
         ]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        
-        
+        //
+        self.navigationController?.navigationBar.largeTitleTextAttributes = attributes as [NSAttributedString.Key : Any]
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        let rightbarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction(_:)))
-        rightbarButtonItem.tintColor = .white
+        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction(_:)))
+        save.tintColor = .white
         
-        
-        let ledtBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction(_:)))
-        ledtBarButtonItem.tintColor = .white
-        
+        let close = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
+        close.tintColor = .white
 
-        navigationItem.rightBarButtonItem = rightbarButtonItem
-        navigationItem.leftBarButtonItem = ledtBarButtonItem
+        self.setNavItems(left: save, right: close)
     }
     
-    @objc private func closeAction(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
+    @objc private func closeAction() {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: saveAction + Validation
+    // MARK: 🟠 saveAction + Validation
     @objc private func saveAction(_ sender: UIBarButtonItem) {
         
         guard
@@ -183,22 +206,15 @@ class EditProfileVC: UIViewController {
         }
         
         if nameVal != "" && surnameVal != "" && dateOfBirthVal != "" {
-//            UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
-//            UserDefaults.standard.setDateOfBirth(dateOfBirth: newDateOfBirth)
-//            UserDefaults.standard.synchronize()
-            
-            
             UserDataKvoManager.shared.set(type: .dateOfBirth, value: newDateOfBirth)
             UserDataKvoManager.shared.set(type: .name, value: nameVal)
             UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
-            
-            
             print("saved")
-            self.dismiss(animated: true)
+//            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         } else {
             print("NOT saved")
         }
-        
     }
     
     
@@ -236,10 +252,16 @@ class EditProfileVC: UIViewController {
         contentStack.axis = .vertical
         contentStack.alignment = .fill
         contentStack.spacing = 40
-
+        
+        
+        let actionsStack = UIStackView(arrangedSubviews: [bgMusicStateButton,deleteDataButton])
+        actionsStack.translatesAutoresizingMaskIntoConstraints = false
+        actionsStack.axis = .vertical
+        actionsStack.alignment = .fill
+        actionsStack.spacing = 20
         
         self.view.addSubview(contentStack)
-        self.view.addSubview(deleteDataButton)
+        self.view.addSubview(actionsStack)
         
         let margin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
@@ -247,12 +269,13 @@ class EditProfileVC: UIViewController {
             contentStack.topAnchor.constraint(equalTo: margin.topAnchor, constant: 40),
             contentStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -18),
-//            contentStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -44),
 
             deleteDataButton.heightAnchor.constraint(equalToConstant: 40),
-            deleteDataButton.bottomAnchor.constraint(equalTo: margin.bottomAnchor),
-            deleteDataButton.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
-            deleteDataButton.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
+            bgMusicStateButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            actionsStack.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -8),
+            actionsStack.leadingAnchor.constraint(equalTo: margin.leadingAnchor),
+            actionsStack.trailingAnchor.constraint(equalTo: margin.trailingAnchor),
         ])
     }
     

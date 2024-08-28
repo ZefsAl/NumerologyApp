@@ -16,7 +16,7 @@ class ChartCVCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             DesignSystem.setCardStyle(
-                to: self.contentStack,
+                to: self,
                 tintColor: self.isSelected ? DesignSystem.Horoscope.primaryColor : UIColor.clear,
                 cornerRadius: 16
             )
@@ -29,7 +29,7 @@ class ChartCVCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 14)
+        l.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 14)
         l.textAlignment = .left
         l.text = "test"
         return l
@@ -38,7 +38,7 @@ class ChartCVCell: UICollectionViewCell {
     let percentTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .semiBold, size: 14)
+        l.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 14)
         l.textAlignment = .right
         l.text = "0.0"
 //        l.alpha = 0.7
@@ -81,11 +81,20 @@ class ChartCVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStack()
-        
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func changeCellToBigBtn() {
+        self.contentStack.removeFromSuperview()
+        title.textAlignment = .center
+        self.addSubview(title)
+        NSLayoutConstraint.activate([
+            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            title.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+        ])
     }
     
     private func setupStack() {

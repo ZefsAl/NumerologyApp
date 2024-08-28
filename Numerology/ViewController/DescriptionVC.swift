@@ -8,10 +8,6 @@
 import UIKit
 
 class DescriptionVC: UIViewController {
-    
-    var bgImageNamed: String?
-    var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
-    var cardBGColor: UIColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
 
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -37,7 +33,6 @@ class DescriptionVC: UIViewController {
         l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
-        
         return l
     }()
     
@@ -47,20 +42,34 @@ class DescriptionVC: UIViewController {
         l.font = DesignSystem.SourceSerifProFont.subtitle_Sb_15
         l.textAlignment = .left
         l.numberOfLines = 0
-        
         return l
     }()
     
-    // MARK: View Did Load
+    // cardView + Border
+    let cardView: UIView = {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        // Style
+        v.backgroundColor = DesignSystem.Numerology.backgroundColor
+        // Border
+        v.layer.cornerRadius = DesignSystem.maxCornerRadius
+        v.layer.borderWidth = DesignSystem.borderWidth
+        v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
+        v.layer.shadowOpacity = 1
+        v.layer.shadowRadius = 16
+        v.layer.shadowOffset = CGSize(width: 0, height: 4)
+        v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+        return v
+    }()
+    
+    // MARK: 🟢 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        setBackground(named: self.bgImageNamed ?? "MainBG2.png")
+        
         AnimatableBG().setBackground(vc: self)
         setupStack()
     }
-    
     
     // MARK: Configure
     func configure(title: String, info: String?, about: String?) {
@@ -69,10 +78,17 @@ class DescriptionVC: UIViewController {
         self.about.text = about
     }
     
-    func setNewBackground(named: String) {
-        self.bgImageNamed = named
+    func setStyleWithTint(
+        bgImage: String?,
+        primaryColor: UIColor?,
+        bgColor: UIColor? = DesignSystem.Numerology.backgroundColor
+    ) {
+        // BG
+        self.setBackground(named: bgImage ?? "MainBG2.png")
+        cardView.backgroundColor = bgColor
+        cardView.layer.borderColor = primaryColor?.cgColor
+        cardView.layer.shadowColor = primaryColor?.cgColor
     }
-    
     
     // MARK: Set up Stack
     private func setupStack() {
@@ -81,26 +97,6 @@ class DescriptionVC: UIViewController {
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.spacing = 8
-
-        // cardView + Border
-        let cardView: UIView = {
-            let v = UIView()
-            v.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Style
-            v.backgroundColor = self.cardBGColor
-            // Border
-            v.layer.cornerRadius = 16
-            v.layer.borderWidth = DesignSystem.borderWidth
-            v.layer.borderColor = self.primaryColor.cgColor
-            v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = 16
-            v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = self.primaryColor.withAlphaComponent(0.5).cgColor
-            
-            
-            return v
-        }()
         
         cardView.addSubview(contentStack)
         

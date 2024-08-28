@@ -81,15 +81,16 @@ class LikeButton: UIButton {
         )
     }
     
-    func configureLike(
-        model: TrendsCellModel
-    ) {
-        self.amountLikes = model.likes
-        self.articleID = model.articleID
+    func configureLike(model: TrendsCellModel) {
+        guard 
+            let likes = model.likes,
+            let articleID = model.articleID
+        else { return }
+        
+        self.amountLikes = likes
+        self.articleID = articleID
 
-        guard let articleID = model.articleID else { return }
-
-        if model.likes <= 0 { // couldn't be liked
+        if likes <= 0 { // couldn't be liked
             TrendsArticlesUserDefaults.set(likeState: false, for: articleID)
             self.isSelected = false
             self.setIconToggle(false)

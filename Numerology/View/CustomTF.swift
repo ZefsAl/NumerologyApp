@@ -57,7 +57,7 @@ class CustomTF: UITextField {
         delegate = self
         
         // Style
-        layer.cornerRadius = 16
+        layer.cornerRadius = DesignSystem.maxCornerRadius
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
         textColor = .white

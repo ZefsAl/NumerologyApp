@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ColumnRefTableViewCell.swift
 //  Numerology
 //
 //  Created by Serj_M1Pro on 19.05.2024.

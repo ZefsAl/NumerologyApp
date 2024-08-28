@@ -34,7 +34,7 @@ final class PersonalDayVC: UIViewController {
     private let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .light, size: 26)
+        l.font = UIFont.setSourceSerifPro(weight: .light, size: 26)
         l.text = "Choose a date to find out the forecast for it"
         l.textAlignment = .center
         l.numberOfLines = 0
@@ -108,10 +108,10 @@ final class PersonalDayVC: UIViewController {
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG2.png")
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        
         configureNavView()
         setupStack()
     }

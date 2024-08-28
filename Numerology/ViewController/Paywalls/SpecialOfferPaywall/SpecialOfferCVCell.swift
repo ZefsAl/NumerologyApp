@@ -53,8 +53,8 @@ final class SpecialOfferCVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Style
-        self.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.7921568627, alpha: 1)
-        self.layer.cornerRadius = 16
+        self.backgroundColor = DesignSystem.PaywallTint.primaryPaywall
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.clipsToBounds = true
         // setup
         setAdapttiveLayout()
@@ -67,22 +67,18 @@ final class SpecialOfferCVCell: UICollectionViewCell {
     }
     
     private func setAdapttiveLayout() {
-        // Device
-        if DeviceMenager.shared.device == .iPhone_Se2_3Gen_8_7_6S {
-            self.mainTitle.font = UIFont(weight: .regular, size: 18)
-            self.subtitle.font = UIFont(weight: .regular, size: 11)
-            self.priceTitle.font = UIFont(weight: .regular, size: 15)
-            self.discountCaption.font = UIFont(weight: .bold, size: 11)
-            //
-            cardContent.layoutMargins = UIEdgeInsets(top: 5, left: 18, bottom: 5, right: 18)
-        } else {
-            self.mainTitle.font = UIFont(weight: .regular, size: 20)
-            self.subtitle.font = UIFont(weight: .regular, size: 13)
-            self.priceTitle.font = UIFont(weight: .regular, size: 17)
-            self.discountCaption.font = UIFont(weight: .bold, size: 13)
-            //
-            cardContent.layoutMargins = UIEdgeInsets(top: 12, left: 18, bottom: 12, right: 18)
-        }
+        //
+        self.mainTitle.font = UIFont.setSourceSerifPro(weight: .regular, size: DeviceMenager.isSmallDevice ? 18 : 20)
+        self.subtitle.font = UIFont.setSourceSerifPro(weight: .regular, size: DeviceMenager.isSmallDevice ? 11 : 13)
+        self.priceTitle.font = UIFont.setSourceSerifPro(weight: .regular, size: DeviceMenager.isSmallDevice ? 15 : 17)
+        self.discountCaption.font = UIFont.setSourceSerifPro(weight: .bold, size: DeviceMenager.isSmallDevice ? 11 : 13)
+        //
+        cardContent.layoutMargins = UIEdgeInsets(
+            top: DeviceMenager.isSmallDevice ? 5 : 12,
+            left: DeviceMenager.isSmallDevice ? 18 : 18,
+            bottom: DeviceMenager.isSmallDevice ? 5 : 12,
+            right: DeviceMenager.isSmallDevice ? 18 : 18
+        )
     }
     
     // MARK: Configure
@@ -93,11 +89,13 @@ final class SpecialOfferCVCell: UICollectionViewCell {
         // subtitle
         if let subtitle = subtitle {
             let mutableAttributedString = NSMutableAttributedString.init(string: subtitle)
+            // Color
             mutableAttributedString.addAttribute(
                 NSAttributedString.Key.foregroundColor,
                 value: UIColor.lightGray,
                 range: (subtitle as NSString).range(of: subtitle)
             )
+            // Strikethrough Style
             mutableAttributedString.addAttribute(
                 NSAttributedString.Key.strikethroughStyle,
                 value: 2,
@@ -118,8 +116,8 @@ final class SpecialOfferCVCell: UICollectionViewCell {
         cardContent.alignment = .center
         cardContent.distribution = .fill
         cardContent.spacing = 0
-        cardContent.backgroundColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.5411764706, alpha: 1)
-        cardContent.layer.cornerRadius = 14
+        cardContent.backgroundColor = DesignSystem.PaywallTint.cellActiveBG
+        cardContent.layer.cornerRadius = DesignSystem.maxCornerRadius-2
         cardContent.isLayoutMarginsRelativeArrangement = true
         
         // Discount Caption Stack

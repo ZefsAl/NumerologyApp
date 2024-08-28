@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 18.05.2024.
@@ -98,7 +98,7 @@ extension UIView {
     }
     
     // MARK: - Fade text
-    func fadeTransition(_ duration:CFTimeInterval) {
+    func fadeTransition(_ duration: CFTimeInterval = 0.3) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         animation.type = CATransitionType.fade

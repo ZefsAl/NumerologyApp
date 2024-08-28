@@ -38,8 +38,9 @@ class MoneyCalendarDescriptionVC: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         setBackground(named: self.bgImageNamed ?? "MainBG2.png")
         
         setupStack()
@@ -50,9 +51,6 @@ class MoneyCalendarDescriptionVC: UIViewController {
         self.primaryColor = primaryColor
     }
     
-    
-    
-    
     func setNewBackground(named: String) {
         self.bgImageNamed = named
     }
@@ -61,14 +59,13 @@ class MoneyCalendarDescriptionVC: UIViewController {
     // MARK: Set up Stack
     private func setupStack() {
         
-        // оффера небыло ⚠️
         let cardView: UIView = {
             let v = UIView()
 //            v.translatesAutoresizingMaskIntoConstraints = false
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = self.primaryColor.cgColor
             v.layer.shadowOpacity = 1
@@ -80,10 +77,10 @@ class MoneyCalendarDescriptionVC: UIViewController {
             
             let const: CGFloat = 20
             NSLayoutConstraint.activate([
-                calendarView.topAnchor.constraint(     equalTo: v.topAnchor,        constant: const),
-                calendarView.leadingAnchor.constraint( equalTo: v.leadingAnchor,    constant: const),
-                calendarView.trailingAnchor.constraint(equalTo: v.trailingAnchor,   constant: -const),
-                calendarView.bottomAnchor.constraint(  equalTo: v.bottomAnchor,     constant: -const),
+                calendarView.topAnchor.constraint(equalTo: v.topAnchor, constant: const),
+                calendarView.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: const),
+                calendarView.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -const),
+                calendarView.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -const),
             ])
             return v
         }()
@@ -135,7 +132,7 @@ class DescriptionCardView: UIView {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 26)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 26)
         l.textAlignment = .left
         return l
     }()
@@ -143,7 +140,7 @@ class DescriptionCardView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -153,7 +150,7 @@ class DescriptionCardView: UIView {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -176,7 +173,7 @@ class DescriptionCardView: UIView {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16

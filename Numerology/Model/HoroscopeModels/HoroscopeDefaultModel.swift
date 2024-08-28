@@ -8,7 +8,7 @@
 import Foundation
 // Today, Tomorrow, Week
 
-class HoroscopeDefaultModel: Decodable, Identifiable {
+class HoroscopeDefaultModel: Decodable {
     
     let number: Int?
     let info: String? // ❌ , неделя нужна!

@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 18.08.2024.
@@ -11,13 +11,9 @@ class UserDataKvoManager: NSObject {
     
     static let shared = UserDataKvoManager()
     
-    
-    
     enum UserDataType {
         case name, surname, dateOfBirth
     }
-    
-    // Фигня выходит устанавливать через func set
     
     // MARK: - KVO
     @objc dynamic var name: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.name) {
@@ -57,12 +53,30 @@ class UserDataKvoManager: NSObject {
             name: .userDataDidChangeNotification,
             object: nil
         )
+        // 🔴 тут баг реагирует 2 раза
+        
+        NotificationCenter.default.addObserver(forName: .userDataDidChangeNotification, object: nil, queue: .main) { notification in   
+            print(
+                "🔴🔴⚠️ check userDataDidChangeNotification",
+                notification.description,
+                notification.debugDescription,
+                notification.userInfo as Any,
+                notification.object as Any
+            )
+             
+        }
+        
+    }
+    @objc func bugfixTest(_ sender: NotificationCenter) {
+        
     }
     
     
     private func saveDidSetAction(value: Any?, key: String) {
         UserDefaults.standard.setValue(value, forKey: key) // 1 
         UserDefaults.standard.synchronize() // 2
+        
+        guard self.isAllUserDataAvailable() else { return }
         NotificationCenter.default.post(name: .userDataDidChangeNotification, object: nil) // 3
     }
     
@@ -85,16 +99,6 @@ class UserDataKvoManager: NSObject {
     }
     
     func isAllUserDataAvailable() -> Bool {
-        // kvo v1
-//        guard
-//        UserDataKvoManager.shared.name != nil && UserDataKvoManager.shared.name != "" &&
-//        UserDataKvoManager.shared.surname != nil && UserDataKvoManager.shared.surname != "" &&
-//        UserDataKvoManager.shared.dateOfBirth != nil
-//        else {
-//            return false
-//        }
-//        return true
-        
         guard
         UserDataKvoManager.shared.name == nil || UserDataKvoManager.shared.name == "" &&
         UserDataKvoManager.shared.surname == nil || UserDataKvoManager.shared.surname == "" &&
@@ -105,45 +109,5 @@ class UserDataKvoManager: NSObject {
         }
         print("🌕 isAllUserDataAvailable", false)
         return false
-            
-        // 🌕 User defaults v2
-//        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name)
-//        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname)
-//        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth)
-//        
-//        guard
-//            (dataName != nil && dataName as? String != "") &&
-//            (dataSurname != nil && dataSurname as? String != "") &&
-//            dateOfBirth != nil
-//        else { return false }
-//        return true
-//        
-//        
-        
-        
     }
-    
-    
 }
-
-
-//extension UserDefaults {
-//    
-//    func setUserData(name: String, surname: String) {
-//        setValue(name, forKey: UserDefaultsKeys.name)
-//        setValue(surname, forKey: UserDefaultsKeys.surname)
-//        synchronize()
-//    }
-//    
-//    func setDateOfBirth(dateOfBirth: Date) {
-//        setValue(dateOfBirth, forKey: UserDefaultsKeys.dateOfBirth)
-//        synchronize()
-//    }
-//    
-//    func setDayTipModel(model: BoardOfDayModel) {
-//        if let encoded = try? JSONEncoder().encode(model) {
-//            UserDefaults.standard.set(encoded, forKey: "BoardOfDayModelKey")
-//        }
-//        synchronize()
-//    }
-//}

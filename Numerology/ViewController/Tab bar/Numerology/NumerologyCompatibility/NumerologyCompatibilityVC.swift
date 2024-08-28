@@ -34,7 +34,7 @@ final class NumerologyCompatibilityVC: UIViewController {
     private let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .light, size: 26)
+        l.font = UIFont.setSourceSerifPro(weight: .light, size: 26)
         l.text = "Enter your partner's date"
         l.textAlignment = .center
         l.numberOfLines = 0
@@ -116,9 +116,7 @@ final class NumerologyCompatibilityVC: UIViewController {
                     partnerNumber: String(partnerNum),
                     lableDescription: model.aboutThisNumbers
                 )
-                let navVC = UINavigationController(rootViewController: vc)
-                navVC.modalPresentationStyle = .overFullScreen
-                self.present(navVC, animated: true)
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             }
         }
@@ -128,9 +126,10 @@ final class NumerologyCompatibilityVC: UIViewController {
     // MARK: View Did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG2.png")
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setupStack()
     }
     

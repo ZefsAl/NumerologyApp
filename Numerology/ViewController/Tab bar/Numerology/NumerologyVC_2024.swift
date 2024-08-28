@@ -18,6 +18,7 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
+        
         return sv
     }()
     
@@ -108,7 +109,6 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
 // MARK: setup UI
 extension NumerologyVC_2024 {
     
-    // Есть баг с большим NavBar проблема в этом VC скорее всего. Этот таб бар и нав бар + другой VC все норм.
     private func setupUI() {
         self.view.addSubview(contentScrollView) // 1
         
@@ -145,7 +145,7 @@ extension NumerologyVC_2024 {
             angelNumbersCV.heightAnchor.constraint(equalToConstant: 112+50),
             pythagoreanSquareCV.heightAnchor.constraint(equalToConstant: 300+50),
 
-            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 40),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 0),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -0),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -16),

@@ -124,13 +124,8 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
         
         // MARK: Soul // 0
         if indexPath.row == 0 {
-            
-            let vc = FourthViewController()
-            vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-            
-            let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .overFullScreen
-            self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+            let vc = AboutNumerologyDetailVC()
+            self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
         }
 
     }

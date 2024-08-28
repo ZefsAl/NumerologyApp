@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 11.06.2024.
@@ -13,7 +13,7 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
     
     var trendsView: TrendsView = {
        let v = TrendsView(edgeMargin: 22)
-        v.layer.cornerRadius = 16
+        v.layer.cornerRadius = DesignSystem.maxCornerRadius
         return v
     }()
     
@@ -30,7 +30,9 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         //
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
+        self.setDetaiVcNavItems(showShare: false)
+        self.navigationItem.hidesBackButton = true
+        
         setBackground(named: "TrendsBG_v2")
         AnimatableBG().setBackground(vc: self)
         //
@@ -86,7 +88,7 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = DesignSystem.TrendsArticles.backgroundColor
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = DesignSystem.TrendsArticles.primaryColor.cgColor
             v.layer.shadowOpacity = 1
@@ -123,7 +125,7 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         //
         let trendsViewHeight: NSLayoutConstraint = {
-            if DeviceMenager.shared.device == .iPhone_Se2_3Gen_8_7_6S {
+            if DeviceMenager.device == .iPhone_Se2_3Gen_8_7_6S {
                 return trendsView.heightAnchor.constraint(equalToConstant: 240) //240
             } else {
                 return trendsView.heightAnchor.constraint(equalToConstant: 300)

@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 09.06.2024.
@@ -22,7 +22,7 @@ class TrendsCell: UICollectionViewCell {
         // Style
         self.backgroundColor = DesignSystem.TrendsArticles.backgroundColor
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.layer.borderWidth = 1
         self.layer.borderColor = DesignSystem.TrendsArticles.primaryColor.cgColor
         self.layer.shadowOpacity = 1

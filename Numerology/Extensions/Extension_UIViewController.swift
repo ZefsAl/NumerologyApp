@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import StoreKit
+import AVFoundation
 
 extension UIViewController {
     
@@ -34,36 +35,32 @@ extension UIViewController {
     
     // MARK: set Dismiss Nav Item
     public func setDismissNavButtonItem(selectorStr: Selector) {
-//        
+        
         let dismissButtonView: UIView = {
-            
             let configImage = UIImage(
                 systemName: "xmark",
                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .bold)
             )
-            
             let iv = UIImageView(image: configImage)
             iv.translatesAutoresizingMaskIntoConstraints = false
             iv.tintColor = .white
             iv.contentMode = .scaleAspectFit
             iv.isUserInteractionEnabled = false
-            
 
-            let v = UIView()
-            v.translatesAutoresizingMaskIntoConstraints = false
-            v.layer.cornerRadius = 15
-            v.addSystemBlur(to: v, style: .systemUltraThinMaterialDark)
-            v.clipsToBounds = true
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.layer.cornerRadius = 15
+            view.addSystemBlur(to: view, style: .systemUltraThinMaterialDark)
+            view.clipsToBounds = true
             
-            v.addSubview(iv)
-            
+            view.addSubview(iv)
             NSLayoutConstraint.activate([
-                iv.centerXAnchor.constraint(equalTo: v.centerXAnchor),
-                iv.centerYAnchor.constraint(equalTo: v.centerYAnchor),
-                v.heightAnchor.constraint(equalToConstant: 30),
-                v.widthAnchor.constraint(equalToConstant: 30),
+                iv.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                iv.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                view.heightAnchor.constraint(equalToConstant: 30),
+                view.widthAnchor.constraint(equalToConstant: 30),
             ])
-            return v
+            return view
         }()
         
         // Add Nav Item
@@ -88,34 +85,17 @@ extension UIViewController {
     
     // MARK: checkAccessContent
     func checkAccessContent() -> Bool {
-        
         let accessVal = UserDefaults.standard.object(forKey: UserDefaultsKeys.userAccessObserverKey) as? Bool
-        
         guard
             let accessVal = accessVal,
             accessVal == false
         else { return true }
-        
         let vc2 = PaywallVC_V2(onboardingIsCompleted: true)
         let navVC = UINavigationController(rootViewController: vc2)
         navVC.modalPresentationStyle = .overFullScreen
         self.present(navVC, animated: true)
         
         return false
-    }
-     
-    // MARK: isIphone_66
-    func isIphone_12(view: UIView) -> Bool {
-        // tryFix content size
-        if (view.frame.height < 844.0) {
-            print("✅ iphone 8")
-            return false
-        } else {
-            print("✅ iphone 12")
-            return true
-        }
-        // 8 iphone - Screen height: 667.0
-        // 12 iphone - Screen height: 844.0
     }
     
     // MARK: - Share
@@ -143,4 +123,45 @@ extension UIViewController {
             self.present(avc, animated: true)
         }
     }
+    
+    // MARK: - setPaywallVideo
+    func setLoopedVideoLayer(
+        player: AVPlayer,
+        named: String,
+        to view: UIView,
+        margins: UIEdgeInsets? = nil
+    ) {
+        // 1
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        guard let path = Bundle.main.path(forResource: named, ofType: "mov") else { return }
+        let url = URL(fileURLWithPath: path)
+        player.replaceCurrentItem(with: AVPlayerItem(url: url))
+        // player
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        // 2
+        view.addSubview(iv)
+        NSLayoutConstraint.activate([
+            iv.topAnchor.constraint(equalTo: view.topAnchor, constant: margins?.top ?? 0),
+            iv.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margins?.left ?? 0),
+            iv.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(margins?.right ?? 0)),
+            iv.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(margins?.bottom ?? 0)),
+        ])
+        // 3
+        iv.layoutIfNeeded()
+        playerLayer.frame = iv.bounds
+        iv.layer.addSublayer(playerLayer)
+        player.play()
+        // 4
+        NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main) 
+        { _ in
+            player.seek(to: CMTime.zero)
+            player.play()
+        }
+    }
+    
 }

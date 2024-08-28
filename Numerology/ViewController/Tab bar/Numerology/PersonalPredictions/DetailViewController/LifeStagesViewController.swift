@@ -23,7 +23,7 @@ class LifeStagesViewController: UIViewController {
     private let yearsTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 26)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 26)
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -33,7 +33,7 @@ class LifeStagesViewController: UIViewController {
     private let contentTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 26)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 26)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -43,7 +43,7 @@ class LifeStagesViewController: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -53,7 +53,7 @@ class LifeStagesViewController: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.init(weight: .regular, size: 17)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -65,10 +65,6 @@ class LifeStagesViewController: UIViewController {
         var cv = ContentCollectionView()
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.clipsToBounds = false
-        // For size cell by content + Constraints in Cell
-//        if let collectionViewLayout = cv.collectionViewLayout as? UICollectionViewFlowLayout {
-//            collectionViewLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//        }
         return cv
     }()
     
@@ -83,19 +79,20 @@ class LifeStagesViewController: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG2.png")
-        
+        //
         setupStack()
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        
+        //
         buttonsCollectionView.delegate = self
         buttonsCollectionView.dataSource = self
         buttonsCollectionView.register(ChipsCVCell.self, forCellWithReuseIdentifier: ChipsCVCell().buttonCVCellID)
-        
+        //
         self.requestReview()
         requestLifeStages()
-        
+        //
         let indexPath = IndexPath(row: 0, section: 0)
         buttonsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.top)
     }
@@ -153,7 +150,7 @@ class LifeStagesViewController: UIViewController {
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.shadowOpacity = 1
@@ -176,8 +173,6 @@ class LifeStagesViewController: UIViewController {
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
-        
-//        let margin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             

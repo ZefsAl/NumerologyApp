@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PythagoreanSquareCV.swift
 //  Numerology
 //
 //  Created by Serj_M1Pro on 22.05.2024.
@@ -120,10 +120,6 @@ extension PythagoreanSquareCV: UICollectionViewDataSource, UICollectionViewDeleg
         vc.configureHandleDataModels(
             models: pythagoreanSquareCVCell.content.pythagoreanDetailDataModels
         )
-        vc.setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .overFullScreen
-        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
-        
+        self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
     }
 }

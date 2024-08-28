@@ -19,11 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // MARK: App Config
         guard let winScene = (scene as? UIWindowScene) else { return }
         AppRouter.shared.setWindow(window: UIWindow(windowScene: winScene))
-        self.validateAppFlow()
-        
-        
-        
-        
+        AppRouter.shared.setAppFlow(
+            UserDataKvoManager.shared.isAllUserDataAvailable() ? .app : .onboarding,
+            animated: false
+        )
         
         // Test Check
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
@@ -38,26 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 ////        let nav = CustomNavController(rootViewController: HoroscopeVC())
 //        AppRouter.shared.window?.rootViewController = nav
 //        AppRouter.shared.window?.makeKeyAndVisible()
-        
         print("🔄 scene")
-    }
-    
-    private func validateAppFlow() {
-        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name)
-        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname)
-        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth)
-        
-        if
-            (dataName != nil && dataSurname != nil && dateOfBirth != nil) &&
-                (dataName as? String != "" || dataSurname as? String != "")
-        {
-            print(dataName as Any)
-            print(dataSurname as Any)
-            print(dateOfBirth as Any)
-            AppRouter.shared.setAppFlow(.app, animated: false)
-        } else {
-            AppRouter.shared.setAppFlow(.onboarding, animated: false)
-        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -67,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         print("🔄 sceneDidBecomeActive")
         UIApplication.shared.applicationIconBadgeNumber = 0
+        MusicManager.shared.playSound()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -78,6 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
+        MusicManager.shared.stopSound()
         print("🔄 sceneDidEnterBackground")
     }
     

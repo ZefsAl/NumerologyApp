@@ -41,8 +41,8 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     func currentSegment(index: Int) {
         print("🟣✅ currentSegment", index)
         
-        self.mainInfo.info.fadeTransition(0.3)
-        self.learnMore.info.fadeTransition(0.3)
+        self.mainInfo.info.fadeTransition()
+        self.learnMore.info.fadeTransition()
         
         // MARK: - check access
         guard self.checkAccessContent() == true else {
@@ -50,13 +50,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
             return
         }
         
-        if let images = YourHoroscopeManager.shared.yourHrscpImages_v2,
-           let title = segmentedControl.titleForSegment(at: index),
-           let image = images[title] {
-            // Set top Image
-            self.topImage.fadeTransition(0.3)
-            self.topImage.image = image
-        }
+        self.setTopBGImage(at: index)
         
         switch index {
         case 0:
@@ -173,12 +167,20 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     // MARK: 🟢🔄 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Nav
+        self.setDetaiVcNavItems()
         // ui setup
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
         setupStack()
         self.registerChartsCV()
+        
+        // Initial UI state
+        if YourHoroscopeManager.shared.todayHoroscope == nil {
+            NotificationCenter.default.addObserver(self, selector: #selector(hrscpTodayDataUpdated), name: .hrscpTodayDataUpdated, object: nil)
+        } else {
+            self.hrscpTodayDataUpdated()
+        }
         // Notofication
         NotificationCenter.default.addObserver(self, selector: #selector(hrscpImagesDataUpdated), name: .hrscpImagesDataUpdated, object: nil)
         // Default ui state
@@ -192,21 +194,29 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
         self.segmentedControl.selectedSegmentIndex = 0
     }
     
+    // MARK: - Notification Action
+    @objc private func hrscpTodayDataUpdated() {
+        DispatchQueue.main.async {
+            self.horoscopeCellViewModel.setTodayData()
+            guard let model = self.horoscopeCellViewModel.chartsDataSource.first else { return }
+            self.setSingleCardText(model: model)
+            self.chartsCV.reloadData()
+        }
+    }
     // MARK: - Notification hrscp Action
     @objc private func hrscpImagesDataUpdated() {
         setTopBGImage(at: segmentedControl.selectedSegmentIndex)
     }
     
     private func setTopBGImage(at index: Int) {
-        if let images = YourHoroscopeManager.shared.yourHrscpImages_v2,
+        if let images = YourHoroscopeManager.shared.yourHrscpImages,
            let title = segmentedControl.titleForSegment(at: index),
            let image = images[title] {
             // Set top Image
-            self.topImage.fadeTransition(0.3)
+            self.topImage.fadeTransition()
             self.topImage.image = image
         }
     }
-  
     
     // MARK: Set up Stack
     private func setupStack() {
@@ -253,7 +263,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
         contentScrollView.addSubview(contentStack)
         
         var topConstant: CGFloat {
-            let device = DeviceMenager.shared.device == .iPhone_Se2_3Gen_8_7_6S
+            let device = DeviceMenager.device == .iPhone_Se2_3Gen_8_7_6S
             return device ? -24 : 0
         }
         

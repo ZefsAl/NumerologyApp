@@ -16,7 +16,7 @@ class PurchaseButton: UIButton {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.isUserInteractionEnabled = false
         l.textColor = .lightGray
-        l.font = UIFont(weight: .regular, size: 23)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 24)
         return l
     }()
     
@@ -29,13 +29,15 @@ class PurchaseButton: UIButton {
         return aiv
     }()
     
-    init(frame: CGRect, title: String, primaryColor: UIColor) {
+    // MARK: - Init
+    init(title: String, primaryColor: UIColor, tapToBounce: Bool = true) {
         self.primaryColor = primaryColor
-        lable.text = title
-        super.init(frame: frame)
+        self.lable.text = title
+        
+        super.init(frame: .zero)
         // Style
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius-2
         self.backgroundColor = .systemGray2
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])
@@ -49,14 +51,16 @@ class PurchaseButton: UIButton {
         btnContentStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         btnContentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         //
-        self.addTarget(Any?.self, action: #selector(animateAction), for: .touchUpInside)
+        if tapToBounce {
+            self.addTarget(Any?.self, action: #selector(animateAction), for: .touchUpInside)
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func stateConfig(state: Bool) {
+    func buttonStateConfig(state: Bool) {
         let duration: Double = 0.3
         
         if state {

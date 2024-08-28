@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 08.05.2024.
@@ -10,13 +10,17 @@ import UIKit
 
 struct DesignSystem {
     
+    // MARK: - 🌕 Static Values
     static let borderWidth: CGFloat = 1
+    // Radius
     static let maxCornerRadius: CGFloat = 24
+    static let midCornerRadius: CGFloat = 20
     
     
     enum ChipsButton {
-        static let title = UIFont(weight: .semiBold, size: 14)
+        static let title = UIFont.setSourceSerifPro(weight: .semiBold, size: 14)
     }
+    
     enum BadgeColor {
         static let transparent: UIColor = UIColor.white.withAlphaComponent(0.5)
         static let white: UIColor = .white
@@ -24,12 +28,10 @@ struct DesignSystem {
     let color = #colorLiteral(red: 0.3137254902, green: 0.3019607843, blue: 0.3490196078, alpha: 1)
     
     enum SourceSerifProFont {
-        static let title_Sb_24 = UIFont(weight: .semiBold, size: 24)
-        static let subtitle_Sb_15 = UIFont(weight: .semiBold, size: 15)
-        static let footnote_Sb_13 = UIFont(weight: .semiBold, size: 13)
-        static let caption2_Sb_11 = UIFont(weight: .semiBold, size: 11)
-        
-        
+        static let title_Sb_24 = UIFont.setSourceSerifPro(weight: .semiBold, size: 24)
+        static let subtitle_Sb_15 = UIFont.setSourceSerifPro(weight: .semiBold, size: 15)
+        static let footnote_Sb_13 = UIFont.setSourceSerifPro(weight: .semiBold, size: 13)
+        static let caption2_Sb_11 = UIFont.setSourceSerifPro(weight: .semiBold, size: 11)
     }
     
     enum CinzelFont {
@@ -65,14 +67,29 @@ struct DesignSystem {
         static let purple  = #colorLiteral(red: 0.6901960784, green: 0.231372549, blue: 1, alpha: 1)
         static let cyan    = #colorLiteral(red: 0.231372549, green: 1, blue: 0.8235294118, alpha: 1)
         static let pink    = #colorLiteral(red: 1, green: 0.231372549, blue: 0.6039215686, alpha: 1)
+        static let clear   = UIColor.clear
+    }
+    
+    // MARK: CellColors
+    struct PaywallTint {
+
+        static let primaryPaywall: UIColor = .hexColor("7070CA")
+        // Card
+        static let primaryDarkBG: UIColor = .hexColor("202039")
+        static let secondaryDarkBG: UIColor = .hexColor("333261")
+        // Cell
+        static let cellActiveBG: UIColor = .hexColor("4B4A89")
+        static let cellActiveBorder: UIColor = .hexColor("7070CA")
+        static let cellDisabledBorder: UIColor = .hexColor("4B4A89")
+        //
+        static let discountBadge: UIColor = .hexColor("2DA890")
     }
     
     
-    
-    // func
+    // MARK: - 🌕 Funcs
     public static func setDesignedShadow(to view: UIView, accentColor: UIColor) {
         view.layer.shadowOpacity = 1
-        view.layer.shadowRadius = 16
+        view.layer.shadowRadius = DesignSystem.maxCornerRadius
         view.layer.shadowOffset = CGSize(width: 0, height: 4)
         view.layer.shadowColor = accentColor.withAlphaComponent(0.5).cgColor
     }

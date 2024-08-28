@@ -71,7 +71,7 @@ class MoonVC: UIViewController {
             // Style
             v.backgroundColor = .black.withAlphaComponent(0.85)
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = UIColor.white.cgColor
             v.layer.shadowOpacity = 1

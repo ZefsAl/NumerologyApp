@@ -23,8 +23,9 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Nav
+        self.setDetaiVcNavItems()
         //
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         self.setBackground(named: "MainBG2")
         AnimatableBG().setBackground(vc: self)
         // open from VC
@@ -82,7 +83,7 @@ class PremiumDescriptionVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = DesignSystem.Numerology.backgroundColor
             // Border
-            v.layer.cornerRadius = 16
+            v.layer.cornerRadius = DesignSystem.maxCornerRadius
             v.layer.borderWidth = DesignSystem.borderWidth
             v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
             v.layer.shadowOpacity = 1

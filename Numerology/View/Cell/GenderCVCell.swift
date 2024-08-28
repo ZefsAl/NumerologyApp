@@ -49,7 +49,7 @@ final class GenderCVCell: UICollectionViewCell {
     private let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont(weight: .regular, size: 20)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 20)
         l.textColor = .systemGray
         return l
     }()
@@ -73,7 +73,7 @@ final class GenderCVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = DesignSystem.maxCornerRadius
         self.clipsToBounds = false
         self.layer.borderWidth = 1
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7).withAlphaComponent(0.7)
@@ -105,7 +105,7 @@ final class GenderCVCell: UICollectionViewCell {
         cardContent.axis = .vertical
         cardContent.alignment = .center
         cardContent.distribution = .fill
-        cardContent.layer.cornerRadius = 16
+        cardContent.layer.cornerRadius = DesignSystem.maxCornerRadius
         cardContent.spacing = 16
         
         self.addSubview(cardContent)

@@ -13,8 +13,6 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     
     var openFrom: UIViewController?
     
-    
-    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
        let sv = UIScrollView()
@@ -58,11 +56,12 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Nav
+        self.setDetaiVcNavItems()
+        //
         self.setBackground(named: "MainBG3.png")
         AnimatableBG().setBackground(vc: self)
         setupStack()
-        setDismissNavButtonItem(selectorStr: Selector(("dismissButtonAction")))
         //
         self.detailAngelNumbersSignsCV.remoteOpenDelegate = self
         self.openFrom = self

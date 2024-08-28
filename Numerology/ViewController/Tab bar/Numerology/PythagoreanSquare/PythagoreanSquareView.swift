@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PythagoreanSquareView.swift
 //  Numerology
 //
 //  Created by Serj_M1Pro on 18.05.2024.
@@ -27,9 +27,9 @@ final class PythagoreanSquareView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        setupUI()
-        requestData()
-        self.translatesAutoresizingMaskIntoConstraints = false 
+        self.setupUI()
+        self.requestData()
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {
@@ -227,7 +227,7 @@ final class PythagoreanSquareView: UIView {
         tableStack.distribution = .fillEqually
         // Border
         let color = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
-        tableStack.layer.cornerRadius = 16
+        tableStack.layer.cornerRadius = DesignSystem.maxCornerRadius
         tableStack.layer.borderWidth = 1
         tableStack.layer.borderColor = color.cgColor
         tableStack.layer.shadowOpacity = 1

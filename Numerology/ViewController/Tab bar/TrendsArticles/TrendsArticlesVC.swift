@@ -39,10 +39,10 @@ final class TrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         let margin: CGFloat = 0
         let viewMargin = self.view.layoutMarginsGuide
         NSLayoutConstraint.activate([
-            trendsArticlesCV.topAnchor.constraint(      equalTo: viewMargin.topAnchor,     constant: 24 ),
-            trendsArticlesCV.leadingAnchor.constraint(  equalTo: self.view.leadingAnchor,  constant: margin ),
-            trendsArticlesCV.trailingAnchor.constraint( equalTo: self.view.trailingAnchor, constant: -margin),
-            trendsArticlesCV.bottomAnchor.constraint(   equalTo: self.view.bottomAnchor,   constant: -margin),
+            trendsArticlesCV.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 0),
+            trendsArticlesCV.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: margin),
+            trendsArticlesCV.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -margin),
+            trendsArticlesCV.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -margin),
         ])
     }
     

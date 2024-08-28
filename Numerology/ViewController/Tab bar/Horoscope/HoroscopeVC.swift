@@ -17,7 +17,7 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
-//        sv.contentInsetAdjustmentBehavior = .never
+        sv.contentInsetAdjustmentBehavior = .never
         return sv
     }()
     // MARK: - your Horoscope CV
@@ -34,12 +34,11 @@ class HoroscopeVC: UIViewController, RemoteOpenDelegate {
         return cv
     }()
     
-    
-    
-    // MARK: - datingCalendarCV
+    // MARK: - money Calendar CV
     let moneyCalendarCV: MoneyCalendarCV = {
         let cv = MoneyCalendarCV()
         cv.clipsToBounds = false
+        cv.isScrollEnabled = false 
         return cv
     }()
     
@@ -108,26 +107,25 @@ extension HoroscopeVC {
         contentStack.spacing = 0
         
         contentScrollView.addSubview(contentStack)
-//        let viewMargin = self.view.layoutMarginsGuide
+
+        let viewMargin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
-        
-        
-        let navHeight = CustomNavController.navBarHeight()
+        let statusBar: CGFloat = UIApplication.shared.statusBarFrame.height
         
         NSLayoutConstraint.activate([
             yourHoroscopeCV.heightAnchor.constraint(equalToConstant: 370+50),
             moneyCalendarCV.heightAnchor.constraint(equalToConstant: 390+50),
 
-            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: statusBar+12),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 0),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -0),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -16),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
             
-            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -34),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            contentScrollView.bottomAnchor.constraint(equalTo: viewMargin.bottomAnchor, constant: 0),
             
         ])
     }

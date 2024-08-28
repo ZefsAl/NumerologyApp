@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj on 01.12.2023.
@@ -125,9 +125,6 @@ extension MoneyCalendarCV {
             about: model?.mainTrends,
             tintColor: tint
         )
-
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .overFullScreen
-        self.remoteOpenDelegate?.openFrom?.present(navVC, animated: true)
+        self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -25,7 +25,6 @@ class CalendarCell: UICollectionViewCell {
         let b = UIButton(type: .custom)
         b.translatesAutoresizingMaskIntoConstraints = false
         b.backgroundColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
-        b.layer.cornerRadius = 16
         
         // Lable
         let lable: UILabel = {
@@ -68,6 +67,12 @@ class CalendarCell: UICollectionViewCell {
         b.isUserInteractionEnabled = false
         return b
     }()
+    
+    override func layoutSubviews() {
+        self.readMoreBtn.layoutIfNeeded()
+        self.readMoreBtn.setNeedsLayout()
+        self.readMoreBtn.layer.cornerRadius = readMoreBtn.bounds.height/2
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

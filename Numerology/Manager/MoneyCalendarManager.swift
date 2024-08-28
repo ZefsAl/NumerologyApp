@@ -1,5 +1,5 @@
 //
-//  File.swift
+
 //  Numerology
 //
 //  Created by Serj_M1Pro on 14.07.2024.
@@ -13,22 +13,29 @@ final class MoneyCalendarManager {
     
     static let shared: MoneyCalendarManager = MoneyCalendarManager()
     
-    var monthCalendarModel: MonthCalendarModel? = nil
+    var monthCalendarModel: MonthCalendarModel? = nil {
+        didSet {
+            guard let model = monthCalendarModel else { return }
+            self.positive = model.goodDays.components(separatedBy: ",").compactMap { Int($0) }
+            self.negative = model.badDays.components(separatedBy: ",").compactMap { Int($0) }
+        }
+    }
+    
     lazy var positive = [Int]()
     lazy var negative = [Int]()
     
     
-    func preloadData() {
-        
-        let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
-        
-        DispatchQueue.main.async {
-            HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
-                self.monthCalendarModel = model
-                self.positive = model.goodDays.components(separatedBy: ",").compactMap { Int($0) }
-                self.negative = model.badDays.components(separatedBy: ",").compactMap { Int($0) }
-            }
-        }
-    }
+//    func preloadData() {
+//        
+//        let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
+//        
+//        DispatchQueue.main.async {
+//            HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
+//                self.monthCalendarModel = model
+//                self.positive = model.goodDays.components(separatedBy: ",").compactMap { Int($0) }
+//                self.negative = model.badDays.components(separatedBy: ",").compactMap { Int($0) }
+//            }
+//        }
+//    }
     
 }
