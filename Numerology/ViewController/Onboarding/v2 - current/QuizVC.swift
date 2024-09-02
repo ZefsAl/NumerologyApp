@@ -63,7 +63,7 @@ class QuizVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBackground(named: "DarkBG.png")
+        self.setBackground(named: "Slice7")
         AnimatableBG().setBackground(vc: self)
         
         configureCollectionView()

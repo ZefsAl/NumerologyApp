@@ -11,6 +11,12 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     
     var openFrom: UIViewController?
     
+    // MARK: - Top Image
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Numerology.primaryColor,
+        referenceView: self.view
+    )
+    
     // MARK: - content Stack
     let contentStack = UIStackView()
     
@@ -20,6 +26,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
+        // sv.contentInsetAdjustmentBehavior = .neve
         return sv
     }()
     
@@ -31,11 +38,11 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
         return v
     }()
     
-    // MARK: View Did Load
+    // MARK: 🟢 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
@@ -43,6 +50,13 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
         self.openFrom = self
         //
         setupStack()
+        // Notification
+        self.numerologyImagesDataUpdated()
+        NotificationCenter.default.addObserver(self, selector: #selector(numerologyImagesDataUpdated), name: .numerologyImagesDataUpdated, object: nil)
+    }
+    
+    @objc private func numerologyImagesDataUpdated() {
+        NumerologyImagesManager.shared.setTopImage(self.topImage, key: .psychomatrix)
     }
     
     func configureHandleDataModels(models: [PythagoreanDetailDataModel]) {
@@ -95,7 +109,6 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
             return v
         }()
         contentStack.insertArrangedSubview(cardView, at: 0)
-        
         
         
         // others content
@@ -172,18 +185,22 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
         contentStack.spacing = 12
         
         self.view.addSubview(contentScrollView)
+        contentScrollView.addSubview(topImage)
         contentScrollView.addSubview(contentStack)
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
+            topImage.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            topImage.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor),
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),
+            contentStack.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 18),
+
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
             
-            contentScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

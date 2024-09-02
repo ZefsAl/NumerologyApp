@@ -84,7 +84,7 @@ class DescriptionVC: UIViewController {
         bgColor: UIColor? = DesignSystem.Numerology.backgroundColor
     ) {
         // BG
-        self.setBackground(named: bgImage ?? "MainBG2.png")
+        self.setBackground(named: bgImage ?? "MainBG2")
         cardView.backgroundColor = bgColor
         cardView.layer.borderColor = primaryColor?.cgColor
         cardView.layer.shadowColor = primaryColor?.cgColor

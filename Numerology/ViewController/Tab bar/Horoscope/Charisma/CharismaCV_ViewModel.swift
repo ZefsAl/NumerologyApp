@@ -32,28 +32,28 @@ class CharismaCVViewModel {
                 progressColor: DesignSystem.ProgressBarTitnt.clear
             ),
             ChartCVCellModel(
-                title: "Friendship",
+                title: "Sign element",
                 text: model.friendship ?? "",
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
-                title: "Intimacy",
+                title: "Love-Family",
                 text: model.intimacy ?? "",
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.red
             ),
             ChartCVCellModel(
-                title: "Family",
+                title: "Health",
                 text: model.family ?? "",
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Work",
+                title: "Careers",
                 text: model.work ?? "",
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,

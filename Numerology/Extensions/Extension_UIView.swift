@@ -92,9 +92,7 @@ extension UIView {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        view.addSubview(blurEffectView)
         view.insertSubview(blurEffectView, at: 0)
-//        view.layer.addSublayer(blurEffectView)
     }
     
     // MARK: - Fade text

@@ -14,7 +14,7 @@ struct DesignSystem {
     static let borderWidth: CGFloat = 1
     // Radius
     static let maxCornerRadius: CGFloat = 24
-    static let midCornerRadius: CGFloat = 20
+    static let midCornerRadius_20: CGFloat = 20
     
     
     enum ChipsButton {
@@ -35,7 +35,8 @@ struct DesignSystem {
     }
     
     enum CinzelFont {
-        static let title = UIFont(name: "Cinzel-Regular", size: 18)
+        static let title_h1 = UIFont(name: "Cinzel-Regular", size: 26)
+        static let title_h3 = UIFont(name: "Cinzel-Regular", size: 18)
         static let subtitle = UIFont(name: "Cinzel-Regular", size: 14)
     }
     

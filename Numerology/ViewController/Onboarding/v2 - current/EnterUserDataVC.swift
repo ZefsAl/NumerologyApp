@@ -42,14 +42,7 @@ class EnterUserDataVC: UIViewController {
         else { return }
         
         if nameVal != "" || surnameVal != "" {
-            // Save data to UserDefaults
-//            DispatchQueue.main.async {
-//                UserDefaults.standard.setUserData(name: nameVal, surname: surnameVal)
-//                UserDefaults.standard.synchronize()
-                
-                
-                
-//            }
+            
             UserDataKvoManager.shared.set(type: .name, value: nameVal)
             UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
             
@@ -103,20 +96,11 @@ class EnterUserDataVC: UIViewController {
     // MARK: Date Picker Action
     @objc func datePickerAction(_ sender: UIDatePicker) {
         userDateOfBirthField.text = setDateFormat(date: sender.date)
-        
         // Save data to UserDefaults
         DispatchQueue.main.async {
-//            UserDefaults.standard.setDateOfBirth(dateOfBirth: sender.date)
-//            UserDefaults.standard.synchronize()
-            // test
-            
-            
-            
             // New
             UserDataKvoManager.shared.set(type: .dateOfBirth, value: sender.date)
             print(UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as Any)
-            // test
-//            print(UserDataKvoManager.shared.dateOfBirth)
         }
     }
     
@@ -125,7 +109,7 @@ class EnterUserDataVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setBackground(named: "DarkBG.png")
+        self.setBackground(named: "Slice6")
         AnimatableBG().setBackground(vc: self)
         
         setupStack()

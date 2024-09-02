@@ -9,6 +9,15 @@ import UIKit
 
 class AngelNumbersDescriptionVC: UIViewController {
     
+    
+    private var angelNumber: String?
+    
+    // MARK: - Top Image
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Numerology.primaryColor,
+        referenceView: self.view
+    )
+    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -26,14 +35,15 @@ class AngelNumbersDescriptionVC: UIViewController {
         return v
     }()
     
-    private let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFit
-        iv.clipsToBounds = false
-        iv.image = UIImage(named: "AngelNumbersIMG")
-        return iv
-    }()
+//    private let imageView: UIImageView = {
+//        let iv = UIImageView()
+//        iv.translatesAutoresizingMaskIntoConstraints = false
+//        iv.contentMode = .scaleAspectFit
+//        iv.clipsToBounds = false
+//        iv.image = UIImage(named: "AngelNumbersIMG")
+//        return iv
+//    }()
+    
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +51,7 @@ class AngelNumbersDescriptionVC: UIViewController {
         l.textAlignment = .left
         return l
     }()
+    
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -54,24 +65,32 @@ class AngelNumbersDescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         AnimatableBG().setBackground(vc: self)
         //
         setupStack()
     }
     
+    @objc private func angelNumbersImagesDataUpdated() {
+        guard let number = self.angelNumber else { return }
+        NumerologyImagesManager.shared.setAngelsTopImage(self.topImage, key: number)
+    }
+    
     func configure(number: String, info: String) {
+        self.angelNumber = number
         self.mainTitle.text = "Angelic number - \(number)"
         self.info.text = info
+        // Notification
+        self.angelNumbersImagesDataUpdated()
+        NotificationCenter.default.addObserver(self, selector: #selector(angelNumbersImagesDataUpdated), name: .angelNumbersImagesDataUpdated, object: nil)
     }
     
     // MARK: Set up Stack
     private func setupStack() {
         
         let cardContentStack = UIStackView(arrangedSubviews: [
-            imageView,
             mainTitle,
             info
         ])
@@ -116,20 +135,22 @@ class AngelNumbersDescriptionVC: UIViewController {
         contentStack.spacing = 12
         
         self.view.addSubview(contentScrollView)
+        contentScrollView.addSubview(topImage)
         contentScrollView.addSubview(contentStack)
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
-            imageView.heightAnchor.constraint(equalToConstant: 250),
+            topImage.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            topImage.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor),
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),
+            contentStack.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 32),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
             
-            contentScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

@@ -14,17 +14,11 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     var openFrom: UIViewController?
     
     // MARK: - Top Image
-    lazy private var topImage: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = UIView.ContentMode.scaleAspectFill
-        iv.heightAnchor.constraint(equalToConstant: 342).isActive = true
-        iv.widthAnchor.constraint(equalToConstant: self.view.bounds.width).isActive = true
-        iv.backgroundColor = #colorLiteral(red: 0.6980392157, green: 0.6901960784, blue: 0.9725490196, alpha: 1).withAlphaComponent(0.5)
-        iv.layer.cornerRadius = DesignSystem.maxCornerRadius
-        iv.clipsToBounds = true
-        return iv
-    }()
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Horoscope.primaryColor,
+        referenceView: self.view
+    )
+    
     
     let horoscopeCellViewModel = HoroscopeCellViewModel()
     
@@ -68,14 +62,11 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
             break
         case 2:
             DispatchQueue.main.async {
-                self.learnMore.isHidden = false
+                self.learnMore.isHidden = true
                 self.horoscopeCellViewModel.setWeekData()
                 guard let model = self.horoscopeCellViewModel.chartsDataSource.first else { return }
                 // charts
                 self.setSingleCardText(model: model)
-                // learn More
-                self.learnMore.accordionButton.setAccordionTitle("Week horoscope")
-                self.learnMore.info.text = model.text2
                 //
                 self.chartsCV.reloadData()
             }
@@ -160,7 +151,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
-        sv.contentInsetAdjustmentBehavior = .never
+//        sv.contentInsetAdjustmentBehavior = .never
         return sv
     }()
     
@@ -168,7 +159,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Horoscope.primaryColor)
         // ui setup
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
@@ -262,10 +253,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
-        var topConstant: CGFloat {
-            let device = DeviceMenager.device == .iPhone_Se2_3Gen_8_7_6S
-            return device ? -24 : 0
-        }
+        let scrollViewMargin = contentScrollView.contentLayoutGuide
         
         NSLayoutConstraint.activate([
             // cardContentStack
@@ -276,13 +264,13 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
             // card View
             cardView.widthAnchor.constraint(equalTo: contentStack.widthAnchor,constant: -36),
             // content Stack
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: -2),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: contentScrollView.leadingAnchor, constant: 0),
             contentStack.trailingAnchor.constraint(equalTo: contentScrollView.trailingAnchor, constant: -0),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 0),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -0),
             // content Scroll View
-            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: topConstant),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

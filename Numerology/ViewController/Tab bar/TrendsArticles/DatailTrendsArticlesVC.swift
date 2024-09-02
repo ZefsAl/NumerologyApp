@@ -11,9 +11,9 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
     
     var openFrom: UIViewController?
     
-    var trendsView: TrendsView = {
-       let v = TrendsView(edgeMargin: 22)
-        v.layer.cornerRadius = DesignSystem.maxCornerRadius
+    lazy var trendsView: TrendsView = {
+       let v = TrendsView()
+        DesignSystem.setCardStyle(to: v, tintColor: DesignSystem.TrendsArticles.primaryColor, cornerRadius: DesignSystem.maxCornerRadius)
         return v
     }()
     
@@ -109,65 +109,34 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
         }()
         
         // MARK: - content Stack
-        let contentStack = UIStackView(arrangedSubviews: [cardView])
+        let contentStack = UIStackView(arrangedSubviews: [trendsView,cardView])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.alignment = .center
         contentStack.axis = .vertical
-        /*contentStack.distribution = .fill*/
         contentStack.spacing = 20
         
-        setBlackHeader()
-        self.view.addSubview(trendsView)
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
         let stackMargin: CGFloat = 18 // 18 default
         let scrollViewMargin = contentScrollView.contentLayoutGuide
-        //
-        let trendsViewHeight: NSLayoutConstraint = {
-            if DeviceMenager.device == .iPhone_Se2_3Gen_8_7_6S {
-                return trendsView.heightAnchor.constraint(equalToConstant: 240) //240
-            } else {
-                return trendsView.heightAnchor.constraint(equalToConstant: 300)
-            }
-        }()
         
         NSLayoutConstraint.activate([
             //
             cardView.widthAnchor.constraint(equalTo: contentStack.widthAnchor, constant: 0),
+            // trendsView
+            trendsView.heightAnchor.constraint(equalToConstant: DeviceMenager.isSmallDevice ? 228 : 245),
             //
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: stackMargin),
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: stackMargin),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -stackMargin),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -stackMargin),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -(stackMargin*2)),
-            
-            // trendsView + contentStack
-            trendsView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
-            trendsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            trendsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            trendsViewHeight,
-            
-            contentScrollView.topAnchor.constraint(equalTo: trendsView.bottomAnchor, constant: 0),
+            //
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-        ])
-    }
-    
-    private func setBlackHeader() {
-        let blackTopview: UIView = {
-            let v = UIView()
-            v.translatesAutoresizingMaskIntoConstraints = false
-            v.backgroundColor = .black
-            return v
-        }()
-        self.view.addSubview(blackTopview)
-        NSLayoutConstraint.activate([
-            blackTopview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            blackTopview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            blackTopview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            blackTopview.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16),
         ])
     }
 }

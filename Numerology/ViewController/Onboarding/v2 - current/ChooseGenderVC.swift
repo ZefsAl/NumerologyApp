@@ -47,7 +47,7 @@ class ChooseGenderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setBackground(named: "DarkBG.png")
+        self.setBackground(named: "Slice5")
         AnimatableBG().setBackground(vc: self)
         
         configureCollectionView()

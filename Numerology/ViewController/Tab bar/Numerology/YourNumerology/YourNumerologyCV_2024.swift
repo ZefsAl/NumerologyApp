@@ -147,11 +147,12 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
                 let about = numbersOfSoulModel?.aboutSoul
             else { return }
             //
-            let vc = PremiumDescriptionVC (
+            let vc = NumerologyPremiumDescriptionVC (
                 title: "Your soul number",
                 info: info + about,
                 isPremium: false,
-                visibleConstant: getVisibleConstant()
+                visibleConstant: getVisibleConstant(),
+                topImageKey: .soul
             )
             //
             guard numbersOfSoulModel != nil else { return }
@@ -163,10 +164,11 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
                 let about = numbersOfDestinyModel?.aboutDestiny
             else { return }
             //
-            let vc = PremiumDescriptionVC (
+            let vc = NumerologyPremiumDescriptionVC (
                 title: "Your destiny number",
                 info: info + about,
-                visibleConstant: getVisibleConstant()
+                visibleConstant: getVisibleConstant(),
+                topImageKey: .destiny
             )
             //
             guard numbersOfDestinyModel != nil else { return }
@@ -179,10 +181,11 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
                 let about = numbersOfNameModel?.aboutName
             else { return }
             //
-            let vc = PremiumDescriptionVC (
+            let vc = NumerologyPremiumDescriptionVC (
                 title: "Your name number",
                 info: info + about,
-                visibleConstant: getVisibleConstant()
+                visibleConstant: getVisibleConstant(),
+                topImageKey: .name
             )
             //
             guard numbersOfNameModel != nil else { return }
@@ -194,10 +197,11 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
                 let about = powerCodeModel?.aboutPower
             else { return }
             //
-            let vc = PremiumDescriptionVC (
+            let vc = NumerologyPremiumDescriptionVC (
                 title: "Power Code",
                 info: info + about,
-                visibleConstant: getVisibleConstant()
+                visibleConstant: getVisibleConstant(),
+                topImageKey: .power
             )
             //
             guard powerCodeModel != nil else { return }

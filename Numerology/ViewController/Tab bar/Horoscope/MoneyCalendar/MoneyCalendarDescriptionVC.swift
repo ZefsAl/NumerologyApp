@@ -39,9 +39,9 @@ class MoneyCalendarDescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Horoscope.primaryColor)
         //
-        setBackground(named: self.bgImageNamed ?? "MainBG2.png")
+        setBackground(named: self.bgImageNamed ?? "MainBG2")
         
         setupStack()
     }

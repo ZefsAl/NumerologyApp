@@ -12,9 +12,8 @@ import RevenueCat
 final class MainTabBarController: UITabBarController, UITabBarControllerDelegate, RemoteOpenDelegate, SpecialOfferButtonDelegate {
     
     var openFrom: UIViewController?
-//    let descriptionVC = DescriptionVC()
-    var boardOfDayModel: BoardOfDayModel?
     
+    var boardOfDayModel: BoardOfDayModel?
     
     lazy private var specialOfferButton = {
         let b = SpecialOfferButton()
@@ -57,21 +56,21 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         }
     }
     
-    private func configName() {
-        guard
-            let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
-        else { return }
-        self.profileButton.nameTitle.text = name
-    }
+//    private func configName() {
+//        guard
+//            let name = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
+//        else { return }
+//        self.profileButton.nameTitle.text = name
+//    }
     
-    private func requestUserSign() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
-        guard let dateOfBirth = dateOfBirth else { return }
-        let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
-        HoroscopeManager.shared.getSign(zodiacSign: sign) { model, image1, image2  in
-            self.profileButton.horoscopeIcon.image = image2
-        }
-    }
+//    private func requestUserSign() {
+//        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+//        guard let dateOfBirth = dateOfBirth else { return }
+//        let sign = HoroscopeSign().findHoroscopeSign(byDate: dateOfBirth)
+//        HoroscopeManager.shared.getSign(zodiacSign: sign) { model, image1, image2  in
+//            self.profileButton.horoscopeIcon.image = image2
+//        }
+//    }
     
     var primaryColor: UIColor = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
     
@@ -88,6 +87,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         self.delegate = self
         // Nav
+        
         self.setNavItems(
             left: UIBarButtonItem(customView: specialOfferButton),
             right: UIBarButtonItem(customView: profileButton)
@@ -100,8 +100,8 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         setTabBarStyle()
         setTabs()
         //
-        configName()
-        requestUserSign() // 🔴 Возможно тут Crash
+//        configName()
+//        requestUserSign() // 🔴 Возможно тут Crash
         // Bg Music
         MusicManager.shared.setupAndPlaySound()
     }
@@ -140,7 +140,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
     }
     
     func setTabs() {
-        let titleAttributes = [ NSAttributedString.Key.font : UIFont.setSourceSerifPro(weight: .bold, size: 10) ] as [NSAttributedString.Key : Any]
+        let titleAttributes = [ NSAttributedString.Key.font : UIFont.setSourceSerifPro(weight: .bold, size: 10) as Any ] as [NSAttributedString.Key : Any]
         
         // MARK: FirstVC
         let firstVC = NumerologyVC_2024()
@@ -250,9 +250,3 @@ extension MainTabBarController {
     
     
 }
-
-
-//struct DescriptionVCStyleModel {
-//    
-//}
-

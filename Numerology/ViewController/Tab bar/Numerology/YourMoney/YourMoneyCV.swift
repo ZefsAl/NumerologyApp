@@ -84,10 +84,11 @@ extension YourMoneyCV: UICollectionViewDataSource, UICollectionViewDelegate, UIC
                 let about = numbersOfMoneyModel?.aboutMoney
             else { return }
             //
-            let vc = PremiumDescriptionVC (
+            let vc = NumerologyPremiumDescriptionVC (
                 title: "Your money number",
                 info: info + about,
-                visibleConstant: getVisibleConstant()
+                visibleConstant: getVisibleConstant(),
+                topImageKey: .money
             )
             //
             guard numbersOfMoneyModel != nil else { return }

@@ -32,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
         // test
 //        let vc = UIViewController()
+//        vc.setBackground(named: "bgHoroscope2")
 //        vc.view.backgroundColor = .systemBlue
 //        let nav = UINavigationController(rootViewController: vc)
 ////        let nav = CustomNavController(rootViewController: HoroscopeVC())

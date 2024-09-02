@@ -178,13 +178,16 @@ class EditProfileVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+        // 1
         let save = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction(_:)))
         save.tintColor = .white
-        
-        let close = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeAction))
-        close.tintColor = .white
-
+        // 2
+        let closeImage = UIImage(
+            systemName: "xmark",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+        )?.withTintColor(UIColor.white.withAlphaComponent(0.7), renderingMode: .alwaysOriginal)
+        let close = UIBarButtonItem(image: closeImage, style: .plain, target: self, action: #selector(closeAction))
+        // set
         self.setNavItems(left: save, right: close)
     }
     
@@ -210,7 +213,6 @@ class EditProfileVC: UIViewController {
             UserDataKvoManager.shared.set(type: .name, value: nameVal)
             UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
             print("saved")
-//            self.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)
         } else {
             print("NOT saved")

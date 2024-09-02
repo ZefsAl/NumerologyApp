@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // cust delay
+         Thread.sleep(forTimeInterval: 2.0)
+        
+        
         
         // MARK: Firebase
         FirebaseApp.configure()
@@ -60,8 +64,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc private func preloadData() {
         DispatchQueue.main.async {
-            print("✅ request YourHoroscopeManager")
+            print("1-✅ request YourHoroscopeManager")
             YourHoroscopeManager.shared.requestData()
+        }
+        DispatchQueue.main.async {
+            print("2-✅ request NumerologyImagesManager")
+            NumerologyImagesManager.shared.requestData()
         }
     }
 

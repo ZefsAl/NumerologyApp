@@ -32,7 +32,7 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.title
+        l.font = DesignSystem.CinzelFont.title_h3
         l.textAlignment = .center
         l.textColor = DesignSystem.Horoscope.lightTextColor
         return l

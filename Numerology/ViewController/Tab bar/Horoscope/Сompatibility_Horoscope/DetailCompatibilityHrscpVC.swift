@@ -94,7 +94,7 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Horoscope.primaryColor)
         //
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)

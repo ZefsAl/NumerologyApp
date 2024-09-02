@@ -328,7 +328,7 @@ final class PaywallVC_V2: UIViewController {
         trialOfferStack.layoutMargins = UIEdgeInsets(top: 0,left: 18,bottom: 0,right: 18)
         trialOfferStack.isLayoutMarginsRelativeArrangement = true
         trialOfferStack.backgroundColor = DesignSystem.PaywallTint.secondaryDarkBG
-        trialOfferStack.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius : DesignSystem.maxCornerRadius-2
+        trialOfferStack.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius-2
         
         // MARK: Product Controls Stack
         let productControlsStack = UIStackView(arrangedSubviews: [

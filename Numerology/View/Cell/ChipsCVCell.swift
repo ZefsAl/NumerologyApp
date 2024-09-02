@@ -23,7 +23,7 @@ class ChipsCVCell: UICollectionViewCell {
                 self.backgroundColor = primaryColor
                 self.layer.borderWidth = 0
                 self.layer.shadowOpacity = 1
-                self.layer.shadowRadius = 16
+                self.layer.shadowRadius = DesignSystem.midCornerRadius_20
                 self.layer.shadowOffset = CGSize(width: 0, height: 4)
                 self.layer.shadowColor = primaryColor?.withAlphaComponent(0.5).cgColor ?? #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
             } else {
@@ -53,11 +53,11 @@ class ChipsCVCell: UICollectionViewCell {
         self.backgroundColor = .black.withAlphaComponent(0.5)
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = 12
         self.layer.borderWidth = 1
         self.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.7).cgColor
         self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = 16
+        self.layer.shadowRadius = 12
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = UIColor.clear.cgColor
         
@@ -75,11 +75,11 @@ class ChipsCVCell: UICollectionViewCell {
     }
     func configureBorder(borderColor: UIColor) {
         // Border
-        self.layer.cornerRadius = 16
+        self.layer.cornerRadius = 12
         self.layer.borderWidth = 1
         self.layer.borderColor = borderColor.withAlphaComponent(0.7).cgColor
         self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = 16
+        self.layer.shadowRadius = 12
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = UIColor.clear.cgColor
     }

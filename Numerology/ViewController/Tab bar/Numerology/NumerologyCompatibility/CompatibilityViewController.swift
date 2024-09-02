@@ -11,12 +11,18 @@ class CompatibilityViewController: UIViewController {
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
-       let sv = UIScrollView()
+        let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
         return sv
     }()
+    
+    // MARK: - Top Image
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Numerology.primaryColor,
+        referenceView: self.view
+    )
     
     // MARK: user number
     let userNumber : UILabel = {
@@ -73,7 +79,7 @@ class CompatibilityViewController: UIViewController {
     }()
     
     // MARK: lableDescription
-    private let lableDescription: UILabel = {
+    private let textDescription: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(name: "SourceSerifPro-Regular", size: 20)
@@ -84,14 +90,21 @@ class CompatibilityViewController: UIViewController {
         return l
     }()
     
-    // MARK: View Did Load
+    // MARK: 🟢 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         setupStack()
+        // Notification
+        self.numerologyImagesDataUpdated()
+        NotificationCenter.default.addObserver(self, selector: #selector(numerologyImagesDataUpdated), name: .numerologyImagesDataUpdated, object: nil)
+    }
+    
+    @objc private func numerologyImagesDataUpdated() {
+        NumerologyImagesManager.shared.setTopImage(self.topImage, key: .compatibility)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -101,13 +114,20 @@ class CompatibilityViewController: UIViewController {
     
     // MARK: Configure
     func configure(userNumber: String, userLable: String, partnerNumber: String, lableDescription: String) {
-        self.userNumber.text = userNumber
-        self.userLable.text = userLable
-        self.partnerNumber.text = partnerNumber
-        self.lableDescription.text = lableDescription
+        self.userNumber.text = check(val: userNumber)
+        self.userLable.text = check(val: userLable)
+        self.partnerNumber.text = check(val: partnerNumber)
+        self.textDescription.text = check(val: lableDescription)
+        
+        func check(val: String?)-> String {
+            if val == "" {
+                return "?"
+            }
+            return val ?? "?"
+        }
     }
     
-
+    
     // MARK: Set up Stack
     private func setupStack() {
         
@@ -129,11 +149,10 @@ class CompatibilityViewController: UIViewController {
             v.addSubview(self.userNumber)
             
             NSLayoutConstraint.activate([
-                userNumber.topAnchor.constraint(equalTo: v.topAnchor, constant: 10),
-                userNumber.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -8),
+                userNumber.centerYAnchor.constraint(equalTo: v.centerYAnchor),
                 userNumber.centerXAnchor.constraint(equalTo: v.centerXAnchor),
             ])
-
+            
             return v
         }()
         
@@ -141,7 +160,7 @@ class CompatibilityViewController: UIViewController {
         // MARK: User Stack
         let userStack = UIStackView(arrangedSubviews: [userView,userLable])
         userStack.axis = .vertical
-        userStack.alignment = .fill
+        userStack.alignment = .center
         userStack.spacing = 10
         
         
@@ -163,20 +182,20 @@ class CompatibilityViewController: UIViewController {
             v.addSubview(self.partnerNumber)
             
             NSLayoutConstraint.activate([
-                partnerNumber.topAnchor.constraint(equalTo: v.topAnchor, constant: 10),
-                partnerNumber.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -8),
+                partnerNumber.centerYAnchor.constraint(equalTo: v.centerYAnchor),
                 partnerNumber.centerXAnchor.constraint(equalTo: v.centerXAnchor),
             ])
-
+            
             return v
         }()
-        // MARK: User Stack
+        
+        // MARK: partner Stack
         let partnerStack = UIStackView(arrangedSubviews: [partnerView,partnerLable])
         partnerStack.axis = .vertical
-        partnerStack.alignment = .fill
+        partnerStack.alignment = .center
         partnerStack.spacing = 10
         
-    // MARK: numbers Stack
+        // MARK: numbers Stack
         let numbersStack = UIStackView(arrangedSubviews: [userStack, plusLable, partnerStack])
         numbersStack.translatesAutoresizingMaskIntoConstraints = false
         numbersStack.alignment = .center
@@ -195,45 +214,51 @@ class CompatibilityViewController: UIViewController {
             v.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
             v.layer.cornerRadius = DesignSystem.maxCornerRadius
             
-            v.addSubview(lableDescription)
+            v.addSubview(textDescription)
             NSLayoutConstraint.activate([
-                userStack.widthAnchor.constraint(equalTo: partnerStack.widthAnchor), // fix
-                
-                lableDescription.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
-                lableDescription.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
-                lableDescription.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
-                lableDescription.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -16),
+                textDescription.topAnchor.constraint(equalTo: v.topAnchor, constant: 16),
+                textDescription.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant: 16),
+                textDescription.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant: -16),
+                textDescription.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant: -16),
             ])
             
             return v
         }()
         
-        
-        //    MARK: content Stack
-        let contentStack = UIStackView(arrangedSubviews: [numbersStack,descriptionView])
+        // MARK: content Stack
+        let contentStack = UIStackView(arrangedSubviews: [topImage,numbersStack,descriptionView])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.alignment = .fill
+        contentStack.alignment = .center
         contentStack.axis = .vertical
         contentStack.distribution = .fill
-        contentStack.spacing = 40
+        contentStack.spacing = 18
         
         self.view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentStack)
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
+            userLable.heightAnchor.constraint(equalToConstant: 33),
+            partnerLable.heightAnchor.constraint(equalToConstant: 33),
+            //
+            userView.widthAnchor.constraint(equalToConstant: 135),
+            partnerView.widthAnchor.constraint(equalToConstant: 135),
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 86),
-            contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 36),
-            contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -36),
+            userView.heightAnchor.constraint(equalToConstant: 125),
+            partnerView.heightAnchor.constraint(equalToConstant: 125),
+            
+            //
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: -6),
+            contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
+            contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
-            contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -72),
-            
+            contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
+            //
             contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
-
+    
 }

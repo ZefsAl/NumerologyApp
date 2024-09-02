@@ -130,32 +130,34 @@ extension OnboardingVC_v2 {
             if slide == 0 {
                 let page1 = OnboardingSlideView(
                     frame: CGRect( x: CGFloat(slide) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height),
-                    namedBG: "Onboarding1.png"
+                    namedBG: "Slice1"
                 )
                 
-                page1.configure(title: "Welcome to Numerology!.",
-                                promoSubtitle: "Our magical world\nNUMEROLOGY\n will help you learn your strengths\nand make luck your constant\ncompanion.")
+                page1.configure(
+                    title: "Discover Astrology!",
+                    promoSubtitle: "Discover your strengths and attract good fortune through the power of astrology."
+                )
                 contentScrollView.addSubview(page1)
             }
             if slide == 1 {
                 let page2 = OnboardingSlideView(
                     frame: CGRect( x: CGFloat(slide) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height),
-                    namedBG: "Onboarding2.png"
+                    namedBG: "Slice2"
                 )
                 page2.configure(
-                    title: "What is\nthis?",
-                    promoSubtitle: "You have entered the world of an amazing, mystical science - Numerology, it allows you to find out what is hidden in the date of birth of a person."
+                    title: "What's Inside?",
+                    promoSubtitle: "Dive into the mystical science of numerology and uncover the secrets hidden in your date of birth."
                 )
                 contentScrollView.addSubview(page2)
             }
             if slide == 2 {
                 let page3 = OnboardingSlideView(
                     frame: CGRect( x: CGFloat(slide) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height),
-                    namedBG: "Onboarding3.png"
+                    namedBG: "Slice3"
                 )
                 page3.configure(
-                    title: "What do you get?",
-                    promoSubtitle: "You get the key to your future and your past, to your hidden possibilities and talents."
+                    title: "Unlock Your Potential",
+                    promoSubtitle: "Gain insight into your past, future, and hidden talents through personalized esoterica."
                 )
                 contentScrollView.addSubview(page3)
             }

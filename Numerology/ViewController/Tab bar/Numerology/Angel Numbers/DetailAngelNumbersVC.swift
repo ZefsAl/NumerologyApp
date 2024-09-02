@@ -13,9 +13,15 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     
     var openFrom: UIViewController?
     
+    // MARK: - Top Image
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Numerology.primaryColor,
+        referenceView: self.view
+    )
+    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
-       let sv = UIScrollView()
+        let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.showsVerticalScrollIndicator = false
         sv.alwaysBounceVertical = true
@@ -36,7 +42,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     }()
     
     let descriptionCardView: DescriptionCardView = {
-       let v = DescriptionCardView()
+        let v = DescriptionCardView()
         return v
     }()
     
@@ -57,7 +63,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG3.png")
         AnimatableBG().setBackground(vc: self)
@@ -67,6 +73,9 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
         self.openFrom = self
         //
         configureViewData()
+        // Notification
+        self.numerologyImagesDataUpdated()
+        NotificationCenter.default.addObserver(self, selector: #selector(numerologyImagesDataUpdated), name: .numerologyImagesDataUpdated, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -74,11 +83,16 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
         self.requestReview()
     }
     
+    @objc private func numerologyImagesDataUpdated() {
+        NumerologyImagesManager.shared.setTopImage(self.topImage, key: .angelNumbers)
+    }
+    
     
     func configureViewData() {
         let color = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         
         NumerologyManager.shared.getAngelNumbers(stringNumber: "info") { model in
+            
             self.descriptionCardView.configure(
                 title: "About numbers",
                 info: model.info,
@@ -87,7 +101,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
             )
         }
     }
-
+    
     // MARK: Set up Stack
     private func setupStack() {
         
@@ -103,22 +117,26 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
         contentStackSV.spacing = 12
         // add
         self.view.addSubview(contentScrollView)
+        contentScrollView.addSubview(topImage)
         contentScrollView.addSubview(contentStackSV)
         
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
+            
+            topImage.topAnchor.constraint(equalTo: contentScrollView.topAnchor),
+            topImage.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor),
+            // 2
+            contentStackSV.topAnchor.constraint(equalTo: topImage.bottomAnchor, constant: 18),
+            contentStackSV.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
+            contentStackSV.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
+            contentStackSV.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
+            contentStackSV.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
             // 1
             contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            // 2
-            contentStackSV.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 16),
-            contentStackSV.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
-            contentStackSV.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
-            contentStackSV.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
-            contentStackSV.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
         ])
     }
-
+    
 }

@@ -17,21 +17,20 @@ class CharismaCVCell: UICollectionViewCell {
     private var timer = Timer()
     // MARK: image
     lazy var signImage: UIImageView = {
+        let size: CGFloat = 150
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        iv.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        iv.heightAnchor.constraint(equalToConstant: size).isActive = true
+        iv.widthAnchor.constraint(equalToConstant: size).isActive = true
         iv.contentMode = .scaleToFill
-        
-        
         // Style
         iv.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        iv.layer.cornerRadius = 60
+        iv.layer.cornerRadius = size/2
         iv.layer.borderWidth = DesignSystem.borderWidth
         iv.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         iv.layer.shadowOpacity = 1
-        iv.layer.shadowRadius = 16
+        iv.layer.shadowRadius = 20
         iv.layer.shadowOffset = CGSize(width: 0, height: 4)
         iv.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         
@@ -50,22 +49,15 @@ class CharismaCVCell: UICollectionViewCell {
             let colorOff = self.signImage.layer.borderColor?.copy(alpha: 0)
             let colorOn = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).cgColor
             self.signImage.layer.borderColor = isOnState ? colorOff : colorOn
-            
         }
-        
     }
-    func signImageAnimate() {
 
-    }
-    
-    
-    
     
     lazy var charismaButton: CapsuleButton = {
         let b = CapsuleButton()
-        b.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        b.widthAnchor.constraint(equalToConstant: 134).isActive = true
-        b.title.font = DesignSystem.SourceSerifProFont.caption2_Sb_11
+        b.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        b.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        b.title.font = UIFont.setSourceSerifPro(weight: .semiBold, size: 9)
         b.isUserInteractionEnabled = false
         b.activityIndicatorView.startAnimating()
         return b

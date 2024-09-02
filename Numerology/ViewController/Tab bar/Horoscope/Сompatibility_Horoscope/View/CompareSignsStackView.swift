@@ -127,9 +127,9 @@ class CompareSignsStackView: UIStackView {
         
         NSLayoutConstraint.activate([
             userStack.widthAnchor.constraint(equalTo: partnerStack.widthAnchor), // fix
-            userSignIMG.heightAnchor.constraint(equalToConstant: 170),
-            partnerSignIMG.heightAnchor.constraint(equalToConstant: 170),
-            // хз
+            userSignIMG.heightAnchor.constraint(equalToConstant: 165),
+            partnerSignIMG.heightAnchor.constraint(equalToConstant: 165),
+            // как то так 
             plusLable.leadingAnchor.constraint(equalTo: userLable.trailingAnchor),
             plusLable.trailingAnchor.constraint(equalTo: partnerLable.leadingAnchor),
             plusLable.centerYAnchor.constraint(equalTo: userLable.centerYAnchor),

@@ -15,7 +15,7 @@ class YourHoroscopeManager {
     var yourHrscpImages: [String:UIImage?]? {
         didSet {
             NotificationCenter.default.post(name: .hrscpImagesDataUpdated, object: nil)
-            print("🔵 hrscpImagesDataUpdated - Notification")
+            print("🔵 hrscpImagesDataUpdated - Notification yourHrscpImages =", yourHrscpImages?.count)
         }
     }
     
@@ -134,7 +134,7 @@ class YourHoroscopeManager {
         
         // Your Hrscp Images
         DispatchQueue.main.async {
-            TechnicalManager.shared.getYourHrscpImages_v2 { dict in
+            TechnicalManager.shared.getTechnicalImages(withKey: TechnicalTableKeys.yourHrscpImages) { dict in
                 self.yourHrscpImages = dict
             }
         }

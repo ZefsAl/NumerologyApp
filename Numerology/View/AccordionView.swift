@@ -20,8 +20,8 @@ final class AccordionView: UIView {
     @objc private func accordionButtonAct() {
 //        about.isHidden = about.isHidden ? false : true
         info.isHidden = info.isHidden ? false : true
-        imageView.isHidden = imageView.isHidden ? false : true
-        imageView.isHidden ? showConstraintImage() : hideConstraintImage()
+//        imageView.isHidden = imageView.isHidden ? false : true
+//        imageView.isHidden ? showConstraintImage() : hideConstraintImage()
     }
 
     let info: UILabel = {
@@ -44,12 +44,12 @@ final class AccordionView: UIView {
 //        return l
 //    }()
     
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.isHidden = true
-        iv.contentMode = .scaleAspectFit
-        return iv
-    }()
+//    let imageView: UIImageView = {
+//        let iv = UIImageView()
+//        iv.isHidden = true
+//        iv.contentMode = .scaleAspectFit
+//        return iv
+//    }()
     
     // MARK: - init
     override init(frame: CGRect) {
@@ -73,21 +73,21 @@ final class AccordionView: UIView {
         info.isHidden = false
     }
     
-    func showConstraintImage() {
-        guard self.imageView.image != nil else { return }
-        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
-    }
-    func hideConstraintImage() {
-        guard self.imageView.image != nil else { return }
-        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
-    }
+//    func showConstraintImage() {
+//        guard self.imageView.image != nil else { return }
+//        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
+//    }
+//    func hideConstraintImage() {
+//        guard self.imageView.image != nil else { return }
+//        self.imageView.heightAnchor.constraint(equalTo: self.imageView.widthAnchor).isActive = true
+//    }
 
     // MARK: Set up Stack
     private func setupStack() {
 
         let contentStack = UIStackView(arrangedSubviews: [
             accordionButton,
-            imageView,
+//            imageView,
             info
         ])
         contentStack.translatesAutoresizingMaskIntoConstraints = false

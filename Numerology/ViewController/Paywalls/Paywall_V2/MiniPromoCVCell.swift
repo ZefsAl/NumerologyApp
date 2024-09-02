@@ -63,7 +63,7 @@ final class MiniPromoCVCell: UICollectionViewCell {
         // Border
         self.contentView.layer.borderColor = DesignSystem.PaywallTint.cellDisabledBorder.cgColor
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius : DesignSystem.maxCornerRadius
+        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius
         self.contentView.clipsToBounds = true
         // Font
         self.mainTitle.font = UIFont.setSourceSerifPro(weight: .semiBold, size: DeviceMenager.isSmallDevice ? 17 : 20)

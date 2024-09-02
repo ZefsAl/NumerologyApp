@@ -127,9 +127,9 @@ final class NumerologyCompatibilityVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         setupStack()
     }
     

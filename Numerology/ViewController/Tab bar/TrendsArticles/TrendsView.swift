@@ -21,7 +21,7 @@ final class TrendsView: UIView, LikeButtonDelegate {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = UIFont(name: "Cinzel-Regular", size: 26)
-        l.textAlignment = .left
+        l.textAlignment = .center
         l.textColor = DesignSystem.TrendsArticles.textColor
         l.numberOfLines = 1
         l.adjustsFontSizeToFitWidth = true
@@ -33,8 +33,8 @@ final class TrendsView: UIView, LikeButtonDelegate {
         b.translatesAutoresizingMaskIntoConstraints = false
         let configImage = UIImage(
             systemName: "square.and.arrow.up",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .semibold)
-        )?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
+        )?.withTintColor(DesignSystem.TrendsArticles.primaryColor, renderingMode: .alwaysOriginal)
         b.setImage(configImage, for: .normal)
         b.addTarget(self, action: #selector(shareCellAction), for: .touchUpInside)
         return b
@@ -63,7 +63,7 @@ final class TrendsView: UIView, LikeButtonDelegate {
     }()
     
     // MARK: - required init
-    required init(edgeMargin: CGFloat) {
+    required init(edgeMargin: CGFloat = 12) {
         super.init(frame: .null)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = true

@@ -82,7 +82,7 @@ final class BigPromoCVCell: UICollectionViewCell {
         // Border
         self.contentView.layer.borderColor = DesignSystem.PaywallTint.cellActiveBorder.cgColor
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius : DesignSystem.maxCornerRadius
+        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius
         self.contentView.clipsToBounds = true
         // Font
         self.discountBadge.font = UIFont.setSourceSerifPro(weight: .bold, size: DeviceMenager.isSmallDevice ? 11 : 13)

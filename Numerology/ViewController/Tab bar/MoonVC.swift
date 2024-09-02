@@ -9,6 +9,14 @@ import UIKit
 
 class MoonVC: UIViewController {
     
+    let imageView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFit
+        iv.image = UIImage(named: "fullMoon.png")
+        return iv
+    }()
+    
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -41,18 +49,14 @@ class MoonVC: UIViewController {
         //
         setupStack()
         requestData()
-        
     }
     
     private func requestData() {
-        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+//        _ = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         let moonDay = MoonCalendarManager().getAfternoonMoonDay()
         //
         HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
             self.accordionView.info.text = model.todayInfo
-            self.accordionView.imageView.image = UIImage(named: "fullMoon.png")
-            self.accordionView.showConstraintImage()
-            self.accordionView.imageView.isHidden = false
         }
     }
     
@@ -92,7 +96,7 @@ class MoonVC: UIViewController {
         }()
         
         // MARK: content Stack
-        let contentStack = UIStackView(arrangedSubviews: [headerTitle,cardView])
+        let contentStack = UIStackView(arrangedSubviews: [imageView,headerTitle,cardView])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.alignment = .fill
         contentStack.axis = .vertical
@@ -105,13 +109,15 @@ class MoonVC: UIViewController {
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         NSLayoutConstraint.activate([
             
-            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 32),
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, constant: -80),
+            
+            contentStack.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: -18),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor, constant: -36),
             
-            contentScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

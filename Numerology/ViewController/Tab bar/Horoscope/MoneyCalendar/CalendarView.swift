@@ -34,7 +34,7 @@ final class CalendarView: FSCalendar, FSCalendarDataSource, FSCalendarDelegate {
         self.appearance.todayColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         
         // Header Title
-        self.appearance.headerTitleFont = DesignSystem.CinzelFont.title
+        self.appearance.headerTitleFont = DesignSystem.CinzelFont.title_h3
         self.appearance.headerTitleColor = DesignSystem.Horoscope.lightTextColor
         
         // Week Day

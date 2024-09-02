@@ -96,9 +96,10 @@ final class PersonalDayVC: UIViewController {
         // Present VC
         DispatchQueue.main.async {
             NumerologyManager().getPersonalDay(number: personalDay) { model in
-                let vc = PremiumDescriptionVC(
+                let vc = NumerologyPremiumDescriptionVC(
                     title: "Your personal day",
-                    info: model.infoPersDay + model.aboutPersDay
+                    info: model.infoPersDay + model.aboutPersDay,
+                    topImageKey: .day
                 )
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -109,9 +110,9 @@ final class PersonalDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         configureNavView()
         setupStack()
     }

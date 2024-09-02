@@ -22,6 +22,32 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
         return sv
     }()
     
+    let promoTitle: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textAlignment = .center
+        l.font = DesignSystem.CinzelFont.title_h1
+        l.sizeToFit()
+        l.text = "Discover the world";
+        return l
+    }()
+    
+    let promoText: UILabel = {
+        let l = UILabel()
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textAlignment = .center
+        l.font = DesignSystem.CinzelFont.title_h3
+        l.sizeToFit()
+        l.numberOfLines = 0
+        l.text =
+        """
+        The world of numerology: learn the secrets of destiny through psychomatrix, compatibility, money numbers and personal predictions. Discover the meaning of angel numbers and change your life.
+        """;
+        return l
+    }()
+    
     // MARK: - yournumerology CV - 1
     let yournumerologyCV: YourNumerologyCV_2024 = {
         let cv = YourNumerologyCV_2024()
@@ -110,10 +136,24 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
 extension NumerologyVC_2024 {
     
     private func setupUI() {
+        // promo
+        
+        let promoStack = UIStackView(arrangedSubviews: [
+            promoTitle,
+            promoText
+        ])
+        promoStack.axis = .vertical
+        promoStack.distribution = .fill
+        promoStack.alignment = .center
+        promoStack.spacing = 4
+        
+        
+        //
         self.view.addSubview(contentScrollView) // 1
         
         // MARK: Content Stack
         let numerologyStack = UIStackView(arrangedSubviews: [
+            promoStack,
             pythagoreanSquareCV,
             yournumerologyCV,
             dateCompatibilityCV,
@@ -136,10 +176,11 @@ extension NumerologyVC_2024 {
         contentStack.spacing = 0
         
         contentScrollView.addSubview(contentStack)
-        let viewMargin = self.view.layoutMarginsGuide
+//        let viewMargin = self.view.layoutMarginsGuide
         let scrollViewMargin = contentScrollView.contentLayoutGuide
         
         NSLayoutConstraint.activate([
+            self.promoText.widthAnchor.constraint(equalToConstant: self.view.frame.width-18),
             aboutCV.heightAnchor.constraint(equalToConstant: 110+50),
             dateCompatibilityCV.heightAnchor.constraint(equalToConstant: 108+50),
             angelNumbersCV.heightAnchor.constraint(equalToConstant: 112+50),
@@ -151,7 +192,7 @@ extension NumerologyVC_2024 {
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -16),
             contentStack.widthAnchor.constraint(equalTo: contentScrollView.widthAnchor),
             
-            contentScrollView.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 0),
+            contentScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             contentScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             contentScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             contentScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),

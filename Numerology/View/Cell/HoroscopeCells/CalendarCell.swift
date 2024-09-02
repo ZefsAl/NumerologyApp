@@ -61,7 +61,8 @@ class CalendarCell: UICollectionViewCell {
             contentStack.leadingAnchor.constraint(equalTo: b.leadingAnchor, constant: 16),
             contentStack.trailingAnchor.constraint(equalTo: b.trailingAnchor, constant: -16),
             contentStack.centerYAnchor.constraint(equalTo: b.centerYAnchor),
-            contentStack.heightAnchor.constraint(equalToConstant: 40),
+//            contentStack.heightAnchor.constraint(equalToConstant: 40),
+            b.heightAnchor.constraint(equalToConstant: 30),
         ])
         // сделал Action на ячейку
         b.isUserInteractionEnabled = false
@@ -98,7 +99,7 @@ class CalendarCell: UICollectionViewCell {
     
     // MARK: Set up Stack
     private func setupStack() {
-        let contentStack = UIStackView(arrangedSubviews: [calendarView,UIView(),readMoreBtn])
+        let contentStack = UIStackView(arrangedSubviews: [calendarView,readMoreBtn])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.alignment = .center

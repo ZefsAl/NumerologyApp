@@ -74,9 +74,10 @@ final class PersonalMonthVC: UIViewController {
         // Present VC
         DispatchQueue.main.async {
             NumerologyManager().getPersonalMonth(number: personalMonth) { model in
-                let vc = PremiumDescriptionVC(
+                let vc = NumerologyPremiumDescriptionVC(
                     title: "Your personal month",
-                    info: model.infoPersMonth + model.aboutPersMonth
+                    info: model.infoPersMonth + model.aboutPersMonth,
+                    topImageKey: .month
                 )
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -87,9 +88,9 @@ final class PersonalMonthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         setupStack()
     }
     

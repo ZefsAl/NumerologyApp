@@ -123,7 +123,6 @@ extension AngelNumbersCV: UICollectionViewDataSource, UICollectionViewDelegate {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
         
-        // MARK: Soul // 0
         if indexPath.row == 0 {
             let vc = DetailAngelNumbersVC()
             self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(vc, animated: true)

@@ -68,9 +68,10 @@ final class PersonalYearVC: UIViewController {
         // Present VC
         DispatchQueue.main.async {
             NumerologyManager().getPersonalYear(number: personalYearVal) { model in
-                let vc = PremiumDescriptionVC(
+                let vc = NumerologyPremiumDescriptionVC(
                     title: "Your personal year",
-                    info: model.infoPersYear + model.aboutPersYear
+                    info: model.infoPersYear + model.aboutPersYear,
+                    topImageKey: .year
                 )
                 self.navigationController?.pushViewController(vc, animated: true)
             }
@@ -82,9 +83,9 @@ final class PersonalYearVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         configureNavView()
         setupStack()
     }

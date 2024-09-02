@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-
-
 class CharismaCV: ContentCollectionView {
     
     // data
@@ -103,11 +100,11 @@ extension CharismaCV: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     
     // MARK: - layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 164, height: 164)
+        return CGSize(width: 151, height: 190)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let val = (collectionView.frame.width-164)/2
+        let val = (collectionView.frame.width-151)/2
         return UIEdgeInsets(top: 0, left: val, bottom: 0, right: val)
     }
     

@@ -19,6 +19,13 @@ class LifeStagesViewController: UIViewController {
     var thirdStageNumber: Int = 0
     var fourthStageNumber: Int = 0
     
+    
+    // MARK: - Top Image
+    private lazy var topImage: TopImage = TopImage(
+        tint: DesignSystem.Numerology.primaryColor,
+        referenceView: self.view
+    )
+    
     // MARK: Years title
     private let yearsTitle: UILabel = {
         let l = UILabel()
@@ -76,13 +83,13 @@ class LifeStagesViewController: UIViewController {
         return sv
     }()
     
-    // MARK: View Did Load
+    // MARK: 🟢 View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems()
+        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
         //
-        self.setBackground(named: "MainBG2.png")
+        self.setBackground(named: "MainBG2")
         //
         setupStack()
         //
@@ -95,6 +102,13 @@ class LifeStagesViewController: UIViewController {
         //
         let indexPath = IndexPath(row: 0, section: 0)
         buttonsCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionView.ScrollPosition.top)
+        // Notification
+        self.numerologyImagesDataUpdated()
+        NotificationCenter.default.addObserver(self, selector: #selector(numerologyImagesDataUpdated), name: .numerologyImagesDataUpdated, object: nil)
+    }
+    
+    @objc private func numerologyImagesDataUpdated() {
+        NumerologyImagesManager.shared.setTopImage(self.topImage, key: .lifeStages)
     }
     
     func requestLifeStages() {
@@ -163,7 +177,7 @@ class LifeStagesViewController: UIViewController {
         cardView.addSubview(descriptionStack)
         
         
-        let contentStack = UIStackView(arrangedSubviews: [buttonsCollectionView,yearsTitle, cardView])
+        let contentStack = UIStackView(arrangedSubviews: [topImage,buttonsCollectionView,yearsTitle, cardView])
         contentStack.translatesAutoresizingMaskIntoConstraints = false
         contentStack.axis = .vertical
         contentStack.distribution = .fill
@@ -184,7 +198,7 @@ class LifeStagesViewController: UIViewController {
             buttonsCollectionView.leadingAnchor.constraint(equalTo: contentStack.leadingAnchor, constant: 0),
             buttonsCollectionView.trailingAnchor.constraint(equalTo: contentStack.trailingAnchor, constant: 0),
 
-            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 24),
+            contentStack.topAnchor.constraint(equalTo: scrollViewMargin.topAnchor, constant: 0),
             contentStack.leadingAnchor.constraint(equalTo: scrollViewMargin.leadingAnchor, constant: 18),
             contentStack.trailingAnchor.constraint(equalTo: scrollViewMargin.trailingAnchor, constant: -18),
             contentStack.bottomAnchor.constraint(equalTo: scrollViewMargin.bottomAnchor, constant: -24),
@@ -197,8 +211,6 @@ class LifeStagesViewController: UIViewController {
             
         ])
     }
-    
-
 }
 
 // MARK: Collection View Delegate
@@ -206,8 +218,8 @@ extension LifeStagesViewController: UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
-            width: (collectionView.frame.size.width / 3) - 4,
-            height: 40
+            width: (collectionView.frame.size.width / 4) - 4,
+            height: 30
         )
     }
     

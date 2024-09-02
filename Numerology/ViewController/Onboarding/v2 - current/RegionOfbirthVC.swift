@@ -124,9 +124,9 @@ class RegionOfbirthVC: UIViewController {
         self.userPlaceTF.customTFActionDelegate = self
         self.locationSearchView.locationValueDelegate = self
         // Visual
-        self.setBackground(named: "RegionBG.png")
+        self.setBackground(named: "Slice4")
         AnimatableBG().setBackground(vc: self)
-        playVideo()
+//        playVideo()
         // Config
         setupStack()
     }
@@ -153,31 +153,30 @@ class RegionOfbirthVC: UIViewController {
         self.view.frame.origin.y = 0
     }
     
-    private func playVideo() {
-        let ref = "planet"
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        guard let path = Bundle.main.path(forResource: ref, ofType: "mp4") else { return }
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.borderColor = UIColor.white.cgColor
-        self.view.addSubview(iv)
-        let margin = self.view.layoutMarginsGuide
-        NSLayoutConstraint.activate([
-            iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
-            iv.heightAnchor.constraint(equalToConstant: self.view.frame.width),
-            iv.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            iv.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -32),
-        ])
-        
-        iv.layoutIfNeeded()
-        iv.layer.cornerRadius = iv.frame.width/2
-        iv.clipsToBounds = true
-        playerLayer.frame = iv.bounds
-        iv.layer.addSublayer(playerLayer)
-        iv.image = nil
-        player.play()
-    }
+//    private func playVideo() {
+//        let ref = "planet"
+//        let iv = UIImageView()
+//        iv.translatesAutoresizingMaskIntoConstraints = false
+//        guard let path = Bundle.main.path(forResource: ref, ofType: "mp4") else { return }
+//        let player = AVPlayer(url: URL(fileURLWithPath: path))
+//        let playerLayer = AVPlayerLayer(player: player)
+//        self.view.addSubview(iv)
+//        let margin = self.view.layoutMarginsGuide
+//        NSLayoutConstraint.activate([
+//            iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+//            iv.heightAnchor.constraint(equalToConstant: self.view.frame.width),
+//            iv.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+//            iv.bottomAnchor.constraint(equalTo: margin.bottomAnchor, constant: -32),
+//        ])
+//        
+//        iv.layoutIfNeeded()
+//        iv.layer.cornerRadius = iv.frame.width/2
+//        iv.clipsToBounds = true
+//        playerLayer.frame = iv.bounds
+//        iv.layer.addSublayer(playerLayer)
+//        iv.image = nil
+//        player.play()
+//    }
     
     
     // MARK: Set up Stack

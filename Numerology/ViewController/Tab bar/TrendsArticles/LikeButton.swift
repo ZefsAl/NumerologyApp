@@ -27,9 +27,9 @@ class LikeButton: UIButton {
     private let likeTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = .white
+        l.textColor = .hexColor("F3789B")
         l.numberOfLines = 0
-        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 16)
+        l.font = UIFont.setSourceSerifPro(weight: .regular, size: 17)
         return l
     }()
     
@@ -39,9 +39,9 @@ class LikeButton: UIButton {
         iv.contentMode = UIView.ContentMode.scaleAspectFit
         iv.tintColor = .white
         let configImage = UIImage(
-            systemName: "hand.thumbsup",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .semibold)
-        )?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            systemName: "heart",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+        )?.withTintColor(.hexColor("F3789B"), renderingMode: .alwaysOriginal)
         iv.image = configImage
         return iv
     }()
@@ -104,9 +104,9 @@ class LikeButton: UIButton {
     // MARK: - set Icon Toggle
     private func setIconToggle(_ state: Bool) {
         let configImage = UIImage(
-            systemName: state ? "hand.thumbsup.fill" : "hand.thumbsup",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
-        )
+            systemName: state ? "heart.fill" : "heart",
+            withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+        )?.withTintColor(.hexColor("F3789B"), renderingMode: .alwaysOriginal)
         icon.image = configImage
     }
     
@@ -128,6 +128,13 @@ class LikeButton: UIButton {
             contentStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
+        
+        
+        contentStack.setNeedsLayout()
+        contentStack.layoutIfNeeded()
+        NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: contentStack.frame.height)
         ])
     }
     

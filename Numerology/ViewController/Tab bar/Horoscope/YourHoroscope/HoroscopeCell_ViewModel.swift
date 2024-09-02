@@ -27,35 +27,35 @@ class HoroscopeCellViewModel {
             ),
             ChartCVCellModel(
                 title: "Business",
-                text: model?.business ?? "" ,
+                text: model?.business ?? "",
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Friendship",
-                text: model?.friendship ?? ""   ,
+                text: model?.friendship ?? "",
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Love",
-                text: model?.love ?? ""     ,
+                text: model?.love ?? "",
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Health",
-                text: model?.health ?? ""       ,
+                text: model?.health ?? "",
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Sex",
-                text: model?.sex ?? ""       ,
+                title: "Intimacy",
+                text: model?.sex ?? "",
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
                 progressColor: DesignSystem.ProgressBarTitnt.red
@@ -106,7 +106,7 @@ class HoroscopeCellViewModel {
                 progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Sex",
+                title: "Intimacy",
                 text: model?.sex ?? ""       ,
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
@@ -149,7 +149,7 @@ class HoroscopeCellViewModel {
                 progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Sex",
+                title: "Intimacy",
                 text: model?.sex ?? "",
                 text2: text2,
                 percentTitle: "\(valArr?[3] ?? 99)",
@@ -209,7 +209,7 @@ class HoroscopeCellViewModel {
                 progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Sex",
+                title: "Intimacy",
                 text: text ?? "",
                 text2: text2,
                 percentTitle: "\(valArr?[5] ?? 99)",
@@ -269,7 +269,7 @@ class HoroscopeCellViewModel {
                 progressColor: DesignSystem.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
-                title: "Sex",
+                title: "Intimacy",
                 text: text ?? "",
                 text2: text2,
                 percentTitle: "\(valArr?[5] ?? 99)",

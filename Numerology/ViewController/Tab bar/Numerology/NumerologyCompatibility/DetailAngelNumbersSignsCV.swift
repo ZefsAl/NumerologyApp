@@ -76,20 +76,20 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
 
         if indexPath.row == 9 || 
            indexPath.row == 10 {
-            return CGSize(width: (collectionView.frame.size.width/2)-9.3, height: 60)
+            return CGSize(width: (collectionView.frame.size.width/2)-5, height: 35)
             // т.к  decimals после деления
         }
 
-        return CGSize(width: (collectionView.frame.size.width/3)-12, height: 60)
+        return CGSize(width: (collectionView.frame.size.width/3)-6, height: 35)
     }
     
     // Vertical spacing
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 18
+        return 8
     }
     
 }
@@ -98,7 +98,6 @@ extension DetailAngelNumbersSignsCV: UICollectionViewDataSource, UICollectionVie
 final class AngelNumbersCVCell: UICollectionViewCell {
     
     let premiumBadgeManager = PremiumManager()
-    
     
     static var reuseID: String {
         String(describing: self)
@@ -135,7 +134,7 @@ final class AngelNumbersCVCell: UICollectionViewCell {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = 15
         self.layer.borderWidth = DesignSystem.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
         self.layer.shadowOpacity = 1
@@ -143,6 +142,4 @@ final class AngelNumbersCVCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
     }
-    
-    
 }
