@@ -50,6 +50,12 @@ extension UIViewController {
     
     @objc private func closeAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+        if let navigationController = self.navigationController,
+           navigationController.viewControllers.first != self {
+            navigationController.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc private func shareAction(_ sender: UIButton) {

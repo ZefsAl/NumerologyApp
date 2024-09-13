@@ -69,8 +69,6 @@ class YourHoroscopeManager {
                 group.enter()
                 HoroscopeManager.shared.getTomorrowHrscp(requestType: .newRandom) { model in
                     self.tomorrowHoroscope = model
-//                    print("🔴🔴✅ new - tomorrowHoroscope", model.number as Any)
-                    //
                     if let tomorrowHrscpNumber = tomorrowHrscpNumber {
                         UserDefaults.standard.setValue(tomorrowHrscpNumber, forKey: UserDefaultsKeys.todayHrscpNumber)
                         // для todayHrscpNumber нужно сохранить старый tomorrowHrscpNumber
@@ -87,8 +85,6 @@ class YourHoroscopeManager {
                 // request
                 HoroscopeManager.shared.getTodayHrscp(requestType: .newRandom) { model in
                     self.todayHoroscope = model
-//                    print("🔴🔴✅ new - todayHoroscope", model.number as Any)
-                    
                     if todayHrscpNumber == nil,
                        let number = model.number {
                         UserDefaults.standard.setValue(number, forKey: UserDefaultsKeys.todayHrscpNumber)
@@ -108,7 +104,7 @@ class YourHoroscopeManager {
     
     
     func requestData() {
-        let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
+        let sign = HoroscopeSign.shared.findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
         
         todayTomorrHrscpRequest()
         

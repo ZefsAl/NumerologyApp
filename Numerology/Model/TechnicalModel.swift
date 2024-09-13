@@ -12,7 +12,7 @@ class TechnicalModel: Decodable {
     
     let key: String?
     let val1: Int?
-    let val2: [Image]?
+    let val2: [ImageModel]?
     
     enum CodingKeys: String, CodingKey {
         case key = "key"

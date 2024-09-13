@@ -13,7 +13,7 @@ class TrendsArticlesModel: Codable, Identifiable {
     let cardText: String?
     let cardTitle: String?
     let imageTitle: String?
-    let image: [Image]?
+    let image: [ImageModel]?
     let isPremium: Bool?
     let likes: Int?
     

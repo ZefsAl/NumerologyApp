@@ -12,7 +12,7 @@ class SignsModel: Decodable, Identifiable {
     let dateAboutYou: String?
     let zodiacSigns: String?
     let signCharacteristics: String?
-    let image: [Image]?
+    let image: [ImageModel]?
     let charts: String?
     let family: String?
     let friendship: String?

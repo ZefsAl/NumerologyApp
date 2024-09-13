@@ -13,7 +13,7 @@ class NumbersOfNameModel: Codable, Identifiable {
     let number: Int
     let aboutName: String
     let infoName: String
-    let image: [Image]
+    let image: [ImageModel]
     
     enum CodingKeys: String, CodingKey {
         case number = "number"

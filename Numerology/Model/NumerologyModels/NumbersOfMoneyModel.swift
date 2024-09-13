@@ -12,7 +12,7 @@ class NumbersOfMoneyModel: Codable, Identifiable {
     let number: Int
     let aboutMoney: String
     let infoMoney: String
-    let image: [Image]
+    let image: [ImageModel]
     
     enum CodingKeys: String, CodingKey {
         case number = "number"

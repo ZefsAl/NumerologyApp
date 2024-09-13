@@ -12,7 +12,7 @@ class NumbersOfDestinyModel: Codable, Identifiable {
     let number: Int
     let aboutDestiny: String
     let infoDestiny: String
-    let image: [Image]
+    let image: [ImageModel]
     
     enum CodingKeys: String, CodingKey {
         case number = "number"

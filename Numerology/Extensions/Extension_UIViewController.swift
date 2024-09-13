@@ -39,19 +39,19 @@ extension UIViewController {
         let dismissButtonView: UIView = {
             let configImage = UIImage(
                 systemName: "xmark",
-                withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .bold)
-            )
+                withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+            )?.withTintColor(UIColor.white.withAlphaComponent(0.7), renderingMode: .alwaysOriginal)
             let iv = UIImageView(image: configImage)
             iv.translatesAutoresizingMaskIntoConstraints = false
             iv.tintColor = .white
-            iv.contentMode = .scaleAspectFit
+//            iv.contentMode = .scaleAspectFit
             iv.isUserInteractionEnabled = false
 
             let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            view.layer.cornerRadius = 15
-            view.addSystemBlur(to: view, style: .systemUltraThinMaterialDark)
-            view.clipsToBounds = true
+//            view.translatesAutoresizingMaskIntoConstraints = false
+//            view.layer.cornerRadius = 15
+//            view.addSystemBlur(to: view, style: .systemUltraThinMaterialDark)
+//            view.clipsToBounds = true
             
             view.addSubview(iv)
             NSLayoutConstraint.activate([
@@ -84,7 +84,7 @@ extension UIViewController {
     
     
     // MARK: checkAccessContent
-    func checkAccessContent() -> Bool {
+    func checkAndShowPaywall() -> Bool {
         let accessVal = UserDefaults.standard.object(forKey: UserDefaultsKeys.userAccessObserverKey) as? Bool
         guard
             let accessVal = accessVal,

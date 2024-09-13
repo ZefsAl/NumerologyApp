@@ -15,14 +15,14 @@ class NumerologyImagesManager {
     var numerologyImages: [String:UIImage?]? {
         didSet {
             NotificationCenter.default.post(name: .numerologyImagesDataUpdated, object: nil)
-            print("🟣1 numerologyImagesDataUpdated - Notification yourHrscpImages =", numerologyImages?.count as Any)
+//            print("🟣1 numerologyImagesDataUpdated - Notification yourHrscpImages =", numerologyImages?.count as Any)
         }
     }
     
     var angelNumbersImages: [String:UIImage?]? {
         didSet {
             NotificationCenter.default.post(name: .angelNumbersImagesDataUpdated, object: nil)
-            print("🟣2 angelNumbersImagesDataUpdated - Notification angelNumbersImages =", angelNumbersImages?.count as Any)
+//            print("🟣2 angelNumbersImagesDataUpdated - Notification angelNumbersImages =", angelNumbersImages?.count as Any)
         }
     }
     

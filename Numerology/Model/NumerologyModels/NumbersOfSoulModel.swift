@@ -12,7 +12,7 @@ class NumbersOfSoulModel: Codable, Identifiable {
     let number: Int
     let aboutSoul: String
     let infoSoul: String
-    let image: [Image]
+    let image: [ImageModel]
     
     enum CodingKeys: String, CodingKey {
         case number = "number"
@@ -22,7 +22,7 @@ class NumbersOfSoulModel: Codable, Identifiable {
     }
 }
 
-class Image: Codable {
+class ImageModel: Codable {
     let downloadURL: String
     let lastModifiedTS: Int
     let name: String

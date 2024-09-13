@@ -23,7 +23,7 @@ final class HoroscopeManager {
     private let firestore = Firestore.firestore()
     
     // MARK: - Signs
-    func getSign(zodiacSign: String, completion: @escaping ((SignsModel, UIImage?, UIImage? ) -> Void) ) {
+    func getSign(zodiacSign: String, completion: @escaping ((SignsModel, UIImage? ) -> Void) ) {
         let docRef = firestore.collection("Signs-hrscp").whereField("zodiacSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
@@ -43,26 +43,26 @@ final class HoroscopeManager {
                     let ref = val.image?[0].ref // Путь
                     let pathReference = storage.reference(withPath: "\(ref ?? ref!)")
                     
-                    let ref2 = val.image?[1].ref // Путь
-                    let pathReference2 = storage.reference(withPath: "\(ref2 ?? ref2!)")
+//                    let ref2 = val.image?[1].ref // Путь
+//                    let pathReference2 = storage.reference(withPath: "\(ref2 ?? ref2!)")
                     
                     pathReference.getData(maxSize: megaByte) { data1, error in
-                        pathReference2.getData(maxSize: megaByte) { data2, error in
+//                        pathReference2.getData(maxSize: megaByte) { data2, error in
                             if let error = error {
                                 print("⚠️ Error getting IMAGE: \(error)")
                             } else {
                                 guard
-                                    let data1 = data1,
-                                    let data2 = data2
+                                    let data1 = data1
+//                                    let data2 = data2
                                 else {
                                     print("⚠️ Error getting IMAGE: \(String(describing: error))")
                                     return
                                 }
                                 let image1 = UIImage(data: data1)
-                                let image2 = UIImage(data: data2)
-                                completion(val,image1,image2)
+//                                let image2 = UIImage(data: data2)
+                                completion(val,image1)
                             }
-                        }
+//                        }
                     }
                 }
                 catch {

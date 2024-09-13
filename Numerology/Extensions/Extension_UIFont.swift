@@ -18,14 +18,10 @@ extension UIFont {
         case light
         
         
-        fileprivate var fontName: String {
-            return "SourceSerifPro-\(self.rawValue.capitalized)"
-        }
+//        fileprivate var fontName: String {
+//            return "SourceSerifPro-\(self.rawValue.capitalized)"
+//        }
     }
-    
-//    convenience init(weight: SourceSerifPro, size: CGFloat) {
-//        self.init(name: weight.fontName, size: size)!
-//    }
     
     static func setSourceSerifPro(weight: SourceSerifPro, size: CGFloat) -> UIFont? {
         UIFont(name: "SourceSerifPro-\(weight.rawValue.capitalized)", size: size)

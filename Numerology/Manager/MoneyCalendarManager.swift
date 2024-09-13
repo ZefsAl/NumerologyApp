@@ -23,19 +23,4 @@ final class MoneyCalendarManager {
     
     lazy var positive = [Int]()
     lazy var negative = [Int]()
-    
-    
-//    func preloadData() {
-//        
-//        let sign = HoroscopeSign().findHoroscopeSign(byDate: UserDataKvoManager.shared.dateOfBirth)
-//        
-//        DispatchQueue.main.async {
-//            HoroscopeManager.shared.getMoneyCalendar(zodiacSign: sign) { model in
-//                self.monthCalendarModel = model
-//                self.positive = model.goodDays.components(separatedBy: ",").compactMap { Int($0) }
-//                self.negative = model.badDays.components(separatedBy: ",").compactMap { Int($0) }
-//            }
-//        }
-//    }
-    
 }

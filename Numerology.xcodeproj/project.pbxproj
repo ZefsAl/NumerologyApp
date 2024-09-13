@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */; };
-		841B55282B598FD6002EE1F8 /* CompatibilityStatsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */; };
 		841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B55292B599074002EE1F8 /* CompatibilityCVCell.swift */; };
 		841B552C2B5AA760002EE1F8 /* CompareSignsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */; };
 		841B9DD82AFFD2B1007DCAE3 /* AboutCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B9DD72AFFD2B1007DCAE3 /* AboutCV.swift */; };
@@ -113,7 +112,6 @@
 		84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */; };
 		84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */; };
 		84D89CFE2AFE421F000CF2FB /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */; };
-		84D89D002AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift */; };
 		84D89D032AFFB0EB000CF2FB /* DateCompatibilityCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D89D022AFFB0EB000CF2FB /* DateCompatibilityCV.swift */; };
 		84DBB9A42AE2F51D00A0784F /* AnimatableBG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */; };
 		84DBB9B42AE7B7FA00A0784F /* QuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBB9B32AE7B7FA00A0784F /* QuizVC.swift */; };
@@ -136,7 +134,8 @@
 		C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */; };
 		C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */; };
 		C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E772BF9325300104D0A /* Extension_UIView.swift */; };
-		C23540832C5BB9E1001C66E9 /* CompatibilityHrscpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */; };
+		C23169B72C91B75D00497030 /* BottomSheetContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */; };
+		C23540832C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23540822C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift */; };
 		C23752572C0B4DE900000C68 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23752562C0B4DE900000C68 /* PremiumManager.swift */; };
 		C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */; };
 		C245A0A12C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */; };
@@ -161,6 +160,9 @@
 		C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */; };
 		C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6E2C209459007B65F3 /* TouchSupport.swift */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
+		C26383712C8AE98800E27246 /* PremiumAccordionView_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */; };
+		C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383722C8AE9C400E27246 /* RoundedCorner.swift */; };
+		C26383752C8AE9EB00E27246 /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383742C8AE9EB00E27246 /* View_Ext.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
 		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
 		C27EBBD52C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */; };
@@ -213,7 +215,6 @@
 		25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.debug.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.debug.xcconfig"; sourceTree = "<group>"; };
 		806AA35FAABCDDFAFF53D986 /* Pods-Numerology.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.release.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.release.xcconfig"; sourceTree = "<group>"; };
 		8411AB2E2A94D9D100B3D2F4 /* PurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseButton.swift; sourceTree = "<group>"; };
-		841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityStatsStackView.swift; sourceTree = "<group>"; };
 		841B55292B599074002EE1F8 /* CompatibilityCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityCVCell.swift; sourceTree = "<group>"; };
 		841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareSignsStackView.swift; sourceTree = "<group>"; };
 		841B9DD72AFFD2B1007DCAE3 /* AboutCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCV.swift; sourceTree = "<group>"; };
@@ -313,7 +314,6 @@
 		84D8709D2A8B368300ACACA8 /* PaywallCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallCVCell.swift; sourceTree = "<group>"; };
 		84D89CFB2AFE329C000CF2FB /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		84D89CFD2AFE421F000CF2FB /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
-		84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPredictionsCV_2023.swift; sourceTree = "<group>"; };
 		84D89D022AFFB0EB000CF2FB /* DateCompatibilityCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCompatibilityCV.swift; sourceTree = "<group>"; };
 		84D9CB4F2AACE01C00809B70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84DBB9A32AE2F51D00A0784F /* AnimatableBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableBG.swift; sourceTree = "<group>"; };
@@ -340,7 +340,8 @@
 		C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareView.swift; sourceTree = "<group>"; };
 		C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableView.swift; sourceTree = "<group>"; };
 		C22A3E772BF9325300104D0A /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
-		C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpView.swift; sourceTree = "<group>"; };
+		C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetContainerVC.swift; sourceTree = "<group>"; };
+		C23540822C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpPickerView.swift; sourceTree = "<group>"; };
 		C23752562C0B4DE900000C68 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
 		C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferCVCell.swift; sourceTree = "<group>"; };
 		C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCell_v2_Ext.swift; sourceTree = "<group>"; };
@@ -364,6 +365,9 @@
 		C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UICollectionViewCell.swift; sourceTree = "<group>"; };
 		C25E7E6E2C209459007B65F3 /* TouchSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSupport.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
+		C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionView_SUI.swift; sourceTree = "<group>"; };
+		C26383722C8AE9C400E27246 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		C26383742C8AE9EB00E27246 /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
 		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyPremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
@@ -445,7 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				848B4E5D2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift */,
-				C23540822C5BB9E1001C66E9 /* CompatibilityHrscpView.swift */,
+				C23540822C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift */,
 				C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */,
 				841B55262B59868B002EE1F8 /* View */,
 			);
@@ -455,7 +459,6 @@
 		841B55262B59868B002EE1F8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				841B55272B598FD6002EE1F8 /* CompatibilityStatsStackView.swift */,
 				841B55292B599074002EE1F8 /* CompatibilityCVCell.swift */,
 				841B552B2B5AA760002EE1F8 /* CompareSignsStackView.swift */,
 				84DCE5D42B61658B0001D41F /* CustomProgressBarView.swift */,
@@ -526,14 +529,11 @@
 		845EB1B92A657938003D6F5C /* Numerology */ = {
 			isa = PBXGroup;
 			children = (
-				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
-				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
-				C20EAC752C70D8A1008E7532 /* AppRouter.swift */,
-				845EB1D92A6664D9003D6F5C /* View */,
-				845EB1D82A6664C1003D6F5C /* ViewController */,
+				C22687052C89AFEF0043C36E /* SwiftUI_Code */,
+				C22687082C89B0190043C36E /* UIKit_Code */,
+				845EB1E52A67F6C2003D6F5C /* SupportedManagers */,
 				8492D0912A6EA78500761312 /* Manager */,
 				8492D0942A713C6F00761312 /* Model */,
-				845EB1E52A67F6C2003D6F5C /* SupportedClass */,
 				C2D72D492C7BE710005B7143 /* Protocol */,
 				845EB1DC2A668D44003D6F5C /* Extensions */,
 				84AA6AEC2AA4E48900BF6C0D /* Fonts */,
@@ -557,7 +557,7 @@
 				84AC66F32A7941F500D2321B /* Onboarding */,
 				8492D0862A6D935200761312 /* EditProfileVC.swift */,
 				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
-				C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */,
+				C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -566,7 +566,6 @@
 			isa = PBXGroup;
 			children = (
 				84B895ED2B14E5120061680A /* AccordionView.swift */,
-				C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */,
 				84B895E62B14153C0061680A /* Buttons */,
 				8437D3D32A862351003592A7 /* SecondViewController */,
 				84AC66F42A79420F00D2321B /* Onboarding */,
@@ -602,7 +601,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		845EB1E52A67F6C2003D6F5C /* SupportedClass */ = {
+		845EB1E52A67F6C2003D6F5C /* SupportedManagers */ = {
 			isa = PBXGroup;
 			children = (
 				84420CD62A73FC9900DE1812 /* CalculateNumbers.swift */,
@@ -617,7 +616,7 @@
 				C2D72D312C763B6C005B7143 /* PaddingLabel.swift */,
 				C2D72D332C7790FE005B7143 /* Animation.swift */,
 			);
-			path = SupportedClass;
+			path = SupportedManagers;
 			sourceTree = "<group>";
 		};
 		845EB1E62A67FABC003D6F5C /* Tab bar */ = {
@@ -830,6 +829,29 @@
 			path = MoneyCalendar;
 			sourceTree = "<group>";
 		};
+		C22687052C89AFEF0043C36E /* SwiftUI_Code */ = {
+			isa = PBXGroup;
+			children = (
+				C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */,
+				C26383722C8AE9C400E27246 /* RoundedCorner.swift */,
+				C26383742C8AE9EB00E27246 /* View_Ext.swift */,
+			);
+			path = SwiftUI_Code;
+			sourceTree = "<group>";
+		};
+		C22687082C89B0190043C36E /* UIKit_Code */ = {
+			isa = PBXGroup;
+			children = (
+				C26383762C8AF66B00E27246 /* PremiumVCs */,
+				845EB1BA2A657939003D6F5C /* AppDelegate.swift */,
+				845EB1BC2A657939003D6F5C /* SceneDelegate.swift */,
+				C20EAC752C70D8A1008E7532 /* AppRouter.swift */,
+				845EB1D92A6664D9003D6F5C /* View */,
+				845EB1D82A6664C1003D6F5C /* ViewController */,
+			);
+			path = UIKit_Code;
+			sourceTree = "<group>";
+		};
 		C22A3E722BF918DC00104D0A /* PythagoreanSquare */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +887,15 @@
 				C2E144982C1B28FC00FA23FD /* TrendsView.swift */,
 			);
 			path = TrendsArticles;
+			sourceTree = "<group>";
+		};
+		C26383762C8AF66B00E27246 /* PremiumVCs */ = {
+			isa = PBXGroup;
+			children = (
+				C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */,
+				C2D1C6FD2C00EF2500C2D481 /* PremiumAccordionView.swift */,
+			);
+			path = PremiumVCs;
 			sourceTree = "<group>";
 		};
 		C27BFDA82C11B0470087A876 /* Charisma */ = {
@@ -947,7 +978,6 @@
 			isa = PBXGroup;
 			children = (
 				C2CFA40D2BD570AC00E6E9D9 /* Cell */,
-				84D89CFF2AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift */,
 				C2CFA40B2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift */,
 				84D870942A8677D600ACACA8 /* DetailViewController */,
 			);
@@ -1132,7 +1162,6 @@
 				84AC66FC2A7C175100D2321B /* SecondViewController_OLD.swift in Sources */,
 				C2CAE6D82BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift in Sources */,
 				C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */,
-				84D89D002AFEA0FA000CF2FB /* PersonalPredictionsCV_2023.swift in Sources */,
 				C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */,
 				C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */,
 				C2C38AD62C62D9E8001235F4 /* TechnicalManager.swift in Sources */,
@@ -1195,7 +1224,7 @@
 				84B895E82B14159F0061680A /* PremiumAccordionButton.swift in Sources */,
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
-				C23540832C5BB9E1001C66E9 /* CompatibilityHrscpView.swift in Sources */,
+				C23540832C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift in Sources */,
 				84BFE5022B16146200C06FB1 /* HoroscopeButtonsCV.swift in Sources */,
 				84BFE51A2B1A36E900C06FB1 /* MoneyCalendarCV.swift in Sources */,
 				84B895EE2B14E5120061680A /* AccordionView.swift in Sources */,
@@ -1215,7 +1244,6 @@
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */,
 				C2592EDE2BFE2BE70080E271 /* PythagoreanSquareCV.swift in Sources */,
-				841B55282B598FD6002EE1F8 /* CompatibilityStatsStackView.swift in Sources */,
 				C2D72D2A2C73D281005B7143 /* ChartCVCellModel.swift in Sources */,
 				84B895DE2B139E340061680A /* YourHoroscopeCV.swift in Sources */,
 				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
@@ -1244,9 +1272,11 @@
 				8496CA322A77EEC700FB9592 /* NumbersOfNameModel.swift in Sources */,
 				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
 				C2CAE6E32BD43E7200E09933 /* YourMoneyCV.swift in Sources */,
+				C26383712C8AE98800E27246 /* PremiumAccordionView_SUI.swift in Sources */,
 				C20EAC762C70D8A1008E7532 /* AppRouter.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
 				844EA40E2B11869C00D2D596 /* SignsModel.swift in Sources */,
+				C23169B72C91B75D00497030 /* BottomSheetContainerVC.swift in Sources */,
 				84A3A28D2B62CD23001EF8F2 /* RegionOfbirthVC.swift in Sources */,
 				84A3A2982B652936001EF8F2 /* LocationSearchView.swift in Sources */,
 				84FF997D2B6988FC00E69401 /* Extension_Date.swift in Sources */,
@@ -1254,6 +1284,7 @@
 				C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */,
 				C25864E82C7F8098003C1655 /* TopImage.swift in Sources */,
 				C25864EA2C7F8FDA003C1655 /* NumerologyImagesManager.swift in Sources */,
+				C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */,
 				C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */,
 				C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */,
 				84B99A8A2AB88E5B008A3B49 /* MiniPromoCVCell.swift in Sources */,
@@ -1291,6 +1322,7 @@
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
 				84B895E32B13AEED0061680A /* CharismaCV.swift in Sources */,
 				845EB1DE2A668D63003D6F5C /* Gradients.swift in Sources */,
+				C26383752C8AE9EB00E27246 /* View_Ext.swift in Sources */,
 				C2004BC62BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift in Sources */,
 				84DBB9A42AE2F51D00A0784F /* AnimatableBG.swift in Sources */,
 				C2C38AD42C62D92B001235F4 /* TechnicalModel.swift in Sources */,
@@ -1444,7 +1476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.95;
+				CURRENT_PROJECT_VERSION = 1.99;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1460,7 +1492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.18;
+				MARKETING_VERSION = 3.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1480,7 +1512,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.95;
+				CURRENT_PROJECT_VERSION = 1.99;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1496,7 +1528,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.18;
+				MARKETING_VERSION = 3.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
