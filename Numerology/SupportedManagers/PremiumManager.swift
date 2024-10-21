@@ -127,13 +127,12 @@ final class PremiumManager {
     public static func showSpecialOffer(from vc: UIViewController?) {
         guard let vc = vc else { return }
         
-        // v2
+        
         let paywall = BottomSheetContainer(contentVC: SpecialOfferPaywall())
         paywall.preferredContentSize = CGSize(
             width: UIScreen.main.bounds.width,
             height: UIScreen.main.bounds.height / (DeviceMenager.isSmallDevice ? 2.25 : 2.3)
         )
-        
         //
         paywall.modalPresentationStyle = .overFullScreen
         vc.present(paywall, animated: false)

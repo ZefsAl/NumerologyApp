@@ -18,21 +18,21 @@ class UserDataKvoManager: NSObject {
     // MARK: - KVO
     @objc dynamic var name: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.name) {
         didSet {
-            print("➡️ didSet ",self.name)
+//            print("➡️ didSet ",self.name)
             saveDidSetAction(value: self.name, key: UserDefaultsKeys.name)
         }
     }
     
     @objc dynamic var surname: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.surname) {
         didSet {
-            print("➡️ didSet ",self.surname)
+//            print("➡️ didSet ",self.surname)
             saveDidSetAction(value: self.surname, key: UserDefaultsKeys.surname)
         }
     }
     
     @objc dynamic var dateOfBirth: Date? = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date {
         didSet {
-            print("➡️ didSet ",self.dateOfBirth)
+//            print("➡️ didSet ",self.dateOfBirth)
             saveDidSetAction(value: self.dateOfBirth, key: UserDefaultsKeys.dateOfBirth)
         }
     }

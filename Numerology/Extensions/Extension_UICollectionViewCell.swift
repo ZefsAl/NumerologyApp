@@ -12,8 +12,8 @@ extension UICollectionViewCell {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
 //        self.tapAnimateBegan()
-        TouchSupport.tapDefaultAnimate(view: self)
-        TouchSupport.hapticImpact(style: .soft)
+//        TouchSupport.tapDefaultAnimate(view: self)
+//        TouchSupport.hapticImpact(style: .soft)
     }
 //    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        super.touchesEnded(touches, with: event)

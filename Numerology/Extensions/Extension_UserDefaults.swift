@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension UserDefaults {
+//extension UserDefaults {
     
 //    func setUserData(name: String, surname: String) {
 //        setValue(name, forKey: UserDefaultsKeys.name)
@@ -20,4 +20,4 @@ extension UserDefaults {
 //        synchronize()
 //    }
 
-}
+//}

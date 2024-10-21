@@ -7,17 +7,9 @@
 
 import Foundation
 import UIKit
-import StoreKit
 import AVFoundation
 
 extension UIViewController {
-    
-    // MARK: - request Review
-    func requestReview() {
-        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-            SKStoreReviewController.requestReview(in: scene)
-        }
-    }
     
     // MARK: setBackground
     func setBackground(named: String) {
@@ -100,13 +92,11 @@ extension UIViewController {
     
     // MARK: - Share
     func shareButtonClicked() {
-        
-        let textToShare = String(describing: "Numerology")
+        let textToShare = String(describing: "Asteria App")
         guard
-            let myAppURLToShare = URL(string: "https://apps.apple.com/ru/app/id1622398869"),
-            let image = UIImage(named: "AppIcon")
+            let appURLToShare = URL(string: "https://apps.apple.com/app/id1622398869")
         else { return }
-        let items = [textToShare, myAppURLToShare, image] as [Any]
+        let items = [textToShare, appURLToShare] as [Any]
         let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
         
         //Apps to exclude sharing to
@@ -114,13 +104,11 @@ extension UIViewController {
             UIActivity.ActivityType.airDrop,
             UIActivity.ActivityType.print,
             UIActivity.ActivityType.saveToCameraRoll,
-            UIActivity.ActivityType.addToReadingList
+            UIActivity.ActivityType.addToReadingList,
         ]
         //Present the shareView on iPhone
         DispatchQueue.main.async(qos: .default) {
-            // Презент с ошибкой !
-//            self.delegateVC?.settingsVC?.present(avc, animated: true)
-            self.present(avc, animated: true)
+            self.present(avc, animated: true) // Презент с ошибкой !
         }
     }
     

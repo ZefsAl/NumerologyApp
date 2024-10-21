@@ -41,7 +41,6 @@ struct TechnicalTableKeys {
     static let angelNumbersImages = "AngelNumbersImages";
 }
 
-
 enum NumerologyImagesKeys: String {
     case psychomatrix = "psychomatrix";
     case soul = "soul";
@@ -73,3 +72,11 @@ enum AngelNumbersImagesKeys: String {
     case angelNumbers = "angelNumbers";
     case aboutNumerology = "aboutNumerology";
 }
+
+enum AppSupportedLinks: String {
+    case terms = "https://numerology-terms.web.app/";
+    case privacy = "https://numerology-privacy.web.app/";
+    case site = "https://asteria-numerology.tilda.ws/";
+}
+
+
