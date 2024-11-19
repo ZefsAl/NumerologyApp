@@ -35,9 +35,7 @@ class OnboardingVC_v2: UIViewController {
             contentScrollView.setContentOffset(CGPoint(x: CGFloat( pageControl.currentPage) * view.frame.size.width, y: 0), animated: true)
             // Тут косяк с (y: -47) Если есть BG ???
         }
-        
     }
-    
     
     // MARK: Page Control
     let pageControl: UIPageControl = {
@@ -65,20 +63,16 @@ class OnboardingVC_v2: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         contentScrollView.delegate = self
         setupUI()
-        
     }
     
     // MARK: - view Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         fakeLoad()
     }
-    
     
     private var timer = Timer()
     // MARK: - fake Load

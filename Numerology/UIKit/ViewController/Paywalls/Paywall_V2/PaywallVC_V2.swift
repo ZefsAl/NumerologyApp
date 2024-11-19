@@ -474,7 +474,6 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //
-        
         let firstCell = indexPath.row == 0
         let width = collectionView.frame.size.width
         //
@@ -501,9 +500,8 @@ extension PaywallVC_V2: UICollectionViewDelegate, UICollectionViewDataSource, UI
 extension PaywallVC_V2 {
     
     func initializeIAP() {
-        
         // MARK: IDs
-        let productIDs: [String] = ["Month_9.99","Year_29.99","Weekly.ID"]
+        let productIDs: [String] = [IAP_IDs.month,IAP_IDs.year,IAP_IDs.weekly]
         
         // MARK: get Products
         Purchases.shared.getProducts(productIDs) { arr in

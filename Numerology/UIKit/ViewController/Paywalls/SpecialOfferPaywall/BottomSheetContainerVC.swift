@@ -7,10 +7,6 @@
 
 import UIKit
 
-
-//ViewControllerPannable
-
-
 // MARK: - BottomSheetContainer - 1
 class BottomSheetContainer: UIViewController, UIViewControllerTransitioningDelegate {
     
@@ -108,7 +104,6 @@ class ViewControllerPannable: UIViewController {
             })
         case .ended:
             if (velocity.y >= speedForClose) && CustomPresentationController.canBeDismissed {
-                
                 UIView.animate(withDuration: 0.2, animations: {
                     self.view.frame.origin = CGPoint(
                         x: self.originalPosition.x,

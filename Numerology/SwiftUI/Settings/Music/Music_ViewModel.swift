@@ -8,8 +8,6 @@
 import SwiftUI
 
 class MusicViewModel: ObservableObject {
-    @Published var isOnMusic: Bool = true
-    @Published var selectedMelody: String? = ""
     
     lazy var musicSectionsData: [MusicSectionModel] = [
         MusicSectionModel(
@@ -19,18 +17,8 @@ class MusicViewModel: ObservableObject {
     ]
     
     let melodyData: [MelodyModel] = [
-        MelodyModel(melody: "Music1"),
-        MelodyModel(melody: "Music2"),
-        MelodyModel(melody: "Music3"),
+        MelodyModel(melody: SoundsName.melody1),
+        MelodyModel(melody: SoundsName.melody2),
+        MelodyModel(melody: SoundsName.melody3),
     ]
-}
-
-// Model
-struct MusicSectionModel: Hashable {
-    let sectionTitle: String
-    let melodyModels: [MelodyModel]
-}
-
-struct MelodyModel: Hashable {
-    let melody: String
 }

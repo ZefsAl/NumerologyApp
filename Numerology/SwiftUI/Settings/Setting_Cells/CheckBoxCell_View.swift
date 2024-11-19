@@ -9,13 +9,15 @@ import SwiftUI
 
 struct CheckBoxCellView: View {
     let title: String
-    @Binding var selectedMelody: String?
+    @Binding var selectedMelody: String
     
     var body: some View {
         Button {
             withAnimation(.easeInOut(duration: 0.13)) {
                 self.selectedMelody = self.title
             }
+            UserDefaults.standard.set(self.selectedMelody, forKey: UserDefaultsKeys.selectedMelody)
+            UserDefaults.standard.synchronize()
         } label: {
             HStack(){
                 ZStack {

@@ -10,7 +10,7 @@ import SwiftUI
 struct SpecialOfferPaywall_SUI: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> SpecialOfferPaywall {
-        let vc = SpecialOfferPaywall(type: .standart)
+        let vc = SpecialOfferPaywall(type: .standart, isNavBarHidden: false)
         return vc
     }
     

@@ -6,24 +6,33 @@
 //
 
 import AVFoundation
+import SwiftUI
 
 
-// Нужен User Defaults для сохранения состояния включенного/выключенного звука
 
-class MusicManager {
+struct SoundsName {
+    static let melody1 = "Starry sky"
+    static let melody2 = "NumerologyAudio2"
+    static let melody3 = "NumerologyAudio3"
+}
+
+class MusicManager: ObservableObject {
     
     static let shared = MusicManager()
     
-    var player: AVAudioPlayer?
+    @Published var isOnMusic: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKeys.bgMusicState)
+    @Published var selectedMelody: String = UserDefaults.standard.string(forKey: UserDefaultsKeys.selectedMelody) ?? SoundsName.melody1 {
+        didSet {
+            print("selectedMelody", selectedMelody)
+            setupAndPlaySound()
+        }
+    }
     
-//    func checkSoundState() -> Bool {
-//        let state = UserDefaults.standard.object(forKey: UserDefaultsKeys.bgMusicState) as? Bool
-//        return state ?? false
-//    }
+    var player: AVAudioPlayer?
     
     func setupAndPlaySound() {
         
-        guard let url = Bundle.main.url(forResource: "NumerologyAudio", withExtension: "mp3") else { return }
+        guard let url = Bundle.main.url(forResource: selectedMelody, withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.soloAmbient, mode: .default)
@@ -51,7 +60,7 @@ class MusicManager {
 
     func playSound() {
         let state = UserDefaults.standard.object(forKey: UserDefaultsKeys.bgMusicState) as? Bool
-        if 
+        if
             let state = state,
             state
         {
@@ -65,3 +74,4 @@ class MusicManager {
     
     
 }
+

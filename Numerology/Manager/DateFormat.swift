@@ -15,11 +15,17 @@ func setDateFormat(date: Date) -> String {
     return df.string(from: date)
 }
 
-func makeTimeString(date: Date) -> String {
+func makeTimeString(date: Date, AMPM: Bool = true ) -> String {
     let df = DateFormatter()
-    df.dateFormat = "hh : mm a"
-    df.amSymbol = "AM"
-    df.pmSymbol = "PM"
+    
+    let ampm = AMPM ? "a" : ""
+    let Hours = AMPM ? "hh" : "HH"
+    
+    df.dateFormat = "\(Hours) : mm \(ampm)"
+    if AMPM {
+        df.amSymbol = "AM"
+        df.pmSymbol = "PM"
+    }
     return df.string(from: date)
 }
 

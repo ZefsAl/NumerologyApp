@@ -1,27 +1,9 @@
 import SwiftUI
 import RevenueCat
 
-struct ChevronCellView: View {
-    
-    var body: some View {
-        HStack {
-            ZStack {
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 14, weight: .medium, design: .default))
-                    .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color(uiColor: .systemGray3))
-            }
-        }
-    }
-}
-
-extension URL: Identifiable {
-    public var id: String {
-        self.absoluteString
-    }
-}
-
 struct SettingsView: View {
+    @Environment(\.presentationMode) var presentationMode
+    //
     @ObservedObject private var settingsViewModel = SettingsViewModel()
     //
     @State var isDestinationActive = false
@@ -29,16 +11,15 @@ struct SettingsView: View {
     // Safari
     @State var presentURL: URL?
     // Alert
-    @State var isShowingAlert = false {
-        didSet {
-            print("isShowingAlert", isShowingAlert)
-        }
-    }
-    
-    
+    @State var isShowingAlert: Bool = false
+    @State var alertTitle = ""
+    @State var alertMessage: String? = nil
+    // Custom Alert
+    @State var isCustomShowAlert: Bool = false
+    //
+    @State private var isAnimating = false
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(settingsViewModel.settings, id: \.self) { setting in
                     SettingCellView(
@@ -49,36 +30,40 @@ struct SettingsView: View {
                         model: setting
                     )
                 }
-                .background(
-                    NavigationLink(
-                        destination: destinationView(for: selectedModel),
-                        isActive: $isDestinationActive
-                    ) {
-                        EmptyView()
-                    }
-                        .hidden()
+            }
+            .navigationBarTitle("Settings", displayMode: .automatic)
+            .background(
+                NavigationLink(
+                    destination: destinationView(for: selectedModel),
+                    isActive: $isDestinationActive
+                ) {
+                    EmptyView()
+                }.hidden()
+            )
+            .accentColor(.white)
+            .sheet(item: $presentURL) { url in
+                SafariView(url: url)
+                    .ignoresSafeArea()
+            }
+            .customAlert(
+                isPresented: $isCustomShowAlert,
+                title: "Do you like this app?"
+            ) {
+                print("HI")
+                AppReview.requestReview()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { 
+                    isCustomShowAlert = false
+                }
+            }
+            .alert(isPresented: $isShowingAlert) {
+                Alert(
+                    title: Text(alertTitle),
+                    message: Text(alertMessage ?? ""),
+                    dismissButton: .default(Text("Got it!"))
                 )
             }
-            .navigationTitle("Settings")
-        }
-        .accentColor(.white)
-        .sheet(item: $presentURL) { url in
-            SafariView(url: url)
-                .ignoresSafeArea()
-        }
-        .alert(isPresented: $isShowingAlert) {
-            Alert(
-                title: Text(alertTitle),
-                message: Text(alertMessage ?? ""),
-                dismissButton: .default(Text("Got it!"))
-            )
-        }
+        
     }
-    
-    
-    
-    @State var alertTitle = ""
-    @State var alertMessage: String? = nil
     
     func restorePurchases() {
         Purchases.shared.restorePurchases { (customerInfo, error) in
@@ -106,7 +91,9 @@ struct SettingsView: View {
             allowDestination()
         case .rate:
             isDestinationActive = false
-            AppReview.requestReview()
+            self.withoutTransaction {
+                isCustomShowAlert = true
+            }
         case .terms:
             setUrl(AppSupportedLinks.terms.rawValue)
         case .privacy:
@@ -150,8 +137,6 @@ struct SettingsView: View {
         }
     }
 }
-
-
 
 
 #Preview {

@@ -8,6 +8,13 @@
 import Foundation
 
 
+struct IAP_IDs {
+    static let month = "Month_9.99"
+    static let year = "Year_29.99"
+    static let weekly = "Weekly.ID"
+    static let lifetime = "Lifetime.Purchase"
+}
+
 struct UserDefaultsKeys {
     static let name = "nameKey";
     static let surname = "surnameKey";
@@ -19,7 +26,8 @@ struct UserDefaultsKeys {
     static let currentDay = "currentDayKey"
     static let specialOfferCurrentDay = "specialOfferCurrentDay"
     // Music State
-    static let bgMusicState = "bgMusicState"
+    static let bgMusicState = "bgMusicStateKey"
+    static let selectedMelody = "selectedMelodyKey"
 }
 
 extension Notification.Name {
@@ -36,6 +44,7 @@ extension Notification.Name {
 }
 
 struct TechnicalTableKeys {
+    // Trends
     static let yourHrscpImages = "YourHrscpImages";
     static let numerologyImages = "NumerologyImages";
     static let angelNumbersImages = "AngelNumbersImages";

@@ -46,10 +46,7 @@ class QuizVC: UIViewController {
     }()
     // MARK: Continue Btn Action
     @objc private func continueBtnAction() {
-        print("continueBtnAction")
-        
         self.navigationController?.pushViewController(PaywallVC_V2(onboardingIsCompleted: false), animated: true)
-//        AppRouter.shared.setAppFlow(.app, animated: true)
     }
     
     // MARK: - content Collection View

@@ -23,20 +23,22 @@ class AppFlowRoute {
         self.window = window
     }
     
+    
     func setAppFlow(_ type: FlowType, animated: Bool) {
         guard let window = self.window else { return }
         self.withTransition(animate: animated, window: window)
         
-        switch type {
-        case .onboarding:
-            window.rootViewController = UINavigationController(rootViewController: OnboardingVC_v2())
-        case .app:
-            
-            let settings: UIHostingController = UIHostingController(rootView: SettingsView())
-            window.rootViewController = settings
-            
-            //window.rootViewController = CustomNavController(rootViewController: MainTabBarController())
-        }
+//        switch type {
+//        case .onboarding:
+//            window.rootViewController = UINavigationController(rootViewController: OnboardingVC_v2())
+//        case .app:
+//            window.rootViewController = CustomNavController(rootViewController: MainTabBarController())
+//        }
+//        window.makeKeyAndVisible()
+
+        // MARK: - ⚠️ TEST
+        let settings: UIHostingController = UIHostingController(rootView: MoonView())
+        window.rootViewController = settings
         window.makeKeyAndVisible()
     }
     

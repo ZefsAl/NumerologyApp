@@ -13,17 +13,9 @@ enum SettingType {
 
 class SettingsViewModel: ObservableObject {
     
-    // тут нужно @AppStorage
-//    @AppStorage(Self.userNameKey) var userName: String = "Unnamed"
-    
-    
-    @Published var name: String = UserDataKvoManager.shared.name ?? ""
-    @Published var surname: String = UserDataKvoManager.shared.surname ?? ""
+    @Published var name: String? = UserDataKvoManager.shared.name
+    @Published var surname: String? = UserDataKvoManager.shared.surname
     @Published var dateOfBirth: Date? = UserDataKvoManager.shared.dateOfBirth
-    
-//    @AppStorage(UserDefaultsKeys.name) var name: String = UserDataKvoManager.shared.name ?? ""
-//    @AppStorage(UserDefaultsKeys.surname) var surname: String = UserDataKvoManager.shared.surname ?? ""
-    
     
     @Published var settings: [Setting] = [
         Setting(settingType: .lifetime, title: "Get lifetime access", color: Color(UIColor.systemIndigo), imageName: "sparkles"),
@@ -35,11 +27,4 @@ class SettingsViewModel: ObservableObject {
         Setting(settingType: .support, title: "Support", color: Color(UIColor.gray), imageName: "questionmark.circle.fill"),
         Setting(settingType: .restore, title: "Restore purshace", color: Color(UIColor.systemGreen), imageName: "tag.fill"),
     ]
-    
-//    let profileSettingData: [ProfileSectionModel] = [
-//        ProfileSectionModel(sectionTitle: "Name", cellText: "Enter your name"),
-//        ProfileSectionModel(sectionTitle: "Surname", cellText: "Enter your surname"),
-//        ProfileSectionModel(sectionTitle: "Date of birth", cellText: "Your date of birth"),
-//    ]
-    
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 // MARK: - Profile Setting View
 struct MusicSetting: View {
+    
+    @ObservedObject var musicManager = MusicManager.shared
     @StateObject var musicViewModel = MusicViewModel()
     
     let musicToggleModel = Setting(
@@ -22,9 +24,10 @@ struct MusicSetting: View {
         List {
             SettingCellView(
                 customView:
-                    Toggle("", isOn: $musicViewModel.isOnMusic)
-                    .onChange(of: musicViewModel.isOnMusic) { value in
-                        print("✅Toggle",value)
+                Toggle("", isOn: $musicManager.isOnMusic)
+                    .onChange(of: musicManager.isOnMusic) { value in
+                        UserDefaults.standard.setValue(value, forKey: UserDefaultsKeys.bgMusicState)
+                        value ? musicManager.playSound() : musicManager.stopSound()
                     },
                 model: musicToggleModel
             )
@@ -33,7 +36,7 @@ struct MusicSetting: View {
                     ForEach(data.melodyModels, id: \.self) { model in
                         CheckBoxCellView(
                             title: model.melody,
-                            selectedMelody: $musicViewModel.selectedMelody
+                            selectedMelody: $musicManager.selectedMelody
                         )
                     }
                 }

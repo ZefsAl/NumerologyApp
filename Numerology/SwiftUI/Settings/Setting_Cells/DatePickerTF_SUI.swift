@@ -14,12 +14,11 @@ class DatePickerCustomTF: UITextField {
     
     init(date: Binding<Date?>, setPlaceholder: String) {
         self._date = date
-//        super.init(setPlaceholder: setPlaceholder)
         super.init(frame: .null)
-        self.setupDatePicker(date: self.date ?? Date())
+        self.setupDatePicker(date: self.date)
+        // Setup
+        self.clearButtonMode = .whileEditing
         self.addDoneKeyboardAccessoryButton()
-        
-        //
         self.attributedPlaceholder = NSAttributedString(string: setPlaceholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
     }
     
@@ -27,7 +26,7 @@ class DatePickerCustomTF: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupDatePicker(date: Date) {
+    func setupDatePicker(date: Date?) {
         // MARK: Date Picker
         let datePicker: UIDatePicker = {
             let dp = UIDatePicker()
@@ -45,8 +44,9 @@ class DatePickerCustomTF: UITextField {
                 dp.minimumDate = Date(timeInterval: 0, since: start)
                 dp.maximumDate = Date(timeInterval: 0, since: end)
             }
-            
-            dp.date = date
+            if let date = date {
+                dp.date = date
+            }
             return dp
         }()
         self.inputView = datePicker
@@ -61,14 +61,14 @@ class DatePickerCustomTF: UITextField {
 }
 
 
-struct CustomTF_SUI: UIViewRepresentable {
+struct DatePickerTF_SUI: UIViewRepresentable {
     
     @Binding var date: Date?
     var setPlaceholder: String
 
     func makeUIView(context: Context) -> DatePickerCustomTF {
         let dp = DatePickerCustomTF(date: $date, setPlaceholder: setPlaceholder)
-
+        dp.tintColor = .white
         if let date = date {
             dp.text = setDateFormat(date: date)
         }

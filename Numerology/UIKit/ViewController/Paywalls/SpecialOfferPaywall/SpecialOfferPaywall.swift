@@ -197,7 +197,6 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         b.setImage(img, for: .normal)
         b.tintColor = b.titleLabel?.textColor
         b.semanticContentAttribute = .forceRightToLeft
-
         b.contentHorizontalAlignment = .center
         b.contentVerticalAlignment = .center
         //
@@ -225,8 +224,8 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     @objc private func dismissAction() {
         guard timerCounter == 0 else { return }
         guard CustomPresentationController.canBeDismissed else { return }
-        let some = self.presentationController as? CustomPresentationController
-        some?.dismissTap()
+        let pc = self.presentationController as? CustomPresentationController
+        pc?.dismissTap()
     }
     
     
@@ -234,20 +233,21 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         case standart, modal
     }
     
-    // MARK: 🟢🟠 Convenience init
-    convenience init(type: PaywallStyleType) {
-        self.init()
-        //
+    // MARK: 🟢 init
+    required init(type: PaywallStyleType, isNavBarHidden: Bool ) {
+        self.isNavBarHidden = isNavBarHidden
+        super.init()
         switch type {
         case .standart:
-            self.isNavBarHidden = false
             self.view.gestureRecognizers?.removeAll()
             setupLoopedVideoBG()
         case .modal:
-            self.isNavBarHidden = true
+            return
         }
-        
-        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: 🟢 viewDidLoad
@@ -267,8 +267,11 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let isNavBarHidden = isNavBarHidden {
+        if let isNavBarHidden {
             self.navigationController?.setNavigationBarHidden(isNavBarHidden, animated: true)
+        }
+        if self.isNavBarHidden == true {
+            self.addCustomClose()
         }
     }
     
@@ -335,11 +338,6 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         ])
         // At the end
         self.setAdapttiveLayout()
-        
-        if let isNavBarHidden = isNavBarHidden, 
-           isNavBarHidden == true {
-            addCustomClose()
-        }
     }
     
     func addCustomClose() {
@@ -368,9 +366,8 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         
-//        self.view.addSubview(iv)
         self.view.insertSubview(iv, at: 0)
-//        let margin = self.view.layoutMarginsGuide
+        
         NSLayoutConstraint.activate([
             iv.topAnchor.constraint(equalTo: self.view.topAnchor),
             iv.widthAnchor.constraint(equalToConstant: self.view.frame.width),
@@ -445,7 +442,7 @@ extension SpecialOfferPaywall {
     func initializeIAP() {
         
         // MARK: IDs
-        let productIDs: [String] = ["Lifetime.Purchase"]
+        let productIDs: [String] = [IAP_IDs.lifetime]
         
         // MARK: get Products
         Purchases.shared.getProducts(productIDs) { arr in

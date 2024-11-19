@@ -57,8 +57,6 @@ extension CalendarView: FSCalendarDelegateAppearance {
 
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
         
-        
-        
         if MoneyCalendarManager.shared.positive.contains(date.get(.day)) &&
             !MoneyCalendarManager.shared.positive.isEmpty
         {
@@ -66,7 +64,6 @@ extension CalendarView: FSCalendarDelegateAppearance {
         } else {
             self.reloadData()
         }
-        
         
         if MoneyCalendarManager.shared.negative.contains(date.get(.day)) &&
             !MoneyCalendarManager.shared.negative.isEmpty

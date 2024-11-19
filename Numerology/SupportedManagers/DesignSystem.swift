@@ -38,6 +38,7 @@ struct DesignSystem {
         static let subtitle = UIFont.setSourceSerifPro(weight: .light, size: 15)
         static let footnote_Sb_13 = UIFont.setSourceSerifPro(weight: .regular, size: 13)
         static let caption2_Sb_11 = UIFont.setSourceSerifPro(weight: .light, size: 11)
+        static let caption3 = UIFont.setSourceSerifPro(weight: .regular, size: 9)
     }
     
     enum CinzelFont {
@@ -92,6 +93,22 @@ struct DesignSystem {
         //
         static let discountBadge: UIColor = .hexColor("2DA890")
     }
+    
+    struct MoonColors {
+        /// == AADCFF
+        static let brightTint: UIColor = .hexColor("AADCFF")
+        /// == 6D9BAE
+        static let mediumTint: UIColor = .hexColor("6D9BAE")
+        /// == 1F2930
+        static let darkTint: UIColor = .hexColor("1F2930")
+        
+        static let grayText: UIColor = .white.withAlphaComponent(0.5)
+    }
+    
+    
+    
+    
+    
     
     
     // MARK: - 🌕 Funcs

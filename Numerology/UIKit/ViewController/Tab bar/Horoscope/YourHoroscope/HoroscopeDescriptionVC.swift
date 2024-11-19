@@ -123,7 +123,6 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
         self.mainInfo.info.text = model.text
     }
     
-    
     // MARK: - charts CV
     lazy var chartsCV: ContentCollectionView = {
         let cv = ContentCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -133,7 +132,6 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     
     
     lazy var mainInfo: AccordionView = AccordionView()
-    
     let learnMore: AccordionView = AccordionView()
     
     // MARK: Scroll View
@@ -202,8 +200,6 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     
     // MARK: Set up Stack
     private func setupStack() {
-        
-        
         
         let cardContentStack = UIStackView(arrangedSubviews: [
             segmentedControl,

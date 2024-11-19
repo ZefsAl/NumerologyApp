@@ -18,26 +18,26 @@ extension Date {
         return nextMonth?.get(component) ?? Date().get(component)
     }
     
-    static func makeDateAsComponents(year: Int, month: Int, day: Int) -> Date {
-        var dateComponents = DateComponents()
-        dateComponents.year = year
-        dateComponents.month = month
-        dateComponents.day = day
-        //    dateComponents.timeZone = TimeZone(abbreviation: "JST") // Japan Standard Time
-        dateComponents.hour = 0
-        dateComponents.minute = 0
-        // Create date from components
-        let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
-        let someDateTime = userCalendar.date(from: dateComponents)
-        //
-        if let someDateTime = someDateTime {
-            print("makeDateAsComponents ✅ Unwrapped")
-            return someDateTime
-        } else {
-            print("makeDateAsComponents 🔴 Not Unwrap")
-            return Date()
-        }
-    }
+//    static func makeDateFromComponents(year: Int, month: Int, day: Int) -> Date {
+//        var dateComponents = DateComponents()
+//        dateComponents.year = year
+//        dateComponents.month = month
+//        dateComponents.day = day
+//        //    dateComponents.timeZone = TimeZone(abbreviation: "JST") // Japan Standard Time
+//        dateComponents.hour = 0
+//        dateComponents.minute = 0
+//        // Create date from components
+//        let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
+//        let someDateTime = userCalendar.date(from: dateComponents)
+//        //
+//        if let someDateTime = someDateTime {
+//            print("makeDateAsComponents ✅ Unwrapped")
+//            return someDateTime
+//        } else {
+//            print("makeDateAsComponents 🔴 Not Unwrap")
+//            return Date()
+//        }
+//    }
     
     static func makeDate(year: String, month: String, day: String) -> Date {
         let strDate = "\(year)-\(month)-\(day)T00:00:00+0000"

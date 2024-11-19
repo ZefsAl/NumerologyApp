@@ -53,24 +53,20 @@ class UserDataKvoManager: NSObject {
             name: .userDataDidChangeNotification,
             object: nil
         )
-        // 🔴 тут баг реагирует 2 раза
         
-        NotificationCenter.default.addObserver(forName: .userDataDidChangeNotification, object: nil, queue: .main) { notification in   
-            print(
-                "🔴🔴⚠️ check userDataDidChangeNotification",
-                notification.description,
-                notification.debugDescription,
-                notification.userInfo as Any,
-                notification.object as Any
-            )
-             
+        
+        NotificationCenter.default.addObserver(forName: .userDataDidChangeNotification, object: nil, queue: .main) { notification in
+            // 🔴 тут баг реагирует 2 раза // был
+//            print(
+//                "🔴🔴⚠️ check userDataDidChangeNotification",
+//                notification.description,
+//                notification.debugDescription,
+//                notification.userInfo as Any,
+//                notification.object as Any
+//            )
         }
         
     }
-    @objc func bugfixTest(_ sender: NotificationCenter) {
-        
-    }
-    
     
     private func saveDidSetAction(value: Any?, key: String) {
         UserDefaults.standard.setValue(value, forKey: key) // 1 
@@ -80,7 +76,7 @@ class UserDataKvoManager: NSObject {
         NotificationCenter.default.post(name: .userDataDidChangeNotification, object: nil) // 3
     }
     
-    func set(type userDataType: UserDataType, value: Any) {
+    func set(type userDataType: UserDataType, value: Any?) {
         switch userDataType {
         case .name: 
             let value = value as? String

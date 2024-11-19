@@ -100,8 +100,6 @@ final class PremiumAccordionView: UIView {
         guard let premiumState = notification.object as? Bool else { return }
         self.sharedData.isPremium = !premiumState
     }
-    
-    
 
     // MARK: Set up Stack
     private func setupStack() {

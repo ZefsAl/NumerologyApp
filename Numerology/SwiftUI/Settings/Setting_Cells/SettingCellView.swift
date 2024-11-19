@@ -18,14 +18,14 @@ struct SettingCellView<CustomView: View>: View {
     }
     
     let model: Setting?
+    
+    @State private var isPressed: Bool = false
 
     var body: some View {
-        
         Button {
             if let actionHandler = actionHandler {
                 actionHandler()
             }
-            
         } label: {
             HStack {
                 ZStack {
@@ -44,8 +44,9 @@ struct SettingCellView<CustomView: View>: View {
                 }
             }
             .contentShape(Rectangle())
-        }.buttonStyle(.plain)
-        
-            
+        }
+        .buttonStyle(.plain)
     }
 }
+
+

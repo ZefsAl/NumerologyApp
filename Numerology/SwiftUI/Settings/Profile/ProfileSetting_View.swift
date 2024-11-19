@@ -9,8 +9,15 @@ import SwiftUI
 
 // MARK: - Profile Setting View
 struct ProfileSetting: View {
+    @Environment(\.presentationMode) var presentationMode
+    //
     @ObservedObject var settingsVM = SettingsViewModel()
-    
+    //
+    @State private var showSaveAlert: Bool = false
+    @State private var saveAlertText: String = ""
+    //
+    @State private var showDeleteAlert: Bool = false
+    //
     let deleteButtonModel = Setting(
         settingType: nil,
         title: "Delete user data",
@@ -18,86 +25,119 @@ struct ProfileSetting: View {
         imageName: "trash.fill"
     )
     
-    
-    
-    
-
-//    @State var name: String = UserDataKvoManager.shared.name ?? ""
-//    @State var surname: String = UserDataKvoManager.shared.surname ?? ""
-    
-    
-    
-    
     var body: some View {
         List {
-//            ForEach(settingsViewModel.profileSettingData, id: \.self) { data in
-//                Section(header: Text(data.sectionTitle).textCase(nil)) {
-//                    SettingTextFieldCell(inputText: data.cellText)
-//                }
-//            }
-            
             Section(header: Text("Name").textCase(nil)) {
-//                SettingTextFieldCell(inputText: "Enter your name")
-                SettingTextFieldCell(inputText: self.$settingsVM.name)
+                PlainTextField_SUI(
+                    enteredText: self.$settingsVM.name,
+                    setPlaceholder: "Enter name"
+                )
             }
             Section(header: Text("Surname").textCase(nil)) {
-                SettingTextFieldCell(inputText: self.$settingsVM.surname)
+                PlainTextField_SUI(
+                    enteredText: self.$settingsVM.surname,
+                    setPlaceholder: "Enter surname"
+                )
             }
             Section(header: Text("Date of birth").textCase(nil)) {
-                CustomTF_SUI(date: self.$settingsVM.dateOfBirth, setPlaceholder: "\(setDateFormat(date: self.settingsVM.dateOfBirth ?? Date()))")
-                
+                DatePickerTF_SUI(
+                    date: self.$settingsVM.dateOfBirth,
+                    setPlaceholder: "Select date"
+                )
             }
-            
-
-            SettingCellView<EmptyView>(model: deleteButtonModel)
+            Section(header: Text("").textCase(nil)) {
+                SettingCellView<EmptyView>(
+                    actionHandler: {
+                        // MARK: - Delete
+                        self.showDeleteAlert = true
+                    },
+                    customView: EmptyView(),
+                    model: deleteButtonModel
+                )
+                .alert(isPresented: $showDeleteAlert) {
+                    Alert(
+                        title: Text("Are you sure?"),
+                        message: Text("Your data will be deleted and the app will start over."),
+                        primaryButton: .destructive(Text("Delete")) {
+                            deleteAct()
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+            }
         }
         .navigationTitle("Profile").navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
-            Button {
-                
-                print(self.settingsVM.name)
-                print(self.settingsVM.surname)
-                print(self.settingsVM.dateOfBirth)
-                
-                
-                
-                guard
-                    let dateOfBirthVal = self.settingsVM.dateOfBirth
-                else { return }
-                
-                UserDataKvoManager.shared.set(type: .dateOfBirth, value: dateOfBirthVal)
-                UserDataKvoManager.shared.set(type: .name, value: self.settingsVM.name)
-                UserDataKvoManager.shared.set(type: .surname, value: self.settingsVM.surname)
-                
-                
-//                guard
-//                    let nameVal = self.name,
-//                    let surnameVal = self.surname,
-//                    let dateOfBirthVal = self.settingsVM.dateOfBirth
-//                    let newDateOfBirth = self.newDateOfBirth ?? UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
-//                else {
-//                    print("⚠️ Error getting data for save")
-//                    return
-//                }
-                
-//                if nameVal != "" && surnameVal != "" && dateOfBirthVal != nil {
-//                    UserDataKvoManager.shared.set(type: .dateOfBirth, value: dateOfBirthVal)
-//                    UserDataKvoManager.shared.set(type: .name, value: nameVal)
-//                    UserDataKvoManager.shared.set(type: .surname, value: surnameVal)
-//                    print("saved")
-////                    self.navigationController?.popViewController(animated: true)
-//                } else {
-//                    print("NOT saved")
-//                }
-                
-            } label: {
-                Text("Save")
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    backAndSave()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 17, weight: .semibold))
+                        Text("Settings")
+                    }
+                    .foregroundStyle(.white)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .offset(x: -8)
             }
-
         }
+        .alert(isPresented: $showSaveAlert) {
+            Alert(
+                title: Text(self.saveAlertText),
+                dismissButton: .cancel() {}
+            )
+        }   
+    }// view end
+    
+    private func deleteAct() {
+        // костыль какой то ?
+        UserDataKvoManager.shared.set(type: .name, value: nil)
+        UserDataKvoManager.shared.set(type: .surname, value: nil)
+        UserDataKvoManager.shared.set(type: .dateOfBirth, value: nil)
+        self.settingsVM.name = nil
+        self.settingsVM.surname = nil
+        self.settingsVM.dateOfBirth = nil
+        //
+        AppFlowRoute.shared.setAppFlow(.onboarding, animated: true)
     }
+    
+    private func backAndSave() {
+        guard
+            let name = self.settingsVM.name,
+            let surname = self.settingsVM.surname,
+            let dateOfBirthVal = self.settingsVM.dateOfBirth,
+            name != "",
+            surname != "",
+            self.settingsVM.dateOfBirth != nil
+        else {
+            self.saveAlertText = "Fields must be filled!"
+            self.showSaveAlert = true
+            return
+        }
+        // MARK: - Save
+        UserDataKvoManager.shared.set(type: .name, value: name)
+        UserDataKvoManager.shared.set(type: .surname, value: surname)
+        UserDataKvoManager.shared.set(type: .dateOfBirth, value: dateOfBirthVal)
+        presentationMode.wrappedValue.dismiss()
+    }
+    
 }
 
 #Preview {
     ProfileSetting()
+}
+
+
+
+class AlertModel: Identifiable, ObservableObject {
+    let id = UUID()
+    
+    let alertTitle: String = ""
+    let message: String = ""
+    
+    let primaryButtonText: String? = nil
+    let secondaryButtonText: String? = nil
 }

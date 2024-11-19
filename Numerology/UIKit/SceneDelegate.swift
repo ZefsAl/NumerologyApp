@@ -7,8 +7,11 @@
 
 import UIKit
 import RevenueCat
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    @ObservedObject var musicManager = MusicManager.shared
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Style
@@ -28,14 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool as Any)
         }
         print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
-        // test
-//        let vc = UIViewController()
-//        vc.setBackground(named: "bgHoroscope2")
-//        vc.view.backgroundColor = .systemBlue
-//        let nav = UINavigationController(rootViewController: vc)
-////        let nav = CustomNavController(rootViewController: HoroscopeVC())
-//        AppRouter.shared.window?.rootViewController = nav
-//        AppRouter.shared.window?.makeKeyAndVisible()
         print("🔄 scene")
     }
     
@@ -46,7 +41,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         print("🔄 sceneDidBecomeActive")
         UIApplication.shared.applicationIconBadgeNumber = 0
-        MusicManager.shared.playSound()
+//        MusicManager.shared.playSound()
+        musicManager.playSound()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
@@ -58,7 +54,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-        MusicManager.shared.stopSound()
+//        MusicManager.shared.stopSound()
+        musicManager.stopSound()
         print("🔄 sceneDidEnterBackground")
     }
     

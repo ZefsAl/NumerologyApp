@@ -45,54 +45,54 @@ final class PremiumManager {
         case bottomTrailing, centerTrailing, topTrailing
     }
     
-    func setPremiumBadgeToCard(
-        view: UIView,
-        imageSize: CGFloat = 18,
-        side: AvalibleConstraint = .bottomTrailing,
-        tintColor: UIColor = DesignSystem.BadgeColor.transparent
-    ) {
-        
-        // ✅ check, set if user defaults not have access
-        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
-        guard 
-            let accessVal = accessVal,
-            accessVal == false 
-        else { return }
-        
-        //
-        let configImage = UIImage(
-            systemName: "lock.fill",
-            withConfiguration: UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)
-        )?.withTintColor(tintColor, renderingMode: .alwaysOriginal)
-        
-        miniCardPremiumIcon.image = configImage
-
-        view.addSubview(miniCardPremiumIcon)
-        NSLayoutConstraint.activate([
-            miniCardPremiumIcon.widthAnchor.constraint(equalToConstant: imageSize+4),
-            miniCardPremiumIcon.heightAnchor.constraint(equalToConstant: imageSize+4),
-        ])
-        
-        switch side {
-            
-        case .bottomTrailing:
-            NSLayoutConstraint.activate([
-                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-                miniCardPremiumIcon.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
-            ])
-        case .centerTrailing:
-            NSLayoutConstraint.activate([
-                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-                miniCardPremiumIcon.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-            ])
-        case .topTrailing:
-            NSLayoutConstraint.activate([
-                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-                miniCardPremiumIcon.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
-            ])
-        }
-        
-    }
+//    func setPremiumBadgeToCard(
+//        view: UIView,
+//        imageSize: CGFloat = 18,
+//        side: AvalibleConstraint = .bottomTrailing,
+//        tintColor: UIColor = DesignSystem.BadgeColor.transparent
+//    ) {
+//        
+//        // ✅ check, set if user defaults not have access
+//        let accessVal = UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool
+//        guard 
+//            let accessVal = accessVal,
+//            accessVal == false 
+//        else { return }
+//        
+//        //
+//        let configImage = UIImage(
+//            systemName: "lock.fill",
+//            withConfiguration: UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)
+//        )?.withTintColor(tintColor, renderingMode: .alwaysOriginal)
+//        
+//        miniCardPremiumIcon.image = configImage
+//
+//        view.addSubview(miniCardPremiumIcon)
+//        NSLayoutConstraint.activate([
+//            miniCardPremiumIcon.widthAnchor.constraint(equalToConstant: imageSize+4),
+//            miniCardPremiumIcon.heightAnchor.constraint(equalToConstant: imageSize+4),
+//        ])
+//        
+//        switch side {
+//            
+//        case .bottomTrailing:
+//            NSLayoutConstraint.activate([
+//                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+//                miniCardPremiumIcon.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+//            ])
+//        case .centerTrailing:
+//            NSLayoutConstraint.activate([
+//                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
+//                miniCardPremiumIcon.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+//            ])
+//        case .topTrailing:
+//            NSLayoutConstraint.activate([
+//                miniCardPremiumIcon.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+//                miniCardPremiumIcon.topAnchor.constraint(equalTo: view.topAnchor, constant: 12),
+//            ])
+//        }
+//        
+//    }
     
     /// return if user defaults not have access
     func getPremiumImageForAccordion(imageSize: CGFloat) -> UIImage? {
@@ -126,16 +126,16 @@ final class PremiumManager {
     // MARK: - show Special Offer
     public static func showSpecialOffer(from vc: UIViewController?) {
         guard let vc = vc else { return }
-        
-        
-        let paywall = BottomSheetContainer(contentVC: SpecialOfferPaywall())
-        paywall.preferredContentSize = CGSize(
+        //
+//        let paywall = SpecialOfferPaywall()
+        let container = BottomSheetContainer(contentVC: SpecialOfferPaywall(type: .modal, isNavBarHidden: true))
+        container.preferredContentSize = CGSize(
             width: UIScreen.main.bounds.width,
             height: UIScreen.main.bounds.height / (DeviceMenager.isSmallDevice ? 2.25 : 2.3)
         )
         //
-        paywall.modalPresentationStyle = .overFullScreen
-        vc.present(paywall, animated: false)
+        container.modalPresentationStyle = .overFullScreen
+        vc.present(container, animated: false)
         
     }
 }

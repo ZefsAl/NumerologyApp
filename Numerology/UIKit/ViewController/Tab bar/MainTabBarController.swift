@@ -7,13 +7,14 @@
 
 import UIKit
 import RevenueCat
+import SwiftUI
 
 
 final class MainTabBarController: UITabBarController, UITabBarControllerDelegate, RemoteOpenDelegate, SpecialOfferButtonDelegate {
     
     var openFrom: UIViewController?
-    
     var boardOfDayModel: BoardOfDayModel?
+    @ObservedObject var musicManager = MusicManager.shared
     
     lazy private var specialOfferButton = {
         let b = SpecialOfferButton()
@@ -71,7 +72,6 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         self.delegate = self
         // Nav
-        
         self.setNavItems(
             left: UIBarButtonItem(customView: specialOfferButton),
             right: UIBarButtonItem(customView: profileButton)
@@ -82,7 +82,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         setTabBarStyle()
         setTabs()
         // Bg Music
-        MusicManager.shared.setupAndPlaySound()
+        musicManager.setupAndPlaySound()
     }
     
     private func showSpecialOffer() {
@@ -95,7 +95,6 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
                 guard let time = model.val1 else { return }
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(time*60)) { // ~ 420=7 min   Double(time*60)
                     // MARK: - Special Offer ✅
-//                    self.presentViewControllerFromVisibleViewController(SpecialOfferPaywall(), animated: true) {}
                     let savedDay: Int? = UserDefaults.standard.object(forKey: UserDefaultsKeys.specialOfferCurrentDay) as? Int
                     let currntDay = Date().get(.day)
                     
@@ -104,7 +103,6 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
                         UserDefaults.standard.setValue(currntDay, forKey: UserDefaultsKeys.specialOfferCurrentDay)
                         return
                     }
-                    
                     guard currntDay != savedDay else { return }
                     PremiumManager.showSpecialOffer(from: self)
                     UserDefaults.standard.setValue(currntDay, forKey: UserDefaultsKeys.specialOfferCurrentDay)
