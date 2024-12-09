@@ -45,10 +45,12 @@ struct ChipsButton: View {
                     .renderingMode(.template)
                 Text(self.title)
                     .font(Font((self.footnote) as CTFont))
-                    .font(.system(size: 14, weight: .medium, design: .default))
             }
+            .font(.system(size: 14, weight: .medium, design: .default))
             .foregroundStyle(.white)
-            .frame(maxWidth: 90, maxHeight: 30, alignment: .center)
+            .scaledToFit()
+            .padding(.horizontal, 8)
+            .frame(minHeight: 30, alignment: .center)
             .background(
                 ZStack {
                     let rect = RoundedRectangle(cornerRadius: 16)
@@ -68,16 +70,22 @@ struct ChipsButton: View {
 
 struct ChipsButton_CUST_Preview: View {
     
-    @State var some: String = ""
+    @State var some: String = "Meaning"
+    @StateObject var vm: MoonCalendarViewModel = MoonCalendarViewModel()
 
     var body: some View {
-        HStack {
-            ChipsButton(title: "Meaning", iconName: "book.pages", selectedString: $some)
-            ChipsButton(title: "Love", iconName: "heart", selectedString: $some)
-            ChipsButton(title: "Home", iconName: "house", selectedString: $some)
-            ChipsButton(title: "Health", iconName: "cross", selectedString: $some)
+        VStack {
+            ForEach(Array(vm.chipsDataModels.enumerated()), id: \.offset) { offset, model in
+                ChipsButton(title: model.title, iconName: model.iconName, selectedString: $some)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color.black)
     }
+}
+
+
+//let chipsModel
+struct ChipsModel {
+    let title, iconName: String
 }

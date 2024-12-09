@@ -26,6 +26,45 @@ struct ProfileSetting: View {
     )
     
     var body: some View {
+        VStack {
+            if DeviceMenager.isSmallDevice {
+                self.setupList()
+            } else {
+                NavigationView() {
+                    self.setupList()
+                        .environment(\.defaultMinListHeaderHeight, 0)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("Profile", displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    backAndSave()
+                } label: {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 17, weight: .semibold))
+                        Text("Settings")
+                    }
+                    .foregroundStyle(.white)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .offset(x: -8)
+            }
+        }
+        .alert(isPresented: $showSaveAlert) {
+            Alert(
+                title: Text(self.saveAlertText),
+                dismissButton: .cancel() {}
+            )
+        }
+        
+    }// view end
+    
+    
+    @ViewBuilder func setupList() -> some View {
         List {
             Section(header: Text("Name").textCase(nil)) {
                 PlainTextField_SUI(
@@ -66,32 +105,7 @@ struct ProfileSetting: View {
                 }
             }
         }
-        .navigationTitle("Profile").navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    backAndSave()
-                } label: {
-                    HStack {
-                        Image(systemName: "chevron.backward")
-                            .font(.system(size: 17, weight: .semibold))
-                        Text("Settings")
-                    }
-                    .foregroundStyle(.white)
-                }
-                .buttonStyle(PlainButtonStyle())
-                .offset(x: -8)
-            }
-        }
-        .alert(isPresented: $showSaveAlert) {
-            Alert(
-                title: Text(self.saveAlertText),
-                dismissButton: .cancel() {}
-            )
-        }   
-    }// view end
-    
+    }
     private func deleteAct() {
         // костыль какой то ?
         UserDataKvoManager.shared.set(type: .name, value: nil)

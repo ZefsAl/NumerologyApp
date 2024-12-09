@@ -26,12 +26,12 @@ final class PaywallVC_V2: UIViewController {
         }
     }
     
-    // MARK: Carousel CV
-    private let customCarousel_CV: CustomCarousel_CV = {
-        let cv = CustomCarousel_CV()
+    private let customCarousel_CV: Carousel_v2 = {
+        let cv = Carousel_v2()
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
+    
     
     // MARK: Collection View
     private let productsCollectionView: ContentCollectionView = ContentCollectionView()
@@ -116,13 +116,12 @@ final class PaywallVC_V2: UIViewController {
         s.addTarget(Any?.self, action: #selector(switchAction), for: .touchUpInside)
         // on
         s.onTintColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.7921568627, alpha: 1)
-        // off
+        // off - не получилось
 //        let off = DesignSystem.PaywallTint.primaryDarkBG
 //        s.tintColor = off
 //        s.layer.cornerRadius = s.frame.height / 2.0
 //        s.backgroundColor = off
 //        s.clipsToBounds = true
-        
         return s
     }()
     
@@ -238,7 +237,6 @@ final class PaywallVC_V2: UIViewController {
         }
     }
     
-    
     // MARK: 🟢 viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -303,7 +301,6 @@ final class PaywallVC_V2: UIViewController {
     // MARK: 🌕 Setup UI
     private func setupUI() {
         
-        
         // MARK: Bottom Side Stack
         let topSideStack = UIStackView(arrangedSubviews: [mainPromoTitle])
         topSideStack.translatesAutoresizingMaskIntoConstraints = false
@@ -311,8 +308,8 @@ final class PaywallVC_V2: UIViewController {
         topSideStack.alignment = .center
         topSideStack.distribution = .fill
         topSideStack.spacing = 0
-        topSideStack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0)
-        topSideStack.isLayoutMarginsRelativeArrangement = true
+//        topSideStack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0)
+//        topSideStack.isLayoutMarginsRelativeArrangement = true
         
         // MARK: Docs Stack
         let docsStack = UIStackView(arrangedSubviews: [termsButton,restoreButton,privacyButton])
@@ -372,7 +369,7 @@ final class PaywallVC_V2: UIViewController {
         mainStack.axis = .vertical
         mainStack.alignment = .fill
         mainStack.distribution = .fill
-        mainStack.spacing = 0
+        mainStack.spacing = 18
         
         // Add addSubview
         self.view.addSubview(mainStack)
@@ -385,7 +382,7 @@ final class PaywallVC_V2: UIViewController {
             purchaseButton.heightAnchor.constraint(equalToConstant: 60),
             closeButton.topAnchor.constraint(equalTo: viewMargin.topAnchor, constant: 8),
             closeButton.trailingAnchor.constraint(equalTo: viewMargin.trailingAnchor),
-            customCarousel_CV.heightAnchor.constraint(equalToConstant: 183),
+            customCarousel_CV.heightAnchor.constraint(equalToConstant: 165),
             //
             mainStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
             mainStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),

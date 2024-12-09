@@ -31,7 +31,7 @@ final class CalendarSmall: FSCalendar, FSCalendarDelegate,FSCalendarDataSource {
         //
         self.dataSource = self
         self.delegate = self
-        self.translatesAutoresizingMaskIntoConstraints = false
+//        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {
@@ -61,14 +61,7 @@ final class CalendarSmall: FSCalendar, FSCalendarDelegate,FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        self.currentSelectedDate = calendar.selectedDate
-        
-        let fixedDate = Date.makeDate(
-            year: String(date.get(.year)),
-            month: String(date.get(.month)),
-            day: String(date.get(.day))
-        )
-        self.currentSelectedDate = fixedDate
+        self.currentSelectedDate = date
     }
     
 }

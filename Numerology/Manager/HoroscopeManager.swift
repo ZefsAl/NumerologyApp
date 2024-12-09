@@ -309,25 +309,55 @@ final class HoroscopeManager {
         }
     }
     
-    func getMoonPhase(moonDay: Int, completion: @escaping (MoonPhaseModel) -> Void) {
-        let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: moonDay)
-        //
-        docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
-            //
+//    func getMoonPhase(moonDay: Int, completion: @escaping (MoonPhaseModel) -> Void) {
+//        let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: moonDay)
+//        //
+//        docRef.getDocuments() { (querySnapshot, error) in
+//            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
+//            //
+//            if let error = error {
+//                print("⚠️ Error getting documents: \(error)")
+//            }
+//            // Decode
+//            for doc in documents {
+//                do {
+//                    let val = try doc.data(as: MoonPhaseModel.self)
+//                    completion(val)
+//                }
+//                catch {
+//                    print("⚠️ Error when trying to decode book: \(error)")
+//                }
+//            }
+//        }
+//    }
+    
+    func getAllMoonPhases(completion: @escaping ([MoonPhaseModel]) -> Void) {
+        let collectionRef = firestore.collection("MoonPhase")
+        
+        collectionRef.getDocuments { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("⚠️ NOT get documents")
+                completion([]) // Возвращаем пустой массив в случае ошибки
+                return
+            }
+            
             if let error = error {
                 print("⚠️ Error getting documents: \(error)")
+                completion([]) // Возвращаем пустой массив в случае ошибки
+                return
             }
-            // Decode
+            
+            // Decode all documents into an array
+            var moonPhases: [MoonPhaseModel] = []
             for doc in documents {
                 do {
-                    let val = try doc.data(as: MoonPhaseModel.self)
-                    completion(val)
-                }
-                catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    let moonPhase = try doc.data(as: MoonPhaseModel.self)
+                    moonPhases.append(moonPhase)
+                } catch {
+                    print("⚠️ Error decoding document \(doc.documentID): \(error)")
                 }
             }
+            completion(moonPhases)
         }
     }
     

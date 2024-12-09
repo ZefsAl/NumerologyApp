@@ -13,9 +13,11 @@ struct MoonStatView: View {
     var footnote: String
     var imageName: String? = nil
     var firstTitle: String? = nil
-    var secondTitle: String? = nil
+    var titles: [String]? = nil
+//    var secondTitle: String? = nil
     var caption: String? = nil
     var alignment: HorizontalAlignment = .leading
+    
     
     
     
@@ -44,11 +46,21 @@ struct MoonStatView: View {
                     Text(firstTitle)
                         .font(Font((self.titleFont) as CTFont))
                 }
-                if let secondTitle, secondTitle != "" {
-                    arrowImage
-                    Text(secondTitle)
-                        .font(Font((self.titleFont) as CTFont))
+                
+                if let titles = self.titles {
+                    ForEach(Array(titles.enumerated()), id: \.offset) { offset, title in
+                        if offset != 0 {
+                            arrowImage
+                        }
+                        Text(title)
+                            .font(Font((self.titleFont) as CTFont))
+                    }
                 }
+//                if let secondTitle, secondTitle != "" {
+//                    arrowImage
+//                    Text(secondTitle)
+//                        .font(Font((self.titleFont) as CTFont))
+//                }
                 
             }
             //
@@ -75,13 +87,24 @@ struct MoonStatView: View {
 }
 
 #Preview {
-    MoonStatView(
-        footnote: "Rise:",
-        imageName: "cancer",
-        firstTitle: "14",
-        secondTitle: "15",
-        caption: "09 / 12"
-    )
+    VStack(spacing: 24) {
+        MoonStatView(
+            footnote: "Rise:",
+            imageName: "cancer",
+            firstTitle: "14",
+            caption: "09 / 12"
+        )
+
+        MoonStatView(
+            footnote: "Moon phase",
+            imageName: nil,
+            firstTitle: nil,
+            titles: ["1","2","3"],
+            caption: "Cancer",
+            alignment: .leading
+        )
+    }
+    
 //    MoonStatView(
 //        footnote: "Rise:",
 //        imageTitle: "cancer",

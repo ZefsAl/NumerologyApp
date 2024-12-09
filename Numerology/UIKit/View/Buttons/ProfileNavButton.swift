@@ -17,7 +17,7 @@ final class ProfileButton: UIButton {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         
-
+        
         self.setImage(UIImage(named: "Gear_SF"), for: .normal)
         
         self.heightAnchor.constraint(equalToConstant: 32).isActive = true
@@ -32,10 +32,7 @@ final class ProfileButton: UIButton {
     }
     
     @objc private func profileAct() {
-//        self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(EditProfileVC(), animated: true)
-        
         self.remoteOpenDelegate?.openFrom?.navigationController?.pushViewController(
-            //CustomHostController(rootView: SettingsView()),
             CustomHostController(rootView: SettingsView()),
             animated: true
         )
@@ -45,31 +42,26 @@ final class ProfileButton: UIButton {
 
 // Создаем кастомный UIHostingController
 class CustomHostController<Content: View>: UIHostingController<Content> {
-
+    
     override init(rootView: Content) {
         super.init(rootView: rootView)
     }
-
+    
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("🌕 viewWillAppear") 
-//        UIView.animate(withDuration: 0.3) {
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-//        }
+        print("CustomHostController 🌕 viewWillAppear")
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        DispatchQueue.main.async {
-            self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
-            self.navigationController?.navigationBar.prefersLargeTitles = false
-//        }
-        print("🌕 viewDidDisappear")
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        print("CustomHostController 🌕 viewDidDisappear")
     }
-    
 }

@@ -42,7 +42,8 @@ struct MusicSetting: View {
                 }
             }
         }
-        .navigationTitle("Profile").navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

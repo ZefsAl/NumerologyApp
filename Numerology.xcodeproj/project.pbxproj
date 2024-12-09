@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -151,6 +151,7 @@
 		C215C2832CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2822CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift */; };
 		C215C2872CB9A14300596F01 /* AppReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2862CB9A14300596F01 /* AppReview.swift */; };
 		C215C2892CB9AB0C00596F01 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2882CB9AB0C00596F01 /* SafariView.swift */; };
+		C2234F9F2CF5ED9400A597C9 /* TabViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */; };
 		C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */; };
 		C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */; };
 		C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */; };
@@ -167,6 +168,8 @@
 		C24BA1192CEB454200C00F49 /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BA1182CEB454200C00F49 /* Extension_String.swift */; };
 		C24D7FA32CDDFBD400D60012 /* MoonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */; };
 		C24D7FA52CDE08B600D60012 /* Accordion_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */; };
+		C25081382CEF48640006DD51 /* Carousel_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081372CEF48640006DD51 /* Carousel_v2.swift */; };
+		C250813A2CEF4ABB0006DD51 /* CardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081392CEF4ABB0006DD51 /* CardContentModel.swift */; };
 		C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */; };
 		C25143F02C156B11005019C6 /* TrendsArticlesCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EF2C156B11005019C6 /* TrendsArticlesCV.swift */; };
 		C25143F22C157171005019C6 /* TrendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143F12C157171005019C6 /* TrendsCell.swift */; };
@@ -189,6 +192,7 @@
 		C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383722C8AE9C400E27246 /* RoundedCorner.swift */; };
 		C26383752C8AE9EB00E27246 /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383742C8AE9EB00E27246 /* View_Ext.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
+		C2778D422D01AECD00BB3CE8 /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
 		C27EBBD52C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */; };
 		C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */; };
@@ -213,7 +217,7 @@
 		C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD92C65816F001235F4 /* HoroscopeCell_v2.swift */; };
 		C2C38ADC2C665763001235F4 /* SegmentedControlHRSCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */; };
 		C2CA6AAA2BF810A000A6E3FC /* PythagoreanSquareModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CA6AA92BF810A000A6E3FC /* PythagoreanSquareModel.swift */; };
-		C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */; };
+		C2CAB4CC2BEFC00100AC3421 /* MoonCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB4CB2BEFC00100AC3421 /* MoonCalendarViewModel.swift */; };
 		C2CAE6D62BD1D54A00E09933 /* DetailAngelNumbersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */; };
 		C2CAE6D82BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6D72BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift */; };
 		C2CAE6DC2BD3D21500E09933 /* NumerologyVC_2024.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAE6DB2BD3D21500E09933 /* NumerologyVC_2024.swift */; };
@@ -242,6 +246,30 @@
 		C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */; };
 		C2FDF12E2C168ADA007EB282 /* TrendsArticlesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2778D402D01AECD00BB3CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 845EB1AF2A657938003D6F5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2778D3A2D01AECD00BB3CE8;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2778D472D01AECD00BB3CE8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C2778D422D01AECD00BB3CE8 /* NotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25DE408091313ADBAB578A0D /* Pods-Numerology.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Numerology.debug.xcconfig"; path = "Target Support Files/Pods-Numerology/Pods-Numerology.debug.xcconfig"; sourceTree = "<group>"; };
@@ -389,6 +417,7 @@
 		C215C2822CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall_SUI.swift; sourceTree = "<group>"; };
 		C215C2862CB9A14300596F01 /* AppReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReview.swift; sourceTree = "<group>"; };
 		C215C2882CB9AB0C00596F01 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTest.swift; sourceTree = "<group>"; };
 		C223B6682BE01BED0078D91D /* MonthCalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCalendarModel.swift; sourceTree = "<group>"; };
 		C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareView.swift; sourceTree = "<group>"; };
 		C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableView.swift; sourceTree = "<group>"; };
@@ -405,6 +434,8 @@
 		C24BA1182CEB454200C00F49 /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
 		C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonStatView.swift; sourceTree = "<group>"; };
 		C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion_SUI.swift; sourceTree = "<group>"; };
+		C25081372CEF48640006DD51 /* Carousel_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel_v2.swift; sourceTree = "<group>"; };
+		C25081392CEF4ABB0006DD51 /* CardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentModel.swift; sourceTree = "<group>"; };
 		C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesVC.swift; sourceTree = "<group>"; };
 		C25143EF2C156B11005019C6 /* TrendsArticlesCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesCV.swift; sourceTree = "<group>"; };
 		C25143F12C157171005019C6 /* TrendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsCell.swift; sourceTree = "<group>"; };
@@ -425,6 +456,7 @@
 		C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionView_SUI.swift; sourceTree = "<group>"; };
 		C26383722C8AE9C400E27246 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		C26383742C8AE9EB00E27246 /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
+		C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyPremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
@@ -449,7 +481,7 @@
 		C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHRSCP.swift; sourceTree = "<group>"; };
 		C2C65DEF2C5BF56B004EA5A3 /* libMMMHorizontalPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMMHorizontalPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2CA6AA92BF810A000A6E3FC /* PythagoreanSquareModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareModel.swift; sourceTree = "<group>"; };
-		C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalendarManager.swift; sourceTree = "<group>"; };
+		C2CAB4CB2BEFC00100AC3421 /* MoonCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonCalendarViewModel.swift; sourceTree = "<group>"; };
 		C2CAE6D52BD1D54A00E09933 /* DetailAngelNumbersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAngelNumbersVC.swift; sourceTree = "<group>"; };
 		C2CAE6D72BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailAngelNumbersSignsCV.swift; path = ../NumerologyCompatibility/DetailAngelNumbersSignsCV.swift; sourceTree = "<group>"; };
 		C2CAE6DB2BD3D21500E09933 /* NumerologyVC_2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyVC_2024.swift; sourceTree = "<group>"; };
@@ -479,6 +511,20 @@
 		C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C2778D432D01AECD00BB3CE8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C2778D3A2D01AECD00BB3CE8 /* NotificationService */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C2778D3C2D01AECD00BB3CE8 /* NotificationService */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (C2778D432D01AECD00BB3CE8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NotificationService; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		845EB1B42A657938003D6F5C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -494,6 +540,13 @@
 				C2BCD3DA2CBED18500116C7E /* FirebaseCrashlytics in Frameworks */,
 				84420CCA2A7165A500DE1812 /* FirebaseFirestoreSwift in Frameworks */,
 				A3A4B75D331E27EC365CEF9E /* libPods-Numerology.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2778D382D01AECD00BB3CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +629,7 @@
 			isa = PBXGroup;
 			children = (
 				845EB1B92A657938003D6F5C /* Numerology */,
+				C2778D3C2D01AECD00BB3CE8 /* NotificationService */,
 				845EB1B82A657938003D6F5C /* Products */,
 				84D870A22A8D14B300ACACA8 /* Frameworks */,
 				E2D2D5E4768FC2E0FBB5F04A /* Pods */,
@@ -586,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				845EB1B72A657938003D6F5C /* Numerology.app */,
+				C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -687,13 +742,13 @@
 		845EB1E62A67FABC003D6F5C /* Tab bar */ = {
 			isa = PBXGroup;
 			children = (
-				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
 				C2C38AD72C63CFE5001235F4 /* MainTabBarController.swift */,
 				841B9DDB2B00570C007DCAE3 /* CustomNavController.swift */,
 				C2CAE6D22BD1544200E09933 /* Numerology */,
 				84B895F12B15542C0061680A /* Horoscope */,
 				84A3A2992B676A08001EF8F2 /* MoonVC.swift */,
 				C25143E92C155E38005019C6 /* TrendsArticles */,
+				84420CCF2A7297EE00DE1812 /* DescriptionVC.swift */,
 			);
 			path = "Tab bar";
 			sourceTree = "<group>";
@@ -703,7 +758,6 @@
 			children = (
 				8492D0922A6EA7E500761312 /* NumerologyManager.swift */,
 				844EA40A2B11815500D2D596 /* HoroscopeManager.swift */,
-				C2CAB4CB2BEFC00100AC3421 /* MoonCalendarManager.swift */,
 				C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */,
 				C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */,
 				C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */,
@@ -725,6 +779,7 @@
 				C2CB43452C16DBBF00B337A0 /* TrendsArticlesModel.swift */,
 				C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */,
 				C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */,
+				C25081392CEF4ABB0006DD51 /* CardContentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -820,6 +875,7 @@
 			isa = PBXGroup;
 			children = (
 				84B99A802AB6EB95008A3B49 /* PaywallVC_V2.swift */,
+				C25081372CEF48640006DD51 /* Carousel_v2.swift */,
 				84B99A872AB73A1E008A3B49 /* CarouselCard_CVCell.swift */,
 				84B99A822AB6EE08008A3B49 /* BigPromoCVCell.swift */,
 				84B99A892AB88E5B008A3B49 /* MiniPromoCVCell.swift */,
@@ -910,7 +966,9 @@
 		C20BE76D2CD7C25600D78C07 /* Moon */ = {
 			isa = PBXGroup;
 			children = (
+				C2CAB4CB2BEFC00100AC3421 /* MoonCalendarViewModel.swift */,
 				C20BE76E2CD7C26300D78C07 /* MoonView.swift */,
+				C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */,
 				C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */,
 				C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */,
 				C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */,
@@ -1222,11 +1280,13 @@
 				845EB1B32A657938003D6F5C /* Sources */,
 				845EB1B42A657938003D6F5C /* Frameworks */,
 				845EB1B52A657938003D6F5C /* Resources */,
+				C2778D472D01AECD00BB3CE8 /* Embed Foundation Extensions */,
 				C2BCD3DB2CBED27000116C7E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C2778D412D01AECD00BB3CE8 /* PBXTargetDependency */,
 			);
 			name = Numerology;
 			packageProductDependencies = (
@@ -1243,6 +1303,28 @@
 			productReference = 845EB1B72A657938003D6F5C /* Numerology.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C2778D3A2D01AECD00BB3CE8 /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2778D442D01AECD00BB3CE8 /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				C2778D372D01AECD00BB3CE8 /* Sources */,
+				C2778D382D01AECD00BB3CE8 /* Frameworks */,
+				C2778D392D01AECD00BB3CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C2778D3C2D01AECD00BB3CE8 /* NotificationService */,
+			);
+			name = NotificationService;
+			packageProductDependencies = (
+			);
+			productName = NotificationService;
+			productReference = C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1250,11 +1332,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					845EB1B62A657938003D6F5C = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					C2778D3A2D01AECD00BB3CE8 = {
+						CreatedOnToolsVersion = 16.1;
 					};
 				};
 			};
@@ -1277,6 +1362,7 @@
 			projectRoot = "";
 			targets = (
 				845EB1B62A657938003D6F5C /* Numerology */,
+				C2778D3A2D01AECD00BB3CE8 /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -1304,6 +1390,13 @@
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
 				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
 				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2778D392D01AECD00BB3CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1443,6 +1536,7 @@
 				C215C2722CB8359200596F01 /* ProfileSectionModel.swift in Sources */,
 				C20863582CCAB78B00A40BEA /* Date_Ext.swift in Sources */,
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
+				C2234F9F2CF5ED9400A597C9 /* TabViewTest.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
 				C23540832C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift in Sources */,
 				84BFE5022B16146200C06FB1 /* HoroscopeButtonsCV.swift in Sources */,
@@ -1464,6 +1558,7 @@
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */,
 				C20863562CCA9ABA00A40BEA /* Music_Model.swift in Sources */,
+				C250813A2CEF4ABB0006DD51 /* CardContentModel.swift in Sources */,
 				C2592EDE2BFE2BE70080E271 /* PythagoreanSquareCV.swift in Sources */,
 				C2D72D2A2C73D281005B7143 /* ChartCVCellModel.swift in Sources */,
 				84B895DE2B139E340061680A /* YourHoroscopeCV.swift in Sources */,
@@ -1512,13 +1607,14 @@
 				C25143FA2C164644005019C6 /* LikeButton.swift in Sources */,
 				C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */,
 				C25864E82C7F8098003C1655 /* TopImage.swift in Sources */,
+				C25081382CEF48640006DD51 /* Carousel_v2.swift in Sources */,
 				C25864EA2C7F8FDA003C1655 /* NumerologyImagesManager.swift in Sources */,
 				C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */,
 				C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */,
 				C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */,
 				84B99A8A2AB88E5B008A3B49 /* MiniPromoCVCell.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
-				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarManager.swift in Sources */,
+				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarViewModel.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
 				C2D72D3F2C7BC41B005B7143 /* MusicManager.swift in Sources */,
@@ -1570,7 +1666,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2778D372D01AECD00BB3CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2778D412D01AECD00BB3CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2778D3A2D01AECD00BB3CE8 /* NotificationService */;
+			targetProxy = C2778D402D01AECD00BB3CE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */ = {
@@ -1706,7 +1817,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1743,7 +1854,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1771,6 +1882,67 @@
 			};
 			name = Release;
 		};
+		C2778D452D01AECD00BB3CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 25F5UMN333;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2778D462D01AECD00BB3CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 25F5UMN333;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1788,6 +1960,15 @@
 			buildConfigurations = (
 				845EB1CC2A65793E003D6F5C /* Debug */,
 				845EB1CD2A65793E003D6F5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2778D442D01AECD00BB3CE8 /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2778D452D01AECD00BB3CE8 /* Debug */,
+				C2778D462D01AECD00BB3CE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

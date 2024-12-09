@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 // For display UI
-func setDateFormat(date: Date) -> String {
+func setDateFormat(date: Date, format: String = "dd / MMMM / yyyy") -> String {
     let df = DateFormatter()
-    df.dateFormat = "dd / MMMM / yyyy"
+    df.dateFormat = format
     return df.string(from: date)
 }
 

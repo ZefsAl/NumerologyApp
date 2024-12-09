@@ -2,6 +2,7 @@ import SwiftUI
 import RevenueCat
 
 struct SettingsView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     //
     @ObservedObject private var settingsViewModel = SettingsViewModel()
@@ -19,50 +20,51 @@ struct SettingsView: View {
     //
     @State private var isAnimating = false
     
+    
     var body: some View {
-            List {
-                ForEach(settingsViewModel.settings, id: \.self) { setting in
-                    SettingCellView(
-                        actionHandler: {
-                            action(model: setting)
-                        },
-                        customView: ChevronCellView(),
-                        model: setting
-                    )
-                }
-            }
-            .navigationBarTitle("Settings", displayMode: .automatic)
-            .background(
-                NavigationLink(
-                    destination: destinationView(for: selectedModel),
-                    isActive: $isDestinationActive
-                ) {
-                    EmptyView()
-                }.hidden()
-            )
-            .accentColor(.white)
-            .sheet(item: $presentURL) { url in
-                SafariView(url: url)
-                    .ignoresSafeArea()
-            }
-            .customAlert(
-                isPresented: $isCustomShowAlert,
-                title: "Do you like this app?"
-            ) {
-                print("HI")
-                AppReview.requestReview()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { 
-                    isCustomShowAlert = false
-                }
-            }
-            .alert(isPresented: $isShowingAlert) {
-                Alert(
-                    title: Text(alertTitle),
-                    message: Text(alertMessage ?? ""),
-                    dismissButton: .default(Text("Got it!"))
+        List {
+            ForEach(settingsViewModel.settings, id: \.self) { setting in
+                SettingCellView(
+                    actionHandler: {
+                        action(model: setting)
+                    },
+                    customView: ChevronCellView(),
+                    model: setting
                 )
             }
+        }
         
+        .navigationBarTitle("Settings", displayMode: .automatic)
+        
+        .background(
+            NavigationLink(
+                destination: destinationView(for: selectedModel),
+                isActive: $isDestinationActive
+            ) {
+                EmptyView()
+            }.hidden()
+        )
+        .accentColor(.white)
+        .sheet(item: $presentURL) { url in
+            SafariView(url: url)
+                .ignoresSafeArea()
+        }
+        .customAlert(
+            isPresented: $isCustomShowAlert,
+            title: "Do you like this app?"
+        ) {
+            AppReview.requestReview()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                isCustomShowAlert = false
+            }
+        }
+        .alert(isPresented: $isShowingAlert) {
+            Alert(
+                title: Text(alertTitle),
+                message: Text(alertMessage ?? ""),
+                dismissButton: .default(Text("Got it!"))
+            )
+        }
     }
     
     func restorePurchases() {

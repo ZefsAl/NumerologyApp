@@ -7,17 +7,6 @@
 //
 import SwiftUI
 
-
-#Preview {
-    @State var accordionTitle: String = "Button"
-    @State var mainInfo: String = "Symbol of the 13th Lunar Day - Snake biting its tailSymbol: ring; wheel; snake biting its tail Stones: Opal The 13th lunar day is like a continuation of the 12th lunar day. Do not give up on the things you start. There is enough energy to complete what you start. Today you could be compared to a wheel rolling down a mountain. Do not be frightened, do not slow down. Good luck is near. In terms of energy, on the thirteenth lunar day we refresh our energy reserve, renew our vitality. In general, you should treat this day with proper attention and seriousness. 13th lunar day, quite mystical and mysterious: a door between heaven and earth is opened, you can comprehend the unknown."
-    
-    return ZStack {
-        Accordion_SUI(accordionTitle: $accordionTitle, mainInfo: $mainInfo, minTextContainer: 40)
-            .background(Color.red)
-    }
-}
-
 struct Accordion_SUI: View {
 
     // init
@@ -25,6 +14,8 @@ struct Accordion_SUI: View {
     @Binding var mainInfo: String
     var minTextContainer: Double
     var vSpacing: Double
+    
+    // Желательно сделать чем больше контента тем меньше скорость анимации
     
     // MARK: - init
     init(
@@ -72,10 +63,11 @@ struct Accordion_SUI: View {
                     .multilineTextAlignment(.leading)
                     .font(Font((self.subtitleFont) as CTFont))
                     .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }
             .frame(
                 height: isDisclosed ? self.textSize.height : self.minTextContainer, 
-                alignment: .top
+                alignment: .topLeading
             )
             .clipped()
         }
@@ -97,5 +89,16 @@ struct ViewSizeKey: PreferenceKey {
 
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         value = nextValue()
+    }
+}
+
+#Preview {
+    @State var accordionTitle: String = "Button"
+    @State var mainInfo: String = "test"
+//    "Symbol of the 13th Lunar Day - Snake biting its tailSymbol: ring; wheel; snake biting its tail Stones: Opal The 13th lunar day is like a continuation of the 12th lunar day. Do not give up on the things you start. There is enough energy to complete what you start. Today you could be compared to a wheel rolling down a mountain. Do not be frightened, do not slow down. Good luck is near. In terms of energy, on the thirteenth lunar day we refresh our energy reserve, renew our vitality. In general, you should treat this day with proper attention and seriousness. 13th lunar day, quite mystical and mysterious: a door between heaven and earth is opened, you can comprehend the unknown."
+    
+    return ZStack {
+        Accordion_SUI(accordionTitle: $accordionTitle, mainInfo: $mainInfo, minTextContainer: 40)
+            .background(Color.red)
     }
 }

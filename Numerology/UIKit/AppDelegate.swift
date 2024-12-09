@@ -86,7 +86,7 @@ extension AppDelegate: PurchasesDelegate {
         print("🟠 Purchases delegate")
         DispatchQueue.main.async {
             if customerInfo.entitlements.all["Access"]?.isActive == true {
-                print("✅ User have premium! == true")
+                print("✅ User have premium!")
                 UserDefaults.standard.setValue(true, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
                 // unregister // cust logic
@@ -94,7 +94,7 @@ extension AppDelegate: PurchasesDelegate {
                 print("⚠️ was Unregister - RemoteNotifications: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
                 NotificationCenter.default.post(name: .premiumBadgeNotificationKey, object: true)
             } else {
-                print("‼️⚠️User not subscribe == false")
+                print("‼️⚠️User not subscribe")
                 UserDefaults.standard.setValue(false, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
                 //
@@ -148,12 +148,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     // Delegate Token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
-        //          let token = tokenParts.joined
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("🌕 push token",token)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Push: \(error)")
     }
 }
-
 

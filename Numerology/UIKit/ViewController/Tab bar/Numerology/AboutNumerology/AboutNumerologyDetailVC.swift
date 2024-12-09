@@ -94,26 +94,6 @@ class AboutNumerologyDetailVC: UIViewController {
         contentStack.layer.shadowOffset = CGSize(width: 0, height: 4)
         contentStack.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
         
-//        // MARK: Card View + Border
-//        let cardView: UIView = {
-//            let v = UIView()
-//            v.translatesAutoresizingMaskIntoConstraints = false
-//            // Style
-//            v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
-//            // Border
-//            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-//            v.layer.borderWidth = DesignSystem.borderWidth
-//            v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-//            v.layer.shadowOpacity = 1
-//            v.layer.shadowRadius = 16
-//            v.layer.shadowOffset = CGSize(width: 0, height: 4)
-//            v.layer.shadowColor = #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
-//            
-//            return v
-//        }()
-//        cardView.addSubview(descriptionStack)
-        
-        
         verticalScrollView.addSubview(topImage)
         verticalScrollView.addSubview(contentStack)
         
@@ -133,5 +113,4 @@ class AboutNumerologyDetailVC: UIViewController {
             verticalScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
-    
 }

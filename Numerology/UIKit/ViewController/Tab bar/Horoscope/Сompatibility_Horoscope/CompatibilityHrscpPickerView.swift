@@ -99,6 +99,15 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         super.init(frame: frame)
         self.isMultipleTouchEnabled = false 
         setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.pickerView.layoutSubviews()
         // init UI Items
         DispatchQueue.main.async {
             self.items = CompatibilityData.compatibilitySignsData.compactMap { model in
@@ -110,9 +119,6 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - setup UI
     private func setupUI() {
@@ -122,7 +128,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         // picker
         setInitialState()
         pickerView.delegate = self
-        pickerView.spacing = -10
+        pickerView.spacing = -12
         
         // title Stack
         let titleStack = UIStackView(arrangedSubviews: [
@@ -160,7 +166,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
     
     private func setInitialState() {
         // initial
-        let initialIndex = 0
+        let initialIndex = 2
         let data = CompatibilityData.compatibilitySignsData
         pickerView.prototypeView = PickerItem(model: data[initialIndex])
         //
@@ -169,9 +175,11 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         let sign = HoroscopeSign.shared.findHoroscopeSign(byDate: dateOfBirth)
         self.compareButton.title.text = "\(sign) + \(data[initialIndex].sign)"
 
+        // Initial Select
         DispatchQueue.main.asyncAfter(deadline: .now()+0.6, execute: {
             let currMonthSign = HoroscopeSign.shared.findHoroscopeSign(byDate: Date())
-            guard let currMonthSignIndex = data.first(where: { $0.sign == currMonthSign })?.index else { return }
+            let newData = data.filter { $0.index != 0 && $0.index != 1 && $0.index != 14 && $0.index != 15 }
+            guard let currMonthSignIndex = newData.first(where: { $0.sign == currMonthSign })?.index else { return }
             self.pickerView.setCurrentItemIndex(currMonthSignIndex, animated: true)
         })
     }

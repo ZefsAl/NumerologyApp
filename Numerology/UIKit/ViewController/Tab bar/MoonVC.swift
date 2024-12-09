@@ -53,11 +53,11 @@ class MoonVC: UIViewController {
     
     private func requestData() {
 //        _ = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
-        let moonDay = MoonCalendarManager().getAfternoonMoonDay()
-        //
-        HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
-            self.accordionView.info.text = model.todayInfo
-        }
+//        let moonDay = MoonCalendarViewModel().getAfternoonMoonDay()
+//        //
+//        HoroscopeManager.shared.getMoonPhase(moonDay: moonDay) { model in
+//            self.accordionView.info.text = model.todayInfo
+//        }
     }
     
     // MARK: Set up Stack
