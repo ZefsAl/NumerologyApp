@@ -9,7 +9,7 @@ import UIKit
 import RevenueCat
 import SafariServices
 import AVFoundation
-
+import SwiftUI
 
 final class SpecialOfferPaywall: ViewControllerPannable {
     

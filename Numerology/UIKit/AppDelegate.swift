@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // cust delay
-         Thread.sleep(forTimeInterval: 2.0)
+        Thread.sleep(forTimeInterval: 2.0)
         
         // MARK: Firebase
         FirebaseApp.configure()
@@ -42,12 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print("UD - ✅⚠️",dataSurname as Any)
 //        print("UD - ✅⚠️",dateOfBirth as Any)
         
+        
+#warning("add UserDefaults")
+        
+        if !UserDefaults.standard.bool(forKey: "SetupDailyPush_Key") {
+            LocalPushNotofication().setupDailyPush()
+        }
+        
+
         return true
     }
-    
-    
-    
-    
     
     func validateAndPreload() {
         // После заполнения данных
@@ -90,7 +94,8 @@ extension AppDelegate: PurchasesDelegate {
                 UserDefaults.standard.setValue(true, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
                 // unregister // cust logic
-                UIApplication.shared.unregisterForRemoteNotifications()
+#warning("вернуть cust logic !!!!!! ")
+//                UIApplication.shared.unregisterForRemoteNotifications()
                 print("⚠️ was Unregister - RemoteNotifications: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
                 NotificationCenter.default.post(name: .premiumBadgeNotificationKey, object: true)
             } else {

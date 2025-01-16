@@ -134,9 +134,7 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             
             return cell
         }
-        
         return cell
-        
     }
     
     // MARK: did Select ItemAt
@@ -154,7 +152,6 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
                 title: "Your soul number",
                 info: info + about,
                 isPremium: false,
-                //visibleConstant: getVisibleConstant(),
                 topImageKey: .soul
             )
             //
@@ -170,7 +167,6 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             let vc = NumerologyPremiumDescriptionVC (
                 title: "Your destiny number",
                 info: info + about,
-                //visibleConstant: getVisibleConstant(),
                 topImageKey: .destiny
             )
             //
@@ -187,7 +183,6 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             let vc = NumerologyPremiumDescriptionVC (
                 title: "Your name number",
                 info: info + about,
-                //visibleConstant: getVisibleConstant(),
                 topImageKey: .name
             )
             //
@@ -203,7 +198,6 @@ extension YourNumerologyCV_2024: UICollectionViewDataSource, UICollectionViewDel
             let vc = NumerologyPremiumDescriptionVC (
                 title: "Power Code",
                 info: info + about,
-                //visibleConstant: getVisibleConstant(),
                 topImageKey: .power
             )
             //

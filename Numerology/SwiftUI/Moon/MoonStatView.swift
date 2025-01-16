@@ -104,11 +104,5 @@ struct MoonStatView: View {
             alignment: .leading
         )
     }
-    
-//    MoonStatView(
-//        footnote: "Rise:",
-//        imageTitle: "cancer",
-//        caption: "Cancer"
-//    )
 }
 

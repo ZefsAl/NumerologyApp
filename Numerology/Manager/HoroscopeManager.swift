@@ -309,58 +309,28 @@ final class HoroscopeManager {
         }
     }
     
-//    func getMoonPhase(moonDay: Int, completion: @escaping (MoonPhaseModel) -> Void) {
-//        let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: moonDay)
-//        //
-//        docRef.getDocuments() { (querySnapshot, error) in
-//            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
-//            //
-//            if let error = error {
-//                print("⚠️ Error getting documents: \(error)")
-//            }
-//            // Decode
-//            for doc in documents {
-//                do {
-//                    let val = try doc.data(as: MoonPhaseModel.self)
-//                    completion(val)
-//                }
-//                catch {
-//                    print("⚠️ Error when trying to decode book: \(error)")
-//                }
-//            }
-//        }
-//    }
-    
-    func getAllMoonPhases(completion: @escaping ([MoonPhaseModel]) -> Void) {
-        let collectionRef = firestore.collection("MoonPhase")
-        
-        collectionRef.getDocuments { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else {
-                print("⚠️ NOT get documents")
-                completion([]) // Возвращаем пустой массив в случае ошибки
-                return
-            }
-            
+    // need to remove getMoonPhase
+    func getMoonPhase(moonDay: Int, completion: @escaping (MoonPhaseModel) -> Void) {
+        let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: moonDay)
+        //
+        docRef.getDocuments() { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
+            //
             if let error = error {
                 print("⚠️ Error getting documents: \(error)")
-                completion([]) // Возвращаем пустой массив в случае ошибки
-                return
             }
-            
-            // Decode all documents into an array
-            var moonPhases: [MoonPhaseModel] = []
+            // Decode
             for doc in documents {
                 do {
-                    let moonPhase = try doc.data(as: MoonPhaseModel.self)
-                    moonPhases.append(moonPhase)
-                } catch {
-                    print("⚠️ Error decoding document \(doc.documentID): \(error)")
+                    let val = try doc.data(as: MoonPhaseModel.self)
+                    completion(val)
+                }
+                catch {
+                    print("⚠️ Error when trying to decode book: \(error)")
                 }
             }
-            completion(moonPhases)
         }
     }
-    
     
     // MARK: - get Money Calendar
     func getMoneyCalendar(zodiacSign: String, completion: @escaping (MonthCalendarModel) -> Void) {
@@ -438,43 +408,6 @@ final class HoroscopeManager {
             return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         }
     }
-    
-//    func fetchMonthCalendarModel_v2(zodiacSign: String) async throws -> MonthCalendarModel? {
-//        let changeHoroscope: Int = {
-//            // cust: change to next horoscope if day "27"
-//            let date = Date()
-//            let currentDay = date.get(.day)
-//            let current = date.get(.month)
-//            let next = date.getNext(.month)
-//            //
-////            print("✅ curr", date)
-////            print("⚠️ curr day", date.get(.day))
-////            print("⚠️ curr month", current)
-////            print("⚠️ next month", date.getNext(.month))
-//            //
-//            return currentDay >= 27 ? next : current
-//        }()
-//        
-//        
-////        let db = Firestore.firestore()
-//        let query = makeMoneyCalendarRef(byMonth: changeHoroscope, zodiacSign: zodiacSign)
-//        let snapshot = try await query.getDocuments()
-//        
-//        var resultModel: MonthCalendarModel? = nil
-//
-//        for document in snapshot.documents {
-//            do {
-//                let model = try document.data(as: MonthCalendarModel.self)
-//                //                models.append(model)
-//                resultModel = model
-//            } catch {
-//                print("⚠️ Error when trying to decode document: \(error)")
-//            }
-//        }
-//        
-//        
-//        return resultModel ?? nil
-//    }
 
 }
 

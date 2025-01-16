@@ -20,15 +20,15 @@ struct MoonView: View {
     private let moonAnimation: Animation = .smooth(duration: MoonView.duration)
     
     struct BiteCircle: Shape {
-           func path(in rect: CGRect) -> Path {
-               let offset = rect.maxX - 26
-               let crect = CGRect(origin: .zero, size: CGSize(width: 26, height: 26)).offsetBy(dx: offset, dy: offset)
-
-               var path = Rectangle().path(in: rect)
-               path.addPath(Circle().path(in: crect))
-               return path
-           }
-       }
+        func path(in rect: CGRect) -> Path {
+            let offset = rect.maxX - 26
+            let crect = CGRect(origin: .zero, size: CGSize(width: 26, height: 26)).offsetBy(dx: offset, dy: offset)
+            
+            var path = Rectangle().path(in: rect)
+            path.addPath(Circle().path(in: crect))
+            return path
+        }
+    }
     
     var body: some View {
         
@@ -75,7 +75,7 @@ struct MoonView: View {
         }
     }
     
-    // MARK: - Action 
+    // MARK: - Action
     func calendarAction() {
         // animate when same moon image
         //  очень жесткий костыль для анимации !
@@ -184,7 +184,7 @@ struct MoonView: View {
                     caption: self.moonManager.nextSet
                 )
             }
-            Accordion_SUI(
+            RegularAccordion_SUI(
                 accordionTitle: self.$moonManager.firstAccordionTitle,
                 mainInfo: self.$moonManager.firstInfo,
                 minTextContainer: 40
@@ -199,21 +199,25 @@ struct MoonView: View {
     @ViewBuilder
     func secondPage() -> some View {
         VStack(alignment: .center, spacing: 16) {
-            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(Array(self.moonManager.chipsDataModels.enumerated()), id: \.offset) { offset, model in
-                        ChipsButton(title: model.title, iconName: model.iconName, selectedString: self.$moonManager.currentChips)
+                        ChipsButton(
+                            title: model.title,
+                            iconName: model.iconName,
+                            tintColor: model.HEX,
+                            selectedString: self.$moonManager.currentChips)
                     }
                 }
                 .padding(.horizontal, 20)
+                .padding(.top, 1)
+                .padding(.bottom, 8)
             }
-            .frame(height: 30)
             
-            Accordion_SUI(
+            PremiumAccordion_SUI(
                 accordionTitle: self.$moonManager.secondAccordionTitle,
                 mainInfo: self.$moonManager.secondInfo,
-                minTextContainer: 40
+                minTextContainer: 100
             )
             .padding(.horizontal, 20)
             .onChange(of: self.moonManager.currentChips) { newValue in

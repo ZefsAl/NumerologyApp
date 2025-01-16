@@ -8,6 +8,7 @@
 import Foundation
 
 class PremiumTextManager: ObservableObject {
+    
     @Published var data: String? = ""
     @Published var isPremium: Bool = false
     

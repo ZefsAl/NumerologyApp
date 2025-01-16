@@ -11,7 +11,13 @@ import CoreLocation
 
 
 final class MoonCalendarViewModel: ObservableObject {
-    
+    func getAfternoonMoonDay() -> Int {
+            let info = moonPhaseManager.getInfo(date: Date())
+             let result = info.moonModels.max { $0.age < $1.age }?.age // fixed!
+            print("🌕🌚 Afternoon is day is",result as Any)
+            print("Current Date",Date())
+            return result ?? 1
+        }
     
     // Displaying information
     @Published var moonPhaseImage: String = "emptyImage"
@@ -50,19 +56,19 @@ final class MoonCalendarViewModel: ObservableObject {
     
     
     let chipsDataModels: [ChipsModel] = [
-        ChipsModel(title: "Meaning", iconName: "book.fill"),
-        ChipsModel(title: "Love", iconName: "heart.fill"),
-        ChipsModel(title: "Home", iconName: "house.fill"),
-        ChipsModel(title: "Health", iconName: "cross.fill"),
-        ChipsModel(title: "Money", iconName: "banknote.fill"),
-        ChipsModel(title: "Relationships", iconName: "person.line.dotted.person.fill"),
-        ChipsModel(title: "Haircut", iconName: "scissors"),
-        ChipsModel(title: "Marriage", iconName: "figure.2.and.child.holdinghands"),
-        ChipsModel(title: "Birthday", iconName: "calendar"),
-        ChipsModel(title: "Advice", iconName: "lightbulb.fill"),
-        ChipsModel(title: "Warnings", iconName: "exclamationmark.triangle.fill"),
-        ChipsModel(title: "Dreams", iconName: "sparkles"),
-        ChipsModel(title: "Moon Phase", iconName: "moon.fill"),
+        ChipsModel(title: "Meaning", iconName: "book.fill", HEX: "BAFD5A"),
+        ChipsModel(title: "Home", iconName: "house.fill", HEX: "FFEE3B"),
+        ChipsModel(title: "Love", iconName: "heart.fill", HEX: "FF3B9A"),
+        ChipsModel(title: "Health", iconName: "cross.fill", HEX: "3BFF70"),
+        ChipsModel(title: "Money", iconName: "banknote.fill", HEX: "3BE1FF"),
+        ChipsModel(title: "Relationships", iconName: "person.line.dotted.person.fill", HEX: "FF8C3B"),
+        ChipsModel(title: "Haircut", iconName: "scissors", HEX: "FFD700"),
+        ChipsModel(title: "Marriage", iconName: "figure.2.and.child.holdinghands", HEX: "A56EFF"),
+        ChipsModel(title: "Birthday", iconName: "calendar", HEX: "FF69B4"),
+        ChipsModel(title: "Advice", iconName: "lightbulb.fill", HEX: "FFE74C"),
+        ChipsModel(title: "Warnings", iconName: "exclamationmark.triangle.fill", HEX: "FF4C4C"),
+        ChipsModel(title: "Dreams", iconName: "sparkles", HEX: "B36BFF"),
+        ChipsModel(title: "Moon Phase", iconName: "moon.fill", HEX: "7F8CFF"),
     ]
     
     // MARK: - init
@@ -89,7 +95,7 @@ final class MoonCalendarViewModel: ObservableObject {
     
     // MARK: - get All Moon Phases
     private func getAllMoonPhases(handler: @escaping (Bool) -> Void) {
-        HoroscopeManager.shared.getAllMoonPhases { array in
+        MoonPhasesManager.shared.getAllMoonPhases { array in
             self.moonPhaseModels = array
             handler(true)
         }

@@ -13,25 +13,29 @@ struct ChipsButton: View {
     let iconName: String
     @Binding var selectedString: String
     var action: (() -> Void)?
-
-    
-    
     private let footnote = DesignSystem.SourceSerifProFont.footnote_Sb_13!
     
+    let tintColor: String
+//    Color(DesignSystem.MoonColors.mediumTint)
     init(
         title: String,
         iconName: String,
+        tintColor: String,
         selectedString: Binding<String>,
         action: (() -> ())? = nil
     ) {
         self.action = action
         self.title = title
+        self.tintColor = tintColor
         self.iconName = iconName
         _selectedString = selectedString
     }
 
     var body: some View {
         let selected = selectedString == title
+        
+        let tintColor = Color(.hexColor(self.tintColor))
+        
 
         Button {
             withAnimation() {
@@ -47,16 +51,19 @@ struct ChipsButton: View {
                     .font(Font((self.footnote) as CTFont))
             }
             .font(.system(size: 14, weight: .medium, design: .default))
-            .foregroundStyle(.white)
+            .foregroundStyle(tintColor.opacity(selected ? 1 : 0.5))
             .scaledToFit()
             .padding(.horizontal, 8)
-            .frame(minHeight: 30, alignment: .center)
+            .frame(minWidth: 80, minHeight: 50,  alignment: .center)
+            
             .background(
                 ZStack {
                     let rect = RoundedRectangle(cornerRadius: 16)
-                    rect.fill(selected ? Color(DesignSystem.MoonColors.darkTint).opacity(0.7) : .clear)
+                    rect.fill(tintColor.opacity(
+                        selected ? 0.14 : 0.07
+                    ))
                     rect.stroke(
-                        selected ? Color(DesignSystem.MoonColors.mediumTint) : Color.clear
+                        selected ? tintColor : Color.clear
                         , lineWidth: 1)
                 }
             )
@@ -64,11 +71,8 @@ struct ChipsButton: View {
     }
 }
 
-#Preview {
-    ChipsButton_CUST_Preview()
-}
 
-struct ChipsButton_CUST_Preview: View {
+struct ChipsButton_Test_Preview: View {
     
     @State var some: String = "Meaning"
     @StateObject var vm: MoonCalendarViewModel = MoonCalendarViewModel()
@@ -76,7 +80,12 @@ struct ChipsButton_CUST_Preview: View {
     var body: some View {
         VStack {
             ForEach(Array(vm.chipsDataModels.enumerated()), id: \.offset) { offset, model in
-                ChipsButton(title: model.title, iconName: model.iconName, selectedString: $some)
+                ChipsButton(
+                    title: model.title,
+                    iconName: model.iconName,
+                    tintColor: model.HEX,
+                    selectedString: $some
+                )
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -84,8 +93,11 @@ struct ChipsButton_CUST_Preview: View {
     }
 }
 
+#Preview {
+    ChipsButton_Test_Preview()
+}
 
 //let chipsModel
 struct ChipsModel {
-    let title, iconName: String
+    let title, iconName, HEX: String
 }

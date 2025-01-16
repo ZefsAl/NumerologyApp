@@ -9,7 +9,7 @@ import UIKit
 import RevenueCat
 import SafariServices
 import AVFoundation
-
+import SwiftUI
 
 final class PaywallVC_V2: UIViewController {
     
@@ -308,8 +308,6 @@ final class PaywallVC_V2: UIViewController {
         topSideStack.alignment = .center
         topSideStack.distribution = .fill
         topSideStack.spacing = 0
-//        topSideStack.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0)
-//        topSideStack.isLayoutMarginsRelativeArrangement = true
         
         // MARK: Docs Stack
         let docsStack = UIStackView(arrangedSubviews: [termsButton,restoreButton,privacyButton])
@@ -508,6 +506,5 @@ extension PaywallVC_V2 {
                 self.productsCollectionView.reloadData()
             }
         }
-        
     }
 }

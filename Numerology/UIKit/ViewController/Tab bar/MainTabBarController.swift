@@ -157,6 +157,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         // MARK: FourthVC
         
         let fourthVC = UIHostingController(rootView: MoonView())
+        
         let fourtImage = UIImage(named: "Moon_3x_75px")
         fourthVC.tabBarItem.image = fourtImage
         fourthVC.tabBarItem.title = "Moonly"
@@ -173,15 +174,6 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         fiveVC.tabBarItem.title = "Trends"
         fiveVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         fiveVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-        
-        
-//        let testVC = UIViewController()
-//        let testImage = UIImage(named: "Trends")
-//        testVC.tabBarItem.image = testImage
-//        testVC.tabBarItem.title = "Test"
-//        testVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
-//        testVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
-//        testVC.view.backgroundColor = .systemBrown
         
         self.viewControllers = [secondVC,firstVC,fourthVC,fiveVC]
     }

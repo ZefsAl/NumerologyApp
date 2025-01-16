@@ -131,11 +131,12 @@
 		C20863512CC6A31800A40BEA /* Extension_UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20863502CC6A31800A40BEA /* Extension_UITextField.swift */; };
 		C20863562CCA9ABA00A40BEA /* Music_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20863552CCA9ABA00A40BEA /* Music_Model.swift */; };
 		C20863582CCAB78B00A40BEA /* Date_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20863572CCAB78B00A40BEA /* Date_Ext.swift */; };
-		C208635A2CCBBF0300A40BEA /* NumerologyAudio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C20863592CCBBF0200A40BEA /* NumerologyAudio2.mp3 */; };
 		C20BE76F2CD7C26300D78C07 /* MoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BE76E2CD7C26300D78C07 /* MoonView.swift */; };
 		C20BE7712CD7C50300D78C07 /* Calendar_Small_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */; };
 		C20EAC712C6F2965008E7532 /* CharismaCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */; };
 		C20EAC762C70D8A1008E7532 /* AppFlowRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC752C70D8A1008E7532 /* AppFlowRoute.swift */; };
+		C2125D3C2D2311A100B06BA7 /* PushMessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2125D3B2D2311A100B06BA7 /* PushMessagesModel.swift */; };
+		C2125D3E2D2316DB00B06BA7 /* MoonPhasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2125D3D2D2316DB00B06BA7 /* MoonPhasesManager.swift */; };
 		C215C26F2CB8359200596F01 /* CheckBoxCell_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2612CB8359200596F01 /* CheckBoxCell_View.swift */; };
 		C215C2702CB8359200596F01 /* MusicSetting_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2622CB8359200596F01 /* MusicSetting_View.swift */; };
 		C215C2712CB8359200596F01 /* Music_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2632CB8359200596F01 /* Music_ViewModel.swift */; };
@@ -148,7 +149,6 @@
 		C215C2782CB8359200596F01 /* Settings_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C26C2CB8359200596F01 /* Settings_ViewModel.swift */; };
 		C215C27E2CB969AB00596F01 /* BackgroundClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C27D2CB969AB00596F01 /* BackgroundClearView.swift */; };
 		C215C2802CB96A2A00596F01 /* PremiumTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C27F2CB96A2A00596F01 /* PremiumTextManager.swift */; };
-		C215C2832CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2822CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift */; };
 		C215C2872CB9A14300596F01 /* AppReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2862CB9A14300596F01 /* AppReview.swift */; };
 		C215C2892CB9AB0C00596F01 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215C2882CB9AB0C00596F01 /* SafariView.swift */; };
 		C2234F9F2CF5ED9400A597C9 /* TabViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */; };
@@ -167,7 +167,7 @@
 		C24BA1172CEB2F5F00C00F49 /* ChipsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BA1162CEB2F5F00C00F49 /* ChipsButton.swift */; };
 		C24BA1192CEB454200C00F49 /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BA1182CEB454200C00F49 /* Extension_String.swift */; };
 		C24D7FA32CDDFBD400D60012 /* MoonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */; };
-		C24D7FA52CDE08B600D60012 /* Accordion_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */; };
+		C24D7FA52CDE08B600D60012 /* RegularAccordion_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA42CDE08B600D60012 /* RegularAccordion_SUI.swift */; };
 		C25081382CEF48640006DD51 /* Carousel_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081372CEF48640006DD51 /* Carousel_v2.swift */; };
 		C250813A2CEF4ABB0006DD51 /* CardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081392CEF4ABB0006DD51 /* CardContentModel.swift */; };
 		C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */; };
@@ -188,18 +188,20 @@
 		C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */; };
 		C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6E2C209459007B65F3 /* TouchSupport.swift */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
-		C26383712C8AE98800E27246 /* PremiumAccordionView_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */; };
+		C26383712C8AE98800E27246 /* PremiumTextView_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383702C8AE98800E27246 /* PremiumTextView_SUI.swift */; };
 		C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383722C8AE9C400E27246 /* RoundedCorner.swift */; };
 		C26383752C8AE9EB00E27246 /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383742C8AE9EB00E27246 /* View_Ext.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
 		C2778D422D01AECD00BB3CE8 /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C279367D2D08D35E0073B313 /* Silent night.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C279367C2D08D35E0073B313 /* Silent night.mp3 */; };
+		C279367F2D08D39D0073B313 /* Starry harmony.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C279367E2D08D39D0073B313 /* Starry harmony.mp3 */; };
 		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
 		C27EBBD52C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */; };
 		C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */; };
 		C28A1AB62C610212003EDACA /* ChartsCV_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */; };
 		C28A1AB82C610331003EDACA /* ChartCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB72C610331003EDACA /* ChartCVCell.swift */; };
+		C28B87C32D14161A0065C34E /* LocalPushNotofication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B87C22D14161A0065C34E /* LocalPushNotofication.swift */; };
 		C29E1BCA2BEBF3DA001F1E42 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */; };
-		C2A858272CCCFE61001DA8D0 /* NumerologyAudio3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2A858262CCCFE61001DA8D0 /* NumerologyAudio3.mp3 */; };
 		C2A858292CCD008C001DA8D0 /* CustomAlertReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */; };
 		C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */; };
 		C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */; };
@@ -244,6 +246,9 @@
 		C2D72D4F2C7BFCEF005B7143 /* ProfileNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D72D4E2C7BFCEF005B7143 /* ProfileNavButton.swift */; };
 		C2E144992C1B28FC00FA23FD /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E144982C1B28FC00FA23FD /* TrendsView.swift */; };
 		C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */; };
+		C2FAD7482D32AE16009588AC /* PremiumAccordion_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD7472D32AE16009588AC /* PremiumAccordion_SUI.swift */; };
+		C2FAD74A2D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD7492D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift */; };
+		C2FAD74C2D32EE50009588AC /* PaywallVC_V2_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FAD74B2D32EE50009588AC /* PaywallVC_V2_SUI.swift */; };
 		C2FDF12E2C168ADA007EB282 /* TrendsArticlesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -397,11 +402,12 @@
 		C20863502CC6A31800A40BEA /* Extension_UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UITextField.swift; sourceTree = "<group>"; };
 		C20863552CCA9ABA00A40BEA /* Music_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_Model.swift; sourceTree = "<group>"; };
 		C20863572CCAB78B00A40BEA /* Date_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Ext.swift; sourceTree = "<group>"; };
-		C20863592CCBBF0200A40BEA /* NumerologyAudio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NumerologyAudio2.mp3; sourceTree = "<group>"; };
 		C20BE76E2CD7C26300D78C07 /* MoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonView.swift; sourceTree = "<group>"; };
 		C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar_Small_SUI.swift; sourceTree = "<group>"; };
 		C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaCVCell.swift; sourceTree = "<group>"; };
 		C20EAC752C70D8A1008E7532 /* AppFlowRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowRoute.swift; sourceTree = "<group>"; };
+		C2125D3B2D2311A100B06BA7 /* PushMessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessagesModel.swift; sourceTree = "<group>"; };
+		C2125D3D2D2316DB00B06BA7 /* MoonPhasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhasesManager.swift; sourceTree = "<group>"; };
 		C215C2612CB8359200596F01 /* CheckBoxCell_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxCell_View.swift; sourceTree = "<group>"; };
 		C215C2622CB8359200596F01 /* MusicSetting_View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSetting_View.swift; sourceTree = "<group>"; };
 		C215C2632CB8359200596F01 /* Music_ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music_ViewModel.swift; sourceTree = "<group>"; };
@@ -414,7 +420,6 @@
 		C215C26C2CB8359200596F01 /* Settings_ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings_ViewModel.swift; sourceTree = "<group>"; };
 		C215C27D2CB969AB00596F01 /* BackgroundClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClearView.swift; sourceTree = "<group>"; };
 		C215C27F2CB96A2A00596F01 /* PremiumTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumTextManager.swift; sourceTree = "<group>"; };
-		C215C2822CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall_SUI.swift; sourceTree = "<group>"; };
 		C215C2862CB9A14300596F01 /* AppReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReview.swift; sourceTree = "<group>"; };
 		C215C2882CB9AB0C00596F01 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewTest.swift; sourceTree = "<group>"; };
@@ -433,7 +438,7 @@
 		C24BA1162CEB2F5F00C00F49 /* ChipsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsButton.swift; sourceTree = "<group>"; };
 		C24BA1182CEB454200C00F49 /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
 		C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonStatView.swift; sourceTree = "<group>"; };
-		C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion_SUI.swift; sourceTree = "<group>"; };
+		C24D7FA42CDE08B600D60012 /* RegularAccordion_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularAccordion_SUI.swift; sourceTree = "<group>"; };
 		C25081372CEF48640006DD51 /* Carousel_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel_v2.swift; sourceTree = "<group>"; };
 		C25081392CEF4ABB0006DD51 /* CardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentModel.swift; sourceTree = "<group>"; };
 		C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesVC.swift; sourceTree = "<group>"; };
@@ -453,17 +458,19 @@
 		C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UICollectionViewCell.swift; sourceTree = "<group>"; };
 		C25E7E6E2C209459007B65F3 /* TouchSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSupport.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
-		C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordionView_SUI.swift; sourceTree = "<group>"; };
+		C26383702C8AE98800E27246 /* PremiumTextView_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumTextView_SUI.swift; sourceTree = "<group>"; };
 		C26383722C8AE9C400E27246 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		C26383742C8AE9EB00E27246 /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
 		C2778D3B2D01AECD00BB3CE8 /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C279367C2D08D35E0073B313 /* Silent night.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Silent night.mp3"; sourceTree = "<group>"; };
+		C279367E2D08D39D0073B313 /* Starry harmony.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Starry harmony.mp3"; sourceTree = "<group>"; };
 		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyPremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
 		C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCV_Ext.swift; sourceTree = "<group>"; };
 		C28A1AB72C610331003EDACA /* ChartCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCVCell.swift; sourceTree = "<group>"; };
+		C28B87C22D14161A0065C34E /* LocalPushNotofication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushNotofication.swift; sourceTree = "<group>"; };
 		C29E1BC92BEBF3DA001F1E42 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
-		C2A858262CCCFE61001DA8D0 /* NumerologyAudio3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = NumerologyAudio3.mp3; sourceTree = "<group>"; };
 		C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertReview.swift; sourceTree = "<group>"; };
 		C2AC38362BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersDescriptionVC.swift; sourceTree = "<group>"; };
 		C2AC38382BDED9B400E4F9B7 /* AngelNumbersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelNumbersModel.swift; sourceTree = "<group>"; };
@@ -508,6 +515,9 @@
 		C2D72D4E2C7BFCEF005B7143 /* ProfileNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavButton.swift; sourceTree = "<group>"; };
 		C2E144982C1B28FC00FA23FD /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall.swift; sourceTree = "<group>"; };
+		C2FAD7472D32AE16009588AC /* PremiumAccordion_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAccordion_SUI.swift; sourceTree = "<group>"; };
+		C2FAD7492D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferPaywall_SUI.swift; sourceTree = "<group>"; };
+		C2FAD74B2D32EE50009588AC /* PaywallVC_V2_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallVC_V2_SUI.swift; sourceTree = "<group>"; };
 		C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -758,6 +768,7 @@
 			children = (
 				8492D0922A6EA7E500761312 /* NumerologyManager.swift */,
 				844EA40A2B11815500D2D596 /* HoroscopeManager.swift */,
+				C2125D3D2D2316DB00B06BA7 /* MoonPhasesManager.swift */,
 				C2B3F5122C08FDD50042B9F3 /* OverallPresenterManager.swift */,
 				C2FDF12D2C168ADA007EB282 /* TrendsArticlesManager.swift */,
 				C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */,
@@ -767,6 +778,7 @@
 				C2D72D3E2C7BC41B005B7143 /* MusicManager.swift */,
 				C25864E92C7F8FDA003C1655 /* NumerologyImagesManager.swift */,
 				8492D0832A6BDD6500761312 /* DateFormat.swift */,
+				C28B87C22D14161A0065C34E /* LocalPushNotofication.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -776,10 +788,7 @@
 			children = (
 				844EA40C2B1184EF00D2D596 /* HoroscopeModels */,
 				84DBB9A72AE40F5300A0784F /* NumerologyModels */,
-				C2CB43452C16DBBF00B337A0 /* TrendsArticlesModel.swift */,
-				C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */,
-				C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */,
-				C25081392CEF4ABB0006DD51 /* CardContentModel.swift */,
+				C2125D3A2D23108A00B06BA7 /* Other */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -971,10 +980,22 @@
 				C2234F9E2CF5ED9400A597C9 /* TabViewTest.swift */,
 				C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */,
 				C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */,
-				C24D7FA42CDE08B600D60012 /* Accordion_SUI.swift */,
+				C24D7FA42CDE08B600D60012 /* RegularAccordion_SUI.swift */,
 				C24BA1162CEB2F5F00C00F49 /* ChipsButton.swift */,
 			);
 			path = Moon;
+			sourceTree = "<group>";
+		};
+		C2125D3A2D23108A00B06BA7 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C2CB43452C16DBBF00B337A0 /* TrendsArticlesModel.swift */,
+				C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */,
+				C2D72D292C73D281005B7143 /* ChartCVCellModel.swift */,
+				C25081392CEF4ABB0006DD51 /* CardContentModel.swift */,
+				C2125D3B2D2311A100B06BA7 /* PushMessagesModel.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		C215C2642CB8359200596F01 /* Music */ = {
@@ -1040,8 +1061,9 @@
 		C215C27B2CB835EB00596F01 /* Premium */ = {
 			isa = PBXGroup;
 			children = (
-				C26383702C8AE98800E27246 /* PremiumAccordionView_SUI.swift */,
+				C26383702C8AE98800E27246 /* PremiumTextView_SUI.swift */,
 				C215C27F2CB96A2A00596F01 /* PremiumTextManager.swift */,
+				C2FAD7472D32AE16009588AC /* PremiumAccordion_SUI.swift */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -1049,7 +1071,6 @@
 		C215C2812CB97CD700596F01 /* other */ = {
 			isa = PBXGroup;
 			children = (
-				C215C2822CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift */,
 				C215C2882CB9AB0C00596F01 /* SafariView.swift */,
 				C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */,
 				C2B728E32CD2ACAF009655D5 /* ChevronCellView.swift */,
@@ -1101,6 +1122,8 @@
 				C2F4EF8A2C04AD2800A326B4 /* SpecialOfferPaywall.swift */,
 				C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */,
 				C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */,
+				C2FAD7492D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift */,
+				C2FAD74B2D32EE50009588AC /* PaywallVC_V2_SUI.swift */,
 			);
 			path = SpecialOfferPaywall;
 			sourceTree = "<group>";
@@ -1236,9 +1259,9 @@
 		C2D72D402C7BC485005B7143 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C2A858262CCCFE61001DA8D0 /* NumerologyAudio3.mp3 */,
-				C20863592CCBBF0200A40BEA /* NumerologyAudio2.mp3 */,
+				C279367C2D08D35E0073B313 /* Silent night.mp3 */,
 				C2D72D412C7BC498005B7143 /* Starry sky.mp3 */,
+				C279367E2D08D39D0073B313 /* Starry harmony.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -1377,9 +1400,8 @@
 				84B99A8E2AB9A028008A3B49 /* SourceSerifPro-Semibold.ttf in Resources */,
 				84D47DF02B7378680076BC25 /* StoreKitTestCertificate.cer in Resources */,
 				C2D72D392C779B13005B7143 /* SpecialOffer.mov in Resources */,
-				C2A858272CCCFE61001DA8D0 /* NumerologyAudio3.mp3 in Resources */,
+				C279367D2D08D35E0073B313 /* Silent night.mp3 in Resources */,
 				C2B38A9F2C9C9DD400A560E3 /* Storyboard.storyboard in Resources */,
-				C208635A2CCBBF0300A40BEA /* NumerologyAudio2.mp3 in Resources */,
 				845EB1C72A65793E003D6F5C /* LaunchScreen.storyboard in Resources */,
 				84AA6AEB2AA4A54600BF6C0D /* GoogleService-Info.plist in Resources */,
 				84AA6AF62AA4F85C00BF6C0D /* SourceSerifPro-Light.ttf in Resources */,
@@ -1387,6 +1409,7 @@
 				84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */,
 				C2D72D3D2C779D79005B7143 /* Paywall.mov in Resources */,
 				8471D12F2B6CFB7F00C42F26 /* planet.mp4 in Resources */,
+				C279367F2D08D39D0073B313 /* Starry harmony.mp3 in Resources */,
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
 				84AA6AF42AA4E82800BF6C0D /* Cinzel-Regular.ttf in Resources */,
 				84AA6AF32AA4E82800BF6C0D /* Cinzel-Bold.ttf in Resources */,
@@ -1496,6 +1519,7 @@
 				84BFE5082B166EC100C06FB1 /* MonthModel.swift in Sources */,
 				C215C2892CB9AB0C00596F01 /* SafariView.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
+				C2125D3E2D2316DB00B06BA7 /* MoonPhasesManager.swift in Sources */,
 				C215C2802CB96A2A00596F01 /* PremiumTextManager.swift in Sources */,
 				C2592EE02BFE2F9B0080E271 /* PythagoreanSquareCVCell.swift in Sources */,
 				C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */,
@@ -1521,7 +1545,6 @@
 				845EB1BB2A657939003D6F5C /* AppDelegate.swift in Sources */,
 				C2CA6AAA2BF810A000A6E3FC /* PythagoreanSquareModel.swift in Sources */,
 				C215C27E2CB969AB00596F01 /* BackgroundClearView.swift in Sources */,
-				C215C2832CB97CE500596F01 /* SpecialOfferPaywall_SUI.swift in Sources */,
 				C2AC38392BDED9B400E4F9B7 /* AngelNumbersModel.swift in Sources */,
 				C25864EC2C7FBDAA003C1655 /* Nav_Ext_UIViewController.swift in Sources */,
 				C20EAC712C6F2965008E7532 /* CharismaCVCell.swift in Sources */,
@@ -1587,13 +1610,16 @@
 				C25143F22C157171005019C6 /* TrendsCell.swift in Sources */,
 				C25B717B2BFCBA2E00E41E98 /* PythagoreanSquare.swift in Sources */,
 				C2B728E42CD2ACAF009655D5 /* ChevronCellView.swift in Sources */,
+				C2FAD7482D32AE16009588AC /* PremiumAccordion_SUI.swift in Sources */,
+				C2FAD74A2D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift in Sources */,
+				C2FAD74C2D32EE50009588AC /* PaywallVC_V2_SUI.swift in Sources */,
 				84DBB9BA2AE809AB00A0784F /* Extension_UIButton.swift in Sources */,
 				84420CD52A73EC1A00DE1812 /* BigCardCVCell.swift in Sources */,
 				8496CA322A77EEC700FB9592 /* NumbersOfNameModel.swift in Sources */,
 				84D870982A892C0D00ACACA8 /* InfoDocModel.swift in Sources */,
-				C24D7FA52CDE08B600D60012 /* Accordion_SUI.swift in Sources */,
+				C24D7FA52CDE08B600D60012 /* RegularAccordion_SUI.swift in Sources */,
 				C2CAE6E32BD43E7200E09933 /* YourMoneyCV.swift in Sources */,
-				C26383712C8AE98800E27246 /* PremiumAccordionView_SUI.swift in Sources */,
+				C26383712C8AE98800E27246 /* PremiumTextView_SUI.swift in Sources */,
 				C20EAC762C70D8A1008E7532 /* AppFlowRoute.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
 				844EA40E2B11869C00D2D596 /* SignsModel.swift in Sources */,
@@ -1636,6 +1662,7 @@
 				84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */,
 				8437D3D52A8628F7003592A7 /* PersonalYearTF.swift in Sources */,
 				84B99A812AB6EB95008A3B49 /* PaywallVC_V2.swift in Sources */,
+				C28B87C32D14161A0065C34E /* LocalPushNotofication.swift in Sources */,
 				C2C38AD82C63CFE5001235F4 /* MainTabBarController.swift in Sources */,
 				841B552C2B5AA760002EE1F8 /* CompareSignsStackView.swift in Sources */,
 				84DBB9CB2AE955D500A0784F /* EnterUserDataVC.swift in Sources */,
@@ -1643,6 +1670,7 @@
 				84AC66FA2A7BE4D900D2321B /* RegularBigButton.swift in Sources */,
 				844EA4092B117A6700D2D596 /* HoroscopeSign.swift in Sources */,
 				84B895DB2B1392CB0061680A /* HoroscopeVC.swift in Sources */,
+				C2125D3C2D2311A100B06BA7 /* PushMessagesModel.swift in Sources */,
 				C2B590952BFA40A800118B89 /* ColumnRefTableViewCell.swift in Sources */,
 				8492D0962A713CBA00761312 /* NumbersOfSoulModel.swift in Sources */,
 				84B895E32B13AEED0061680A /* CharismaCV.swift in Sources */,
@@ -1817,7 +1845,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.5;
+				CURRENT_PROJECT_VERSION = 2.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1834,7 +1862,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.21;
+				MARKETING_VERSION = 3.0.22;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1854,7 +1882,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.5;
+				CURRENT_PROJECT_VERSION = 2.3;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
@@ -1870,7 +1898,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0.21;
+				MARKETING_VERSION = 3.0.22;
 				PRODUCT_BUNDLE_IDENTIFIER = com.numerology.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

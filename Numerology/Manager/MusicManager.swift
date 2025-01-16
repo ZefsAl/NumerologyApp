@@ -12,8 +12,8 @@ import SwiftUI
 
 struct SoundsName {
     static let melody1 = "Starry sky"
-    static let melody2 = "NumerologyAudio2"
-    static let melody3 = "NumerologyAudio3"
+    static let melody2 = "Silent night"
+    static let melody3 = "Starry harmony"
 }
 
 class MusicManager: ObservableObject {

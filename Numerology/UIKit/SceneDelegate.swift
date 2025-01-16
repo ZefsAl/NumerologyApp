@@ -41,7 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         print("🔄 sceneDidBecomeActive")
         UIApplication.shared.applicationIconBadgeNumber = 0
-//        MusicManager.shared.playSound()
         musicManager.playSound()
     }
     
