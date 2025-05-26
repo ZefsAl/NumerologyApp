@@ -21,35 +21,35 @@ extension DetailCompatibilityHrscpVC: UICollectionViewDataSource, UICollectionVi
                 text: model.aboutThisSign    ,
                 percentTitle: "\(valArr[0])",
                 progressValue: valArr[0],
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Friendship",
                 text: model.friendship ?? "" ,
                 percentTitle: "\(valArr[1])",
                 progressValue: valArr[1],
-                progressColor: DesignSystem.ProgressBarTitnt.cyan
+                progressColor: DS.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Intimacy",
                 text: model.intimacy ?? ""   ,
                 percentTitle: "\(valArr[2])",
                 progressValue: valArr[2],
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
             ChartCVCellModel(
                 title: "Family",
                 text: model.family ?? ""     ,
                 percentTitle: "\(valArr[3])",
                 progressValue: valArr[3],
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DS.ProgressBarTitnt.yellow
             ),
             ChartCVCellModel(
                 title: "Work",
                 text: model.work ?? ""       ,
                 percentTitle: "\(valArr[4])",
                 progressValue: valArr[4],
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
         ]
         self.chartsCV.reloadData()
@@ -72,8 +72,8 @@ extension DetailCompatibilityHrscpVC: UICollectionViewDataSource, UICollectionVi
         cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
         cell.setProgressValue(value: data[indexPath.row].progressValue)
         cell.setProgressColor(data[indexPath.row].progressColor)
-        cell.title.font = DesignSystem.SourceSerifProFont.title_h6
-        cell.percentTitle.font = DesignSystem.SourceSerifProFont.title_h6
+        cell.title.font = DS.SourceSerifProFont.title_h6
+        cell.percentTitle.font = DS.SourceSerifProFont.title_h6
         //
         collectionView.selectItem(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: [])
         

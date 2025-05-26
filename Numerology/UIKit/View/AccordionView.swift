@@ -24,7 +24,7 @@ final class AccordionView: UIView {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DS.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         l.isHidden = true

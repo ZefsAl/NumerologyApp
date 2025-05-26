@@ -27,7 +27,6 @@ class AppFlowRoute {
     func setAppFlow(_ type: FlowType, animated: Bool) {
         guard let window = self.window else { return }
         self.withTransition(animate: animated, window: window)
-        
         switch type {
         case .onboarding:
             window.rootViewController = UINavigationController(rootViewController: OnboardingVC_v2())
@@ -37,8 +36,9 @@ class AppFlowRoute {
         window.makeKeyAndVisible()
 
 //        // MARK: - ⚠️ TEST
-//        let host: UIHostingController = UIHostingController(rootView: MoonView())
-//        let host: UIHostingController = UIHostingController(rootView: MoonView())
+//        let host: UIHostingController = UIHostingController(rootView: ChatView(expertModel: ExpertViewModel().expertsList[0], closeAction: {}))
+//        //        let host: UIHostingController = UIHostingController(rootView: TestRealmUI())
+////        let host: UIHostingController = UIHostingController(rootView: HuggingTF3_TESTPREVIEW())
 //        window.rootViewController = host
 //        window.makeKeyAndVisible()
         

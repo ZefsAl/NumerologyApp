@@ -13,7 +13,7 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
     
     lazy var trendsView: TrendsView = {
        let v = TrendsView()
-        DesignSystem.setCardStyle(to: v, tintColor: DesignSystem.TrendsArticles.primaryColor, cornerRadius: DesignSystem.maxCornerRadius)
+        DS.setCardStyle(to: v, tintColor: DS.TrendsArticles.primaryColor, cornerRadius: DS.maxCornerRadius)
         return v
     }()
     
@@ -86,15 +86,15 @@ class DatailTrendsArticlesVC: UIViewController, RemoteOpenDelegate {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Style
-            v.backgroundColor = DesignSystem.TrendsArticles.backgroundColor
+            v.backgroundColor = DS.TrendsArticles.backgroundColor
             // Border
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-            v.layer.borderWidth = DesignSystem.borderWidth
-            v.layer.borderColor = DesignSystem.TrendsArticles.primaryColor.cgColor
+            v.layer.cornerRadius = DS.maxCornerRadius
+            v.layer.borderWidth = DS.borderWidth
+            v.layer.borderColor = DS.TrendsArticles.primaryColor.cgColor
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = DesignSystem.TrendsArticles.shadowColor.cgColor
+            v.layer.shadowColor = DS.TrendsArticles.shadowColor.cgColor
             
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([

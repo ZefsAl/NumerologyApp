@@ -71,7 +71,7 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     private let purchaseButton: PurchaseButton = {
         let b = PurchaseButton(
             title: "Continue",
-            primaryColor: DesignSystem.PaywallTint.primaryPaywall,
+            primaryColor: DS.PaywallTint.primaryPaywall,
             tapToBounce: true
         )
         b.addTarget(Any?.self, action: #selector(actPurchaseButton), for: .touchUpInside)
@@ -92,6 +92,13 @@ final class SpecialOfferPaywall: ViewControllerPannable {
             print("🟠 Check Access",customerInfo?.entitlements["Access"]?.isActive as Any)
             if customerInfo?.entitlements["Access"]?.isActive == true {
                 self.dismissAction()
+                AnalyticsManager.shared.trackPurchase_FIB(
+                    product: product,
+                    transaction: transaction,
+                    customerInfo: customerInfo,
+                    error: error,
+                    userCancelled: userCancelled
+                )
             } else {
                 self.dismissAction()
             }
@@ -187,8 +194,8 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     private lazy var closeButton: UIButton = {
         let b = UIButton()
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitleColor(DesignSystem.PaywallTint.primaryPaywall.withAlphaComponent(0.5), for: .normal)
-        b.titleLabel?.font = DesignSystem.SourceSerifProFont.title_h4
+        b.setTitleColor(DS.PaywallTint.primaryPaywall.withAlphaComponent(0.5), for: .normal)
+        b.titleLabel?.font = DS.SourceSerifProFont.title_h4
         
         let img = UIImage(
             systemName: "xmark",
@@ -211,9 +218,9 @@ final class SpecialOfferPaywall: ViewControllerPannable {
             self.timerCounter -= 1
             self.closeButton.setTitle("\(self.timerCounter)", for: .normal)
         } else {
-            self.closeButton.tintColor = DesignSystem.PaywallTint.primaryPaywall
+            self.closeButton.tintColor = DS.PaywallTint.primaryPaywall
             self.closeButton.setTitle("", for: .normal)
-            self.closeButton.setTitleColor(DesignSystem.PaywallTint.primaryPaywall, for: .normal)
+            self.closeButton.setTitleColor(DS.PaywallTint.primaryPaywall, for: .normal)
             self.timer?.invalidate()
             self.timer = nil
             CustomPresentationController.canBeDismissed = true
@@ -299,7 +306,7 @@ final class SpecialOfferPaywall: ViewControllerPannable {
             purchaseButton,
             docsStack,
         ])
-        cardContentStack.backgroundColor = DesignSystem.PaywallTint.primaryDarkBG
+        cardContentStack.backgroundColor = DS.PaywallTint.primaryDarkBG
         // Configure
         cardContentStack.translatesAutoresizingMaskIntoConstraints = false
         cardContentStack.axis = .vertical
@@ -314,7 +321,7 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         )
         cardContentStack.isLayoutMarginsRelativeArrangement = true
         // Corner
-        cardContentStack.layer.cornerRadius = DesignSystem.maxCornerRadius
+        cardContentStack.layer.cornerRadius = DS.maxCornerRadius
         cardContentStack.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         cardContentStack.clipsToBounds = true
         

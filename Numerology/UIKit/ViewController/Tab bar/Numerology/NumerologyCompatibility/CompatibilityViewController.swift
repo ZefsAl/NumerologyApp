@@ -20,7 +20,7 @@ class CompatibilityViewController: UIViewController {
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Numerology.primaryColor,
+        tint: DS.Numerology.primaryColor,
         referenceView: self.view
     )
     
@@ -94,7 +94,7 @@ class CompatibilityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG2")
         setupStack()
@@ -136,10 +136,10 @@ class CompatibilityViewController: UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.borderWidth = DS.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
+            v.layer.cornerRadius = DS.maxCornerRadius
             // Shadow
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -169,10 +169,10 @@ class CompatibilityViewController: UIViewController {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Border
-            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.borderWidth = DS.borderWidth
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
+            v.layer.cornerRadius = DS.maxCornerRadius
             // Shadow
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16
@@ -212,7 +212,7 @@ class CompatibilityViewController: UIViewController {
             v.layer.borderWidth = 1
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
             v.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
+            v.layer.cornerRadius = DS.maxCornerRadius
             
             v.addSubview(textDescription)
             NSLayoutConstraint.activate([

@@ -227,7 +227,7 @@ final class PythagoreanSquareView: UIView {
         tableStack.distribution = .fillEqually
         // Border
         let color = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
-        tableStack.layer.cornerRadius = DesignSystem.maxCornerRadius
+        tableStack.layer.cornerRadius = DS.maxCornerRadius
         tableStack.layer.borderWidth = 1
         tableStack.layer.borderColor = color.cgColor
         tableStack.layer.shadowOpacity = 1

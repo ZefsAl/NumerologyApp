@@ -23,7 +23,7 @@ class CapsuleButton: UIButton {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h5
+        l.font = DS.SourceSerifProFont.title_h5
         l.textAlignment = .left
         l.textColor = .white
         l.isUserInteractionEnabled = false
@@ -37,11 +37,11 @@ class CapsuleButton: UIButton {
     }
     
     private func setupUI() {
-        self.backgroundColor = DesignSystem.Horoscope.primaryColor
+        self.backgroundColor = DS.Horoscope.primaryColor
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
         self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowColor = DesignSystem.Horoscope.shadowColor.cgColor
+        self.layer.shadowColor = DS.Horoscope.shadowColor.cgColor
         // add
         
         

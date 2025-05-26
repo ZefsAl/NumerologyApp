@@ -8,6 +8,7 @@
 import UIKit
 import RevenueCat
 import SwiftUI
+import FBSDKCoreKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -53,9 +54,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
-//        MusicManager.shared.stopSound()
         musicManager.stopSound()
         print("🔄 sceneDidEnterBackground")
+    }
+    
+    // Facebook
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
+        
+        // В самом начале, до любых вызовов SDK:
+        Settings.shared.loggingBehaviors = []
+        // или по-отдельности отключить:
+        Settings.shared.disableLoggingBehavior(.appEvents)
+        Settings.shared.disableLoggingBehavior(.performanceCharacteristics)
+        Settings.shared.disableLoggingBehavior(.networkRequests)
     }
     
 }

@@ -52,9 +52,9 @@ extension CharismaDetailVC: UICollectionViewDataSource, UICollectionViewDelegate
             cell.percentTitle.text = "\(data[indexPath.row].percentTitle)%"
             cell.setProgressValue(value: data[indexPath.row].progressValue)
             cell.setProgressColor(data[indexPath.row].progressColor)
-            cell.title.font = DesignSystem.SourceSerifProFont.title_h6
+            cell.title.font = DS.SourceSerifProFont.title_h6
             cell.title.adjustsFontSizeToFitWidth = true
-            cell.percentTitle.font = DesignSystem.SourceSerifProFont.title_h6
+            cell.percentTitle.font = DS.SourceSerifProFont.title_h6
             return cell
         } 
                 

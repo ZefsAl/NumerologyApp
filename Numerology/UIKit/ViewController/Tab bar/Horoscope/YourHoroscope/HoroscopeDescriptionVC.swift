@@ -15,7 +15,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Horoscope.primaryColor,
+        tint: DS.Horoscope.primaryColor,
         referenceView: self.view
     )
     
@@ -148,7 +148,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Horoscope.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Horoscope.primaryColor)
         // ui setup
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
@@ -218,11 +218,11 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.cornerRadius = DS.maxCornerRadius
+            v.layer.borderWidth = DS.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = DesignSystem.maxCornerRadius
+            v.layer.shadowRadius = DS.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
             return v

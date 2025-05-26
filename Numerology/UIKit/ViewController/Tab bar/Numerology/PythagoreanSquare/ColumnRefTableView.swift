@@ -134,7 +134,7 @@ class ColumnRefTableView: UITableView, UITableViewDelegate, UITableViewDataSourc
         
         let color = #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         let width: CGFloat = 1
-        let conren: CGFloat = DesignSystem.maxCornerRadius
+        let conren: CGFloat = DS.maxCornerRadius
        
         // cell UI
         // костыли

@@ -15,9 +15,9 @@ class ChartButtonCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            DesignSystem.setCardStyle(
+            DS.setCardStyle(
                 to: self,
-                tintColor: self.isSelected ? DesignSystem.Horoscope.primaryColor : UIColor.clear,
+                tintColor: self.isSelected ? DS.Horoscope.primaryColor : UIColor.clear,
                 cornerRadius: 16
             )
         }
@@ -29,7 +29,7 @@ class ChartButtonCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h6
+        l.font = DS.SourceSerifProFont.title_h6
         l.textAlignment = .left
         l.text = "test"
         return l
@@ -86,9 +86,9 @@ class ChartCVCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            DesignSystem.setCardStyle(
+            DS.setCardStyle(
                 to: self,
-                tintColor: self.isSelected ? DesignSystem.Horoscope.primaryColor : UIColor.clear,
+                tintColor: self.isSelected ? DS.Horoscope.primaryColor : UIColor.clear,
                 cornerRadius: 16
             )
         }
@@ -100,7 +100,7 @@ class ChartCVCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h6
+        l.font = DS.SourceSerifProFont.title_h6
         l.textAlignment = .left
         l.text = "test"
         return l
@@ -109,7 +109,7 @@ class ChartCVCell: UICollectionViewCell {
     let percentTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h6
+        l.font = DS.SourceSerifProFont.title_h6
         l.textAlignment = .right
         l.text = "0.0"
         return l

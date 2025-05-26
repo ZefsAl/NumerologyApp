@@ -155,9 +155,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         secondVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         
         // MARK: FourthVC
-        
         let fourthVC = UIHostingController(rootView: MoonView())
-        
         let fourtImage = UIImage(named: "Moon_3x_75px")
         fourthVC.tabBarItem.image = fourtImage
         fourthVC.tabBarItem.title = "Moonly"
@@ -167,15 +165,27 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         )
         fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         
-        // MARK: fiveVC
-        let fiveVC = TrendsArticlesVC()
-        let fiveImage = UIImage(named: "Trends")
+        
+        let fiveVC = UIHostingController(rootView: SelectExpertView())
+        let fiveImage = UIImage(named: "Moon_3x_75px")
         fiveVC.tabBarItem.image = fiveImage
-        fiveVC.tabBarItem.title = "Trends"
-        fiveVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        fiveVC.tabBarItem.title = "Moonly"
+        fiveVC.tabBarItem.titlePositionAdjustment = UIOffset(
+            horizontal: 5, // horizontal for optical compensation
+            vertical: -5 // same
+        )
         fiveVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         
-        self.viewControllers = [secondVC,firstVC,fourthVC,fiveVC]
+        
+        // MARK: fiveVC
+        let sixVC = TrendsArticlesVC()
+        let sixImage = UIImage(named: "Trends")
+        sixVC.tabBarItem.image = sixImage
+        sixVC.tabBarItem.title = "Trends"
+        sixVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        sixVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+        
+        self.viewControllers = [secondVC,firstVC,fourthVC,fiveVC,sixVC]
     }
 }
 
@@ -224,13 +234,13 @@ extension MainTabBarController {
         guard let index = index else { return nil }
         switch index {
         case 0:
-            return DesignSystem.Horoscope.backgroundColor
+            return DS.Horoscope.backgroundColor
         case 1:
-            return DesignSystem.Numerology.backgroundColor
+            return DS.Numerology.backgroundColor
         case 2:
             return UIColor.black.withAlphaComponent(0.6)
         case 3:
-            return DesignSystem.TrendsArticles .backgroundColor
+            return DS.TrendsArticles .backgroundColor
         default:
             break
         }

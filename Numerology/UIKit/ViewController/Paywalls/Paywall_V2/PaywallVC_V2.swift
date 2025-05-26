@@ -59,7 +59,7 @@ final class PaywallVC_V2: UIViewController {
     private let purchaseButton: PurchaseButton = {
         let b = PurchaseButton(
             title: "Continue",
-            primaryColor: DesignSystem.PaywallTint.primaryPaywall,
+            primaryColor: DS.PaywallTint.primaryPaywall,
             tapToBounce: false 
         )
         b.addTarget(Any?.self, action: #selector(actPurchaseButton), for: .touchUpInside)
@@ -78,9 +78,17 @@ final class PaywallVC_V2: UIViewController {
             Purchases.shared.getProducts(["Yearly.Trial"]) { arr in
                 //                print("💰 Trial ---",arr.first?.productIdentifier)
                 guard let product = arr.first else { return }
+                
                 Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
                     self.purchaseButton.activityIndicatorView.stopAnimating()
                     if customerInfo?.entitlements["Access"]?.isActive == true {
+                        AnalyticsManager.shared.trackPurchase_FIB(
+                            product: product,
+                            transaction: transaction,
+                            customerInfo: customerInfo,
+                            error: error,
+                            userCancelled: userCancelled
+                        )
                         //                        print("🟠",customerInfo?.entitlements["Access"]?.isActive)
                         self.dismissAction()
                     }
@@ -92,6 +100,13 @@ final class PaywallVC_V2: UIViewController {
             Purchases.shared.purchase(product: storeProductIndex) { transaction, customerInfo, error, userCancelled in
                 self.purchaseButton.activityIndicatorView.stopAnimating()
                 if customerInfo?.entitlements["Access"]?.isActive == true {
+                    AnalyticsManager.shared.trackPurchase_FIB(
+                        product: storeProductIndex,
+                        transaction: transaction,
+                        customerInfo: customerInfo,
+                        error: error,
+                        userCancelled: userCancelled
+                    )
                     //                    print("🟠",customerInfo?.entitlements["Access"]?.isActive)
                     self.dismissAction()
                 }
@@ -293,8 +308,8 @@ final class PaywallVC_V2: UIViewController {
         //
         self.trialOfferLable.font = (
             DeviceMenager.isSmallDevice ?
-            DesignSystem.SourceSerifProFont.footnote_Sb_13 :
-            DesignSystem.SourceSerifProFont.subtitle
+            DS.SourceSerifProFont.footnote_Sb_13 :
+            DS.SourceSerifProFont.subtitle
         )
     }
     
@@ -322,8 +337,8 @@ final class PaywallVC_V2: UIViewController {
         trialOfferStack.spacing = 0
         trialOfferStack.layoutMargins = UIEdgeInsets(top: 0,left: 18,bottom: 0,right: 18)
         trialOfferStack.isLayoutMarginsRelativeArrangement = true
-        trialOfferStack.backgroundColor = DesignSystem.PaywallTint.secondaryDarkBG
-        trialOfferStack.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius-2
+        trialOfferStack.backgroundColor = DS.PaywallTint.secondaryDarkBG
+        trialOfferStack.layer.cornerRadius = DeviceMenager.isSmallDevice ? DS.midCornerRadius_20 : DS.maxCornerRadius-2
         
         // MARK: Product Controls Stack
         let productControlsStack = UIStackView(arrangedSubviews: [
@@ -353,9 +368,9 @@ final class PaywallVC_V2: UIViewController {
             right: 18
         )
         cardContentStack.isLayoutMarginsRelativeArrangement = true
-        cardContentStack.layer.cornerRadius = DesignSystem.maxCornerRadius
+        cardContentStack.layer.cornerRadius = DS.maxCornerRadius
         cardContentStack.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        cardContentStack.backgroundColor = DesignSystem.PaywallTint.primaryDarkBG.withAlphaComponent(0.9)
+        cardContentStack.backgroundColor = DS.PaywallTint.primaryDarkBG.withAlphaComponent(0.9)
         
         // MARK: Main Stack
         let mainStack = UIStackView(arrangedSubviews: [

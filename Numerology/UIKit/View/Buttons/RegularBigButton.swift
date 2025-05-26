@@ -25,7 +25,7 @@ class RegularBigButton: UIButton {
         super.init(frame: frame)
 
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = DS.maxCornerRadius
         self.backgroundColor = (primaryColor ?? self.primaryColor)
         // Shadow
         self.layer.shadowOpacity = 1

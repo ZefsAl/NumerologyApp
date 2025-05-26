@@ -42,8 +42,8 @@ struct PremiumAccordion_SUI: View {
     // Private
     @State private var showPaywall: Bool = false
     
-    private let titleFont = DesignSystem.SourceSerifProFont.title_h3!
-    private let subtitleFont = DesignSystem.SourceSerifProFont.subtitle!
+    private let titleFont = DS.SourceSerifProFont.title_h3!
+    private let subtitleFont = DS.SourceSerifProFont.subtitle!
     @State private var isDisclosed: Bool = false
     @State private var textSize: CGSize = .zero
     @State private var toggleIcon: Bool = false
@@ -112,7 +112,7 @@ struct PremiumAccordion_SUI_TESTPREVIEW: View {
                 minTextContainer: 40,
                 vSpacing: 12
             )
-            .background(Color(DesignSystem.Numerology.shadowColor))
+            .background(Color(DS.Numerology.shadowColor))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color.black)

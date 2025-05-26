@@ -13,7 +13,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Numerology.primaryColor,
+        tint: DS.Numerology.primaryColor,
         referenceView: self.view
     )
     
@@ -33,7 +33,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     private let headerTitle: SectionHeaderView = {
         let v = SectionHeaderView()
         v.label.text = "About you"
-        v.label.textColor = DesignSystem.Numerology.lightTextColor
+        v.label.textColor = DS.Numerology.lightTextColor
         v.heightAnchor.constraint(equalToConstant: 40).isActive = true
         return v
     }()
@@ -42,7 +42,7 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG3")
         AnimatableBG().setBackground(vc: self)
@@ -88,15 +88,15 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
             let v = UIView()
             v.translatesAutoresizingMaskIntoConstraints = false
             // Style
-            v.backgroundColor = DesignSystem.Numerology.backgroundColor
+            v.backgroundColor = DS.Numerology.backgroundColor
             // Border
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-            v.layer.borderWidth = DesignSystem.borderWidth
-            v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
+            v.layer.cornerRadius = DS.maxCornerRadius
+            v.layer.borderWidth = DS.borderWidth
+            v.layer.borderColor = DS.Numerology.primaryColor.cgColor
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = DesignSystem.maxCornerRadius
+            v.layer.shadowRadius = DS.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
-            v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+            v.layer.shadowColor = DS.Numerology.shadowColor.cgColor
             //
             v.addSubview(accordionStack)
             NSLayoutConstraint.activate([
@@ -141,15 +141,15 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
                 let v = UIView()
                 v.translatesAutoresizingMaskIntoConstraints = false
                 // Style
-                v.backgroundColor = DesignSystem.Numerology.backgroundColor
+                v.backgroundColor = DS.Numerology.backgroundColor
                 // Border
-                v.layer.cornerRadius = DesignSystem.maxCornerRadius
-                v.layer.borderWidth = DesignSystem.borderWidth
-                v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
+                v.layer.cornerRadius = DS.maxCornerRadius
+                v.layer.borderWidth = DS.borderWidth
+                v.layer.borderColor = DS.Numerology.primaryColor.cgColor
                 v.layer.shadowOpacity = 1
-                v.layer.shadowRadius = DesignSystem.maxCornerRadius
+                v.layer.shadowRadius = DS.maxCornerRadius
                 v.layer.shadowOffset = CGSize(width: 0, height: 4)
-                v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+                v.layer.shadowColor = DS.Numerology.shadowColor.cgColor
                 
                 v.addSubview(accordionStack)
                 NSLayoutConstraint.activate([

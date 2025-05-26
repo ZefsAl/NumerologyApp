@@ -27,7 +27,7 @@ class CharismaCVCell: UICollectionViewCell {
         iv.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
         iv.layer.cornerRadius = size/2
-        iv.layer.borderWidth = DesignSystem.borderWidth
+        iv.layer.borderWidth = DS.borderWidth
         iv.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         iv.layer.shadowOpacity = 1
         iv.layer.shadowRadius = 20

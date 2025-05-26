@@ -17,7 +17,7 @@ final class MiniPromoCVCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             self.contentView.alpha = isSelected ? 1 : 0.3
-            self.contentView.layer.borderColor = isSelected ? DesignSystem.PaywallTint.cellActiveBorder.cgColor : DesignSystem.PaywallTint.cellDisabledBorder.cgColor
+            self.contentView.layer.borderColor = isSelected ? DS.PaywallTint.cellActiveBorder.cgColor : DS.PaywallTint.cellDisabledBorder.cgColor
         }
     }
     
@@ -59,11 +59,11 @@ final class MiniPromoCVCell: UICollectionViewCell {
     private func setAdaptiveStyle() {
         // Self Card Style
         self.contentView.alpha = 0.3
-        self.contentView.backgroundColor = DesignSystem.PaywallTint.cellActiveBG
+        self.contentView.backgroundColor = DS.PaywallTint.cellActiveBG
         // Border
-        self.contentView.layer.borderColor = DesignSystem.PaywallTint.cellDisabledBorder.cgColor
+        self.contentView.layer.borderColor = DS.PaywallTint.cellDisabledBorder.cgColor
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius
+        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DS.midCornerRadius_20 : DS.maxCornerRadius
         self.contentView.clipsToBounds = true
         // Font
         self.mainTitle.font = UIFont.setSourceSerifPro(weight: .semiBold, size: DeviceMenager.isSmallDevice ? 17 : 20)

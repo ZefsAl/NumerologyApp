@@ -22,7 +22,7 @@ final class GenderCVCell: UICollectionViewCell {
                 self.icon.layer.opacity = 1
                 
                 // Selected state
-                self.layer.borderWidth = DesignSystem.borderWidth
+                self.layer.borderWidth = DS.borderWidth
                 self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
                 self.layer.shadowOpacity = 1
                 self.layer.shadowRadius = 16
@@ -73,7 +73,7 @@ final class GenderCVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Style
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = DS.maxCornerRadius
         self.clipsToBounds = false
         self.layer.borderWidth = 1
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7).withAlphaComponent(0.7)
@@ -105,7 +105,7 @@ final class GenderCVCell: UICollectionViewCell {
         cardContent.axis = .vertical
         cardContent.alignment = .center
         cardContent.distribution = .fill
-        cardContent.layer.cornerRadius = DesignSystem.maxCornerRadius
+        cardContent.layer.cornerRadius = DS.maxCornerRadius
         cardContent.spacing = 16
         
         self.addSubview(cardContent)

@@ -22,7 +22,7 @@ class DescriptionVC: UIViewController {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h3
+        l.font = DS.SourceSerifProFont.title_h3
         l.textAlignment = .left
         return l
     }()
@@ -30,7 +30,7 @@ class DescriptionVC: UIViewController {
     let info: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DS.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -39,7 +39,7 @@ class DescriptionVC: UIViewController {
     let about: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DS.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         return l
@@ -50,15 +50,15 @@ class DescriptionVC: UIViewController {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         // Style
-        v.backgroundColor = DesignSystem.Numerology.backgroundColor
+        v.backgroundColor = DS.Numerology.backgroundColor
         // Border
-        v.layer.cornerRadius = DesignSystem.maxCornerRadius
-        v.layer.borderWidth = DesignSystem.borderWidth
-        v.layer.borderColor = DesignSystem.Numerology.primaryColor.cgColor
+        v.layer.cornerRadius = DS.maxCornerRadius
+        v.layer.borderWidth = DS.borderWidth
+        v.layer.borderColor = DS.Numerology.primaryColor.cgColor
         v.layer.shadowOpacity = 1
         v.layer.shadowRadius = 16
         v.layer.shadowOffset = CGSize(width: 0, height: 4)
-        v.layer.shadowColor = DesignSystem.Numerology.shadowColor.cgColor
+        v.layer.shadowColor = DS.Numerology.shadowColor.cgColor
         return v
     }()
     
@@ -80,7 +80,7 @@ class DescriptionVC: UIViewController {
     func setStyleWithTint(
         bgImage: String?,
         primaryColor: UIColor?,
-        bgColor: UIColor? = DesignSystem.Numerology.backgroundColor
+        bgColor: UIColor? = DS.Numerology.backgroundColor
     ) {
         // BG
         self.setBackground(named: bgImage ?? "MainBG2")

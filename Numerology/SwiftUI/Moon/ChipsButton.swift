@@ -13,7 +13,7 @@ struct ChipsButton: View {
     let iconName: String
     @Binding var selectedString: String
     var action: (() -> Void)?
-    private let footnote = DesignSystem.SourceSerifProFont.footnote_Sb_13!
+    private let footnote = DS.SourceSerifProFont.footnote_Sb_13!
     
     let tintColor: String
 //    Color(DesignSystem.MoonColors.mediumTint)

@@ -15,7 +15,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Numerology.primaryColor,
+        tint: DS.Numerology.primaryColor,
         referenceView: self.view
     )
     
@@ -63,7 +63,7 @@ class DetailAngelNumbersVC: UIViewController, RemoteOpenDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG3.png")
         AnimatableBG().setBackground(vc: self)

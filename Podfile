@@ -8,5 +8,6 @@ target 'Numerology' do
   
 	pod 'RevenueCat'
 	pod 'MMMHorizontalPicker'
+	pod 'FBSDKCoreKit'
   
 end

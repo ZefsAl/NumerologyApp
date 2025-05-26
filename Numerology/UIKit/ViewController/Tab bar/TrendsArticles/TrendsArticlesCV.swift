@@ -178,7 +178,7 @@ extension TrendsArticlesCV: UICollectionViewDataSource {
             let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: IndexPath(item: 0, section: 0)) as? SectionHeaderView
             let title = self.trendsArticlesVM.trendsArticlesModel.sections[indexPath.section].sectionTitle
             sectionHeader?.label.text = title
-            sectionHeader?.label.textColor = DesignSystem.TrendsArticles.textColor
+            sectionHeader?.label.textColor = DS.TrendsArticles.textColor
             return sectionHeader ?? UICollectionReusableView()
         }
         return UICollectionReusableView()

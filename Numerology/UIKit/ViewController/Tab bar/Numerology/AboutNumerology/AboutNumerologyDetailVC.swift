@@ -11,7 +11,7 @@ class AboutNumerologyDetailVC: UIViewController {
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Numerology.primaryColor,
+        tint: DS.Numerology.primaryColor,
         referenceView: self.view
     )
     
@@ -27,7 +27,7 @@ class AboutNumerologyDetailVC: UIViewController {
     let descriptionText: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DS.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0
         
@@ -40,7 +40,7 @@ class AboutNumerologyDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         setBackground(named: "MainBG2")
         setupStack()
@@ -86,8 +86,8 @@ class AboutNumerologyDetailVC: UIViewController {
         // Style
         contentStack.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        contentStack.layer.cornerRadius = DesignSystem.maxCornerRadius
-        contentStack.layer.borderWidth = DesignSystem.borderWidth
+        contentStack.layer.cornerRadius = DS.maxCornerRadius
+        contentStack.layer.borderWidth = DS.borderWidth
         contentStack.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
         contentStack.layer.shadowOpacity = 1
         contentStack.layer.shadowRadius = 16

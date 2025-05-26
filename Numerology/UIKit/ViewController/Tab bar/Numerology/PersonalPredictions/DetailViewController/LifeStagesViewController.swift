@@ -22,7 +22,7 @@ class LifeStagesViewController: UIViewController {
     
     // MARK: - Top Image
     private lazy var topImage: TopImage = TopImage(
-        tint: DesignSystem.Numerology.primaryColor,
+        tint: DS.Numerology.primaryColor,
         referenceView: self.view
     )
     
@@ -87,7 +87,7 @@ class LifeStagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG2")
         //
@@ -164,8 +164,8 @@ class LifeStagesViewController: UIViewController {
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.cornerRadius = DS.maxCornerRadius
+            v.layer.borderWidth = DS.borderWidth
             v.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             v.layer.shadowOpacity = 1
             v.layer.shadowRadius = 16

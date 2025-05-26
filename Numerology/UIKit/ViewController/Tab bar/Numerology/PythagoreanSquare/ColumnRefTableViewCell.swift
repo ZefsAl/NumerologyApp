@@ -20,7 +20,7 @@ class ColumnRefTableViewCell: UITableViewCell {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.font = .setCinzelRegular(size: 24)
         l.textAlignment = .center
-        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textColor = DS.Numerology.lightTextColor
         return l
     }()
     
@@ -31,7 +31,7 @@ class ColumnRefTableViewCell: UITableViewCell {
         l.font = .setCinzelRegular(size: 16)
         l.numberOfLines = 0
         l.textAlignment = .center
-        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textColor = DS.Numerology.lightTextColor
         return l
     }()
     

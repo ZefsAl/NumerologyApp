@@ -23,42 +23,42 @@ class HoroscopeCellViewModel {
                 text: model?.social ?? "",
                 percentTitle: "\(valArr?[0] ?? 99)",
                 progressValue: valArr?[0] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DS.ProgressBarTitnt.yellow
             ),
             ChartCVCellModel(
                 title: "Business",
                 text: model?.business ?? "",
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Friendship",
                 text: model?.friendship ?? "",
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.cyan
+                progressColor: DS.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Love",
                 text: model?.love ?? "",
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.pink
+                progressColor: DS.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Health",
                 text: model?.health ?? "",
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Intimacy",
                 text: model?.sex ?? "",
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
         ]
 
@@ -75,42 +75,42 @@ class HoroscopeCellViewModel {
                 text: model?.social ?? "",
                 percentTitle: "\(valArr?[0] ?? 99)",
                 progressValue: valArr?[0] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DS.ProgressBarTitnt.yellow
             ),
             ChartCVCellModel(
                 title: "Business",
                 text: model?.business ?? "" ,
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Friendship",
                 text: model?.friendship ?? ""   ,
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.cyan
+                progressColor: DS.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Love",
                 text: model?.love ?? ""     ,
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.pink
+                progressColor: DS.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Health",
                 text: model?.health ?? ""       ,
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Intimacy",
                 text: model?.sex ?? ""       ,
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
         ]
 
@@ -130,7 +130,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[0] ?? 99)",
                 progressValue: valArr?[0] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.pink
+                progressColor: DS.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Business",
@@ -138,7 +138,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Health",
@@ -146,7 +146,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Intimacy",
@@ -154,7 +154,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
         ]
     }
@@ -174,7 +174,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[0] ?? 99)",
                 progressValue: valArr?[0] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DS.ProgressBarTitnt.yellow
             ),
             ChartCVCellModel(
                 title: "Business",
@@ -182,7 +182,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Friendship",
@@ -190,7 +190,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.cyan
+                progressColor: DS.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Love",
@@ -198,7 +198,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.pink
+                progressColor: DS.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Health",
@@ -206,7 +206,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Intimacy",
@@ -214,7 +214,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
         ]
     }
@@ -234,7 +234,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[0] ?? 99)",
                 progressValue: valArr?[0] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.yellow
+                progressColor: DS.ProgressBarTitnt.yellow
             ),
             ChartCVCellModel(
                 title: "Business",
@@ -242,7 +242,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[1] ?? 99 )",
                 progressValue: valArr?[1] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.purple
+                progressColor: DS.ProgressBarTitnt.purple
             ),
             ChartCVCellModel(
                 title: "Friendship",
@@ -250,7 +250,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[2] ?? 99 )",
                 progressValue: valArr?[2] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.cyan
+                progressColor: DS.ProgressBarTitnt.cyan
             ),
             ChartCVCellModel(
                 title: "Love",
@@ -258,7 +258,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[3] ?? 99)",
                 progressValue: valArr?[3] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.pink
+                progressColor: DS.ProgressBarTitnt.pink
             ),
             ChartCVCellModel(
                 title: "Health",
@@ -266,7 +266,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[4] ?? 99)",
                 progressValue: valArr?[4] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.green
+                progressColor: DS.ProgressBarTitnt.green
             ),
             ChartCVCellModel(
                 title: "Intimacy",
@@ -274,7 +274,7 @@ class HoroscopeCellViewModel {
                 text2: text2,
                 percentTitle: "\(valArr?[5] ?? 99)",
                 progressValue: valArr?[5] ?? 99,
-                progressColor: DesignSystem.ProgressBarTitnt.red
+                progressColor: DS.ProgressBarTitnt.red
             ),
         ]
     }

@@ -14,24 +14,18 @@ struct MoonStatView: View {
     var imageName: String? = nil
     var firstTitle: String? = nil
     var titles: [String]? = nil
-//    var secondTitle: String? = nil
     var caption: String? = nil
     var alignment: HorizontalAlignment = .leading
-    
-    
-    
-    
-    
     //
-    private let footnoteFont = DesignSystem.SourceSerifProFont.footnote_Sb_13!
-    private let titleFont = DesignSystem.SourceSerifProFont.title_h2!
-    private let caption3Font = DesignSystem.SourceSerifProFont.caption3!
+    private let footnoteFont = DS.SourceSerifProFont.footnote_Sb_13!
+    private let titleFont = DS.SourceSerifProFont.title_h2!
+    private let caption3Font = DS.SourceSerifProFont.caption3!
     
     var body: some View {
         VStack(alignment: self.alignment, spacing: 0) {
             Text(footnote)
                 .font(Font((self.footnoteFont) as CTFont))
-                .foregroundStyle(Color(uiColor: DesignSystem.MoonColors.grayText))
+                .foregroundStyle(Color(uiColor: DS.MoonColors.grayText))
             //
             HStack(alignment: .center, spacing: 4) {
                 if let imege = self.imageName {
@@ -68,7 +62,7 @@ struct MoonStatView: View {
             if let caption {
                 Text(caption)
                     .font(Font((self.caption3Font) as CTFont))
-                    .foregroundStyle(Color(uiColor: DesignSystem.MoonColors.grayText))
+                    .foregroundStyle(Color(uiColor: DS.MoonColors.grayText))
             }
             
             

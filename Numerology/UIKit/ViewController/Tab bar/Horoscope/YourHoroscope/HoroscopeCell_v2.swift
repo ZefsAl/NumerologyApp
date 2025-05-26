@@ -32,9 +32,9 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.title_h3
+        l.font = DS.CinzelFont.title_h3
         l.textAlignment = .center
-        l.textColor = DesignSystem.Horoscope.lightTextColor
+        l.textColor = DS.Horoscope.lightTextColor
         return l
     }()
     
@@ -42,10 +42,10 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.subtitle
+        l.font = DS.CinzelFont.subtitle
         l.numberOfLines = 0
         l.textAlignment = .center
-        l.textColor = DesignSystem.Horoscope.lightTextColor
+        l.textColor = DS.Horoscope.lightTextColor
         return l
     }()
     
@@ -138,7 +138,7 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let chartsTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h5
+        l.font = DS.SourceSerifProFont.title_h5
         l.numberOfLines = 3
         l.textAlignment = .left
         l.textColor = .white
@@ -148,7 +148,7 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let chartsText: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.caption2_Sb_11
+        l.font = DS.SourceSerifProFont.caption2_Sb_11
         l.numberOfLines = 3
         l.textAlignment = .left
         l.textColor = .white
@@ -159,7 +159,7 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     let readMoreLable: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.footnote_Sb_13
+        l.font = DS.SourceSerifProFont.footnote_Sb_13
         l.textAlignment = .left
         l.textColor = .white
         //
@@ -202,11 +202,11 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
-        self.layer.borderWidth = DesignSystem.borderWidth
+        self.layer.cornerRadius = DS.maxCornerRadius
+        self.layer.borderWidth = DS.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = DesignSystem.maxCornerRadius
+        self.layer.shadowRadius = DS.maxCornerRadius
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
         self.layer.shadowColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
     }

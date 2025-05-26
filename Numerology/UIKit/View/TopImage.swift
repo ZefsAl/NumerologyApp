@@ -30,8 +30,8 @@ class TopImage: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = false
         
-        DesignSystem.setCardStyle(to: self, tintColor: tint, cornerRadius: DesignSystem.maxCornerRadius)
-        self.imageView.layer.cornerRadius = DesignSystem.maxCornerRadius
+        DS.setCardStyle(to: self, tintColor: tint, cornerRadius: DS.maxCornerRadius)
+        self.imageView.layer.cornerRadius = DS.maxCornerRadius
         
         self.addSubview(imageView)
         //

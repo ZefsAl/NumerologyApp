@@ -19,7 +19,7 @@ final class BigPromoCVCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             self.contentView.alpha = isSelected ? 1 : 0.3
-            self.layer.borderColor = (isSelected ? DesignSystem.PaywallTint.cellActiveBorder : DesignSystem.PaywallTint.cellDisabledBorder).cgColor
+            self.layer.borderColor = (isSelected ? DS.PaywallTint.cellActiveBorder : DS.PaywallTint.cellDisabledBorder).cgColor
         }
     }
     
@@ -29,7 +29,7 @@ final class BigPromoCVCell: UICollectionViewCell {
         l.textAlignment = .center
         l.numberOfLines = 0
         l.textColor = .white
-        l.backgroundColor = DesignSystem.PaywallTint.discountBadge
+        l.backgroundColor = DS.PaywallTint.discountBadge
         //
         l.topInset = 2
         l.bottomInset = 3
@@ -81,11 +81,11 @@ final class BigPromoCVCell: UICollectionViewCell {
     private func setAdaptiveStyle() {
         // Self Card Style
         self.contentView.alpha = 0.3
-        self.contentView.backgroundColor = DesignSystem.PaywallTint.cellActiveBG
+        self.contentView.backgroundColor = DS.PaywallTint.cellActiveBG
         // Border
-        self.contentView.layer.borderColor = DesignSystem.PaywallTint.cellActiveBorder.cgColor
+        self.contentView.layer.borderColor = DS.PaywallTint.cellActiveBorder.cgColor
         self.contentView.layer.borderWidth = 2
-        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DesignSystem.midCornerRadius_20 : DesignSystem.maxCornerRadius
+        self.contentView.layer.cornerRadius = DeviceMenager.isSmallDevice ? DS.midCornerRadius_20 : DS.maxCornerRadius
         self.contentView.clipsToBounds = true
         // Font
         self.discountBadge.font = UIFont.setSourceSerifPro(weight: .bold, size: DeviceMenager.isSmallDevice ? 11 : 13)

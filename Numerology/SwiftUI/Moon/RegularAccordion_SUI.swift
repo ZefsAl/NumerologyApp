@@ -30,8 +30,8 @@ struct RegularAccordion_SUI: View {
         
     }
     
-    private let titleFont = DesignSystem.SourceSerifProFont.title_h3!
-    private let subtitleFont = DesignSystem.SourceSerifProFont.subtitle!
+    private let titleFont = DS.SourceSerifProFont.title_h3!
+    private let subtitleFont = DS.SourceSerifProFont.subtitle!
     @State private var isDisclosed: Bool = false
     @State private var textSize: CGSize = .zero
     @State private var toggleIcon: Bool = false

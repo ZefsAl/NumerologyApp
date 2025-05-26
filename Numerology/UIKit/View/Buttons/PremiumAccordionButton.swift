@@ -27,7 +27,7 @@ class PremiumAccordionButton: UIButton {
     let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h3
+        l.font = DS.SourceSerifProFont.title_h3
         l.textAlignment = .left
         return l
     }()

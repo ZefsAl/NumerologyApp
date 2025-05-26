@@ -19,19 +19,7 @@ struct MoonView: View {
     private static let duration = 0.5
     private let moonAnimation: Animation = .smooth(duration: MoonView.duration)
     
-    struct BiteCircle: Shape {
-        func path(in rect: CGRect) -> Path {
-            let offset = rect.maxX - 26
-            let crect = CGRect(origin: .zero, size: CGSize(width: 26, height: 26)).offsetBy(dx: offset, dy: offset)
-            
-            var path = Rectangle().path(in: rect)
-            path.addPath(Circle().path(in: crect))
-            return path
-        }
-    }
-    
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .center, spacing: 24) {
                 // Calendar
@@ -236,10 +224,10 @@ struct MoonView: View {
             content()
         }
         .background(
-            RoundedRectangle(cornerRadius: DesignSystem.maxCornerRadius)
-                .strokeBorder(Color.gray, lineWidth: DesignSystem.borderWidth)
-                .background(Color(DesignSystem.MoonColors.darkTint).opacity(0.7))
-                .clipShape(RoundedRectangle(cornerRadius: DesignSystem.maxCornerRadius))
+            RoundedRectangle(cornerRadius: DS.maxCornerRadius)
+                .strokeBorder(Color.gray, lineWidth: DS.borderWidth)
+                .background(Color(DS.MoonColors.darkTint).opacity(0.7))
+                .clipShape(RoundedRectangle(cornerRadius: DS.maxCornerRadius))
         )
         .padding(18)
     }

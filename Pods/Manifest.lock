@@ -1,4 +1,10 @@
 PODS:
+  - FBAEMKit (18.0.0):
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit (18.0.0):
+    - FBAEMKit (= 18.0.0)
+    - FBSDKCoreKit_Basics (= 18.0.0)
+  - FBSDKCoreKit_Basics (18.0.0)
   - MMMCommonCore (1.16.2):
     - MMMCommonCore/ObjC (= 1.16.2)
     - MMMCommonCore/Swift (= 1.16.2)
@@ -23,6 +29,7 @@ PODS:
   - RevenueCat (4.25.6)
 
 DEPENDENCIES:
+  - FBSDKCoreKit
   - MMMHorizontalPicker
   - RevenueCat
 
@@ -35,9 +42,15 @@ SPEC REPOS:
     - MMMLog
     - MMMObservables
   trunk:
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
     - RevenueCat
 
 SPEC CHECKSUMS:
+  FBAEMKit: e34530df538b8eb8aeb53c35867715ba6c63ef0c
+  FBSDKCoreKit: d3f479a69127acebb1c6aad91c1a33907bcf6c2f
+  FBSDKCoreKit_Basics: 017b6dc2a1862024815a8229e75661e627ac1e29
   MMMCommonCore: e33fafa38466ac6d1212f2eece8e6bb98d477f2e
   MMMCommonUI: 36b2b32058a99fa1f08609b93d7d81628a97a619
   MMMHorizontalPicker: fb831166ee8bc53e78e61b6e051d8283f8729830
@@ -46,6 +59,6 @@ SPEC CHECKSUMS:
   MMMObservables: 8e74f72767137893b215038d492dc0ab2dc87be2
   RevenueCat: 9726d792ed47b41dfe83754c1391fa3d08e1bbdf
 
-PODFILE CHECKSUM: 18cd6868950df85553118b04fbd5e44427863142
+PODFILE CHECKSUM: 656ddadde581846b32e7d651ab5154fc47377a78
 
 COCOAPODS: 1.15.2

@@ -23,7 +23,7 @@ class ChipsCVCell: UICollectionViewCell {
                 self.backgroundColor = primaryColor
                 self.layer.borderWidth = 0
                 self.layer.shadowOpacity = 1
-                self.layer.shadowRadius = DesignSystem.midCornerRadius_20
+                self.layer.shadowRadius = DS.midCornerRadius_20
                 self.layer.shadowOffset = CGSize(width: 0, height: 4)
                 self.layer.shadowColor = primaryColor?.withAlphaComponent(0.5).cgColor ?? #colorLiteral(red: 0.7450980392, green: 0.4705882353, blue: 0.9490196078, alpha: 0.5)
             } else {
@@ -40,7 +40,7 @@ class ChipsCVCell: UICollectionViewCell {
     private let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.ChipsButton.title
+        l.font = DS.ChipsButton.title
         l.textAlignment = .center
         
         return l

@@ -22,7 +22,7 @@ final class PersonalDayVC: UIViewController {
     private let mainTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.title_Extra
+        l.font = DS.CinzelFont.title_Extra
         l.text = "Personal Day"
         l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         l.textAlignment = .center
@@ -110,7 +110,7 @@ final class PersonalDayVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Numerology.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Numerology.primaryColor)
         //
         self.setBackground(named: "MainBG2")
         configureNavView()

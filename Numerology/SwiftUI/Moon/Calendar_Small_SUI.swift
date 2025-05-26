@@ -42,15 +42,15 @@ final class CalendarSmall: FSCalendar, FSCalendarDelegate,FSCalendarDataSource {
         // calendar
         self.appearance.calendar.scope = .week
         self.placeholderType = .none // previous/next days
-        self.appearance.selectionColor = DesignSystem.MoonColors.mediumTint
+        self.appearance.selectionColor = DS.MoonColors.mediumTint
         // Today
         self.appearance.todayColor = UIColor.clear
-        self.appearance.todaySelectionColor = DesignSystem.MoonColors.mediumTint
+        self.appearance.todaySelectionColor = DS.MoonColors.mediumTint
         self.appearance.titleFont = UIFont.systemFont(ofSize: 13)
         // Header Title
         self.appearance.headerMinimumDissolvedAlpha = 0 // previous/next months
-        self.appearance.headerTitleFont = DesignSystem.CinzelFont.title_h3
-        self.appearance.headerTitleColor = DesignSystem.MoonColors.brightTint
+        self.appearance.headerTitleFont = DS.CinzelFont.title_h3
+        self.appearance.headerTitleColor = DS.MoonColors.brightTint
         // Week Day
         self.firstWeekday = 2 // start week - US, EU ...
         self.appearance.weekdayTextColor = .white
@@ -68,7 +68,7 @@ final class CalendarSmall: FSCalendar, FSCalendarDelegate,FSCalendarDataSource {
 extension CalendarSmall: FSCalendarDelegateAppearance {
 // https://github.com/Enriquecm/CalendarCellExample/tree/main кастом итд
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
-        return calendar.today == date ? DesignSystem.MoonColors.mediumTint : UIColor.clear
+        return calendar.today == date ? DS.MoonColors.mediumTint : UIColor.clear
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {

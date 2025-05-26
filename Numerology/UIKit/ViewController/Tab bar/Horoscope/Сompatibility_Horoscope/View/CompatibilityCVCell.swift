@@ -32,10 +32,10 @@ class CompatibilityCVCell: UICollectionViewCell {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         // Border
-        v.layer.borderWidth = DesignSystem.borderWidth
+        v.layer.borderWidth = DS.borderWidth
         v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1333333333, blue: 0.2156862745, alpha: 0.7)
         v.layer.borderColor = primaryColor.cgColor
-        v.layer.cornerRadius = DesignSystem.maxCornerRadius
+        v.layer.cornerRadius = DS.maxCornerRadius
         // Shadow
         v.layer.shadowOpacity = 1
         v.layer.shadowRadius = 16

@@ -12,7 +12,7 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     var openFrom: UIViewController?
     
     
-    private let vcAccentColor: UIColor = DesignSystem.Horoscope.primaryColor
+    private let vcAccentColor: UIColor = DS.Horoscope.primaryColor
     
     // MARK: Scroll View
     private let contentScrollView: UIScrollView = {
@@ -94,7 +94,7 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Nav
-        self.setDetaiVcNavItems(shareTint: DesignSystem.Horoscope.primaryColor)
+        self.setDetaiVcNavItems(shareTint: DS.Horoscope.primaryColor)
         //
         setBackground(named: "bgHoroscope")
         AnimatableBG().setBackground(vc: self)
@@ -117,11 +117,11 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
             // Style
             v.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
             // Border
-            v.layer.cornerRadius = DesignSystem.maxCornerRadius
-            v.layer.borderWidth = DesignSystem.borderWidth
+            v.layer.cornerRadius = DS.maxCornerRadius
+            v.layer.borderWidth = DS.borderWidth
             v.layer.borderColor = self.vcAccentColor.cgColor
             v.layer.shadowOpacity = 1
-            v.layer.shadowRadius = DesignSystem.maxCornerRadius
+            v.layer.shadowRadius = DS.maxCornerRadius
             v.layer.shadowOffset = CGSize(width: 0, height: 4)
             v.layer.shadowColor = vcAccentColor.withAlphaComponent(0.5).cgColor
             

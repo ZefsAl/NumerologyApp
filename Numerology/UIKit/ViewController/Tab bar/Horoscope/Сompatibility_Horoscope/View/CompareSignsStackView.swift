@@ -44,7 +44,7 @@ class CompareSignsStackView: UIStackView {
         //
         iv.layer.cornerRadius = iv.bounds.height/2
         //
-        DesignSystem.setDesignedShadow(to: iv, accentColor: DesignSystem.Horoscope.primaryColor)
+        DS.setDesignedShadow(to: iv, accentColor: DS.Horoscope.primaryColor)
         return iv
     }()
     
@@ -52,7 +52,7 @@ class CompareSignsStackView: UIStackView {
     let userLable: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h5
+        l.font = DS.SourceSerifProFont.title_h5
         l.text = "Empty"
         l.numberOfLines = 2
         l.textAlignment = .center
@@ -67,7 +67,7 @@ class CompareSignsStackView: UIStackView {
         iv.contentMode = .scaleAspectFit
         iv.layer.cornerRadius = iv.bounds.height/2
         //
-        DesignSystem.setDesignedShadow(to: iv, accentColor: DesignSystem.Horoscope.primaryColor)
+        DS.setDesignedShadow(to: iv, accentColor: DS.Horoscope.primaryColor)
         return iv
     }()
     
@@ -75,7 +75,7 @@ class CompareSignsStackView: UIStackView {
     let partnerLable: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h5
+        l.font = DS.SourceSerifProFont.title_h5
         l.text = "Empty"
         l.numberOfLines = 2
         l.textAlignment = .center

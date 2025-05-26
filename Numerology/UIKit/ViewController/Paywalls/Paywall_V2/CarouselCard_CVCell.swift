@@ -67,9 +67,9 @@ final class CarouselCard_CVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Style
-        self.backgroundColor = DesignSystem.PaywallTint.primaryDarkBG.withAlphaComponent(0.7)
+        self.backgroundColor = DS.PaywallTint.primaryDarkBG.withAlphaComponent(0.7)
         // Border
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = DS.maxCornerRadius
         // setup
         setupStack()
     }

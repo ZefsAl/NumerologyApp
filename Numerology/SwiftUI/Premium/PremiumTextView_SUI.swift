@@ -12,9 +12,9 @@ struct PremiumTextView_SUI: View {
     @ObservedObject var sharedText: PremiumTextManager
     
     // Style
-    let primaryColor = DesignSystem.Horoscope.primaryColor
-    let bgColor = DesignSystem.Horoscope.backgroundColor
-    let textFont = DesignSystem.SourceSerifProFont.subtitle!
+    let primaryColor = DS.Horoscope.primaryColor
+    let bgColor = DS.Horoscope.backgroundColor
+    let textFont = DS.SourceSerifProFont.subtitle!
     
     // MARK: - body
     var body: some View {

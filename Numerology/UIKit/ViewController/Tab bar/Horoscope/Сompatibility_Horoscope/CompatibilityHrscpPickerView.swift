@@ -53,7 +53,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .white
-        l.textColor = DesignSystem.Horoscope.lightTextColor
+        l.textColor = DS.Horoscope.lightTextColor
         l.textAlignment = .center
         l.font = UIFont(name: "Cinzel-Regular", size: 26)
         l.sizeToFit()
@@ -66,7 +66,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .white
-        l.textColor = DesignSystem.Horoscope.lightTextColor
+        l.textColor = DS.Horoscope.lightTextColor
         l.textAlignment = .center
         l.font = UIFont.setSourceSerifPro(weight: .bold, size: 11)
         l.text = "* Scroll to select"
@@ -77,7 +77,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
     private let signsDateTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.title_h5
+        l.font = DS.SourceSerifProFont.title_h5
         l.textAlignment = .center
         l.textColor = .white
         l.numberOfLines = 2
@@ -330,7 +330,7 @@ private class PickerItem: UIControl {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.borderWidth = DesignSystem.borderWidth
+        self.layer.borderWidth = DS.borderWidth
         self.layer.borderColor = #colorLiteral(red: 0.5333333333, green: 0.5254901961, blue: 1, alpha: 1)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16

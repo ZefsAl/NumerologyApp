@@ -53,7 +53,7 @@ final class PremiumManager {
             accessVal == false
         else { return nil }
         //
-        let color = DesignSystem.BadgeColor.white
+        let color = DS.BadgeColor.white
         let configImage = UIImage(
             systemName: "chevron.down.circle", // cust-fix - old -> lock.fill
             withConfiguration: UIImage.SymbolConfiguration(pointSize: imageSize, weight: .medium)

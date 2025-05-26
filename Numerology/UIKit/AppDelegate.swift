@@ -10,6 +10,8 @@ import FirebaseCore
 import FirebaseMessaging
 import RevenueCat
 import UserNotifications
+import FirebaseAnalytics
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,33 +29,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.configure(withAPIKey: "appl_efdMjsZBhJGejrMgmJjkdRRZklE")
         Purchases.shared.delegate = self
         
-        // MARK: Push Notification - Config
+        // Facebook Analytics
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
+        
+        // ATT
+        AnalyticsManager.shared.requestATTForFacebook()
+        
+        // Push Notification - Config
         self.registerForPushNotifications()
         self.configureTokenFCM()
         
         // preload Data
         self.validateAndPreload()
         
-        // check
-//        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
-//        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as? String
-//        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
-//        print("UD - ✅⚠️",dataName as Any)
-//        print("UD - ✅⚠️",dataSurname as Any)
-//        print("UD - ✅⚠️",dateOfBirth as Any)
-        
-        
-#warning("add UserDefaults")
-        
+        #warning("add UserDefaults")
+        // TODO: - не учитывается отключение .premiumBadgeNotificationKey, object: false)
         if !UserDefaults.standard.bool(forKey: "SetupDailyPush_Key") {
             LocalPushNotofication().setupDailyPush()
         }
         
-
+        // check - test
+        //        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
+        //        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as? String
+        //        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
+        //        print("UD - ✅⚠️",dataName as Any)
+        //        print("UD - ✅⚠️",dataSurname as Any)
+        //        print("UD - ✅⚠️",dateOfBirth as Any)
+        
+        
+        
+        
+        // Firebase Analytics Testing
+//#if DEBUG
+//        let settings = FirebaseConfiguration.shared
+//        settings.setLoggerLevel(.debug)
+//#endif
+        
+        
+        
         return true
     }
     
-    func validateAndPreload() {
+    private func validateAndPreload() {
         // После заполнения данных
         if UserDataKvoManager.shared.isAllUserDataAvailable() {
             print("✅ preload Data")
@@ -74,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NumerologyImagesManager.shared.requestData()
         }
     }
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
@@ -88,14 +108,19 @@ extension AppDelegate: PurchasesDelegate {
     
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
         print("🟠 Purchases delegate")
-        DispatchQueue.main.async {
-            if customerInfo.entitlements.all["Access"]?.isActive == true {
+        
+        let access = customerInfo.entitlements.all["Access"]
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if access?.isActive == true {
                 print("✅ User have premium!")
                 UserDefaults.standard.setValue(true, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
+                
                 // unregister // cust logic
-#warning("вернуть cust logic !!!!!! ")
-//                UIApplication.shared.unregisterForRemoteNotifications()
+                // #warning("вернуть cust logic !!!!!! ")
+                UIApplication.shared.unregisterForRemoteNotifications()
+                
                 print("⚠️ was Unregister - RemoteNotifications: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
                 NotificationCenter.default.post(name: .premiumBadgeNotificationKey, object: true)
             } else {
@@ -160,5 +185,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Push: \(error)")
     }
+    
 }
-

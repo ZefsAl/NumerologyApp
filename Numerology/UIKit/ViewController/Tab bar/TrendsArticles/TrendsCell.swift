@@ -20,15 +20,15 @@ class TrendsCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         // Style
-        self.backgroundColor = DesignSystem.TrendsArticles.backgroundColor
+        self.backgroundColor = DS.TrendsArticles.backgroundColor
         // Border
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = DS.maxCornerRadius
         self.layer.borderWidth = 1
-        self.layer.borderColor = DesignSystem.TrendsArticles.primaryColor.cgColor
+        self.layer.borderColor = DS.TrendsArticles.primaryColor.cgColor
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 16
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowColor = DesignSystem.TrendsArticles.shadowColor.cgColor
+        self.layer.shadowColor = DS.TrendsArticles.shadowColor.cgColor
         //
         self.clipsToBounds = true
         // setup

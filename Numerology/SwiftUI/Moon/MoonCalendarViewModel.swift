@@ -60,7 +60,7 @@ final class MoonCalendarViewModel: ObservableObject {
         ChipsModel(title: "Home", iconName: "house.fill", HEX: "FFEE3B"),
         ChipsModel(title: "Love", iconName: "heart.fill", HEX: "FF3B9A"),
         ChipsModel(title: "Health", iconName: "cross.fill", HEX: "3BFF70"),
-        ChipsModel(title: "Money", iconName: "banknote.fill", HEX: "3BE1FF"),
+        ChipsModel(title: "Money", iconName: "banknote.fill", HEX: "4CAF50"),
         ChipsModel(title: "Relationships", iconName: "person.line.dotted.person.fill", HEX: "FF8C3B"),
         ChipsModel(title: "Haircut", iconName: "scissors", HEX: "FFD700"),
         ChipsModel(title: "Marriage", iconName: "figure.2.and.child.holdinghands", HEX: "A56EFF"),
@@ -68,7 +68,7 @@ final class MoonCalendarViewModel: ObservableObject {
         ChipsModel(title: "Advice", iconName: "lightbulb.fill", HEX: "FFE74C"),
         ChipsModel(title: "Warnings", iconName: "exclamationmark.triangle.fill", HEX: "FF4C4C"),
         ChipsModel(title: "Dreams", iconName: "sparkles", HEX: "B36BFF"),
-        ChipsModel(title: "Moon Phase", iconName: "moon.fill", HEX: "7F8CFF"),
+        ChipsModel(title: "Travel", iconName: "airplane", HEX: "00A3E0"),
     ]
     
     // MARK: - init

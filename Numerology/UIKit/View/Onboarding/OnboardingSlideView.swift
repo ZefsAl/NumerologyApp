@@ -16,7 +16,7 @@ class OnboardingSlideView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1)
         l.numberOfLines = 0
-        l.font = DesignSystem.CinzelFont.title_Extra
+        l.font = DS.CinzelFont.title_Extra
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.04
         l.textAlignment = .center

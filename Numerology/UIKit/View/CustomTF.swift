@@ -56,7 +56,7 @@ class CustomTF: UITextField {
         delegate = self
         
         // Style
-        layer.cornerRadius = DesignSystem.maxCornerRadius
+        layer.cornerRadius = DS.maxCornerRadius
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.8549019608, blue: 1, alpha: 1).withAlphaComponent(0.5).cgColor
         textColor = .white
@@ -101,7 +101,7 @@ extension CustomTF: UITextFieldDelegate {
         UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: {
             
             // Selected TF state
-            textField.layer.borderWidth = DesignSystem.borderWidth
+            textField.layer.borderWidth = DS.borderWidth
             textField.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
             textField.layer.shadowOpacity = 1
             textField.layer.shadowRadius = 16

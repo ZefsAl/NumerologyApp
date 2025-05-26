@@ -18,9 +18,9 @@ final class SectionHeaderView: UICollectionReusableView {
     var label: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textColor = DS.Numerology.lightTextColor
         l.textAlignment = .center
-        l.font = DesignSystem.CinzelFont.title_h1
+        l.font = DS.CinzelFont.title_h1
         l.sizeToFit()
         return l
     }()

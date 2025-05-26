@@ -12,7 +12,7 @@ class DescriptionView: UIView {
     private let lableDescription: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.SourceSerifProFont.subtitle
+        l.font = DS.SourceSerifProFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 0 
         

@@ -18,7 +18,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let title: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.title_h3
+        l.font = DS.CinzelFont.title_h3
         l.textAlignment = .left
         l.clipsToBounds = false
         return l
@@ -27,7 +27,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     let subtitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = DesignSystem.CinzelFont.subtitle
+        l.font = DS.CinzelFont.subtitle
         l.textAlignment = .left
         l.numberOfLines = 3
         return l
@@ -75,7 +75,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         // Style
         self.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1294117647, blue: 0.2156862745, alpha: 0.6999999881)
         // Border
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius
+        self.layer.cornerRadius = DS.maxCornerRadius
         self.layer.borderWidth = 1
         self.layer.borderColor = #colorLiteral(red: 0.7607843137, green: 0.4705882353, blue: 0.9529411765, alpha: 1)
         self.layer.shadowOpacity = 1

@@ -37,7 +37,7 @@ class PurchaseButton: UIButton {
         super.init(frame: .zero)
         // Style
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.layer.cornerRadius = DesignSystem.maxCornerRadius-2
+        self.layer.cornerRadius = DS.maxCornerRadius-2
         self.backgroundColor = .systemGray2
         
         let btnContentStack = UIStackView(arrangedSubviews: [lable, activityIndicatorView])

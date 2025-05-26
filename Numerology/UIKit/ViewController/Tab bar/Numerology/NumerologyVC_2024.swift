@@ -25,9 +25,9 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
     let promoTitle: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textColor = DS.Numerology.lightTextColor
         l.textAlignment = .center
-        l.font = DesignSystem.CinzelFont.title_h1
+        l.font = DS.CinzelFont.title_h1
         l.sizeToFit()
         l.text = "Discover the world";
         return l
@@ -36,9 +36,9 @@ class NumerologyVC_2024: UIViewController, RemoteOpenDelegate {
     let promoText: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = DesignSystem.Numerology.lightTextColor
+        l.textColor = DS.Numerology.lightTextColor
         l.textAlignment = .center
-        l.font = DesignSystem.CinzelFont.title_h3
+        l.font = DS.CinzelFont.title_h3
         l.sizeToFit()
         l.numberOfLines = 0
         l.text =
