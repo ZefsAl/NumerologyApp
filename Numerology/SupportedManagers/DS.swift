@@ -22,6 +22,7 @@ struct DS {
     // Radius
     static let maxCornerRadius: CGFloat = 24
     static let midCornerRadius_20: CGFloat = 20
+    static let minCornerRadius_16: CGFloat = 16
     
     
     enum ChipsButton {
@@ -37,6 +38,8 @@ struct DS {
     enum SourceSerifProFont {
         
         static let title_h4_SB = UIFont.setSourceSerifPro(weight: .semiBold, size: 17)
+        static let title_h5_SB = UIFont.setSourceSerifPro(weight: .semiBold, size: 15)
+        static let title_h6_SB = UIFont.setSourceSerifPro(weight: .semiBold, size: DeviceMenager.isSmallDevice ? 12 : 13)
         
         static let title_h1 = UIFont.setSourceSerifPro(weight: .regular, size: 26)
         static let title_h2 = UIFont.setSourceSerifPro(weight: .regular, size: 24)
@@ -59,6 +62,7 @@ struct DS {
     
     enum CinzelFont {
         static let title_Extra = UIFont(name: "Cinzel-Regular", size: DeviceMenager.isSmallDevice ? 36 : 48)
+        static let title_h0 = UIFont(name: "Cinzel-Regular", size: DeviceMenager.isSmallDevice ? 36 : 42)
         static let title_h1 = UIFont(name: "Cinzel-Regular", size: 26)
         static let title_h3 = UIFont(name: "Cinzel-Regular", size: 18)
         static let subtitle = UIFont(name: "Cinzel-Regular", size: 14)
@@ -121,7 +125,18 @@ struct DS {
     
     struct Chat {
         static let primary: UIColor = .hexColor("7070CA")
+        static let darkBG: UIColor = .hexColor("302B4B").withAlphaComponent(0.7)
         static let green: UIColor = .hexColor("2DA890")
+        
+        // Bubble
+        static let answer: UIColor = .hexColor("4B4A89")
+        static let question: UIColor = .hexColor("7070CA")
+        
+        static let orange: UIColor = .hexColor("FF7D00")
+        static let textColor: UIColor = .hexColor("B1B0F8")
+        static let bg: UIColor = .hexColor("3A3A69")
+        
+        
     }
     
     

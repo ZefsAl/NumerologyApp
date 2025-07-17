@@ -21,10 +21,10 @@ final class TechnicalManager {
         let docRef = db.collection("Technical").whereField("key", isEqualTo: "SpecialOffer")
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("⚠️ NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -33,7 +33,7 @@ final class TechnicalManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -46,13 +46,13 @@ final class TechnicalManager {
         
         docRef.getDocuments { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
-                print("⚠️ NOT get doc")
+                myPrint("⚠️ NOT get doc")
                 completion([:]) // Возвращаем пустой массив в случае ошибки
                 return
             }
 
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
                 completion([:]) // Возвращаем пустой массив в случае ошибки
                 return
             }
@@ -95,10 +95,10 @@ final class TechnicalManager {
                             defer { dispatchGroup.leave() } // Уведомляем о завершении задачи
                             
                             if let error = error {
-                                print("⚠️ Error getting IMAGE: \(error)")
+                                myPrint("⚠️ Error getting IMAGE: \(error)")
                             } else {
                                 guard let data = data else {
-                                    print("⚠️ Error getting IMAGE: \(String(describing: error))")
+                                    myPrint("⚠️ Error getting IMAGE: \(String(describing: error))")
                                     return
                                 }
                                 picArray.updateValue(UIImage(data: data), forKey: key)
@@ -108,7 +108,7 @@ final class TechnicalManager {
                     })
                     
                 } catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
 

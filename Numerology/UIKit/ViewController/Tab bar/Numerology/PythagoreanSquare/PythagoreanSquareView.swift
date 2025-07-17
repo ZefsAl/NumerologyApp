@@ -40,7 +40,7 @@ final class PythagoreanSquareView: UIView {
         let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
         
         guard let dateOfBirth = dateOfBirth else {
-            print("🔴 error dateOfBirth PythagoreanSquareView");
+            myPrint("🔴 error dateOfBirth PythagoreanSquareView");
             return
         }
            

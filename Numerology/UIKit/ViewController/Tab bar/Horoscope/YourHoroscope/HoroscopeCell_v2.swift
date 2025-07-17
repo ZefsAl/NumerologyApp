@@ -61,7 +61,7 @@ class HoroscopeCell_v2: UICollectionViewCell, SegmentedControlCustomDelegate {
     
     // Delegate act
     func currentSegment(index: Int) {
-        print("🟣✅ currentSegment", index)
+        myPrint("🟣✅ currentSegment", index)
         
         self.chartsTitle.fadeTransition()
         self.chartsText.fadeTransition()

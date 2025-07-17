@@ -31,10 +31,10 @@ extension Date {
 //        let someDateTime = userCalendar.date(from: dateComponents)
 //        //
 //        if let someDateTime = someDateTime {
-//            print("makeDateAsComponents ✅ Unwrapped")
+//            myPrint("makeDateAsComponents ✅ Unwrapped")
 //            return someDateTime
 //        } else {
-//            print("makeDateAsComponents 🔴 Not Unwrap")
+//            myPrint("makeDateAsComponents 🔴 Not Unwrap")
 //            return Date()
 //        }
 //    }
@@ -46,10 +46,10 @@ extension Date {
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let new = df.date(from: strDate)
         if let new = new {
-            print("date ✅ Unwrapped")
+            myPrint("date ✅ Unwrapped")
             return new
         } else {
-            print("date 🔴 Not Unwrap")
+            myPrint("date 🔴 Not Unwrap")
             return Date()
         }
     }

@@ -65,13 +65,13 @@ extension UIViewController {
     // MARK: Action dissmiss
     @objc func dismissButtonAction() {
         self.dismiss(animated: true)
-        print("dismissButtonAction")
+        myPrint("dismissButtonAction")
     }
     
     // MARK: Action popToRoot
     @objc func popToRootButtonAction() {
         self.navigationController?.popToRootViewController(animated: true)
-        print("popToRootButtonAction")
+        myPrint("popToRootButtonAction")
     }
     
     

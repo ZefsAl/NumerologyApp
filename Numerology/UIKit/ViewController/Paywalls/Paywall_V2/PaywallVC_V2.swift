@@ -76,7 +76,7 @@ final class PaywallVC_V2: UIViewController {
         
         if trialOfferSwitch.isOn && storeProductIndex.productIdentifier == "Year_29.99" {
             Purchases.shared.getProducts(["Yearly.Trial"]) { arr in
-                //                print("💰 Trial ---",arr.first?.productIdentifier)
+                //                myPrint("💰 Trial ---",arr.first?.productIdentifier)
                 guard let product = arr.first else { return }
                 
                 Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
@@ -89,14 +89,14 @@ final class PaywallVC_V2: UIViewController {
                             error: error,
                             userCancelled: userCancelled
                         )
-                        //                        print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                        //                        myPrint("🟠",customerInfo?.entitlements["Access"]?.isActive)
                         self.dismissAction()
                     }
                 }
             }
             
         } else {
-            //            print(storeProductIndex.productIdentifier)
+            //            myPrint(storeProductIndex.productIdentifier)
             Purchases.shared.purchase(product: storeProductIndex) { transaction, customerInfo, error, userCancelled in
                 self.purchaseButton.activityIndicatorView.stopAnimating()
                 if customerInfo?.entitlements["Access"]?.isActive == true {
@@ -107,7 +107,7 @@ final class PaywallVC_V2: UIViewController {
                         error: error,
                         userCancelled: userCancelled
                     )
-                    //                    print("🟠",customerInfo?.entitlements["Access"]?.isActive)
+                    //                    myPrint("🟠",customerInfo?.entitlements["Access"]?.isActive)
                     self.dismissAction()
                 }
             }
@@ -132,11 +132,11 @@ final class PaywallVC_V2: UIViewController {
         // on
         s.onTintColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.7921568627, alpha: 1)
         // off - не получилось
-//        let off = DesignSystem.PaywallTint.primaryDarkBG
-//        s.tintColor = off
-//        s.layer.cornerRadius = s.frame.height / 2.0
-//        s.backgroundColor = off
-//        s.clipsToBounds = true
+        //        let off = DesignSystem.PaywallTint.primaryDarkBG
+        //        s.tintColor = off
+        //        s.layer.cornerRadius = s.frame.height / 2.0
+        //        s.backgroundColor = off
+        //        s.clipsToBounds = true
         return s
     }()
     
@@ -163,7 +163,7 @@ final class PaywallVC_V2: UIViewController {
         return b
     }()
     @objc private func termsOfUseAct() {
-        print("termsOfUseAct")
+        myPrint("termsOfUseAct")
         guard let url = URL(string: AppSupportedLinks.terms.rawValue) else { return }
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -203,19 +203,19 @@ final class PaywallVC_V2: UIViewController {
     }()
     
     @objc private func restoreAct() {
-        print("⚠️ Start Restore purchases")
+        myPrint("⚠️ Start Restore purchases")
         
         Purchases.shared.restorePurchases { (customerInfo, error) in
             // проверить есть ли подписка -> Предоставить доступ
             if customerInfo?.entitlements.all["Access"]?.isActive == true {
-                print("✅User restored!")
+                myPrint("✅User restored!")
                 self.showAlert(
                     title: "Purchases restored",
                     message: nil) {
                         self.dismiss(animated: true)
                     }
             } else {
-                print("❌User not restored")
+                myPrint("❌User not restored")
                 self.showAlert(
                     title: "Purchases not restored",
                     message: "We couldn't find your purchases") {}

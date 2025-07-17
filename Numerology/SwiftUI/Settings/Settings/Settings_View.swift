@@ -20,7 +20,6 @@ struct SettingsView: View {
     //
     @State private var isAnimating = false
     
-    
     var body: some View {
         List {
             ForEach(settingsViewModel.settings, id: \.self) { setting in

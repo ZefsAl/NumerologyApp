@@ -89,7 +89,7 @@ final class SpecialOfferPaywall: ViewControllerPannable {
         // Purchase
         Purchases.shared.purchase(product: product) { transaction, customerInfo, error, userCancelled in
             self.purchaseButton.activityIndicatorView.stopAnimating()
-            print("🟠 Check Access",customerInfo?.entitlements["Access"]?.isActive as Any)
+            myPrint("🟠 Check Access",customerInfo?.entitlements["Access"]?.isActive as Any)
             if customerInfo?.entitlements["Access"]?.isActive == true {
                 self.dismissAction()
                 AnalyticsManager.shared.trackPurchase_FIB(
@@ -118,7 +118,7 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     }()
     // MARK: - ➡️ terms
     @objc private func termsOfUseAct() {
-        print("termsOfUseAct")
+        myPrint("termsOfUseAct")
         
         guard let url = URL(string: AppSupportedLinks.terms.rawValue) else { return }
         
@@ -166,19 +166,19 @@ final class SpecialOfferPaywall: ViewControllerPannable {
     }()
     // MARK: - ➡️ restore
     @objc private func restoreAct() {
-        print("Restore purchases")
+        myPrint("Restore purchases")
         
         Purchases.shared.restorePurchases { (customerInfo, error) in
             // проверить есть ли подписка -> Предоставить доступ
             if customerInfo?.entitlements.all["Access"]?.isActive == true {
-                print("✅User restored!")
+                myPrint("✅User restored!")
                 self.showAlert(
                     title: "Purchases restored",
                     message: nil) {
                         self.dismiss(animated: true)
                     }
             } else {
-                print("❌User not restored")
+                myPrint("❌User not restored")
                 self.showAlert(
                     title: "Purchases not restored",
                     message: "We couldn't find your purchases") {}

@@ -93,7 +93,7 @@
 //    }
 //    
 //    @objc func autoScroll() {
-//        print(currentItem)
+//        myPrint(currentItem)
 //        if self.currentItem < self.cardContentData.count - 1 {
 //            self.currentItem += 1
 //        } else {
@@ -166,8 +166,8 @@
 ////         }
 //        
 //        
-////        print("✅ did scroll",collectionView.contentOffset.x)
-//        print("✅ did scroll",indexPath)
+////        myPrint("✅ did scroll",collectionView.contentOffset.x)
+//        myPrint("✅ did scroll",indexPath)
 //        
 //        DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
 ////            if indexPath.row == 6 {
@@ -186,11 +186,11 @@
 //    }
 ////    
 ////    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-////        print("✅ did scroll",indexPath)
+////        myPrint("✅ did scroll",indexPath)
 ////    }
 //    
 //    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-//        print("✅ did scroll",sourceIndexPath)
+//        myPrint("✅ did scroll",sourceIndexPath)
 //    }
 //
 //    
@@ -216,7 +216,7 @@
 ////                self.contentOffset.x += itemSize*CGFloat(cardContentData.count)
 ////            }
 //            
-//            print("✅ did scroll",self.contentOffset.x)
+//            myPrint("✅ did scroll",self.contentOffset.x)
 //        }
 //    
 //    
@@ -224,10 +224,10 @@
 ////        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 ////
 ////            if let collectionView = scrollView as? UICollectionView {
-////                print("✅ did scroll",collectionView.contentOffset.x)
+////                myPrint("✅ did scroll",collectionView.contentOffset.x)
 ////
 ////            } else{
-////                print("cant cast")
+////                myPrint("cant cast")
 ////            }
 ////        }
 //    

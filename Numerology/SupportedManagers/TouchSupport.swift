@@ -8,10 +8,12 @@
 import UIKit
 
 class TouchSupport {
-    static func hapticImpact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: .medium)
+    
+    static func haptic(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
         generator.impactOccurred()
     }
+    
     
     
     static func tapDefaultAnimate(view: UIView) {

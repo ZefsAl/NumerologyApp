@@ -152,12 +152,16 @@
 		C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */; };
 		C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */; };
 		C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A3E772BF9325300104D0A /* Extension_UIView.swift */; };
+		C22A5A5F2E1BF94E00DBF389 /* MarkdownTEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22A5A5E2E1BF94E00DBF389 /* MarkdownTEST.swift */; };
+		C22A5A622E1C150E00DBF389 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = C22A5A612E1C150E00DBF389 /* MarkdownUI */; };
+		C22F3C172E0FF75C00369524 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F3C162E0FF75C00369524 /* AuthManager.swift */; };
+		C22F3C192E0FFCC800369524 /* AuthManager 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F3C182E0FFCC800369524 /* AuthManager 2.swift */; };
+		C22F3C1B2E10005900369524 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F3C1A2E10005900369524 /* AppleSignInManager.swift */; };
 		C23169B72C91B75D00497030 /* BottomSheetContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */; };
 		C23540832C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23540822C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift */; };
 		C23752572C0B4DE900000C68 /* PremiumManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23752562C0B4DE900000C68 /* PremiumManager.swift */; };
 		C239173C2DE36DF300F6E120 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239173B2DE36DF300F6E120 /* PlaceholderTextView.swift */; };
 		C239173F2DE3814600F6E120 /* KeyboardAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239173E2DE3814600F6E120 /* KeyboardAwareModifier.swift */; };
-		C23B7AED2DD889C700326A9D /* BigUIPaging in Frameworks */ = {isa = PBXBuildFile; productRef = C23B7AEC2DD889C700326A9D /* BigUIPaging */; };
 		C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2439B1B2C05C82100AE789B /* SpecialOfferCVCell.swift */; };
 		C245A0A12C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A02C67CE6400BCB676 /* HoroscopeCell_v2_Ext.swift */; };
 		C245A0A32C67D16600BCB676 /* YourHoroscopeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245A0A22C67D16600BCB676 /* YourHoroscopeManager.swift */; };
@@ -165,10 +169,19 @@
 		C24667252DAD93FC00336E41 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = C24667242DAD93FC00336E41 /* FirebaseAnalyticsOnDeviceConversion */; };
 		C24667272DAE7A0C00336E41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24667262DAE7A0C00336E41 /* GoogleService-Info.plist */; };
 		C24879592C181D6100DDC84B /* DatailTrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */; };
+		C24A2E482E09E9ED00541762 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C24A2E472E09E9ED00541762 /* RealmSwift */; };
+		C24A2E492E09EA8C00541762 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C24A2E472E09E9ED00541762 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C24A2E4B2E0AA6FA00541762 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A2E4A2E0AA6FA00541762 /* SwiftUIView.swift */; };
+		C24A2E4F2E0AC4BE00541762 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C24A2E4E2E0AC4BE00541762 /* FirebaseAuth */; };
+		C24A2E512E0AF2BD00541762 /* TestAuth 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A2E502E0AF2BD00541762 /* TestAuth 2.swift */; };
 		C24BA1172CEB2F5F00C00F49 /* ChipsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BA1162CEB2F5F00C00F49 /* ChipsButton.swift */; };
 		C24BA1192CEB454200C00F49 /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BA1182CEB454200C00F49 /* Extension_String.swift */; };
 		C24D7FA32CDDFBD400D60012 /* MoonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */; };
 		C24D7FA52CDE08B600D60012 /* RegularAccordion_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24D7FA42CDE08B600D60012 /* RegularAccordion_SUI.swift */; };
+		C24E229A2E05865F0037768A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C24E22992E05865F0037768A /* Alamofire */; };
+		C24E229C2E0973750037768A /* typing.json in Resources */ = {isa = PBXBuildFile; fileRef = C24E229B2E0973750037768A /* typing.json */; };
+		C24E229E2E097E010037768A /* ExpertCard 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E229D2E097E010037768A /* ExpertCard 2.swift */; };
+		C24E22A02E099AEF0037768A /* NamespaceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24E229F2E099AEF0037768A /* NamespaceExample.swift */; };
 		C25081382CEF48640006DD51 /* Carousel_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081372CEF48640006DD51 /* Carousel_v2.swift */; };
 		C250813A2CEF4ABB0006DD51 /* CardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25081392CEF4ABB0006DD51 /* CardContentModel.swift */; };
 		C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */; };
@@ -177,6 +190,12 @@
 		C25143F42C157737005019C6 /* CollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143F32C157737005019C6 /* CollectionModel.swift */; };
 		C25143F62C157B6D005019C6 /* TrendsArticlesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143F52C157B6D005019C6 /* TrendsArticlesVM.swift */; };
 		C25143FA2C164644005019C6 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25143F92C164644005019C6 /* LikeButton.swift */; };
+		C25592C12E001D43000E5B4D /* ChatRoomVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592C02E001D43000E5B4D /* ChatRoomVM.swift */; };
+		C25592C52E0030E9000E5B4D /* StarsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592C42E0030E9000E5B4D /* StarsManager.swift */; };
+		C25592CB2E00AC3B000E5B4D /* ContentAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592CA2E00AC3B000E5B4D /* ContentAlertView.swift */; };
+		C25592CE2E032284000E5B4D /* ChatPaywall.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592CD2E032284000E5B4D /* ChatPaywall.swift */; };
+		C25592D02E0327D9000E5B4D /* ChatPaywallCell_v1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592CF2E0327D9000E5B4D /* ChatPaywallCell_v1.swift */; };
+		C25592D22E03510D000E5B4D /* ChatPaywallManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25592D12E03510D000E5B4D /* ChatPaywallManager.swift */; };
 		C25864E82C7F8098003C1655 /* TopImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25864E72C7F8098003C1655 /* TopImage.swift */; };
 		C25864EA2C7F8FDA003C1655 /* NumerologyImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25864E92C7F8FDA003C1655 /* NumerologyImagesManager.swift */; };
 		C25864EC2C7FBDAA003C1655 /* Nav_Ext_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25864EB2C7FBDAA003C1655 /* Nav_Ext_UIViewController.swift */; };
@@ -186,6 +205,11 @@
 		C25A4D9E2C0A522C0040A104 /* DeviceMenager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */; };
 		C25B717B2BFCBA2E00E41E98 /* PythagoreanSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */; };
 		C25BDACA2BC32EF60024636F /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = C25BDAC92BC32EF60024636F /* FSCalendar */; };
+		C25E6FE52DF02A6700B98A77 /* ChatOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E6FE42DF02A6700B98A77 /* ChatOfferView.swift */; };
+		C25E6FE82DF02B4E00B98A77 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E6FE72DF02B4E00B98A77 /* ChatRoom.swift */; };
+		C25E6FEA2DF031B100B98A77 /* PageTitile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E6FE92DF031B100B98A77 /* PageTitile.swift */; };
+		C25E6FEC2DF037B800B98A77 /* BigButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E6FEB2DF037B800B98A77 /* BigButton.swift */; };
+		C25E6FEF2DF0440400B98A77 /* ChatOfferVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E6FEE2DF0440400B98A77 /* ChatOfferVM.swift */; };
 		C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */; };
 		C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25E7E6E2C209459007B65F3 /* TouchSupport.swift */; };
 		C25F68882BE7D80D00231CF4 /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */; };
@@ -193,6 +217,11 @@
 		C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383722C8AE9C400E27246 /* RoundedCorner.swift */; };
 		C26383752C8AE9EB00E27246 /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26383742C8AE9EB00E27246 /* View_Ext.swift */; };
 		C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */ = {isa = PBXBuildFile; productRef = C2671A172BEEA7520013DA2F /* EKAstrologyCalc */; };
+		C27140F52E035DA1001E1051 /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27140F42E035DA0001E1051 /* SafeAreaInsets.swift */; };
+		C27140F72E0361CC001E1051 /* CPCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27140F62E0361CC001E1051 /* CPCarousel.swift */; };
+		C27140F92E03638D001E1051 /* UserReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27140F82E03638D001E1051 /* UserReviewModel.swift */; };
+		C27140FB2E0363BC001E1051 /* UserReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27140FA2E0363BC001E1051 /* UserReviewView.swift */; };
+		C27140FD2E040CCF001E1051 /* PageControlSUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27140FC2E040CCF001E1051 /* PageControlSUI.swift */; };
 		C2722CD82DD4F0B3000717CE /* StarsAmountVeiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2722CD72DD4F0B3000717CE /* StarsAmountVeiw.swift */; };
 		C2722CDC2DD50800000717CE /* ScrollViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2722CDB2DD50800000717CE /* ScrollViewRepresentable.swift */; };
 		C2722CE12DD523B0000717CE /* ACarousel_TEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2722CE02DD523B0000717CE /* ACarousel_TEST.swift */; };
@@ -201,11 +230,21 @@
 		C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */; };
 		C27EBBD52C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */; };
 		C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */; };
+		C280F5612E140CE100D2513A /* SelectExpertView_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280F5602E140CE100D2513A /* SelectExpertView_Ext.swift */; };
+		C280F5632E142C4900D2513A /* ClearHistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280F5622E142C4900D2513A /* ClearHistoryButton.swift */; };
+		C280F5652E16A43F00D2513A /* CloseCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280F5642E16A43F00D2513A /* CloseCircleButton.swift */; };
+		C280F5672E16E2B200D2513A /* ChatPaywallCell_v2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280F5662E16E2B200D2513A /* ChatPaywallCell_v2.swift */; };
 		C28A1AB62C610212003EDACA /* ChartsCV_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */; };
 		C28A1AB82C610331003EDACA /* ChartCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28A1AB72C610331003EDACA /* ChartCVCell.swift */; };
 		C28B87C32D14161A0065C34E /* LocalPushNotofication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B87C22D14161A0065C34E /* LocalPushNotofication.swift */; };
-		C2942DEA2DC0DC4600197C8B /* messageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2942DE92DC0DC4600197C8B /* messageModel.swift */; };
+		C29095632E09E516005A7626 /* TestAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29095622E09E516005A7626 /* TestAuth.swift */; };
+		C2942DEA2DC0DC4600197C8B /* MessageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2942DE92DC0DC4600197C8B /* MessageObject.swift */; };
 		C2942DEC2DC0EF7400197C8B /* ChatView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2942DEB2DC0EF7400197C8B /* ChatView 2.swift */; };
+		C298916D2E2178D100269B6D /* MessageContextMenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298916C2E2178D100269B6D /* MessageContextMenue.swift */; };
+		C298916F2E2838C200269B6D /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C298916E2E2838C200269B6D /* AppTrackingTransparency.framework */; };
+		C29891712E2838CF00269B6D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29891702E2838CF00269B6D /* AdSupport.framework */; };
+		C29CEB7A2DF9BCCF00016E52 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29CEB792DF9BCCF00016E52 /* ChatView.swift */; };
+		C29CEB7C2DF9BDA200016E52 /* BubbleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29CEB7B2DF9BDA200016E52 /* BubbleShape.swift */; };
 		C29E1BCA2BEBF3DA001F1E42 /* DS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E1BC92BEBF3DA001F1E42 /* DS.swift */; };
 		C2A858292CCD008C001DA8D0 /* CustomAlertReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */; };
 		C2A9BE1B2DDD0845009BF3FA /* ChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A9BE1A2DDD0845009BF3FA /* ChatTextField.swift */; };
@@ -226,7 +265,6 @@
 		C2B728E62CD2ACD6009655D5 /* URL_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B728E52CD2ACD6009655D5 /* URL_Ext.swift */; };
 		C2BC878F2DD531A1009E5259 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = C2BC878E2DD531A1009E5259 /* ACarousel */; };
 		C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC8B232BDC841A00F59A62 /* AngelNumbersCV.swift */; };
-		C2BCD3DA2CBED18500116C7E /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2BCD3D92CBED18500116C7E /* FirebaseCrashlytics */; };
 		C2C38AD42C62D92B001235F4 /* TechnicalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD32C62D92B001235F4 /* TechnicalModel.swift */; };
 		C2C38AD62C62D9E8001235F4 /* TechnicalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD52C62D9E8001235F4 /* TechnicalManager.swift */; };
 		C2C38AD82C63CFE5001235F4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C38AD72C63CFE5001235F4 /* MainTabBarController.swift */; };
@@ -235,12 +273,10 @@
 		C2C3D17A2DA1901D00ED46BE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2C3D1792DA1901D00ED46BE /* FirebaseAnalytics */; };
 		C2C3D17C2DA2D61D00ED46BE /* StoreKitConfigure_v2.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C2C3D17B2DA2D61D00ED46BE /* StoreKitConfigure_v2.storekit */; };
 		C2C3D17E2DA2D74E00ED46BE /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = C2C3D17D2DA2D74E00ED46BE /* StoreKitTestCertificate.cer */; };
-		C2C3E6A72DCCD78D007AF4C9 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C2C3E6A62DCCD78D007AF4C9 /* RealmSwift */; };
-		C2C3E6A82DCCD78D007AF4C9 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C2C3E6A62DCCD78D007AF4C9 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C2C3E6AB2DCCF728007AF4C9 /* TestRealmUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6AA2DCCF728007AF4C9 /* TestRealmUI.swift */; };
-		C2C3E6B52DCD4965007AF4C9 /* ChatView 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6B42DCD4965007AF4C9 /* ChatView 3.swift */; };
+		C2C3E6B52DCD4965007AF4C9 /* MessageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6B42DCD4965007AF4C9 /* MessageView2.swift */; };
 		C2C3E6B72DCD60F4007AF4C9 /* SelectExpertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6B62DCD60F4007AF4C9 /* SelectExpertView.swift */; };
-		C2C3E6C32DD34E29007AF4C9 /* SelectExpertView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6C22DD34E29007AF4C9 /* SelectExpertView 2.swift */; };
+		C2C3E6C32DD34E29007AF4C9 /* ExpertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6C22DD34E29007AF4C9 /* ExpertViewModel.swift */; };
 		C2C3E6C52DD3507C007AF4C9 /* ExpertCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3E6C42DD3507C007AF4C9 /* ExpertCard.swift */; };
 		C2C3E6CE2DD3F26F007AF4C9 /* ChatPaywall.json in Resources */ = {isa = PBXBuildFile; fileRef = C2C3E6CD2DD3F26F007AF4C9 /* ChatPaywall.json */; };
 		C2C3E6D12DD3F398007AF4C9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C2C3E6D02DD3F398007AF4C9 /* Lottie */; };
@@ -297,7 +333,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2C3E6A82DCCD78D007AF4C9 /* RealmSwift in Embed Frameworks */,
+				C24A2E492E09EA8C00541762 /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +488,10 @@
 		C22A3E732BF918ED00104D0A /* PythagoreanSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareView.swift; sourceTree = "<group>"; };
 		C22A3E752BF91A5300104D0A /* ColumnRefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnRefTableView.swift; sourceTree = "<group>"; };
 		C22A3E772BF9325300104D0A /* Extension_UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UIView.swift; sourceTree = "<group>"; };
+		C22A5A5E2E1BF94E00DBF389 /* MarkdownTEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownTEST.swift; sourceTree = "<group>"; };
+		C22F3C162E0FF75C00369524 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		C22F3C182E0FFCC800369524 /* AuthManager 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager 2.swift"; sourceTree = "<group>"; };
+		C22F3C1A2E10005900369524 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
 		C23169B62C91B75D00497030 /* BottomSheetContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetContainerVC.swift; sourceTree = "<group>"; };
 		C23540822C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHrscpPickerView.swift; sourceTree = "<group>"; };
 		C23752562C0B4DE900000C68 /* PremiumManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumManager.swift; sourceTree = "<group>"; };
@@ -465,10 +505,15 @@
 		C24667262DAE7A0C00336E41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C24667292DAE8A6300336E41 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		C24879582C181D6100DDC84B /* DatailTrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatailTrendsArticlesVC.swift; sourceTree = "<group>"; };
+		C24A2E4A2E0AA6FA00541762 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		C24A2E502E0AF2BD00541762 /* TestAuth 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestAuth 2.swift"; sourceTree = "<group>"; };
 		C24BA1162CEB2F5F00C00F49 /* ChipsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipsButton.swift; sourceTree = "<group>"; };
 		C24BA1182CEB454200C00F49 /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
 		C24D7FA22CDDFBD400D60012 /* MoonStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonStatView.swift; sourceTree = "<group>"; };
 		C24D7FA42CDE08B600D60012 /* RegularAccordion_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularAccordion_SUI.swift; sourceTree = "<group>"; };
+		C24E229B2E0973750037768A /* typing.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = typing.json; sourceTree = "<group>"; };
+		C24E229D2E097E010037768A /* ExpertCard 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpertCard 2.swift"; sourceTree = "<group>"; };
+		C24E229F2E099AEF0037768A /* NamespaceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamespaceExample.swift; sourceTree = "<group>"; };
 		C25081372CEF48640006DD51 /* Carousel_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel_v2.swift; sourceTree = "<group>"; };
 		C25081392CEF4ABB0006DD51 /* CardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentModel.swift; sourceTree = "<group>"; };
 		C25143EA2C155E50005019C6 /* TrendsArticlesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesVC.swift; sourceTree = "<group>"; };
@@ -477,6 +522,12 @@
 		C25143F32C157737005019C6 /* CollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionModel.swift; sourceTree = "<group>"; };
 		C25143F52C157B6D005019C6 /* TrendsArticlesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsArticlesVM.swift; sourceTree = "<group>"; };
 		C25143F92C164644005019C6 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		C25592C02E001D43000E5B4D /* ChatRoomVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomVM.swift; sourceTree = "<group>"; };
+		C25592C42E0030E9000E5B4D /* StarsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsManager.swift; sourceTree = "<group>"; };
+		C25592CA2E00AC3B000E5B4D /* ContentAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAlertView.swift; sourceTree = "<group>"; };
+		C25592CD2E032284000E5B4D /* ChatPaywall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPaywall.swift; sourceTree = "<group>"; };
+		C25592CF2E0327D9000E5B4D /* ChatPaywallCell_v1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPaywallCell_v1.swift; sourceTree = "<group>"; };
+		C25592D12E03510D000E5B4D /* ChatPaywallManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPaywallManager.swift; sourceTree = "<group>"; };
 		C25864E72C7F8098003C1655 /* TopImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopImage.swift; sourceTree = "<group>"; };
 		C25864E92C7F8FDA003C1655 /* NumerologyImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyImagesManager.swift; sourceTree = "<group>"; };
 		C25864EB2C7FBDAA003C1655 /* Nav_Ext_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nav_Ext_UIViewController.swift; sourceTree = "<group>"; };
@@ -485,12 +536,22 @@
 		C2592EE12BFE32670080E271 /* PythagoreanSquareDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquareDetailVC.swift; sourceTree = "<group>"; };
 		C25A4D9D2C0A522C0040A104 /* DeviceMenager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMenager.swift; sourceTree = "<group>"; };
 		C25B717A2BFCBA2E00E41E98 /* PythagoreanSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PythagoreanSquare.swift; sourceTree = "<group>"; };
+		C25E6FE42DF02A6700B98A77 /* ChatOfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOfferView.swift; sourceTree = "<group>"; };
+		C25E6FE72DF02B4E00B98A77 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		C25E6FE92DF031B100B98A77 /* PageTitile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitile.swift; sourceTree = "<group>"; };
+		C25E6FEB2DF037B800B98A77 /* BigButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButton.swift; sourceTree = "<group>"; };
+		C25E6FEE2DF0440400B98A77 /* ChatOfferVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatOfferVM.swift; sourceTree = "<group>"; };
 		C25E7E6C2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UICollectionViewCell.swift; sourceTree = "<group>"; };
 		C25E7E6E2C209459007B65F3 /* TouchSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchSupport.swift; sourceTree = "<group>"; };
 		C25F68872BE7D80D00231CF4 /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
 		C26383702C8AE98800E27246 /* PremiumTextView_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumTextView_SUI.swift; sourceTree = "<group>"; };
 		C26383722C8AE9C400E27246 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		C26383742C8AE9EB00E27246 /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
+		C27140F42E035DA0001E1051 /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
+		C27140F62E0361CC001E1051 /* CPCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPCarousel.swift; sourceTree = "<group>"; };
+		C27140F82E03638D001E1051 /* UserReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewModel.swift; sourceTree = "<group>"; };
+		C27140FA2E0363BC001E1051 /* UserReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewView.swift; sourceTree = "<group>"; };
+		C27140FC2E040CCF001E1051 /* PageControlSUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlSUI.swift; sourceTree = "<group>"; };
 		C2722CD72DD4F0B3000717CE /* StarsAmountVeiw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsAmountVeiw.swift; sourceTree = "<group>"; };
 		C2722CDB2DD50800000717CE /* ScrollViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewRepresentable.swift; sourceTree = "<group>"; };
 		C2722CE02DD523B0000717CE /* ACarousel_TEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACarousel_TEST.swift; sourceTree = "<group>"; };
@@ -499,11 +560,21 @@
 		C27D2E342C5A1AE6008D0DE4 /* SpecialOfferButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOfferButton.swift; sourceTree = "<group>"; };
 		C27EBBD42C10A5C10087241D /* NumerologyPremiumDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumerologyPremiumDescriptionVC.swift; sourceTree = "<group>"; };
 		C27EDF9A2C441292007C0C89 /* MoneyCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyCalendarManager.swift; sourceTree = "<group>"; };
+		C280F5602E140CE100D2513A /* SelectExpertView_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExpertView_Ext.swift; sourceTree = "<group>"; };
+		C280F5622E142C4900D2513A /* ClearHistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearHistoryButton.swift; sourceTree = "<group>"; };
+		C280F5642E16A43F00D2513A /* CloseCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseCircleButton.swift; sourceTree = "<group>"; };
+		C280F5662E16E2B200D2513A /* ChatPaywallCell_v2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPaywallCell_v2.swift; sourceTree = "<group>"; };
 		C28A1AB52C610212003EDACA /* ChartsCV_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCV_Ext.swift; sourceTree = "<group>"; };
 		C28A1AB72C610331003EDACA /* ChartCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCVCell.swift; sourceTree = "<group>"; };
 		C28B87C22D14161A0065C34E /* LocalPushNotofication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushNotofication.swift; sourceTree = "<group>"; };
-		C2942DE92DC0DC4600197C8B /* messageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageModel.swift; sourceTree = "<group>"; };
+		C29095622E09E516005A7626 /* TestAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAuth.swift; sourceTree = "<group>"; };
+		C2942DE92DC0DC4600197C8B /* MessageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageObject.swift; sourceTree = "<group>"; };
 		C2942DEB2DC0EF7400197C8B /* ChatView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatView 2.swift"; sourceTree = "<group>"; };
+		C298916C2E2178D100269B6D /* MessageContextMenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageContextMenue.swift; sourceTree = "<group>"; };
+		C298916E2E2838C200269B6D /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		C29891702E2838CF00269B6D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		C29CEB792DF9BCCF00016E52 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C29CEB7B2DF9BDA200016E52 /* BubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleShape.swift; sourceTree = "<group>"; };
 		C29E1BC92BEBF3DA001F1E42 /* DS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DS.swift; sourceTree = "<group>"; };
 		C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertReview.swift; sourceTree = "<group>"; };
 		C2A9BE1A2DDD0845009BF3FA /* ChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextField.swift; sourceTree = "<group>"; };
@@ -530,11 +601,10 @@
 		C2C38ADB2C665763001235F4 /* SegmentedControlHRSCP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlHRSCP.swift; sourceTree = "<group>"; };
 		C2C3D17B2DA2D61D00ED46BE /* StoreKitConfigure_v2.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfigure_v2.storekit; sourceTree = "<group>"; };
 		C2C3D17D2DA2D74E00ED46BE /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
-		C2C3E6A52DCCD76B007AF4C9 /* realm-swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "realm-swift"; path = "../realm-swift"; sourceTree = SOURCE_ROOT; };
 		C2C3E6AA2DCCF728007AF4C9 /* TestRealmUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRealmUI.swift; sourceTree = "<group>"; };
-		C2C3E6B42DCD4965007AF4C9 /* ChatView 3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatView 3.swift"; sourceTree = "<group>"; };
+		C2C3E6B42DCD4965007AF4C9 /* MessageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView2.swift; sourceTree = "<group>"; };
 		C2C3E6B62DCD60F4007AF4C9 /* SelectExpertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExpertView.swift; sourceTree = "<group>"; };
-		C2C3E6C22DD34E29007AF4C9 /* SelectExpertView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectExpertView 2.swift"; sourceTree = "<group>"; };
+		C2C3E6C22DD34E29007AF4C9 /* ExpertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertViewModel.swift; sourceTree = "<group>"; };
 		C2C3E6C42DD3507C007AF4C9 /* ExpertCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpertCard.swift; sourceTree = "<group>"; };
 		C2C3E6CD2DD3F26F007AF4C9 /* ChatPaywall.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChatPaywall.json; sourceTree = "<group>"; };
 		C2C3E6D22DD3F3A8007AF4C9 /* ChatPaywallBG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPaywallBG.swift; sourceTree = "<group>"; };
@@ -580,20 +650,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24E229A2E05865F0037768A /* Alamofire in Frameworks */,
+				C298916F2E2838C200269B6D /* AppTrackingTransparency.framework in Frameworks */,
+				C24A2E4F2E0AC4BE00541762 /* FirebaseAuth in Frameworks */,
 				C2C3E6D12DD3F398007AF4C9 /* Lottie in Frameworks */,
-				C2C3E6A72DCCD78D007AF4C9 /* RealmSwift in Frameworks */,
-				C23B7AED2DD889C700326A9D /* BigUIPaging in Frameworks */,
+				C24A2E482E09E9ED00541762 /* RealmSwift in Frameworks */,
 				C2BC878F2DD531A1009E5259 /* ACarousel in Frameworks */,
 				84420CC62A7165A500DE1812 /* FirebaseDatabase in Frameworks */,
 				84420CCC2A7165A500DE1812 /* FirebaseStorage in Frameworks */,
 				C2671A182BEEA7520013DA2F /* EKAstrologyCalc in Frameworks */,
 				84AA6AE92AA3558100BF6C0D /* FirebaseMessaging in Frameworks */,
 				84420CC82A7165A500DE1812 /* FirebaseFirestore in Frameworks */,
+				C29891712E2838CF00269B6D /* AdSupport.framework in Frameworks */,
+				C22A5A622E1C150E00DBF389 /* MarkdownUI in Frameworks */,
 				84EEF4992AA20C7E0054B430 /* StoreKit.framework in Frameworks */,
 				C2C3D17A2DA1901D00ED46BE /* FirebaseAnalytics in Frameworks */,
 				C24667252DAD93FC00336E41 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				C25BDACA2BC32EF60024636F /* FSCalendar in Frameworks */,
-				C2BCD3DA2CBED18500116C7E /* FirebaseCrashlytics in Frameworks */,
 				A3A4B75D331E27EC365CEF9E /* libPods-Numerology.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,7 +754,6 @@
 				845EB1B82A657938003D6F5C /* Products */,
 				84D870A22A8D14B300ACACA8 /* Frameworks */,
 				E2D2D5E4768FC2E0FBB5F04A /* Pods */,
-				C2C3E6A52DCCD76B007AF4C9 /* realm-swift */,
 				C23B7AEA2DD8885200326A9D /* ACarousel */,
 			);
 			sourceTree = "<group>";
@@ -706,7 +778,6 @@
 				845EB1DC2A668D44003D6F5C /* Extensions */,
 				84AA6AEC2AA4E48900BF6C0D /* Fonts */,
 				8411AB292A9208DA00B3D2F4 /* IAP */,
-				C29ABB942DAD1C7500721C2A /* Analytics */,
 				845EB1C32A65793E003D6F5C /* Assets.xcassets */,
 				84EEF49A2AA20C8C0054B430 /* Numerology.entitlements */,
 				845EB1C52A65793E003D6F5C /* LaunchScreen.storyboard */,
@@ -806,6 +877,7 @@
 		8492D0912A6EA78500761312 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				C29ABB942DAD1C7500721C2A /* Analytics */,
 				8492D0922A6EA7E500761312 /* NumerologyManager.swift */,
 				844EA40A2B11815500D2D596 /* HoroscopeManager.swift */,
 				C2125D3D2D2316DB00B06BA7 /* MoonPhasesManager.swift */,
@@ -947,6 +1019,8 @@
 		84D870A22A8D14B300ACACA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C29891702E2838CF00269B6D /* AdSupport.framework */,
+				C298916E2E2838C200269B6D /* AppTrackingTransparency.framework */,
 				C2DF9C472DA92C710050C507 /* FBSDKCoreKit.xcframework */,
 				C2C65DEF2C5BF56B004EA5A3 /* libMMMHorizontalPicker.a */,
 				84EEF4982AA20C7E0054B430 /* StoreKit.framework */,
@@ -1112,7 +1186,6 @@
 		C215C2812CB97CD700596F01 /* other */ = {
 			isa = PBXGroup;
 			children = (
-				C215C2882CB9AB0C00596F01 /* SafariView.swift */,
 				C2A858282CCD008C001DA8D0 /* CustomAlertReview.swift */,
 				C2B728E32CD2ACAF009655D5 /* ChevronCellView.swift */,
 			);
@@ -1122,6 +1195,7 @@
 		C22687052C89AFEF0043C36E /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				C22F3C152E0FF72700369524 /* Auth */,
 				C2C3E6C62DD38FC2007AF4C9 /* Components */,
 				C20BE76D2CD7C25600D78C07 /* Moon */,
 				C215C26E2CB8359200596F01 /* Settings */,
@@ -1129,6 +1203,9 @@
 				C215C27A2CB835CC00596F01 /* Extensions */,
 				C215C2792CB835A800596F01 /* Supported */,
 				C2942DE82DC0DB9A00197C8B /* Chat */,
+				C27140F42E035DA0001E1051 /* SafeAreaInsets.swift */,
+				C24A2E4A2E0AA6FA00541762 /* SwiftUIView.swift */,
+				C22A5A5E2E1BF94E00DBF389 /* MarkdownTEST.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -1157,6 +1234,18 @@
 				C2592EE12BFE32670080E271 /* PythagoreanSquareDetailVC.swift */,
 			);
 			path = PythagoreanSquare;
+			sourceTree = "<group>";
+		};
+		C22F3C152E0FF72700369524 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C22F3C162E0FF75C00369524 /* AuthManager.swift */,
+				C22F3C182E0FFCC800369524 /* AuthManager 2.swift */,
+				C22F3C1A2E10005900369524 /* AppleSignInManager.swift */,
+				C29095622E09E516005A7626 /* TestAuth.swift */,
+				C24A2E502E0AF2BD00541762 /* TestAuth 2.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		C239173D2DE36F7000F6E120 /* ChatTextField */ = {
@@ -1196,6 +1285,64 @@
 			path = TrendsArticles;
 			sourceTree = "<group>";
 		};
+		C25592CC2E032255000E5B4D /* ChatPaywall */ = {
+			isa = PBXGroup;
+			children = (
+				C2C3E6CD2DD3F26F007AF4C9 /* ChatPaywall.json */,
+				C2C3E6D22DD3F3A8007AF4C9 /* ChatPaywallBG.swift */,
+				C25592CD2E032284000E5B4D /* ChatPaywall.swift */,
+				C25592CF2E0327D9000E5B4D /* ChatPaywallCell_v1.swift */,
+				C280F5662E16E2B200D2513A /* ChatPaywallCell_v2.swift */,
+				C25592D12E03510D000E5B4D /* ChatPaywallManager.swift */,
+				C27140F62E0361CC001E1051 /* CPCarousel.swift */,
+				C27140F82E03638D001E1051 /* UserReviewModel.swift */,
+				C27140FA2E0363BC001E1051 /* UserReviewView.swift */,
+			);
+			path = ChatPaywall;
+			sourceTree = "<group>";
+		};
+		C25E6FE32DF02A4400B98A77 /* ChatOffer */ = {
+			isa = PBXGroup;
+			children = (
+				C25E6FEE2DF0440400B98A77 /* ChatOfferVM.swift */,
+				C25E6FE42DF02A6700B98A77 /* ChatOfferView.swift */,
+			);
+			path = ChatOffer;
+			sourceTree = "<group>";
+		};
+		C25E6FE62DF02B0800B98A77 /* XZ */ = {
+			isa = PBXGroup;
+			children = (
+				C24E229F2E099AEF0037768A /* NamespaceExample.swift */,
+				C2722CDB2DD50800000717CE /* ScrollViewRepresentable.swift */,
+				C2722CD72DD4F0B3000717CE /* StarsAmountVeiw.swift */,
+				C2B410452DBE8D8100CF9619 /* DeepSeekStreamingManager.swift */,
+				C2B410472DBE8DAF00CF9619 /* ChatView1.swift */,
+				C2942DEB2DC0EF7400197C8B /* ChatView 2.swift */,
+				C2C3E6C42DD3507C007AF4C9 /* ExpertCard.swift */,
+				C24E229D2E097E010037768A /* ExpertCard 2.swift */,
+				C2C3E6C22DD34E29007AF4C9 /* ExpertViewModel.swift */,
+				C2C3E6AA2DCCF728007AF4C9 /* TestRealmUI.swift */,
+				C2722CE02DD523B0000717CE /* ACarousel_TEST.swift */,
+				C2A9BE1E2DDD0DE0009BF3FA /* HoroscopeBG.swift */,
+				C2A9BE202DDD15D9009BF3FA /* ToolbarModifire.swift */,
+				C2A9BE352DDE4436009BF3FA /* FAQView.swift */,
+				C2A9BE372DDE4FF6009BF3FA /* ChatExpertHeader.swift */,
+				C239173E2DE3814600F6E120 /* KeyboardAwareModifier.swift */,
+				C25E6FE92DF031B100B98A77 /* PageTitile.swift */,
+			);
+			path = XZ;
+			sourceTree = "<group>";
+		};
+		C25E6FED2DF037C100B98A77 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C25592CA2E00AC3B000E5B4D /* ContentAlertView.swift */,
+				C25E6FEB2DF037B800B98A77 /* BigButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C26383762C8AF66B00E27246 /* PremiumVCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -1221,26 +1368,22 @@
 		C2942DE82DC0DB9A00197C8B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				C2722CDB2DD50800000717CE /* ScrollViewRepresentable.swift */,
-				C2722CD72DD4F0B3000717CE /* StarsAmountVeiw.swift */,
-				C2B410452DBE8D8100CF9619 /* DeepSeekStreamingManager.swift */,
-				C2B410472DBE8DAF00CF9619 /* ChatView1.swift */,
-				C2942DEB2DC0EF7400197C8B /* ChatView 2.swift */,
-				C2C3E6B42DCD4965007AF4C9 /* ChatView 3.swift */,
+				C25592C42E0030E9000E5B4D /* StarsManager.swift */,
 				C2C3E6B62DCD60F4007AF4C9 /* SelectExpertView.swift */,
-				C2C3E6C42DD3507C007AF4C9 /* ExpertCard.swift */,
-				C2C3E6C22DD34E29007AF4C9 /* SelectExpertView 2.swift */,
-				C2942DE92DC0DC4600197C8B /* messageModel.swift */,
-				C2C3E6AA2DCCF728007AF4C9 /* TestRealmUI.swift */,
-				C2C3E6CD2DD3F26F007AF4C9 /* ChatPaywall.json */,
-				C2C3E6D22DD3F3A8007AF4C9 /* ChatPaywallBG.swift */,
-				C2722CE02DD523B0000717CE /* ACarousel_TEST.swift */,
-				C2A9BE1E2DDD0DE0009BF3FA /* HoroscopeBG.swift */,
-				C2A9BE202DDD15D9009BF3FA /* ToolbarModifire.swift */,
-				C2A9BE352DDE4436009BF3FA /* FAQView.swift */,
-				C2A9BE372DDE4FF6009BF3FA /* ChatExpertHeader.swift */,
+				C280F5602E140CE100D2513A /* SelectExpertView_Ext.swift */,
+				C25592CC2E032255000E5B4D /* ChatPaywall */,
+				C25E6FE62DF02B0800B98A77 /* XZ */,
+				C25E6FED2DF037C100B98A77 /* Components */,
 				C239173D2DE36F7000F6E120 /* ChatTextField */,
-				C239173E2DE3814600F6E120 /* KeyboardAwareModifier.swift */,
+				C25E6FE72DF02B4E00B98A77 /* ChatRoom.swift */,
+				C25592C02E001D43000E5B4D /* ChatRoomVM.swift */,
+				C2942DE92DC0DC4600197C8B /* MessageObject.swift */,
+				C29CEB792DF9BCCF00016E52 /* ChatView.swift */,
+				C2C3E6B42DCD4965007AF4C9 /* MessageView2.swift */,
+				C298916C2E2178D100269B6D /* MessageContextMenue.swift */,
+				C29CEB7B2DF9BDA200016E52 /* BubbleShape.swift */,
+				C25E6FE32DF02A4400B98A77 /* ChatOffer */,
+				C24E229B2E0973750037768A /* typing.json */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1266,6 +1409,10 @@
 		C2C3E6C62DD38FC2007AF4C9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C215C2882CB9AB0C00596F01 /* SafariView.swift */,
+				C27140FC2E040CCF001E1051 /* PageControlSUI.swift */,
+				C280F5622E142C4900D2513A /* ClearHistoryButton.swift */,
+				C280F5642E16A43F00D2513A /* CloseCircleButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1401,7 +1548,6 @@
 				C2778D472D01AECD00BB3CE8 /* Embed Foundation Extensions */,
 				EEBCAF6F276D0057C7034C89 /* [CP] Embed Pods Frameworks */,
 				C2C3E6A92DCCD78D007AF4C9 /* Embed Frameworks */,
-				C2BCD3DB2CBED27000116C7E /* Crashlytics - script */,
 			);
 			buildRules = (
 			);
@@ -1415,13 +1561,14 @@
 				84AA6AE82AA3558100BF6C0D /* FirebaseMessaging */,
 				C25BDAC92BC32EF60024636F /* FSCalendar */,
 				C2671A172BEEA7520013DA2F /* EKAstrologyCalc */,
-				C2BCD3D92CBED18500116C7E /* FirebaseCrashlytics */,
 				C2C3D1792DA1901D00ED46BE /* FirebaseAnalytics */,
 				C24667242DAD93FC00336E41 /* FirebaseAnalyticsOnDeviceConversion */,
-				C2C3E6A62DCCD78D007AF4C9 /* RealmSwift */,
 				C2C3E6D02DD3F398007AF4C9 /* Lottie */,
 				C2BC878E2DD531A1009E5259 /* ACarousel */,
-				C23B7AEC2DD889C700326A9D /* BigUIPaging */,
+				C24E22992E05865F0037768A /* Alamofire */,
+				C24A2E472E09E9ED00541762 /* RealmSwift */,
+				C24A2E4E2E0AC4BE00541762 /* FirebaseAuth */,
+				C22A5A612E1C150E00DBF389 /* MarkdownUI */,
 			);
 			productName = Numerology;
 			productReference = 845EB1B72A657938003D6F5C /* Numerology.app */;
@@ -1455,7 +1602,9 @@
 				C25BDAC82BC32EF60024636F /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				C2671A162BEEA7520013DA2F /* XCRemoteSwiftPackageReference "EKAstrologyCalc_fixed" */,
 				C2C3E6CF2DD3F398007AF4C9 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				C23B7AEB2DD889C700326A9D /* XCRemoteSwiftPackageReference "BigUIPaging" */,
+				C24E22982E05865F0037768A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C24A2E462E09E9ED00541762 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C22A5A602E1C150E00DBF389 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 845EB1B82A657938003D6F5C /* Products */;
@@ -1486,6 +1635,7 @@
 				84B99A962AB9C712008A3B49 /* SourceSerifPro-Bold.ttf in Resources */,
 				C24667272DAE7A0C00336E41 /* GoogleService-Info.plist in Resources */,
 				C2D72D3D2C779D79005B7143 /* Paywall.mov in Resources */,
+				C24E229C2E0973750037768A /* typing.json in Resources */,
 				8471D12F2B6CFB7F00C42F26 /* planet.mp4 in Resources */,
 				C279367F2D08D39D0073B313 /* Starry harmony.mp3 in Resources */,
 				84AA6AFB2AA8DD0000BF6C0D /* SourceSerifPro-Regular.ttf in Resources */,
@@ -1519,30 +1669,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2BCD3DB2CBED27000116C7E /* Crashlytics - script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
-				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
-				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
-			);
-			name = "Crashlytics - script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
-		};
 		EEBCAF6F276D0057C7034C89 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1570,15 +1696,21 @@
 				84AC66FC2A7C175100D2321B /* SecondViewController_OLD.swift in Sources */,
 				C2CAE6D82BD268FC00E09933 /* DetailAngelNumbersSignsCV.swift in Sources */,
 				C22A3E782BF9325300104D0A /* Extension_UIView.swift in Sources */,
+				C24A2E512E0AF2BD00541762 /* TestAuth 2.swift in Sources */,
 				C25E7E6D2C2093A5007B65F3 /* Extension_UICollectionViewCell.swift in Sources */,
 				C2439B1C2C05C82100AE789B /* SpecialOfferCVCell.swift in Sources */,
 				C2C38AD62C62D9E8001235F4 /* TechnicalManager.swift in Sources */,
 				8437D3CB2A839EA7003592A7 /* PersonalMonthVC.swift in Sources */,
 				C2CFA40C2BD5680B00E6E9D9 /* PersonalPredictionsCV_2024.swift in Sources */,
+				C24A2E4B2E0AA6FA00541762 /* SwiftUIView.swift in Sources */,
+				C25E6FEC2DF037B800B98A77 /* BigButton.swift in Sources */,
 				84DBB9B82AE7D37C00A0784F /* OnboardingQuizCell.swift in Sources */,
+				C280F5652E16A43F00D2513A /* CloseCircleButton.swift in Sources */,
 				C215C2872CB9A14300596F01 /* AppReview.swift in Sources */,
+				C29095632E09E516005A7626 /* TestAuth.swift in Sources */,
 				C25143F62C157B6D005019C6 /* TrendsArticlesVM.swift in Sources */,
 				C28A1AB82C610331003EDACA /* ChartCVCell.swift in Sources */,
+				C27140FB2E0363BC001E1051 /* UserReviewView.swift in Sources */,
 				C2D72D4D2C7BF2EE005B7143 /* RemoteOpenDelegate.swift in Sources */,
 				C2D72D342C7790FE005B7143 /* Animation.swift in Sources */,
 				C2CAE6DE2BD3D7D100E09933 /* YourNumerologyCV_2024.swift in Sources */,
@@ -1591,15 +1723,18 @@
 				C2722CE12DD523B0000717CE /* ACarousel_TEST.swift in Sources */,
 				C25143F02C156B11005019C6 /* TrendsArticlesCV.swift in Sources */,
 				C2722CDC2DD50800000717CE /* ScrollViewRepresentable.swift in Sources */,
+				C22F3C172E0FF75C00369524 /* AuthManager.swift in Sources */,
 				84DBB9B42AE7B7FA00A0784F /* QuizVC.swift in Sources */,
 				C2D72D2C2C73D348005B7143 /* CharismaCV_ViewModel.swift in Sources */,
 				C2D72D302C763510005B7143 /* Extension_UIColor.swift in Sources */,
 				C2C3E6C52DD3507C007AF4C9 /* ExpertCard.swift in Sources */,
 				C2B38AAA2CA113B200A560E3 /* CopyAppLink.swift in Sources */,
+				C25E6FEA2DF031B100B98A77 /* PageTitile.swift in Sources */,
 				84AC67082A7FE12200D2321B /* PersonalMonthModel.swift in Sources */,
 				C2722CD82DD4F0B3000717CE /* StarsAmountVeiw.swift in Sources */,
 				C215C2712CB8359200596F01 /* Music_ViewModel.swift in Sources */,
 				C2D72D282C73CFDF005B7143 /* CharismaDetailVC_Ext.swift in Sources */,
+				C280F5632E142C4900D2513A /* ClearHistoryButton.swift in Sources */,
 				C215C2742CB8359200596F01 /* SettingCellView.swift in Sources */,
 				C2D72D4F2C7BFCEF005B7143 /* ProfileNavButton.swift in Sources */,
 				C2B728E62CD2ACD6009655D5 /* URL_Ext.swift in Sources */,
@@ -1613,9 +1748,11 @@
 				84BFE5082B166EC100C06FB1 /* MonthModel.swift in Sources */,
 				C215C2892CB9AB0C00596F01 /* SafariView.swift in Sources */,
 				84D8709E2A8B368400ACACA8 /* PaywallCVCell.swift in Sources */,
+				C25E6FE82DF02B4E00B98A77 /* ChatRoom.swift in Sources */,
 				C2125D3E2D2316DB00B06BA7 /* MoonPhasesManager.swift in Sources */,
 				C215C2802CB96A2A00596F01 /* PremiumTextManager.swift in Sources */,
 				C2592EE02BFE2F9B0080E271 /* PythagoreanSquareCVCell.swift in Sources */,
+				C29CEB7C2DF9BDA200016E52 /* BubbleShape.swift in Sources */,
 				C25143EB2C155E50005019C6 /* TrendsArticlesVC.swift in Sources */,
 				C20BE76F2CD7C26300D78C07 /* MoonView.swift in Sources */,
 				84B99A902AB9A3B0008A3B49 /* Extension_UIFont.swift in Sources */,
@@ -1628,6 +1765,7 @@
 				8496CA342A77FB4900FB9592 /* NumbersOfMoneyModel.swift in Sources */,
 				845EB1EF2A697F58003D6F5C /* RegularTextField.swift in Sources */,
 				849CAB682A767F3C0019984E /* NumbersOfDestinyModel.swift in Sources */,
+				C25E6FEF2DF0440400B98A77 /* ChatOfferVM.swift in Sources */,
 				C24879592C181D6100DDC84B /* DatailTrendsArticlesVC.swift in Sources */,
 				841B9DDC2B00570C007DCAE3 /* CustomNavController.swift in Sources */,
 				844EA40B2B11815500D2D596 /* HoroscopeManager.swift in Sources */,
@@ -1655,10 +1793,13 @@
 				845EB1BD2A657939003D6F5C /* SceneDelegate.swift in Sources */,
 				C2234F9F2CF5ED9400A597C9 /* TabViewTest.swift in Sources */,
 				84B99A832AB6EE08008A3B49 /* BigPromoCVCell.swift in Sources */,
+				C280F5612E140CE100D2513A /* SelectExpertView_Ext.swift in Sources */,
 				C23540832C5BB9E1001C66E9 /* CompatibilityHrscpPickerView.swift in Sources */,
 				84BFE5022B16146200C06FB1 /* HoroscopeButtonsCV.swift in Sources */,
+				C25592CB2E00AC3B000E5B4D /* ContentAlertView.swift in Sources */,
 				84BFE51A2B1A36E900C06FB1 /* MoneyCalendarCV.swift in Sources */,
 				84B895EE2B14E5120061680A /* AccordionView.swift in Sources */,
+				C25592D22E03510D000E5B4D /* ChatPaywallManager.swift in Sources */,
 				84AC66F62A79428700D2321B /* OnboardingSlideView.swift in Sources */,
 				84D89CFE2AFE421F000CF2FB /* SectionFooterView.swift in Sources */,
 				C2CAE6E02BD3E7A700E09933 /* YourNumerologyCVCell.swift in Sources */,
@@ -1675,13 +1816,16 @@
 				845EB1E22A67D119003D6F5C /* CardCollectionViewCell.swift in Sources */,
 				841B9DDA2AFFE541007DCAE3 /* AboutCVCell.swift in Sources */,
 				C20863562CCA9ABA00A40BEA /* Music_Model.swift in Sources */,
+				C29CEB7A2DF9BCCF00016E52 /* ChatView.swift in Sources */,
 				C250813A2CEF4ABB0006DD51 /* CardContentModel.swift in Sources */,
+				C24E229E2E097E010037768A /* ExpertCard 2.swift in Sources */,
 				C2592EDE2BFE2BE70080E271 /* PythagoreanSquareCV.swift in Sources */,
 				C2D72D2A2C73D281005B7143 /* ChartCVCellModel.swift in Sources */,
 				84B895DE2B139E340061680A /* YourHoroscopeCV.swift in Sources */,
 				84B99A852AB73820008A3B49 /* CustomCarousel_CV.swift in Sources */,
 				84AC670E2A7FFEB100D2321B /* AboutNumerologyDetailVC.swift in Sources */,
 				C25143F42C157737005019C6 /* CollectionModel.swift in Sources */,
+				C298916D2E2178D100269B6D /* MessageContextMenue.swift in Sources */,
 				C22A3E742BF918ED00104D0A /* PythagoreanSquareView.swift in Sources */,
 				C2D1C6FE2C00EF2500C2D481 /* PremiumAccordionView.swift in Sources */,
 				8411AB2F2A94D9D100B3D2F4 /* PurchaseButton.swift in Sources */,
@@ -1690,6 +1834,7 @@
 				8492D0932A6EA7E500761312 /* NumerologyManager.swift in Sources */,
 				84A3A2922B642BDC001EF8F2 /* CompatibilityHrscpModel.swift in Sources */,
 				C24D7FA32CDDFBD400D60012 /* MoonStatView.swift in Sources */,
+				C27140FD2E040CCF001E1051 /* PageControlSUI.swift in Sources */,
 				84B99A882AB73A1E008A3B49 /* CarouselCard_CVCell.swift in Sources */,
 				C239173C2DE36DF300F6E120 /* PlaceholderTextView.swift in Sources */,
 				845EB1F22A6A509E003D6F5C /* Extension_UserDefaults.swift in Sources */,
@@ -1697,23 +1842,30 @@
 				C201A0082C6D1F2000D7B55A /* HoroscopeDescriptionVC_Ext.swift in Sources */,
 				C23752572C0B4DE900000C68 /* PremiumManager.swift in Sources */,
 				C223B6692BE01BED0078D91D /* MonthCalendarModel.swift in Sources */,
+				C24E22A02E099AEF0037768A /* NamespaceExample.swift in Sources */,
 				848B4E5E2B5FD58D00868D1F /* DetailCompatibilityHrscpVC.swift in Sources */,
 				C2A9BE212DDD15D9009BF3FA /* ToolbarModifire.swift in Sources */,
 				C20BE7712CD7C50300D78C07 /* Calendar_Small_SUI.swift in Sources */,
 				C2C3E6D32DD3F3A8007AF4C9 /* ChatPaywallBG.swift in Sources */,
 				C2AC38372BDEAE5900E4F9B7 /* AngelNumbersDescriptionVC.swift in Sources */,
 				C2A9BE1F2DDD0DE0009BF3FA /* HoroscopeBG.swift in Sources */,
+				C25592C12E001D43000E5B4D /* ChatRoomVM.swift in Sources */,
 				C2C3E6AB2DCCF728007AF4C9 /* TestRealmUI.swift in Sources */,
+				C22F3C1B2E10005900369524 /* AppleSignInManager.swift in Sources */,
 				C27D2E352C5A1AE6008D0DE4 /* SpecialOfferButton.swift in Sources */,
 				C2942DEC2DC0EF7400197C8B /* ChatView 2.swift in Sources */,
+				C25592C52E0030E9000E5B4D /* StarsManager.swift in Sources */,
 				84AC66F82A7BDF4700D2321B /* NumerologyCompatibilityVC.swift in Sources */,
 				C215C2732CB8359200596F01 /* ProfileSetting_View.swift in Sources */,
 				C25143F22C157171005019C6 /* TrendsCell.swift in Sources */,
-				C2942DEA2DC0DC4600197C8B /* messageModel.swift in Sources */,
-				C2C3E6B52DCD4965007AF4C9 /* ChatView 3.swift in Sources */,
+				C22A5A5F2E1BF94E00DBF389 /* MarkdownTEST.swift in Sources */,
+				C2942DEA2DC0DC4600197C8B /* MessageObject.swift in Sources */,
+				C2C3E6B52DCD4965007AF4C9 /* MessageView2.swift in Sources */,
 				C25B717B2BFCBA2E00E41E98 /* PythagoreanSquare.swift in Sources */,
+				C25592D02E0327D9000E5B4D /* ChatPaywallCell_v1.swift in Sources */,
 				C2A9BE362DDE4436009BF3FA /* FAQView.swift in Sources */,
 				C2B728E42CD2ACAF009655D5 /* ChevronCellView.swift in Sources */,
+				C22F3C192E0FFCC800369524 /* AuthManager 2.swift in Sources */,
 				C2FAD7482D32AE16009588AC /* PremiumAccordion_SUI.swift in Sources */,
 				C2FAD74A2D32EE1A009588AC /* SpecialOfferPaywall_SUI.swift in Sources */,
 				C2FAD74C2D32EE50009588AC /* PaywallVC_V2_SUI.swift in Sources */,
@@ -1738,8 +1890,10 @@
 				84FF997D2B6988FC00E69401 /* Extension_Date.swift in Sources */,
 				C25143FA2C164644005019C6 /* LikeButton.swift in Sources */,
 				C2BC8B242BDC841A00F59A62 /* AngelNumbersCV.swift in Sources */,
+				C280F5672E16E2B200D2513A /* ChatPaywallCell_v2.swift in Sources */,
 				C25864E82C7F8098003C1655 /* TopImage.swift in Sources */,
 				C25081382CEF48640006DD51 /* Carousel_v2.swift in Sources */,
+				C25592CE2E032284000E5B4D /* ChatPaywall.swift in Sources */,
 				C25864EA2C7F8FDA003C1655 /* NumerologyImagesManager.swift in Sources */,
 				C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */,
 				C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */,
@@ -1749,6 +1903,7 @@
 				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarViewModel.swift in Sources */,
 				84AC670A2A7FE5AE00D2321B /* PersonalYearModel.swift in Sources */,
 				845EB1E42A67E4F7003D6F5C /* ContentCollectionView.swift in Sources */,
+				C25E6FE52DF02A6700B98A77 /* ChatOfferView.swift in Sources */,
 				C2D72D3F2C7BC41B005B7143 /* MusicManager.swift in Sources */,
 				C2D72D322C763B6C005B7143 /* PaddingLabel.swift in Sources */,
 				84AC67122A802FE000D2321B /* DescriptionView.swift in Sources */,
@@ -1756,6 +1911,7 @@
 				C27EDF9B2C441292007C0C89 /* MoneyCalendarManager.swift in Sources */,
 				C25E7E6F2C209459007B65F3 /* TouchSupport.swift in Sources */,
 				C29E1BCA2BEBF3DA001F1E42 /* DS.swift in Sources */,
+				C27140F92E03638D001E1051 /* UserReviewModel.swift in Sources */,
 				84AA6AF82AA6077E00BF6C0D /* CustomTF.swift in Sources */,
 				841B552A2B599074002EE1F8 /* CompatibilityCVCell.swift in Sources */,
 				84DBB9D22AEA69EF00A0784F /* OnboardingVC_v2.swift in Sources */,
@@ -1764,7 +1920,7 @@
 				C28A1AB62C610212003EDACA /* ChartsCV_Ext.swift in Sources */,
 				84D870962A87D4CE00ACACA8 /* LifeStagesCalculatedModel.swift in Sources */,
 				84BFE50C2B17842700C06FB1 /* Year2024Model.swift in Sources */,
-				C2C3E6C32DD34E29007AF4C9 /* SelectExpertView 2.swift in Sources */,
+				C2C3E6C32DD34E29007AF4C9 /* ExpertViewModel.swift in Sources */,
 				84AC67102A8001AF00D2321B /* NumerologyIsModel.swift in Sources */,
 				C2CFA40F2BD570BC00E6E9D9 /* PersonalPredictionsCell.swift in Sources */,
 				84D89CFC2AFE329C000CF2FB /* SectionHeaderView.swift in Sources */,
@@ -1788,6 +1944,7 @@
 				C2004BC62BCF174D00F5A483 /* MoneyCalendarDescriptionVC.swift in Sources */,
 				84DBB9A42AE2F51D00A0784F /* AnimatableBG.swift in Sources */,
 				C2C38AD42C62D92B001235F4 /* TechnicalModel.swift in Sources */,
+				C27140F72E0361CC001E1051 /* CPCarousel.swift in Sources */,
 				84AC670C2A7FEACB00D2321B /* LifeStagesModel.swift in Sources */,
 				C2F4EF8B2C04AD2800A326B4 /* SpecialOfferPaywall.swift in Sources */,
 				84DCE5D52B61658B0001D41F /* CustomProgressBarView.swift in Sources */,
@@ -1797,6 +1954,7 @@
 				C22A3E762BF91A5300104D0A /* ColumnRefTableView.swift in Sources */,
 				C2A858292CCD008C001DA8D0 /* CustomAlertReview.swift in Sources */,
 				84AC67022A7C6DAB00D2321B /* CapsuleButton.swift in Sources */,
+				C27140F52E035DA1001E1051 /* SafeAreaInsets.swift in Sources */,
 				84BFE5102B1859DD00C06FB1 /* CalendarView.swift in Sources */,
 				84FF997B2B6982A800E69401 /* MoonPhaseModel.swift in Sources */,
 				C2CD09D32DA697F2008797CE /* AnalyticsManager.swift in Sources */,
@@ -1942,7 +2100,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				ENABLE_DEBUG_DYLIB = YES;
@@ -1950,6 +2108,7 @@
 				INFOPLIST_FILE = Numerology/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Asteria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Please give permission to collect anonymous data for analytics.This will help us improve the app.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -1980,13 +2139,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Numerology/Numerology.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 25F5UMN333;
 				ENABLE_DEBUG_DYLIB = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Numerology/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Asteria;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Please give permission to collect anonymous data for analytics.This will help us improve the app.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
@@ -2042,12 +2202,28 @@
 				minimumVersion = 11.11.0;
 			};
 		};
-		C23B7AEB2DD889C700326A9D /* XCRemoteSwiftPackageReference "BigUIPaging" */ = {
+		C22A5A602E1C150E00DBF389 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/notsobigcompany/BigUIPaging.git";
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.3;
+				minimumVersion = 2.4.1;
+			};
+		};
+		C24A2E462E09E9ED00541762 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C24E22982E05865F0037768A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
 			};
 		};
 		C25BDAC82BC32EF60024636F /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
@@ -2097,15 +2273,30 @@
 			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
-		C23B7AEC2DD889C700326A9D /* BigUIPaging */ = {
+		C22A5A612E1C150E00DBF389 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C23B7AEB2DD889C700326A9D /* XCRemoteSwiftPackageReference "BigUIPaging" */;
-			productName = BigUIPaging;
+			package = C22A5A602E1C150E00DBF389 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 		C24667242DAD93FC00336E41 /* FirebaseAnalyticsOnDeviceConversion */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		C24A2E472E09E9ED00541762 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C24A2E462E09E9ED00541762 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		C24A2E4E2E0AC4BE00541762 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C24E22992E05865F0037768A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C24E22982E05865F0037768A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		C25BDAC92BC32EF60024636F /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2121,19 +2312,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = ACarousel;
 		};
-		C2BCD3D92CBED18500116C7E /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
 		C2C3D1792DA1901D00ED46BE /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84420CC42A7165A500DE1812 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		C2C3E6A62DCCD78D007AF4C9 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealmSwift;
 		};
 		C2C3E6D02DD3F398007AF4C9 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

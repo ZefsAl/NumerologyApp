@@ -33,7 +33,7 @@ class PythagoreanSquare {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yyyy"
         let formatedStrDate = df.string(from: date)
-//        print(date,"---> ✅",formatedStrDate)
+//        myPrint(date,"---> ✅",formatedStrDate)
         return formatedStrDate
     }
     

@@ -12,17 +12,22 @@ import RevenueCat
 import UserNotifications
 import FirebaseAnalytics
 import FBSDKCoreKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // cust delay
         Thread.sleep(forTimeInterval: 2.0)
         
         // MARK: Firebase
         FirebaseApp.configure()
+        // Firebase Analytics Testing - Debug View
+        let settings = FirebaseConfiguration.shared
+        settings.setLoggerLevel(.debug)
+        
         
         // MARK: Purchases - Config
         Purchases.logLevel = .info
@@ -34,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        ApplicationDelegate.shared.initializeSDK()
         
         // ATT
         AnalyticsManager.shared.requestATTForFacebook()
@@ -51,23 +57,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             LocalPushNotofication().setupDailyPush()
         }
         
+        
+        
+        
         // check - test
         //        let dataName = UserDefaults.standard.object(forKey: UserDefaultsKeys.name) as? String
         //        let dataSurname = UserDefaults.standard.object(forKey: UserDefaultsKeys.surname) as? String
         //        let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date
-        //        print("UD - ✅⚠️",dataName as Any)
-        //        print("UD - ✅⚠️",dataSurname as Any)
-        //        print("UD - ✅⚠️",dateOfBirth as Any)
-        
-        
-        
-        
-        // Firebase Analytics Testing
-//#if DEBUG
-//        let settings = FirebaseConfiguration.shared
-//        settings.setLoggerLevel(.debug)
-//#endif
-        
+        //        myPrint("UD - ✅⚠️",dataName as Any)
+        //        myPrint("UD - ✅⚠️",dataSurname as Any)
+        //        myPrint("UD - ✅⚠️",dateOfBirth as Any)
         
         
         return true
@@ -76,21 +75,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func validateAndPreload() {
         // После заполнения данных
         if UserDataKvoManager.shared.isAllUserDataAvailable() {
-            print("✅ preload Data")
+            myPrint("✅ preload Data")
             preloadData() // if have
         } else {
-            print("⚠️🟢 NotificationCenter - ready - preload Data")
+            myPrint("⚠️🟢 NotificationCenter - ready - preload Data")
             UserDataKvoManager.shared.setUserDataDidChangeNotification(observer: self, action: #selector(preloadData))
         }
     }
     
     @objc private func preloadData() {
         DispatchQueue.main.async {
-            print("1-✅ request YourHoroscopeManager")
+            myPrint("1-✅ request YourHoroscopeManager")
             YourHoroscopeManager.shared.requestData()
         }
         DispatchQueue.main.async {
-            print("2-✅ request NumerologyImagesManager")
+            myPrint("2-✅ request NumerologyImagesManager")
             NumerologyImagesManager.shared.requestData()
         }
     }
@@ -107,13 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: PurchasesDelegate {
     
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        print("🟠 Purchases delegate")
+        myPrint("🟠 Purchases delegate")
         
         let access = customerInfo.entitlements.all["Access"]
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             if access?.isActive == true {
-                print("✅ User have premium!")
+                myPrint("✅ User have premium!")
                 UserDefaults.standard.setValue(true, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
                 
@@ -121,10 +120,10 @@ extension AppDelegate: PurchasesDelegate {
                 // #warning("вернуть cust logic !!!!!! ")
                 UIApplication.shared.unregisterForRemoteNotifications()
                 
-                print("⚠️ was Unregister - RemoteNotifications: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
+                myPrint("⚠️ was Unregister - RemoteNotifications: \(UIApplication.shared.isRegisteredForRemoteNotifications)")
                 NotificationCenter.default.post(name: .premiumBadgeNotificationKey, object: true)
             } else {
-                print("‼️⚠️User not subscribe")
+                myPrint("‼️⚠️User not subscribe")
                 UserDefaults.standard.setValue(false, forKey: UserDefaultsKeys.userAccessObserverKey)
                 UserDefaults.standard.synchronize()
                 //
@@ -158,9 +157,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
         Messaging.messaging().delegate = self
         Messaging.messaging().token { token, error in
             if let error = error {
-                print("⚠️ Error fetching FCM registration token: \(error)")
+                myPrint("⚠️ Error fetching FCM registration token: \(error)")
             } else if let token = token {
-                print("⚠️ FCM registration token: \(token)")
+                myPrint("⚠️ FCM registration token: \(token)")
             }
         }
     }
@@ -180,10 +179,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
-        print("🌕 push token",token)
+        myPrint("🌕 push token",token)
     }
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Push: \(error)")
+        myPrint("Push: \(error)")
     }
     
+}
+
+func myPrint(
+    _ items: Any...,
+    separator: String = " ",
+    terminator: String = "\n"
+) {
+    print("ℹ️",items, separator: separator, terminator: terminator)
 }

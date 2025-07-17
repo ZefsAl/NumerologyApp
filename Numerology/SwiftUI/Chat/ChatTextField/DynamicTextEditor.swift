@@ -24,8 +24,9 @@ struct DynamicTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> PlaceholderTextView {
         let tv = PlaceholderTextView()
         tv.placeholder = self.placeholder
+        tv.setFont = self.font
         // tv.isScrollEnabled = false // ломоет конфиг
-        tv.font = .systemFont(ofSize: 17)
+        // tv.font = .systemFont(ofSize: 17)
         tv.delegate = context.coordinator
         tv.textAlignment = .left
         //
@@ -50,10 +51,10 @@ struct DynamicTextEditor: UIViewRepresentable {
             }
         }
 
-        print("🟣 uiView.isFirstResponder", uiView.isFirstResponder)
-        print("🟣 uiView.isFocused", uiView.isFocused)
-        print("🟣 self.customFocuse", self.customFocuse)
-        print("🟣 ________________________________________________")
+        myPrint("🟣 uiView.isFirstResponder", uiView.isFirstResponder)
+        myPrint("🟣 uiView.isFocused", uiView.isFocused)
+        myPrint("🟣 self.customFocuse", self.customFocuse)
+        myPrint("🟣 ________________________________________________")
         
         DispatchQueue.main.async(qos: .userInteractive) {
             if self.customFocuse {
@@ -111,17 +112,17 @@ struct DynamicTextEditor: UIViewRepresentable {
         }
         
         func textViewDidChangeSelection(_ textView: UITextView) {
-            //print("⚠️🟣textViewDidChangeSelection")
+            //myPrint("⚠️🟣textViewDidChangeSelection")
         }
         
         func textViewDidEndEditing(_ textView: UITextView) {
             self.updateFocuse(textView)
-            //print("🟣🟠textViewDidEndEditing")
+            //myPrint("🟣🟠textViewDidEndEditing")
         }
         
         func textViewDidBeginEditing(_ textView: UITextView) {
             self.updateFocuse(textView)
-            //print("🟣🟠textViewDidBeginEditing")
+            //myPrint("🟣🟠textViewDidBeginEditing")
         }
         
         private func updateFocuse(_ textView: UITextView) {

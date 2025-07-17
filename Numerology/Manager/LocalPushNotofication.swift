@@ -22,14 +22,14 @@ class LocalPushNotofication {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 collectionRef.getDocuments { (querySnapshot, error) in
                     guard let documents = querySnapshot?.documents else {
-                        print("⚠️ NOT get documents - getAllPushMessages")
+                        myPrint("⚠️ NOT get documents - getAllPushMessages")
                         // Возвращаем пустой массив в случае ошибки
                         continuation.resume(returning: [])
                         return
                     }
                     
                     if let error = error {
-                        print("⚠️ Error getting documents: \(error)")
+                        myPrint("⚠️ Error getting documents: \(error)")
                         // Возвращаем пустой массив в случае ошибки
                         continuation.resume(returning: [])
                         return
@@ -42,7 +42,7 @@ class LocalPushNotofication {
                             let message = try doc.data(as: PushMessagesModel.self)
                             messages.append(message)
                         } catch {
-                            print("⚠️ Error decoding document \(doc.documentID): \(error)")
+                            myPrint("⚠️ Error decoding document \(doc.documentID): \(error)")
                         }
                     }
                     continuation.resume(returning: messages)
@@ -56,7 +56,7 @@ class LocalPushNotofication {
         Task {
             async let model = await self.getAllPushMessages()
             let pushMessages = await model
-//            print("✅ getAllPushMessages: ", pushMessages)
+//            myPrint("✅ getAllPushMessages: ", pushMessages)
 
             let _: UNUserNotificationCenter = {
                 let nc = UNUserNotificationCenter.current()
@@ -74,7 +74,7 @@ class LocalPushNotofication {
     private func scheduleDailyNotifications(messages: [PushMessagesModel]) {
         guard !messages.isEmpty else {
             UserDefaults.standard.set(false, forKey: "SetupDailyPush_Key")
-            print("⚠️ scheduleDailyNotifications - messages.isEmpty")
+            myPrint("⚠️ scheduleDailyNotifications - messages.isEmpty")
             return
         }
         UserDefaults.standard.set(true, forKey: "SetupDailyPush_Key")
@@ -89,7 +89,7 @@ class LocalPushNotofication {
                 monthMessages.append(val.message)
             }
         }
-        print("✅ monthMessages: ", monthMessages)
+        myPrint("✅ monthMessages: ", monthMessages)
         
         for (index, message) in monthMessages.enumerated() {
             let content = UNMutableNotificationContent()
@@ -116,7 +116,7 @@ class LocalPushNotofication {
             // Добавляем запрос
             center.add(request) { error in
                 if let error = error {
-                    print("Ошибка при добавлении уведомления: \(error)")
+                    myPrint("Ошибка при добавлении уведомления: \(error)")
                 }
             }
         }

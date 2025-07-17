@@ -33,7 +33,7 @@ class EnterUserDataVC: UIViewController {
     
     // MARK: Next Btn Action
     @objc private func nextBtnAction() {
-        print("doneBtnAction")
+        myPrint("doneBtnAction")
         
         guard
             let nameVal = userNameField.text,
@@ -100,7 +100,7 @@ class EnterUserDataVC: UIViewController {
         DispatchQueue.main.async {
             // New
             UserDataKvoManager.shared.set(type: .dateOfBirth, value: sender.date)
-            print(UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as Any)
+            myPrint(UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as Any)
         }
     }
     

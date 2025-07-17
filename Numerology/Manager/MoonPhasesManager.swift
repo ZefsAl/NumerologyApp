@@ -19,13 +19,13 @@ final class MoonPhasesManager {
         
         collectionRef.getDocuments { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
-                print("⚠️ NOT get documents")
+                myPrint("⚠️ NOT get documents")
                 completion([]) // Возвращаем пустой массив в случае ошибки
                 return
             }
             
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
                 completion([]) // Возвращаем пустой массив в случае ошибки
                 return
             }
@@ -37,7 +37,7 @@ final class MoonPhasesManager {
                     let moonPhase = try doc.data(as: MoonPhaseModel.self)
                     moonPhases.append(moonPhase)
                 } catch {
-                    print("⚠️ Error decoding document \(doc.documentID): \(error)")
+                    myPrint("⚠️ Error decoding document \(doc.documentID): \(error)")
                 }
             }
             completion(moonPhases)

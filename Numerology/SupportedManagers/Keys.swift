@@ -9,10 +9,15 @@ import Foundation
 
 
 struct IAP_IDs {
+    // Subscription
     static let month = "Month_9.99"
     static let year = "Year_29.99"
     static let weekly = "Weekly.ID"
     static let lifetime = "Lifetime.Purchase"
+    // Consumable
+    static let stars5 = "5_Stars"
+    static let stars15 = "15_Stars"
+    static let stars25 = "25_Stars"
 }
 
 struct UserDefaultsKeys {

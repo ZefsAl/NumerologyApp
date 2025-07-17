@@ -53,14 +53,14 @@ final class PersonalYearVC: UIViewController {
     
     // MARK: button Action
     @objc func buttonAction() {
-        print("button Action")
+        myPrint("button Action")
         
         // Get data
         guard
             let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date,
             let receivedDate = self.customDateTextfield.receivedDate
         else { return }
-        print(receivedDate)
+        myPrint(receivedDate)
         
         // Calculated Year
         let personalYearVal = CalculateNumbers().personalYear(userDate: dateOfBirth, enteredDate: receivedDate)

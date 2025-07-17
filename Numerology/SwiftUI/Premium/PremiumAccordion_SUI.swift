@@ -53,11 +53,11 @@ struct PremiumAccordion_SUI: View {
         VStack(spacing: self.vSpacing) {
             Button {
                 guard !self.vm.sharedData.isPremium else {
-                    print("❌ Show Paywall")
+                    myPrint("❌ Show Paywall")
                     self.showPaywall = true
                     return
                 }
-                print("✅ Show Content")
+                myPrint("✅ Show Content")
                 withoutTransaction {
                     self.toggleIcon.toggle()
                 }

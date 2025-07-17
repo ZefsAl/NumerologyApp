@@ -162,7 +162,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            // handle tap events
-           print("You selected cell #\(indexPath.item)!")
+           myPrint("You selected cell #\(indexPath.item)!")
         
         // MARK: Tip // 0
         if indexPath.row == 0 {

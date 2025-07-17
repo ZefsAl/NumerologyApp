@@ -53,7 +53,7 @@ class CustomHostController<Content: View>: UIHostingController<Content> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("CustomHostController 🌕 viewWillAppear")
+        myPrint("CustomHostController 🌕 viewWillAppear")
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -62,6 +62,6 @@ class CustomHostController<Content: View>: UIHostingController<Content> {
         super.viewDidDisappear(animated)
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = false
-        print("CustomHostController 🌕 viewDidDisappear")
+        myPrint("CustomHostController 🌕 viewDidDisappear")
     }
 }

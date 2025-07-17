@@ -88,10 +88,10 @@ final class TrendsArticlesManager {
         
         
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             
             // Decode
@@ -109,7 +109,7 @@ final class TrendsArticlesManager {
                     let pathReference = storage.reference(withPath: "\(ref)")
                     pathReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
                         if let error = error {
-                            print("⚠️ Error getting IMAGE: \(error)")
+                            myPrint("⚠️ Error getting IMAGE: \(error)")
                         } else {
                             // origin
                             let image = UIImage(data: data!)
@@ -118,7 +118,7 @@ final class TrendsArticlesManager {
                     }
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -129,23 +129,23 @@ final class TrendsArticlesManager {
         firestore.collection("TrendsArticles").document(articleID)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
+                    myPrint("Error fetching document: \(error!)")
                     return
                 }
                 guard let data = document.data() else {
-                    print("🟣⚠️☑️ Document data was empty.")
+                    myPrint("🟣⚠️☑️ Document data was empty.")
                     return
                 }
-                print("✅ Current data: \(data)")
+                myPrint("✅ Current data: \(data)")
 
                 do {
                     let val = try document.data(as: TrendsArticlesModel.self)
-                    print("✅ decoded data: \(val.article)")
-                    print("✅ decoded data: \(val.likes)")
-                    print("✅ decoded data: \(document.documentID)")
+                    myPrint("✅ decoded data: \(val.article)")
+                    myPrint("✅ decoded data: \(val.likes)")
+                    myPrint("✅ decoded data: \(document.documentID)")
                     completion(val,document.documentID)
                 } catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         // https://firebase.google.com/docs/firestore/query-data/listen#swift

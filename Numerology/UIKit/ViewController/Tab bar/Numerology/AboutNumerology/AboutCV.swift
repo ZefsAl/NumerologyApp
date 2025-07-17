@@ -120,7 +120,7 @@ extension AboutCV: UICollectionViewDataSource, UICollectionViewDelegate {
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+        myPrint("You selected cell #\(indexPath.item)!")
         
         if indexPath.row == 0 {
             let vc = AboutNumerologyDetailVC()

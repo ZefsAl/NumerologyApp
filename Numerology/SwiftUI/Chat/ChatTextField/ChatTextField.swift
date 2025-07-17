@@ -69,17 +69,19 @@ struct ChatTextField: View {
 
 struct ChatTextField_TESTPREVIEW: View {
     
-//    @State var enteredText: String = "Wr"
-    @State var enteredText: String = "The value for FacebookAdvertiserIDCollectionEnabled is currently set to FALSE so you're sending app events without collecting Advertiser ID. This can affect the quality of your advertising and analytics results."
+    @State var enteredText: String = ""
+//    @State var enteredText: String = "The value for FacebookAdvertiserIDCollectionEnabled is currently set to FALSE so you're sending app events without collecting Advertiser ID. This can affect the quality of your advertising and analytics results."
     @State var stars: Int = 10
     @State var isLoading: Bool = false
+    
+    @State var dynamicHeight: CGFloat = 10
     
     var body: some View {
         ChatTextField(
             enteredText: self.$enteredText,
             stars: self.$stars,
             isLoading: self.$isLoading,
-            dynamicHeight: .constant(60),
+            dynamicHeight: $dynamicHeight,
             customFocuse: .constant(false),
             font: DS.SourceSerifProFont.title_h4!,
             buttonAction: { }

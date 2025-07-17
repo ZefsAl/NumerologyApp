@@ -50,7 +50,7 @@ final class TrendsArticlesCV: UICollectionView {
     
     
     @objc private func notificationLikeAction(notification: Notification) {
-        print("🟣🟢 notificationLikeAction 🟣🟢")
+        myPrint("🟣🟢 notificationLikeAction 🟣🟢")
         DispatchQueue.main.async {
             self.reloadData()
         }

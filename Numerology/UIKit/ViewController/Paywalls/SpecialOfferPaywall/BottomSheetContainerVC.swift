@@ -50,7 +50,7 @@ class BottomSheetContainer: UIViewController, UIViewControllerTransitioningDeleg
         pvc.modalPresentationStyle = .custom
         pvc.transitioningDelegate = self
         pvc.closeHandler = { [weak self] in
-            print("Pannable Handler ✅⬇️")
+            myPrint("Pannable Handler ✅⬇️")
             guard CustomPresentationController.canBeDismissed else { return }
             self?.fadeDismissAnimation()
         }
@@ -62,7 +62,7 @@ class BottomSheetContainer: UIViewController, UIViewControllerTransitioningDeleg
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         self.pvc = CustomPresentationController(presentedViewController: presented, presenting: presenting)
         pvc?.closeHandler = {
-            print("tap Handler 🟠")
+            myPrint("tap Handler 🟠")
             guard CustomPresentationController.canBeDismissed else { return }
             self.fadeDismissAnimation()
         }

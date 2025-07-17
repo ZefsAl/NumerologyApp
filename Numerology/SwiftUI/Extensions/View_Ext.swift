@@ -30,13 +30,25 @@ extension View {
         primaryAction: @escaping () -> ()
     ) -> some View {
         fullScreenCover(isPresented: isPresented) {
-            CustomAlertView(
+            CustomRateAlert(
                 isPresented: isPresented,
                 title: title,
                 message: message,
                 primaryAction: primaryAction
             )
             .background(BackgroundClearView_v2())
+        }
+    }
+    
+    
+    func contentAlert<Content: View>(
+        isPresented: Binding<Bool>,
+        onBgTapDismiss: (() -> ())? = nil,
+        @ViewBuilder content: @escaping () -> Content
+    ) -> some View {
+        fullScreenCover(isPresented: isPresented) {
+            ContentAlertView(isPresented: isPresented, onBgTapDismiss: onBgTapDismiss, content: content)
+                .background(BackgroundClearView_v2())
         }
     }
 }

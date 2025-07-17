@@ -21,10 +21,10 @@ class PersonalMonthDatePicker: UIPickerView {
         let month = df.standaloneMonthSymbols
         var arr: [String] = month ?? ["⚠️ Error"]
         
-        print(arr)
+        myPrint(arr)
         
         let langStr = Locale.current.languageCode
-//        print(langStr)
+//        myPrint(langStr)
         if langStr == "ru" {
             let arr = arr.map { $0.capitalized}
             return arr
@@ -68,9 +68,9 @@ extension PersonalMonthDatePicker: UIPickerViewDelegate, UIPickerViewDataSource 
         
         let strDate = "01-\(row0)-\(row1)T00:00:00+0000"
         
-        print(row0)
-        print(row1)
-        print(strDate)
+        myPrint(row0)
+        myPrint(row1)
+        myPrint(strDate)
         
         // DateFormatter не может преобразовать русский месяц в Date
         let df = DateFormatter()
@@ -83,7 +83,7 @@ extension PersonalMonthDatePicker: UIPickerViewDelegate, UIPickerViewDataSource 
         }
         
         let selectedDate = df.date(from: strDate)
-        print("selectedDate: \(String(describing: selectedDate))")
+        myPrint("selectedDate: \(String(describing: selectedDate))")
         
         if let selectedDate = selectedDate {
             valueDelegate?.getPickerDate(date: selectedDate)

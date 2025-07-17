@@ -29,33 +29,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Test Check
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
             // желательно обновлять status d UserDefaults
-            print("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool as Any)
+            myPrint("⚠️🟢 request CustomerInfo Access ==", customerInfo?.entitlements["Access"]?.isActive as? Bool as Any)
         }
-        print("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
-        print("🔄 scene")
+        myPrint("🟠 UD - Access ==", UserDefaults.standard.object(forKey: "UserAccessObserverKey") as? Bool)
+        myPrint("🔄 scene")
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
-        print("🔄sceneDidDisconnect")
+        myPrint("🔄sceneDidDisconnect")
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        print("🔄 sceneDidBecomeActive")
+        myPrint("🔄 sceneDidBecomeActive")
         UIApplication.shared.applicationIconBadgeNumber = 0
         musicManager.playSound()
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
-        print("🔄 sceneWillResignActive")
+        myPrint("🔄 sceneWillResignActive")
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print("🔄 sceneWillEnterForeground")
+        myPrint("🔄 sceneWillEnterForeground")
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
         musicManager.stopSound()
-        print("🔄 sceneDidEnterBackground")
+        myPrint("🔄 sceneDidEnterBackground")
     }
     
     // Facebook
@@ -71,12 +71,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
         
+        AppEvents.shared.activateApp()
+        Settings.shared.enableLoggingBehavior(.appEvents) // - Testing Events
+        Settings.shared.isAutoLogAppEventsEnabled = true
+        Settings.shared.isAdvertiserTrackingEnabled = true
+        
         // В самом начале, до любых вызовов SDK:
-        Settings.shared.loggingBehaviors = []
-        // или по-отдельности отключить:
-        Settings.shared.disableLoggingBehavior(.appEvents)
-        Settings.shared.disableLoggingBehavior(.performanceCharacteristics)
-        Settings.shared.disableLoggingBehavior(.networkRequests)
+//        Settings.shared.loggingBehaviors = []
+//        // или по-отдельности отключить:
+//        Settings.shared.disableLoggingBehavior(.appEvents)
+//        Settings.shared.disableLoggingBehavior(.performanceCharacteristics)
+//        Settings.shared.disableLoggingBehavior(.networkRequests)
+//        Settings.shared.isCodelessDebugLogEnabled = false
+//        Settings.shared.isAutoLogAppEventsEnabled = false
     }
     
 }

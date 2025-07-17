@@ -15,6 +15,51 @@
   ],
   "products" : [
     {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6747490608",
+      "localizations" : [
+        {
+          "description" : "Number of questions per chat",
+          "displayName" : "15 Tokens - Stars of Chat ",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "15_Stars",
+      "referenceName" : "15_Stars_Numerology",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "12.99",
+      "familyShareable" : false,
+      "internalID" : "6747501613",
+      "localizations" : [
+        {
+          "description" : "Number of questions per chat",
+          "displayName" : "25 Tokens - Stars of Chat",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "25_Stars",
+      "referenceName" : "25_Stars_Numerology",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "6747501355",
+      "localizations" : [
+        {
+          "description" : "Number of questions per chat",
+          "displayName" : "5 Tokens - Stars of Chat",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "5_Stars",
+      "referenceName" : "5_Stars_Numerology",
+      "type" : "Consumable"
+    },
+    {
       "displayPrice" : "69.99",
       "familyShareable" : false,
       "internalID" : "6503479571",
@@ -37,7 +82,7 @@
     },
     "_developerTeamID" : "25F5UMN333",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 765646369.92759395,
+    "_lastSynchronizedDate" : 772038433.47827399,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -193,7 +238,7 @@
           "groupNumber" : 3,
           "internalID" : "6471103437",
           "introductoryOffer" : {
-            "internalID" : "9B07B464",
+            "internalID" : "0EC1B898",
             "numberOfPeriods" : 1,
             "paymentMode" : "free",
             "subscriptionPeriod" : "P1W"

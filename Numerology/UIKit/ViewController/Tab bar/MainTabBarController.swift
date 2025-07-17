@@ -10,8 +10,10 @@ import RevenueCat
 import SwiftUI
 
 
-final class MainTabBarController: UITabBarController, UITabBarControllerDelegate, RemoteOpenDelegate, SpecialOfferButtonDelegate {
+final class MainTabBarController: UITabBarController, UITabBarControllerDelegate, RemoteOpenDelegate, SpecialOfferButtonDelegate{
     
+    
+    //
     var openFrom: UIViewController?
     var boardOfDayModel: BoardOfDayModel?
     @ObservedObject var musicManager = MusicManager.shared
@@ -25,6 +27,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         b.specialOfferButtonDelegate = self
         return b
     }()
+    
     // delegate
     func todayTipAction() {
         let descriptionVC = DescriptionVC()
@@ -112,7 +115,6 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
                     guard currntDay != savedDay else { return }
                     PremiumManager.showSpecialOffer(from: self)
                     UserDefaults.standard.setValue(currntDay, forKey: UserDefaultsKeys.specialOfferCurrentDay)
-                    
                 }
             }
         }
@@ -134,6 +136,9 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         // set
         UIView().addSystemBlur(to: self.tabBar, style: .systemThinMaterialDark)
     }
+    
+    
+    
     
     func setTabs() {
         let titleAttributes = [ NSAttributedString.Key.font : UIFont.setSourceSerifPro(weight: .bold, size: 10) as Any ] as [NSAttributedString.Key : Any]
@@ -164,12 +169,13 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
             vertical: -5 // same
         )
         fourthVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
+
         
-        
+        // MARK: fiveVC
         let fiveVC = UIHostingController(rootView: SelectExpertView())
-        let fiveImage = UIImage(named: "Moon_3x_75px")
+        let fiveImage = UIImage(named: "Chat_3x_75px")
         fiveVC.tabBarItem.image = fiveImage
-        fiveVC.tabBarItem.title = "Moonly"
+        fiveVC.tabBarItem.title = "Chat"
         fiveVC.tabBarItem.titlePositionAdjustment = UIOffset(
             horizontal: 5, // horizontal for optical compensation
             vertical: -5 // same
@@ -185,7 +191,7 @@ final class MainTabBarController: UITabBarController, UITabBarControllerDelegate
         sixVC.tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         sixVC.tabBarItem.setTitleTextAttributes(titleAttributes, for: .normal)
         
-        self.viewControllers = [secondVC,firstVC,fourthVC,fiveVC,sixVC]
+        self.viewControllers = [secondVC,firstVC,fiveVC,fourthVC,sixVC]
     }
 }
 
@@ -204,8 +210,10 @@ extension MainTabBarController {
         case 1:
             return #colorLiteral(red: 0.7609999776, green: 0.4709999859, blue: 0.9530000091, alpha: 1)
         case 2:
-            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            return DS.Chat.orange
         case 3:
+            return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        case 4:
             return #colorLiteral(red: 0.9529411765, green: 0.862745098, blue: 0.4705882353, alpha: 1)
         default:
             break

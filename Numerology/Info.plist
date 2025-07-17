@@ -40,6 +40,8 @@
 			<string>n38lu8286q.skadnetwork</string>
 		</dict>
 	</array>
+	<key>SKIncludeConsumableInAppPurchaseHistory</key>
+	<string>true</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Cinzel-Bold.ttf</string>
@@ -72,7 +74,5 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>Please give permission to collect anonymous data for analytics.This will help us improve the app.</string>
 </dict>
 </plist>

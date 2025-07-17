@@ -70,7 +70,7 @@ class CalculateNumbers {
             }.reduce(0){ $0+$1 }
         }
 
-        print("Soul =",result)
+        myPrint("Soul =",result)
         
         if result == 10 {
             return 1
@@ -147,7 +147,7 @@ class CalculateNumbers {
             partialResult + num
         }
         
-        print("Destiny = \(sumOfSum)")
+        myPrint("Destiny = \(sumOfSum)")
         
         if sumOfSum == 10 {
             return 1
@@ -228,7 +228,7 @@ class CalculateNumbers {
             partialResult + num
         }
         
-        print("Numerology name = \(sumOfSum)")
+        myPrint("Numerology name = \(sumOfSum)")
         
     //     End
         if sumOfSum == 10 {
@@ -263,7 +263,7 @@ class CalculateNumbers {
             for (key, alphValue) in numerologyAlphabet {
                 if alphValue.contains(where: { alphChar in alphChar == nameChar }) {
                     arrNumbers.insert(key, at: 0)
-    //                print(key)
+    //                myPrint(key)
                 }
             }
         }
@@ -299,7 +299,7 @@ class CalculateNumbers {
             partialResult + num
         }
         
-        print("Money = \(sumOfSum)")
+        myPrint("Money = \(sumOfSum)")
         
     //     End
         if sumOfSum == 10 {
@@ -331,7 +331,7 @@ class CalculateNumbers {
             partialResult + num
         }
         
-        print("Power Code = \(sumOfSum)")
+        myPrint("Power Code = \(sumOfSum)")
     //     End
         if sumOfSum == 10 {
             return 1
@@ -386,8 +386,8 @@ class CalculateNumbers {
         let sumArrNumbers = arrNumbers.reduce(0) { partialResult, val in
             partialResult + val
         }
-    //    print(arrNumbers)
-    //    print(sumArrNumbers)
+    //    myPrint(arrNumbers)
+    //    myPrint(sumArrNumbers)
         // sumArrNumbers ✅
 
         let strSumArrNumbers = String(sumArrNumbers)
@@ -404,7 +404,7 @@ class CalculateNumbers {
         }
         // sumOfSum +- ✅
 
-        print("Personal Year = \(sumOfSum)")
+        myPrint("Personal Year = \(sumOfSum)")
 
 
         if sumOfSum == 10 {
@@ -477,7 +477,7 @@ class CalculateNumbers {
             partialResult + num
         }
         
-        print("Personal Month = \(sumOfSum)")
+        myPrint("Personal Month = \(sumOfSum)")
         
         if sumOfSum == 10 {
             return 1
@@ -565,7 +565,7 @@ class CalculateNumbers {
         }
         
         
-        print("Personal Day = \(sumOfSum)")
+        myPrint("Personal Day = \(sumOfSum)")
         
         if sumOfSum == 10 {
             return 1
@@ -631,7 +631,7 @@ class CalculateNumbers {
                 return val
             }
         }()
-        print("First number = \(firstIndividualNumber)")
+        myPrint("First number = \(firstIndividualNumber)")
         
         
         // Second Individual Number == DAY + YEAR
@@ -675,7 +675,7 @@ class CalculateNumbers {
             }
         }()
         
-        print("Second number = \(secondIndividualNumber)")
+        myPrint("Second number = \(secondIndividualNumber)")
         
         // Third Individual Number == First number + Second number
         let numSumNum = firstIndividualNumber + secondIndividualNumber
@@ -699,7 +699,7 @@ class CalculateNumbers {
                 return val
             }
         }()
-        print("Third number = \(thirdIndividualNumber)")
+        myPrint("Third number = \(thirdIndividualNumber)")
         
         // Fourth Individual Number == MONTH + YEAR
         let strNumbersMY = "\(stringMonth)\(stringYear)"
@@ -730,7 +730,7 @@ class CalculateNumbers {
             }
         }()
         
-        print("Fourth number = \(fourthIndividualNumber)")
+        myPrint("Fourth number = \(fourthIndividualNumber)")
         
         let model = LifeStagesCalculatedModel(
             firstStage: firstStage,

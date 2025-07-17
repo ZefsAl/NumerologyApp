@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 
 class QuizVC: UIViewController {
@@ -44,9 +45,19 @@ class QuizVC: UIViewController {
         b.addTarget(Any?.self, action: #selector(continueBtnAction), for: .touchUpInside)
         return b
     }()
+    
+    
     // MARK: Continue Btn Action
     @objc private func continueBtnAction() {
-        self.navigationController?.pushViewController(PaywallVC_V2(onboardingIsCompleted: false), animated: true)
+        //self.navigationController?.pushViewController(PaywallVC_V2(onboardingIsCompleted: false), animated: true) // old
+        
+        let host = UIHostingController(
+            rootView: ChatOfferView(
+                closeAction: { self.navigationController?.pushViewController(PaywallVC_V2(onboardingIsCompleted: false), animated: true) },
+                buyNowAction: { self.navigationController?.pushViewController(PaywallVC_V2(onboardingIsCompleted: false), animated: true) }
+            )
+        )
+        self.navigationController?.pushViewController(host, animated: true)
     }
     
     // MARK: - content Collection View

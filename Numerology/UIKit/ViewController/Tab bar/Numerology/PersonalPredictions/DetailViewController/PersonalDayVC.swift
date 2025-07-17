@@ -82,7 +82,7 @@ final class PersonalDayVC: UIViewController {
     
     // MARK: button Action
     @objc private func buttonAction() {
-        print("button Action")
+        myPrint("button Action")
 
         // Get data
         guard

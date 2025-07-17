@@ -14,8 +14,8 @@ final class MoonCalendarViewModel: ObservableObject {
     func getAfternoonMoonDay() -> Int {
             let info = moonPhaseManager.getInfo(date: Date())
              let result = info.moonModels.max { $0.age < $1.age }?.age // fixed!
-            print("🌕🌚 Afternoon is day is",result as Any)
-            print("Current Date",Date())
+            myPrint("🌕🌚 Afternoon is day is",result as Any)
+            myPrint("Current Date",Date())
             return result ?? 1
         }
     
@@ -242,29 +242,29 @@ final class MoonCalendarViewModel: ObservableObject {
             day: String(currentSelectedDate.get(.day))
         )
         
-        print("⚠️ currentSelectedDate?", date)
+        myPrint("⚠️ currentSelectedDate?", date)
         
         let info = moonPhaseManager.getInfo(date: date)
         
-        print("Current localtion: -", info.location.coordinate)
+        myPrint("Current localtion: -", info.location.coordinate)
         
-        print("Moon days at", "current date: -", info.date)
+        myPrint("Moon days at", "current date: -", info.date)
         info.moonModels.forEach {
-            print("🔵===========🔵")
-            print("Moon Age: -", $0.age)
+            myPrint("🔵===========🔵")
+            myPrint("Moon Age: -", $0.age)
             if let begin = $0.begin, let finish = $0.finish {
                 let format = "yyyy-MM-dd'T'HH:mm:ssZ"
-                print("Moon rise: -", setDateFormat(date: begin, format: format))
-                print("Moon set: -", setDateFormat(date: finish, format: format))
+                myPrint("Moon rise: -", setDateFormat(date: begin, format: format))
+                myPrint("Moon set: -", setDateFormat(date: finish, format: format))
             }
-            print("Moon sign: -", $0.sign)
+            myPrint("Moon sign: -", $0.sign)
         }
-        print("+++++++++++")
-        print("Moon phase: -", info.phase)
-        print("Moon trajectory: -", info.trajectory)
-        print("⚠️ Moon date: -", info.date)
-        print("⚠️ moon Models: -", info.moonModels)
-        print("⚠️⚠️⚠️ mock Date", mockDate)
+        myPrint("+++++++++++")
+        myPrint("Moon phase: -", info.phase)
+        myPrint("Moon trajectory: -", info.trajectory)
+        myPrint("⚠️ Moon date: -", info.date)
+        myPrint("⚠️ moon Models: -", info.moonModels)
+        myPrint("⚠️⚠️⚠️ mock Date", mockDate)
     }
     
     

@@ -107,7 +107,7 @@ extension PersonalPredictionsCV_2024: UICollectionViewDataSource, UICollectionVi
     // MARK: did Select ItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
+        myPrint("You selected cell #\(indexPath.item)!")
         
         // MARK: pers. Day
         if indexPath.row == 0 {

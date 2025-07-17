@@ -84,7 +84,7 @@ final class NumerologyCompatibilityVC: UIViewController {
     
     // MARK: button Action
     @objc func buttonAction() {
-        print("BtnAction")
+        myPrint("BtnAction")
         
         // MARK: Check
         guard self.checkAndShowPaywall() == true else { return }
@@ -107,7 +107,7 @@ final class NumerologyCompatibilityVC: UIViewController {
         DispatchQueue.main.async {
             NumerologyManager().getCompatibility(number: compatibility) { model in
                 
-                print(model.aboutThisNumbers)
+                myPrint(model.aboutThisNumbers)
                 
                 let vc = CompatibilityViewController()
                 vc.configure(
@@ -120,7 +120,7 @@ final class NumerologyCompatibilityVC: UIViewController {
                 
             }
         }
-        print("compatibility: \(compatibility)")
+        myPrint("compatibility: \(compatibility)")
     }
     
     // MARK: View Did load

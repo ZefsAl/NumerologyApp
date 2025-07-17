@@ -20,18 +20,18 @@ class OnboardingVC_v2: UIViewController {
     
     // MARK: Next Btn Action
     @objc private func nextBtnAction() {
-        print("nextBtnAction")
+        myPrint("nextBtnAction")
         
         // Не очень 👎 но работает
         let currentPage = pageControl.currentPage
-        print("currentPage \(currentPage)")
+        myPrint("currentPage \(currentPage)")
         if currentPage == 2 {
             self.navigationController?.pushViewController(RegionOfbirthVC(), animated: true)
         }
         // Next button slide + push
         if pageControl.currentPage < 2 {
             pageControl.currentPage += 1
-            print("page Control \(pageControl.currentPage)")
+            myPrint("page Control \(pageControl.currentPage)")
             contentScrollView.setContentOffset(CGPoint(x: CGFloat( pageControl.currentPage) * view.frame.size.width, y: 0), animated: true)
             // Тут косяк с (y: -47) Если есть BG ???
         }
@@ -83,7 +83,7 @@ class OnboardingVC_v2: UIViewController {
     @objc private func moveSlide() {
         if pageControl.currentPage == 0 {
             pageControl.currentPage += 1
-            print("page Control \(pageControl.currentPage)")
+            myPrint("page Control \(pageControl.currentPage)")
             contentScrollView.setContentOffset(CGPoint(x: CGFloat(pageControl.currentPage) * view.frame.size.width, y: 0), animated: true)
         }
     }
@@ -96,7 +96,7 @@ extension OnboardingVC_v2: UIScrollViewDelegate {
 //        pageControl.currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
         let currentPage = Int(floorf(Float(contentScrollView.contentOffset.x) / Float(contentScrollView.frame.size.width)))
         
-        print(currentPage)
+        myPrint(currentPage)
         if currentPage >= 1 {
             nextButton.isHidden = false
         } else {

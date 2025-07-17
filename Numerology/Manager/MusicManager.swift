@@ -23,7 +23,7 @@ class MusicManager: ObservableObject {
     @Published var isOnMusic: Bool = UserDefaults.standard.bool(forKey: UserDefaultsKeys.bgMusicState)
     @Published var selectedMelody: String = UserDefaults.standard.string(forKey: UserDefaultsKeys.selectedMelody) ?? SoundsName.melody1 {
         didSet {
-            print("selectedMelody", selectedMelody)
+            myPrint("selectedMelody", selectedMelody)
             setupAndPlaySound()
         }
     }
@@ -44,7 +44,7 @@ class MusicManager: ObservableObject {
             player.numberOfLoops = -1
             
         } catch let error {
-            print(error.localizedDescription)
+            myPrint(error.localizedDescription)
         }
         //
         guard

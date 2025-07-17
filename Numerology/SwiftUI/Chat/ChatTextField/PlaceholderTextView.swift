@@ -19,6 +19,11 @@ class PlaceholderTextView: UITextView {
         return label
     }()
     
+    var setFont: UIFont? {
+        get { phLabel.font }
+        set { phLabel.font = newValue }
+    }
+    
     // Текст плейсхолдера
     var placeholder: String? {
         get { phLabel.text }
@@ -31,21 +36,6 @@ class PlaceholderTextView: UITextView {
     override var text: String! {
         didSet { updatePlaceholderVisibility() }
     }
-    
-//    let insets: UIEdgeInsets
-    
-//    init() {
-//        super.init(frame: .zero, textContainer: .none)
-//        setup()
-//        
-//        // Font
-//        self.phLabel.font = self.font
-//        //
-//        self.textAlignment = .left
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -70,6 +60,9 @@ class PlaceholderTextView: UITextView {
         
         // Настройка делегата
         updatePlaceholderVisibility()
+        
+        // init
+        self.phLabel.font = self.font
     }
     
     // Обновляем видимость плейсхолдера

@@ -45,7 +45,7 @@ extension PersonalYearDP: UIPickerViewDelegate, UIPickerViewDataSource {
 
         let row0 = yearArr[pickerView.selectedRow(inComponent: 0)]
         
-        print(row0)
+        myPrint(row0)
         
         let strDate = "01-01-\(row0)T00:00:00+0000"
         
@@ -54,7 +54,7 @@ extension PersonalYearDP: UIPickerViewDelegate, UIPickerViewDataSource {
         df.dateFormat = "dd-MM-yyyy'T'HH:mm:ssZ"
         
         let selectedDate = df.date(from: strDate)
-        print("selectedDate: \(String(describing: selectedDate))")
+        myPrint("selectedDate: \(String(describing: selectedDate))")
         
         if let selectedDate = selectedDate {
             valueDelegate?.getPickerDate(date: selectedDate)

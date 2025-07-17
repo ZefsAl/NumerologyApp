@@ -79,4 +79,21 @@ final class HoroscopeSign {
         return ""
     }
     
+    
+    let zodiacEmojis: [String: String] = [
+        "Aries": "♈",
+        "Taurus": "♉",
+        "Gemini": "♊",
+        "Cancer": "♋",
+        "Leo": "♌",
+        "Virgo": "♍",
+        "Libra": "♎",
+        "Scorpio": "♏",
+        "Sagittarius": "♐",
+        "Capricorn": "♑",
+        "Aquarius": "♒",
+        "Pisces": "♓"
+    ]
+    
+    
 }

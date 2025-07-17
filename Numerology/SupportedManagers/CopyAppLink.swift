@@ -56,7 +56,7 @@
 //   }
 //
 //   override func perform() {
-//    print("URL : \(String(describing: url?.absoluteString))")
+//    myPrint("URL : \(String(describing: url?.absoluteString))")
 //    UIPasteboard.general.string = url?.absoluteString
 //    action(activityItems)
 //    activityDidFinish(true)

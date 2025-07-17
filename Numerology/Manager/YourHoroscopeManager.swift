@@ -15,7 +15,7 @@ class YourHoroscopeManager {
     var yourHrscpImages: [String:UIImage?]? {
         didSet {
             NotificationCenter.default.post(name: .hrscpImagesDataUpdated, object: nil)
-            print("🔵 hrscpImagesDataUpdated - Notification yourHrscpImages =", yourHrscpImages?.count)
+            myPrint("🔵 hrscpImagesDataUpdated - Notification yourHrscpImages =", yourHrscpImages?.count)
         }
     }
     
@@ -23,7 +23,7 @@ class YourHoroscopeManager {
     var todayHoroscope: HoroscopeDefaultModel? {
         didSet {
             NotificationCenter.default.post(name: .hrscpTodayDataUpdated, object: nil)
-            print("🔵 hrscpDataUpdated - Notification")
+            myPrint("🔵 hrscpDataUpdated - Notification")
         }
     }
     
@@ -46,11 +46,11 @@ class YourHoroscopeManager {
             // Old horoscopes
             HoroscopeManager.shared.getTodayHrscp(requestType: .oldSpecific) { model in
                 self.todayHoroscope = model
-//                print("🔴🔴⚠️ old - todayHoroscope", model.number as Any)
+//                myPrint("🔴🔴⚠️ old - todayHoroscope", model.number as Any)
             }
             HoroscopeManager.shared.getTomorrowHrscp(requestType: .oldSpecific) { model in
                 self.tomorrowHoroscope = model
-//                print("🔴🔴⚠️ old - tomorrowHoroscope", model.number as Any)
+//                myPrint("🔴🔴⚠️ old - tomorrowHoroscope", model.number as Any)
             }
         }
         

@@ -33,7 +33,7 @@ class HoroscopeDescriptionVC: UIViewController, SegmentedControlCustomDelegate, 
     
     // Delegate
     func currentSegment(index: Int) {
-        print("🟣✅ currentSegment", index)
+        myPrint("🟣✅ currentSegment", index)
         
         self.mainInfo.info.fadeTransition()
         self.learnMore.info.fadeTransition()

@@ -63,12 +63,12 @@ class PythagoreanSquareDetailVC: UIViewController, RemoteOpenDelegate {
 
         let models = models.sorted { $0.index < $1.index }
         
-        print("check ✅",models.count)
+        myPrint("check ✅",models.count)
         
         for models in models {
-            print("✅🟣 index",models.index)
-            print("✅🟣 title",models.title)
-            print("✅🟣 subtitle",models.subtitle)
+            myPrint("✅🟣 index",models.index)
+            myPrint("✅🟣 title",models.title)
+            myPrint("✅🟣 subtitle",models.subtitle)
         }
         
         // description 

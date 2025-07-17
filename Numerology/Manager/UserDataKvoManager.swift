@@ -18,21 +18,21 @@ class UserDataKvoManager: NSObject {
     // MARK: - KVO
     @objc dynamic var name: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.name) {
         didSet {
-//            print("➡️ didSet ",self.name)
+//            myPrint("➡️ didSet ",self.name)
             saveDidSetAction(value: self.name, key: UserDefaultsKeys.name)
         }
     }
     
     @objc dynamic var surname: String? = UserDefaults.standard.string(forKey: UserDefaultsKeys.surname) {
         didSet {
-//            print("➡️ didSet ",self.surname)
+//            myPrint("➡️ didSet ",self.surname)
             saveDidSetAction(value: self.surname, key: UserDefaultsKeys.surname)
         }
     }
     
     @objc dynamic var dateOfBirth: Date? = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date {
         didSet {
-//            print("➡️ didSet ",self.dateOfBirth)
+//            myPrint("➡️ didSet ",self.dateOfBirth)
             saveDidSetAction(value: self.dateOfBirth, key: UserDefaultsKeys.dateOfBirth)
         }
     }
@@ -42,7 +42,7 @@ class UserDataKvoManager: NSObject {
 //    private var token: NSKeyValueObservation? = nil
 //    func setObserver() {
 //        token = UserDataKvoManager.shared.observe(\.name) { object, change in  // the `[weak self]` is to avoid strong reference cycle; obviously, if you don't reference `self` in the closure, then `[weak self]` is not needed
-//            print("bar property is now \(object.name)")
+//            myPrint("bar property is now \(object.name)")
 //        }
 //    }
     
@@ -57,7 +57,7 @@ class UserDataKvoManager: NSObject {
         
         NotificationCenter.default.addObserver(forName: .userDataDidChangeNotification, object: nil, queue: .main) { notification in
             // 🔴 тут баг реагирует 2 раза // был
-//            print(
+//            myPrint(
 //                "🔴🔴⚠️ check userDataDidChangeNotification",
 //                notification.description,
 //                notification.debugDescription,
@@ -100,10 +100,10 @@ class UserDataKvoManager: NSObject {
         UserDataKvoManager.shared.surname == nil || UserDataKvoManager.shared.surname == "" &&
         UserDataKvoManager.shared.dateOfBirth == nil
         else {
-            print("🌕 isAllUserDataAvailable", true)
+            myPrint("🌕 isAllUserDataAvailable", true)
             return true
         }
-        print("🌕 isAllUserDataAvailable", false)
+        myPrint("🌕 isAllUserDataAvailable", false)
         return false
     }
 }

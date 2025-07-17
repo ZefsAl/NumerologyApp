@@ -253,7 +253,7 @@ class CompatibilityHrscpPickerView: UIView, MMMHorizontalPickerDelegate {
     
     func horizontalPicker(_ picker: MMMHorizontalPicker, didScroll offset: CGFloat) {
         // Called when the picker scrolls to a new offset.
-        //print("🔴🔴✅ new", offset) // зотел пофиксить если очень длинный свайп
+        //myPrint("🔴🔴✅ new", offset) // зотел пофиксить если очень длинный свайп
 //        self.hor
         // ⬅️ -0 || >15
 //        if offset < 0 {

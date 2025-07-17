@@ -58,14 +58,14 @@ final class PersonalMonthVC: UIViewController {
     
     // MARK: button Action
     @objc private func buttonAction() {
-        print("button Action")
+        myPrint("button Action")
         
         // Get data
         guard
             let dateOfBirth = UserDefaults.standard.object(forKey: UserDefaultsKeys.dateOfBirth) as? Date,
             let receivedDate = self.customDateTextfield.receivedDate
         else { return }
-        print(receivedDate)
+        myPrint(receivedDate)
         
         // Calculated month
         let personalYearVal = CalculateNumbers().personalYear(userDate: dateOfBirth, enteredDate: receivedDate)

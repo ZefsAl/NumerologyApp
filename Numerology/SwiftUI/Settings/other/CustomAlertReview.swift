@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct CustomAlertView: View {
+struct CustomRateAlert: View {
     
     @Binding private var isPresented: Bool
     @State private var title: String
@@ -122,7 +122,7 @@ struct CustomAlertView: View {
 
 #Preview {
     @State var isPresented: Bool = false
-    return CustomAlertView(
+    return CustomRateAlert(
         isPresented: $isPresented,
         title: "Test",
         message: "1232512515125") {

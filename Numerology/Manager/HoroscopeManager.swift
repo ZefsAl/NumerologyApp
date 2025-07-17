@@ -26,10 +26,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("Signs-hrscp").whereField("zodiacSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -48,13 +48,13 @@ final class HoroscopeManager {
                     pathReference.getData(maxSize: megaByte) { data1, error in
 //                        pathReference2.getData(maxSize: megaByte) { data2, error in
                             if let error = error {
-                                print("⚠️ Error getting IMAGE: \(error)")
+                                myPrint("⚠️ Error getting IMAGE: \(error)")
                             } else {
                                 guard
                                     let data1 = data1
 //                                    let data2 = data2
                                 else {
-                                    print("⚠️ Error getting IMAGE: \(String(describing: error))")
+                                    myPrint("⚠️ Error getting IMAGE: \(String(describing: error))")
                                     return
                                 }
                                 let image1 = UIImage(data: data1)
@@ -65,7 +65,7 @@ final class HoroscopeManager {
                     }
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -170,15 +170,15 @@ final class HoroscopeManager {
     private func getTodayTomorrHrscp(number: Int, completion: @escaping (HoroscopeDefaultModel) -> Void ) {
         let docRef = firestore.collection("Today-tomor-hrscp").whereField("number", isEqualTo: number)
         docRef.getDocuments { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-            if let error = error { print("⚠️ Error getting documents: \(error)") }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
+            if let error = error { myPrint("⚠️ Error getting documents: \(error)") }
             documents.forEach { doc in
                 do {
                     let val = try doc.data(as: HoroscopeDefaultModel.self)
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -192,15 +192,15 @@ final class HoroscopeManager {
         let docRef = firestore.collection("Week-hrscp").whereField("number", isEqualTo: fixNotFilledData)
         
         docRef.getDocuments { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
-            if let error = error { print("⚠️ Error getting documents: \(error)") }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
+            if let error = error { myPrint("⚠️ Error getting documents: \(error)") }
             // Random
 //            if let random = documents.randomElement() {
 //                do {
 //                    let val = try random.data(as: HoroscopeDefaultModel.self)
 //                    completion(val)
 //                } catch {
-//                    print("⚠️ Error decode documents: \(error)")
+//                    myPrint("⚠️ Error decode documents: \(error)")
 //                }
 //            }
             // Decode
@@ -210,7 +210,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -221,10 +221,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("Month-hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -233,7 +233,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -244,10 +244,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("2023-hrscp").whereField("yearSign", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -256,7 +256,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -266,10 +266,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("2024-hrscp").whereField("yearSign", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -278,7 +278,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -290,10 +290,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("Compatibility-hrscp").whereField("signOfUser", isEqualTo: zodiacSign)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -302,7 +302,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -313,10 +313,10 @@ final class HoroscopeManager {
         let docRef = firestore.collection("MoonPhase").whereField("moonDay", isEqualTo: moonDay)
         //
         docRef.getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("⚠️ NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("⚠️ NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -325,7 +325,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -345,10 +345,10 @@ final class HoroscopeManager {
         
         // request
         makeMoneyCalendarRef(byMonth: changeHoroscope, zodiacSign: zodiacSign).getDocuments() { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents else { print("NOT get doc"); return }
+            guard let documents = querySnapshot?.documents else { myPrint("NOT get doc"); return }
             //
             if let error = error {
-                print("⚠️ Error getting documents: \(error)")
+                myPrint("⚠️ Error getting documents: \(error)")
             }
             // Decode
             for doc in documents {
@@ -357,7 +357,7 @@ final class HoroscopeManager {
                     completion(val)
                 }
                 catch {
-                    print("⚠️ Error when trying to decode book: \(error)")
+                    myPrint("⚠️ Error when trying to decode book: \(error)")
                 }
             }
         }
@@ -368,40 +368,40 @@ final class HoroscopeManager {
         
         switch byMonth {
         case 1:
-            print("1 Month API")
+            myPrint("1 Month API")
             return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 2:
-            print("2 Month API")
+            myPrint("2 Month API")
             return firestore.collection("February-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 3:
-            print("3 Month API")
+            myPrint("3 Month API")
             return firestore.collection("March-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 4:
-            print("4 Month API")
+            myPrint("4 Month API")
             return firestore.collection("April-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 5:
-            print("5 Month API")
+            myPrint("5 Month API")
             return firestore.collection("May-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 6:
-            print("6 Month API")
+            myPrint("6 Month API")
             return firestore.collection("June-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 7:
-            print("7 Month API")
+            myPrint("7 Month API")
             return firestore.collection("July-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 8:
-            print("8 Month API")
+            myPrint("8 Month API")
             return firestore.collection("August-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 9:
-            print("9 Month API")
+            myPrint("9 Month API")
             return firestore.collection("September-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 10:
-            print("10 Month API")
+            myPrint("10 Month API")
             return firestore.collection("October-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 11:
-            print("11 Month API")
+            myPrint("11 Month API")
             return firestore.collection("November-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         case 12:
-            print("12 Month API")
+            myPrint("12 Month API")
             return firestore.collection("December-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
         default:
             return firestore.collection("January-Hrscp").whereField("monthSigns", isEqualTo: zodiacSign)
