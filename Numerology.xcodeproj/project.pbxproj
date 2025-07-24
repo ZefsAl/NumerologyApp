@@ -129,8 +129,8 @@
 		C20863582CCAB78B00A40BEA /* Date_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20863572CCAB78B00A40BEA /* Date_Ext.swift */; };
 		C20BE76F2CD7C26300D78C07 /* MoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BE76E2CD7C26300D78C07 /* MoonView.swift */; };
 		C20BE7712CD7C50300D78C07 /* Calendar_Small_SUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */; };
-		C20C84B22E322F1200ED0CA0 /* TokensManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20C84B12E322F1200ED0CA0 /* TokensManager.swift */; };
 		C20C84B42E32395900ED0CA0 /* SUITEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20C84B32E32395900ED0CA0 /* SUITEST.swift */; };
+		C20C84B62E324ACF00ED0CA0 /* TokensManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20C84B52E324ACF00ED0CA0 /* TokensManager.swift */; };
 		C20EAC712C6F2965008E7532 /* CharismaCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */; };
 		C20EAC762C70D8A1008E7532 /* AppFlowRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20EAC752C70D8A1008E7532 /* AppFlowRoute.swift */; };
 		C2125D3C2D2311A100B06BA7 /* PushMessagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2125D3B2D2311A100B06BA7 /* PushMessagesModel.swift */; };
@@ -467,8 +467,8 @@
 		C20863572CCAB78B00A40BEA /* Date_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Ext.swift; sourceTree = "<group>"; };
 		C20BE76E2CD7C26300D78C07 /* MoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonView.swift; sourceTree = "<group>"; };
 		C20BE7702CD7C50300D78C07 /* Calendar_Small_SUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar_Small_SUI.swift; sourceTree = "<group>"; };
-		C20C84B12E322F1200ED0CA0 /* TokensManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensManager.swift; sourceTree = "<group>"; };
 		C20C84B32E32395900ED0CA0 /* SUITEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUITEST.swift; sourceTree = "<group>"; };
+		C20C84B52E324ACF00ED0CA0 /* TokensManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensManager.swift; sourceTree = "<group>"; };
 		C20EAC702C6F2965008E7532 /* CharismaCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharismaCVCell.swift; sourceTree = "<group>"; };
 		C20EAC752C70D8A1008E7532 /* AppFlowRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowRoute.swift; sourceTree = "<group>"; };
 		C2125D3B2D2311A100B06BA7 /* PushMessagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushMessagesModel.swift; sourceTree = "<group>"; };
@@ -881,7 +881,7 @@
 		8492D0912A6EA78500761312 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				C20C84B12E322F1200ED0CA0 /* TokensManager.swift */,
+				C20C84B52E324ACF00ED0CA0 /* TokensManager.swift */,
 				C29ABB942DAD1C7500721C2A /* Analytics */,
 				8492D0922A6EA7E500761312 /* NumerologyManager.swift */,
 				844EA40A2B11815500D2D596 /* HoroscopeManager.swift */,
@@ -1883,7 +1883,6 @@
 				C2CAE6E32BD43E7200E09933 /* YourMoneyCV.swift in Sources */,
 				C2A9BE382DDE4FF6009BF3FA /* ChatExpertHeader.swift in Sources */,
 				C26383712C8AE98800E27246 /* PremiumTextView_SUI.swift in Sources */,
-				C20C84B22E322F1200ED0CA0 /* TokensManager.swift in Sources */,
 				C20EAC762C70D8A1008E7532 /* AppFlowRoute.swift in Sources */,
 				C2B410482DBE8DAF00CF9619 /* ChatView1.swift in Sources */,
 				84420CD72A73FC9900DE1812 /* CalculateNumbers.swift in Sources */,
@@ -1905,6 +1904,7 @@
 				C26383732C8AE9C400E27246 /* RoundedCorner.swift in Sources */,
 				C245A0A52C69BA1C00BCB676 /* HoroscopeCell_ViewModel.swift in Sources */,
 				C2C38ADA2C65816F001235F4 /* HoroscopeCell_v2.swift in Sources */,
+				C20C84B62E324ACF00ED0CA0 /* TokensManager.swift in Sources */,
 				84B99A8A2AB88E5B008A3B49 /* MiniPromoCVCell.swift in Sources */,
 				849CAB662A764F4D0019984E /* BoardOfDayModel.swift in Sources */,
 				C2CAB4CC2BEFC00100AC3421 /* MoonCalendarViewModel.swift in Sources */,
