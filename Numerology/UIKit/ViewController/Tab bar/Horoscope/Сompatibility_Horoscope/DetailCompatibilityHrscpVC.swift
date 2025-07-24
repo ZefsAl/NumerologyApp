@@ -11,7 +11,6 @@ class DetailCompatibilityHrscpVC: UIViewController, RemoteOpenDelegate {
     
     var openFrom: UIViewController?
     
-    
     private let vcAccentColor: UIColor = DS.Horoscope.primaryColor
     
     // MARK: Scroll View

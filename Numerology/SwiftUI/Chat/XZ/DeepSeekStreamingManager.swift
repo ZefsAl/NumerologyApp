@@ -33,33 +33,27 @@ enum NetworkError: Error {
 
 // deepseek/deepseek-chat:free
 // let apiKey_deepseek = "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" // v5
-let apiKey_deepseek = "sk-d6afd4027ef5409fa9aa5c203fad0ce0" // Numerology1
+//let apiKey_deepseek = "sk-d6afd4027ef5409fa9aa5c203fad0ce0" // Numerology1
+
+// v5
+//private let baseURL = "https://openrouter.ai/api/v1/chat/completions" // v5
+// private let model = "deepseek/deepseek-chat-v3-0324:free" // v5
+//
+//    "model": "deepseek/deepseek-chat-v3-0324:free",
+//    private let baseURL = "https://openrouter.ai/api/v1"
+
 
 class DeepSeekStreamingManager: NSObject {
-    
-    // v5
-    //private let baseURL = "https://openrouter.ai/api/v1/chat/completions" // v5
-    // private let model = "deepseek/deepseek-chat-v3-0324:free" // v5
-    //
-    //    "model": "deepseek/deepseek-chat-v3-0324:free",
-    //    private let baseURL = "https://openrouter.ai/api/v1"
-    
-    
     
     // Numerology1
     private let baseURL = "https://api.deepseek.com/chat/completions"
     private let model = "deepseek-chat"
-    
-    
+    //
     private var urlSession: URLSession!
     private var task: URLSessionDataTask?
     private var buffer = ""
     private var onTextReceived: ((String) -> Void)?
-    
-    
     private var onCompletion: ((Error?) -> Void)?
-    
-//    var answer_language: String { Locale.current.languageCode ?? "auto" }
     
     override init() {
         super.init()
@@ -104,7 +98,7 @@ class DeepSeekStreamingManager: NSObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(apiKey_deepseek)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(TokensManager.deepseek)", forHTTPHeaderField: "Authorization")
         
         var requestBody: [String: Any?] = [
             "model": self.model,

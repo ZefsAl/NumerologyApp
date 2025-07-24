@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: Purchases - Config
         Purchases.logLevel = .info
-        Purchases.configure(withAPIKey: "appl_efdMjsZBhJGejrMgmJjkdRRZklE")
+        Purchases.configure(withAPIKey: TokensManager.revenuecat)
         Purchases.shared.delegate = self
         
         // Facebook Analytics

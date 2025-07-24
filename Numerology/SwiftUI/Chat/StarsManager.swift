@@ -23,19 +23,6 @@ class StarsManager: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else { return nil }
         return db.collection("users").document(uid)
     }
-    // TODO: - Начисление звезд
-    // TODO: - Decrease Stars
-    // TODO: - Возврат звезд если пустой ответ или URLSessionTimeOut или ошибка
-    
-    
-    // TODO: - Учесть когда ии не прислал ответ
-    // TODO: - decrease stars
-    //                        if self.stars != 0 {
-    //                            self.stars -= 1
-    //                        }
-//    init() {
-//
-//    }
     
     init() {
         self.getBalance()

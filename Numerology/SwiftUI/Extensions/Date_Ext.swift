@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Date:RawRepresentable{
+extension Date: RawRepresentable {
     public typealias RawValue = String
     public init?(rawValue: RawValue) {
         guard let data = rawValue.data(using: .utf8),

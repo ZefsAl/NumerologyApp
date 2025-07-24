@@ -71,20 +71,6 @@ class AuthManager: ObservableObject {
         authStateHandle = Auth.auth().addStateDidChangeListener { auth, user in
             print("Auth changed: \(user != nil)")
             self.updateState(user: user)
-
-            // if let user {}
-            //      do {
-            //          try await firestore.getUserDocument(user)
-            //      }
-            //      catch FirestoreErrors.DocumentDoesNotExist {
-            //          print("User Document Does Not Exist!")
-            //          await verifyAuthTokenResult()
-            //          return
-            //      }
-            //      catch {
-            //          // Other errors
-            //      }
-            //  }
         }
     }
 
